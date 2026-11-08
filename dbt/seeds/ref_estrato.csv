@@ -1,0 +1,8 @@
+estrato,orden,limite_inferior,limite_superior,punto_medio,id_estrato_ce
+0 a 5 personas,1,0,5,2.5,1
+6 a 10 personas,2,6,10,8,1
+11 a 30 personas,3,11,30,20.5,2
+31 a 50 personas,4,31,50,40.5,2
+51 a 100 personas,5,51,100,75.5,3
+101 a 250 personas,6,101,250,175.5,3
+251 y más personas,7,251,,,4

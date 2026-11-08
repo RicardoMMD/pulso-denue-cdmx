@@ -1,0 +1,197 @@
+version: 2
+
+models:
+  - name: dim_edicion
+    columns:
+      - name: sk_edicion
+        data_tests: [unique, not_null]
+      - name: edicion
+        data_tests: [unique, not_null]
+      - name: version_scian
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: ['SCIAN 2018', 'SCIAN 2023']}
+      - name: comparable_con_anterior
+        description: falso si la edición cambió de fuente respecto de la anterior (versión SCIAN distinta o más de 10 % de ids nuevos); nulo en la primera
+  - name: dim_estrato
+    columns:
+      - name: sk_estrato
+        data_tests: [unique, not_null]
+      - name: estrato
+        data_tests: [unique, not_null]
+  - name: dim_macrosector
+    columns:
+      - name: sk_macrosector
+        data_tests: [unique, not_null]
+      - name: cve_macrosector
+        data_tests: [unique, not_null]
+  - name: dim_scian_sector
+    columns:
+      - name: sk_macrosector
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_macrosector'), field: sk_macrosector}
+      - name: sk_sector
+        data_tests: [unique, not_null]
+      - name: cve_sector
+        data_tests: [unique, not_null]
+  - name: dim_actividad
+    columns:
+      - name: sk_actividad
+        data_tests: [unique, not_null]
+      - name: clase_scian
+        data_tests: [not_null]
+      - name: version_scian
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['SCIAN 2018', 'SCIAN 2023']}
+      - name: sk_sector
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_scian_sector'), field: sk_sector}
+      - name: sk_macrosector
+        data_tests: [not_null]
+  - name: dim_alcaldia
+    columns:
+      - name: sk_alcaldia
+        data_tests: [unique, not_null]
+      - name: cve_municipio
+        data_tests: [unique, not_null]
+  - name: dim_ageb
+    columns:
+      - name: sk_ageb
+        data_tests: [unique, not_null]
+      - name: sk_alcaldia
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_alcaldia'), field: sk_alcaldia}
+  - name: dim_ubicacion
+    columns:
+      - name: sk_ubicacion
+        data_tests: [unique, not_null]
+      - name: clave_ubicacion
+        data_tests: [unique, not_null]
+      - name: sk_ageb
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_ageb'), field: sk_ageb}
+  - name: dim_colonia
+    columns:
+      - name: sk_colonia
+        data_tests: [unique, not_null]
+  - name: dim_tramo
+    columns:
+      - name: sk_tramo
+        data_tests: [unique, not_null]
+  - name: asignacion_tramo
+    columns:
+      - name: metodo_tramo
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['nombre', 'nombre_similar', 'cercania', 'ninguno']}
+  - name: dim_conglomerado
+    columns:
+      - name: sk_conglomerado
+        data_tests: [unique, not_null]
+      - name: clave_natural
+        data_tests: [unique, not_null]
+      - name: metodo_asignacion
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['campo', 'espacial']}
+  - name: puente_establecimiento_conglomerado
+    columns:
+      - name: sk_conglomerado
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_conglomerado'), field: sk_conglomerado}
+  - name: dim_ce_variable
+    columns:
+      - name: variable
+        data_tests: [unique, not_null]
+  - name: fact_censo_economico
+    columns:
+      - name: sk_censo
+        data_tests: [unique, not_null]
+      - name: nivel_actividad
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['total', 'sector', 'subsector', 'rama', 'subrama', 'clase']}
+      - name: tipo_estrato
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['suma', 'rango', 'confidencial']}
+      - name: sk_alcaldia
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_alcaldia'), field: sk_alcaldia}
+  - name: validacion_denue_censo
+    columns:
+      - name: razon
+        description: ue_denue / ue_censo; nula si el Censo no cubre el sector
+  - name: dim_establecimiento
+    columns:
+      - name: sk_establecimiento
+        data_tests: [unique, not_null]
+  - name: vinculo_edicion
+    columns:
+      - name: metodo
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['id', 'difuso', 'id_salto', 'id_reusado', 'ninguno']}
+  - name: fact_establecimiento
+    columns:
+      - name: sk_edicion
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_edicion'), field: sk_edicion}
+      - name: sk_ubicacion
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_ubicacion'), field: sk_ubicacion}
+      - name: sk_actividad
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_actividad'), field: sk_actividad}
+      - name: sk_estrato
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_estrato'), field: sk_estrato}
+      - name: sk_establecimiento
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_establecimiento'), field: sk_establecimiento}
+      - name: sk_colonia
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_colonia'), field: sk_colonia}
+      - name: metodo_colonia
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['poligono', 'cercania', 'nombre', 'ninguna']}
+      - name: alcaldia_colonia
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['coincide', 'frontera', 'discrepante']}
+      - name: sk_conglomerado
+        data_tests:
+          - relationships:
+              arguments: {to: ref('dim_conglomerado'), field: sk_conglomerado}
+      - name: metodo_tramo
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['nombre', 'nombre_similar', 'cercania', 'ninguno']}
+      - name: sk_tramo
+        data_tests:
+          - not_null
+          - relationships:
+              arguments: {to: ref('dim_tramo'), field: sk_tramo}

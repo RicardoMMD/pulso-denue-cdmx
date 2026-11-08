@@ -1,0 +1,11 @@
+.env
+data/
+.venv/
+__pycache__/
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+logs/
+.claude/settings.local.json
+.archify/
+dbt/.user.yml

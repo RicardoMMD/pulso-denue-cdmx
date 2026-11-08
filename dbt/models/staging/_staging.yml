@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: stg_denue
+    description: DENUE tipado y limpio, una fila por establecimiento y edición.
+    columns:
+      - name: edicion
+        data_tests: [not_null]
+      - name: id_denue
+        data_tests: [not_null]
+      - name: clase_scian
+        data_tests:
+          - not_null
+      - name: cve_entidad
+        data_tests:
+          - accepted_values:
+              arguments: {values: ['09']}
+      - name: estrato
+        data_tests: [not_null]
+      - name: geom
+        data_tests: [not_null]
+  - name: stg_ce2024
+    description: Censos Económicos 2024 (CDMX) tipado; una fila por alcaldía × actividad × estrato.
+    columns:
+      - name: nivel_actividad
+        data_tests: [not_null]
+      - name: ue
+        data_tests: [not_null]
+  - name: stg_ce_catalogo_actividad
+    columns:
+      - name: codigo
+        data_tests: [unique, not_null]

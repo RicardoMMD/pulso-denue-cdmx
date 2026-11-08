@@ -1,0 +1,8 @@
+cve_macrosector,nombre_macrosector,orden
+comercio,Comercio,1
+alimentos_hospedaje,Alimentos y hospedaje,2
+servicios_personales,Servicios personales y comunitarios,3
+salud_educacion_gobierno,"Salud, educación y gobierno",4
+servicios_profesionales,Servicios profesionales y financieros,5
+industria_construccion,Industria y construcción,6
+transporte_campo,Transporte y campo,7

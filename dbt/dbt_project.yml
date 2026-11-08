@@ -1,0 +1,43 @@
+name: pulso_denue
+version: "0.1.0"
+profile: pulso_denue
+model-paths: ["models"]
+macro-paths: ["macros"]
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  pulso_denue:
+    staging:
+      +schema: staging
+      +materialized: table
+    core:
+      +schema: core
+      +materialized: table
+    # Única superficie del Analista y fuente de las cifras de historias y fichas. Se materializa como tabla
+    # (no vista) para responder dentro del tope de 8 s de pulso_analista. Las descripciones del YAML se
+    # escriben como COMMENT en la base para que el Analista las lea del catálogo.
+    semantic:
+      +schema: semantic
+      +materialized: table
+      +persist_docs:
+        relation: true
+        columns: true
+      +grants:
+        select: ["{{ env_var('PULSO_APP_USER', 'pulso_app') }}", "{{ env_var('PULSO_ANALISTA_USER', 'pulso_analista') }}"]
+
+seeds:
+  pulso_denue:
+    +schema: core
+    ref_scian_sector:
+      +column_types:
+        cve_sector: text
+        sector_agrupado: text
+        cve_macrosector: text
+    ref_scian_2023_2018:
+      +column_types:
+        clase_2023: text
+        clase_2018: text
+        parte: text
+    ref_macrosector:
+      +column_types:
+        cve_macrosector: text

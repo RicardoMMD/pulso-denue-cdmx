@@ -1,0 +1,24 @@
+cve_sector,nombre_sector,sector_agrupado,cve_macrosector
+11,"Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza",11,transporte_campo
+21,Minería,21,industria_construccion
+22,"Generación, transmisión y distribución de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",22,industria_construccion
+23,Construcción,23,industria_construccion
+31,Industrias manufactureras,31-33,industria_construccion
+32,Industrias manufactureras,31-33,industria_construccion
+33,Industrias manufactureras,31-33,industria_construccion
+43,Comercio al por mayor,43,comercio
+46,Comercio al por menor,46,comercio
+48,"Transportes, correos y almacenamiento",48-49,transporte_campo
+49,"Transportes, correos y almacenamiento",48-49,transporte_campo
+51,Información en medios masivos,51,servicios_profesionales
+52,Servicios financieros y de seguros,52,servicios_profesionales
+53,Servicios inmobiliarios y de alquiler de bienes muebles e intangibles,53,servicios_profesionales
+54,"Servicios profesionales, científicos y técnicos",54,servicios_profesionales
+55,Corporativos,55,servicios_profesionales
+56,"Servicios de apoyo a los negocios y manejo de residuos, y servicios de remediación",56,servicios_profesionales
+61,Servicios educativos,61,salud_educacion_gobierno
+62,Servicios de salud y de asistencia social,62,salud_educacion_gobierno
+71,"Servicios de esparcimiento culturales y deportivos, y otros servicios recreativos",71,servicios_personales
+72,Servicios de alojamiento temporal y de preparación de alimentos y bebidas,72,alimentos_hospedaje
+81,Otros servicios excepto actividades gubernamentales,81,servicios_personales
+93,"Actividades legislativas, gubernamentales, de impartición de justicia y de organismos internacionales y extraterritoriales",93,salud_educacion_gobierno

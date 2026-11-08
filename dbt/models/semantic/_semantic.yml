@@ -1,0 +1,426 @@
+version: 2
+
+# Capa semantic: única superficie del Analista (rol pulso_analista, solo lectura, 8 s por consulta) y fuente de las
+# cifras de historias, fichas y prueba de paridad. Reglas para quien consulta:
+#   - Filtrar siempre por edicion (o usar edicion_vigente). Mezclar ediciones duplica establecimientos.
+#   - Citar la fecha_corte de la edición en cada cifra.
+#   - Las ediciones desde 2024-11 usan SCIAN 2023 y la 2024-05 usa SCIAN 2018: para comparar clases entre
+#     ediciones usar clase_scian_2023; a nivel de sector o macrosector se compara directo.
+#   - 2024-11 no es comparable con 2024-05 (comparable_con_anterior = false).
+# Las descripciones se escriben como COMMENT en PostgreSQL (persist_docs).
+
+models:
+  - name: edicion
+    description: Ediciones del DENUE cargadas. Una fila por edición. Consultar primero para saber cuál es la vigente y su fecha de corte.
+    columns:
+      - name: edicion
+        description: Edición del DENUE, AAAA-MM (por ejemplo 2026-05). Llave para filtrar las demás tablas.
+        data_tests: [unique, not_null]
+      - name: fecha_corte
+        description: Fecha de publicación de la edición según INEGI. Citarla en toda respuesta.
+      - name: version_scian
+        description: Clasificador de actividades de la edición ('SCIAN 2018' o 'SCIAN 2023'), deducido de los códigos.
+      - name: es_vigente
+        description: Verdadero en la edición más reciente. Usarla cuando la pregunta no menciona fecha.
+      - name: comparable_con_anterior
+        description: Falso si la edición cambió de fuente respecto de la anterior (2024-11, con 29 % de ids nuevos y paso a SCIAN 2023); nulo en la primera.
+      - name: proporcion_ids_nuevos
+        description: Proporción de ids de la edición que no estaban en la anterior.
+      - name: establecimientos
+        description: Establecimientos de la edición dentro de CDMX (excluye 18 puntos con coordenadas fuera de la ciudad en las cuatro ediciones).
+
+  - name: establecimiento
+    description: >
+      Un establecimiento del DENUE por edición, con actividad, territorio, calle, conglomerado y contacto en una sola fila.
+      Filtrar por edicion. Para contar, count(*). Listados al usuario: máximo 200 filas.
+      Solo claves naturales (id_denue, claves INEGI, cve_col, clave_conglomerado, osm_id_calle).
+    columns:
+      - name: edicion
+        description: Edición del DENUE (AAAA-MM). Filtrar siempre.
+        data_tests: [not_null]
+      - name: fecha_corte
+        description: Fecha de corte de la edición.
+      - name: edicion_vigente
+        description: Verdadero si la fila es de la edición más reciente.
+      - name: id_denue
+        description: Identificador del establecimiento en el DENUE. Estable entre ediciones salvo reasignaciones de INEGI.
+        data_tests: [not_null]
+      - name: nombre
+        description: Nombre comercial (mayúsculas). Cuando no tiene, INEGI pone la actividad seguida de SIN NOMBRE. Buscar con similarity() o ILIKE.
+      - name: razon_social
+        description: Razón social, si la declara.
+      - name: tipo_unidad
+        description: "'Fijo' o 'Semifijo' (puesto que se instala y retira)."
+      - name: estrato
+        description: Personal ocupado en rango, tal como lo publica INEGI ('0 a 5 personas' ... '251 y más personas').
+      - name: estrato_orden
+        description: Orden del estrato, 1 (0 a 5) a 7 (251 y más). Micronegocio = 1 o 2 (0 a 10 personas).
+      - name: fecha_alta
+        description: Mes de alta en el DENUE según INEGI (día 1 del mes).
+      - name: edicion_alta
+        description: Primera edición cargada en que aparece este establecimiento (la serie empieza en 2024-05).
+      - name: es_nuevo_en_edicion
+        description: Verdadero si el establecimiento aparece por primera vez en esta edición. Falso en toda la primera edición.
+      - name: version_scian
+        description: Versión SCIAN de clase_scian (la de la edición).
+      - name: clase_scian
+        description: Clase SCIAN de 6 dígitos.
+      - name: nombre_clase
+        description: Nombre de la clase SCIAN, según el DENUE.
+      - name: clase_scian_2023
+        description: Clase equivalente en SCIAN 2023, para comparar ediciones a nivel de clase. Nula si una clase 2018 se reparte entre varias 2023.
+      - name: cve_rama
+        description: Rama SCIAN (4 dígitos).
+      - name: nombre_rama
+        description: Nombre de la rama (catálogo SCIAN 2023 de los Censos Económicos).
+      - name: cve_subsector
+        description: Subsector SCIAN (3 dígitos).
+      - name: nombre_subsector
+        description: Nombre del subsector.
+      - name: cve_sector
+        description: Sector SCIAN de 2 dígitos, con manufacturas (31-33) y transportes (48-49) agrupados como en el Censo.
+      - name: nombre_sector
+        description: Nombre del sector.
+      - name: cve_macrosector
+        description: "Macrosector del portal: comercio, alimentos_hospedaje, servicios_personales, salud_educacion_gobierno, servicios_profesionales, industria_construccion, transporte_campo."
+      - name: nombre_macrosector
+        description: Nombre del macrosector.
+      - name: cve_municipio
+        description: Clave de la alcaldía (3 dígitos, 002 a 017) que declara el DENUE. Es la alcaldía oficial del establecimiento.
+        data_tests: [not_null]
+      - name: alcaldia
+        description: Nombre de la alcaldía.
+      - name: cve_col
+        description: Clave de la colonia del catálogo de datos abiertos CDMX. Nula si el punto no cae en ninguna colonia (zonas rurales del sur).
+      - name: colonia
+        description: Colonia del catálogo CDMX asignada por ubicación; 'sin colonia (<alcaldía>)' cuando no hay.
+      - name: metodo_colonia
+        description: "Cómo se asignó la colonia: poligono (el punto cae dentro), cercania (a menos de 50 m), nombre (nombre parecido en la misma alcaldía, a menos de 2 km) o ninguna."
+      - name: alcaldia_colonia
+        description: "Coherencia entre la alcaldía de la colonia y la del DENUE: coincide, frontera (a 100 m o menos del límite) o discrepante. Nula sin colonia."
+      - name: cve_ageb
+        description: Clave geoestadística de la AGEB (13 caracteres).
+      - name: cve_manzana
+        description: Clave geoestadística de la manzana (16 caracteres).
+      - name: codigo_postal
+        description: Código postal declarado.
+      - name: colonia_denue
+        description: Asentamiento que escribe el DENUE (texto libre; puede no coincidir con el catálogo de colonias).
+      - name: tipo_vialidad
+        description: Tipo de vialidad declarada (CALLE, AVENIDA...).
+      - name: vialidad
+        description: Nombre de la vialidad declarada en el DENUE.
+      - name: numero_exterior
+        description: Número exterior declarado.
+      - name: tipo_centro_comercial
+        description: Tipo de conjunto que declara el DENUE (MERCADO PUBLICO, CENTRO Y PLAZA COMERCIAL...).
+      - name: centro_comercial
+        description: Nombre del conjunto que declara el DENUE.
+      - name: osm_id_calle
+        description: Id del way de OpenStreetMap del tramo de calle asignado.
+      - name: calle
+        description: Nombre de la calle en OpenStreetMap.
+      - name: calle_norm
+        description: Nombre de la calle normalizado (mayúsculas, sin acentos ni tipo de vía). Agrupar por esta columna.
+      - name: metodo_tramo
+        description: "Cómo se asignó la calle: nombre, nombre_similar, cercania (la más próxima aunque se llame distinto) o ninguno."
+      - name: clave_conglomerado
+        description: Clave del conglomerado principal (mercado, plaza, central, tianguis...). Nula si no pertenece a ninguno. Ver semantic.conglomerado.
+      - name: conglomerado
+        description: Nombre del conglomerado principal.
+      - name: tipo_conglomerado
+        description: Tipo del conglomerado principal (mercado público, centro o plaza comercial, central de abasto...).
+      - name: estacion_metro
+        description: Estación del Metro más cercana a 800 m o menos en línea recta; nula si no hay ninguna.
+      - name: distancia_metro_m
+        description: Distancia en metros a estacion_metro.
+      - name: tiene_web
+        description: Declara sitio web.
+      - name: tiene_correo
+        description: Declara correo electrónico.
+      - name: tiene_telefono
+        description: Declara teléfono.
+      - name: tiene_presencia_digital
+        description: Declara sitio web o correo. Mide lo declarado al DENUE, no la presencia real (el DENUE no trae redes sociales).
+      - name: telefono
+        description: Teléfono declarado.
+      - name: correo
+        description: Correo declarado.
+      - name: sitio_web
+        description: Sitio web declarado.
+      - name: longitud
+        description: Longitud (grados, WGS84).
+      - name: latitud
+        description: Latitud (grados, WGS84).
+      - name: distancia_zocalo_m
+        description: Distancia en línea recta al Zócalo (19.4326, -99.1332), en metros.
+      - name: geom
+        description: Punto como geography(point, 4326). Para "cerca de", usar ST_DWithin(geom, ST_MakePoint(lon, lat)::geography, metros).
+      - name: texto_danado
+        description: Verdadero si algún texto conserva letras dañadas de origen que no se pudieron reparar (12 filas en total).
+
+  - name: territorio
+    description: Catálogo de territorios para resolver lugares. Una fila por ciudad, alcaldía o colonia del catálogo CDMX.
+    columns:
+      - name: nivel
+        description: "'ciudad', 'alcaldia' o 'colonia'."
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments: {values: ['ciudad', 'alcaldia', 'colonia']}
+      - name: cve_territorio
+        description: '09 para la ciudad, cve_municipio para alcaldías, cve_col para colonias.'
+        data_tests: [not_null]
+      - name: nombre
+        description: Nombre oficial.
+      - name: nombre_norm
+        description: Nombre en mayúsculas y sin acentos. Buscar con similarity(nombre_norm, upper(unaccent('...'))).
+      - name: cve_municipio
+        description: Alcaldía a la que pertenece (nula para la ciudad).
+      - name: alcaldia
+        description: Nombre de la alcaldía.
+      - name: clasificacion
+        description: Clasificación de la colonia en el catálogo CDMX (colonia, pueblo, barrio...).
+      - name: area_km2
+        description: Superficie en km². Alcaldías y ciudad, límite oficial del Marco Geoestadístico 2020; colonias, polígono del catálogo CDMX.
+      - name: poblacion_2020
+        description: Población del Censo 2020. Ciudad y alcaldías, total oficial; colonias, suma de sus manzanas y localidades rurales.
+      - name: densidad_hab_km2
+        description: poblacion_2020 / area_km2.
+      - name: latitud_centro
+        description: Latitud de un punto interior representativo.
+      - name: longitud_centro
+        description: Longitud de un punto interior representativo.
+      - name: geom
+        description: Polígono como geography.
+
+  - name: actividad
+    description: Catálogo de clases SCIAN presentes en el DENUE, por versión, con su jerarquía y macrosector. Para traducir giros a clases.
+    columns:
+      - name: version_scian
+        description: "'SCIAN 2018' (edición 2024-05) o 'SCIAN 2023' (desde 2024-11)."
+      - name: clase_scian
+        description: Clase SCIAN de 6 dígitos.
+        data_tests: [not_null]
+      - name: nombre_clase
+        description: Nombre de la clase.
+      - name: nombre_clase_norm
+        description: Nombre en mayúsculas y sin acentos, para buscar con similarity().
+      - name: clase_scian_2023
+        description: Clase equivalente en SCIAN 2023 (nula si se reparte en varias).
+      - name: establecimientos_vigente
+        description: Establecimientos de la clase en la edición vigente.
+
+  - name: perfil_sector
+    description: >
+      Perfil sectorial por territorio (ADN de cada alcaldía, Colonias gemelas). Una fila por edición × territorio
+      (alcaldía o colonia) × sector. cociente_localizacion > 1 indica especialización respecto de la ciudad.
+    columns:
+      - name: nivel
+        description: "'alcaldia' o 'colonia'."
+      - name: cve_territorio
+        description: cve_municipio o cve_col.
+      - name: establecimientos
+        description: Establecimientos del sector en el territorio.
+      - name: establecimientos_territorio
+        description: Total de establecimientos del territorio.
+      - name: participacion
+        description: establecimientos / establecimientos_territorio.
+      - name: participacion_ciudad
+        description: Participación del sector en toda la ciudad.
+      - name: cociente_localizacion
+        description: participacion / participacion_ciudad.
+
+  - name: conteo_clase
+    description: Establecimientos por clase SCIAN en la ciudad y en cada alcaldía (Rarezas, rankings de giros). Rareza = establecimientos <= 3.
+    columns:
+      - name: nivel
+        description: "'ciudad' o 'alcaldia'."
+      - name: cve_territorio
+        description: '09 para la ciudad o cve_municipio.'
+      - name: establecimientos
+        description: Establecimientos de la clase en el territorio.
+
+  - name: calle
+    description: >
+      Calles y su giro dominante (Las calles hablan). Una fila por edición × alcaldía × calle (nombre normalizado de OSM).
+      La calle se asigna por nombre o cercanía; por_cercania dice cuántos se asignaron solo por proximidad.
+    columns:
+      - name: calle_norm
+        description: Nombre normalizado de la calle.
+      - name: calle
+        description: Nombre de la calle en OpenStreetMap.
+      - name: establecimientos
+        description: Establecimientos asignados a la calle en esa alcaldía.
+      - name: vias_osm
+        description: Número de ways de OSM con establecimientos (una calle larga tiene varios).
+      - name: por_cercania
+        description: Establecimientos asignados solo por cercanía (su vialidad declarada no coincidía).
+      - name: giro_dominante
+        description: Subsector SCIAN más frecuente en la calle.
+      - name: participacion_giro_dominante
+        description: Peso del giro dominante entre los establecimientos de la calle.
+
+  - name: conglomerado
+    description: >
+      Mercados, plazas, centrales, tianguis y demás conglomerados (Ciudades dentro de la ciudad). Una fila por edición ×
+      conglomerado, con los establecimientos cuyo conglomerado principal es este.
+    columns:
+      - name: clave_conglomerado
+        description: Clave estable del conglomerado (origen:identificador). Une con establecimiento.clave_conglomerado.
+      - name: nombre
+        description: Nombre del conglomerado.
+      - name: nombre_norm
+        description: Nombre en mayúsculas sin acentos, para buscar.
+      - name: tipo
+        description: Tipo (mercado público, centro o plaza comercial, central de abasto, tianguis, mercado sobre ruedas...).
+      - name: categoria
+        description: "comercio, industria o servicios y equipamiento."
+      - name: origen
+        description: "Fuente: campo del DENUE, padrón de mercados CDMX, OpenStreetMap, tianguis o mercados sobre ruedas."
+      - name: establecimientos
+        description: Establecimientos del DENUE con este conglomerado como principal.
+      - name: macrosector_dominante
+        description: Macrosector más frecuente entre sus establecimientos.
+      - name: num_locales
+        description: Locales u oferentes que declara la fuente (no es un conteo del DENUE).
+      - name: superficie_m2
+        description: Superficie de la geometría usada para asignar (polígono o círculo), en m².
+
+  - name: dinamica
+    description: >
+      Altas, bajas y permanencias entre una edición y la anterior, por alcaldía y macrosector. Si comparable_con_anterior
+      es falso (2024-11), el cambio mezcla crecimiento real con cambio de fuente: no presentarlo como aperturas o cierres.
+    columns:
+      - name: permanecen
+        description: Estaban en la edición anterior y siguen.
+      - name: nuevos
+        description: Aparecen por primera vez.
+      - name: reaparecen
+        description: Faltaron en alguna edición y volvieron con el mismo id.
+      - name: bajas
+        description: Estaban en la edición anterior y ya no aparecen (con su alcaldía y macrosector de la edición anterior).
+      - name: cambio_neto
+        description: nuevos + reaparecen - bajas.
+
+  - name: resumen_territorio
+    description: Ficha de la ciudad y de cada alcaldía por edición (fichas por alcaldía, La ciudad que brilla en línea).
+    columns:
+      - name: nivel
+        description: "'ciudad' o 'alcaldia'."
+      - name: cve_territorio
+        description: '09 para la ciudad o cve_municipio.'
+      - name: poblacion_2020
+        description: Población del Censo 2020 (no hay una más reciente por alcaldía).
+      - name: establecimientos_por_mil_hab
+        description: Establecimientos por cada mil habitantes de 2020. Alto en alcaldías centrales por la población flotante que trabaja ahí.
+      - name: micronegocios
+        description: Establecimientos de 0 a 10 personas ocupadas.
+      - name: grandes_101_o_mas
+        description: Establecimientos de 101 o más personas.
+      - name: pct_presencia_digital
+        description: Proporción que declara web o correo.
+      - name: pct_en_conglomerado
+        description: Proporción con conglomerado principal.
+      - name: nuevos
+        description: Nuevos y reaparecidos respecto de la edición anterior (ver dinamica).
+      - name: bajas
+        description: Bajas respecto de la edición anterior.
+
+  - name: censo_sector
+    description: >
+      Censos Económicos 2024 (año de referencia 2023) por ciudad o alcaldía y sector, con unidades, personal y montos en
+      millones de pesos. Cifra nula = confidencial. El Censo no cubre gobierno (93) ni comercio ambulante.
+    columns:
+      - name: unidades_economicas
+        description: Unidades económicas censadas.
+      - name: personal_ocupado
+        description: Personal ocupado total.
+      - name: remuneraciones_mdp
+        description: Total de remuneraciones, millones de pesos.
+      - name: produccion_bruta_mdp
+        description: Producción bruta total, millones de pesos.
+      - name: valor_agregado_mdp
+        description: Valor agregado censal bruto, millones de pesos.
+      - name: ingresos_mdp
+        description: Total de ingresos, millones de pesos.
+      - name: gastos_mdp
+        description: Total de gastos por consumo de bienes y servicios, millones de pesos.
+      - name: activos_fijos_mdp
+        description: Acervo total de activos fijos, millones de pesos.
+
+  - name: cobertura_censo
+    description: DENUE contra Censo Económico 2024 por edición × alcaldía × sector. razon cerca de 1 = coinciden; el DENUE suele registrar algo más.
+    columns:
+      - name: razon
+        description: establecimientos_denue / unidades_censo; nula si el Censo no cubre el sector.
+      - name: en_alcance_censo
+        description: Falso para sectores que el Censo no cubre (93, gobierno).
+
+  - name: metro_estacion
+    description: >
+      Vida comercial alrededor de cada estación del Metro (Corredores del Metro, ranking). Una fila por edición × estación
+      × radio (300, 500 u 800 m en línea recta). Cada establecimiento cuenta solo en su estación más cercana. Filtrar por
+      radio_m (500 por omisión).
+    columns:
+      - name: estacion
+        description: Nombre de la estación.
+      - name: estacion_norm
+        description: Nombre normalizado (mayúsculas, sin acentos). Une con metro_recorrido.
+      - name: lineas
+        description: Líneas que pasan por la estación.
+      - name: radio_m
+        description: Radio en metros (300, 500 u 800).
+      - name: establecimientos
+        description: Establecimientos cuya estación más cercana es esta, dentro del radio.
+      - name: giro_dominante
+        description: Subsector SCIAN más frecuente alrededor de la estación.
+      - name: lugar
+        description: Posición en el ranking de estaciones por establecimientos (misma edición y radio).
+
+  - name: metro_linea
+    description: >
+      Vida comercial a lo largo de cada línea del Metro (Corredores del Metro, modo línea). Una fila por edición × línea
+      × radio. Unión de radios: cada establecimiento cuenta una vez por línea; cerca de una correspondencia cuenta en
+      ambas líneas, así que las líneas no se suman entre sí.
+    columns:
+      - name: establecimientos
+        description: Establecimientos dentro del radio de alguna estación de la línea.
+      - name: estaciones
+        description: Estaciones de la línea.
+
+  - name: metro_recorrido
+    description: Estaciones de cada línea en orden de recorrido, con su ubicación. Fuente OpenStreetMap (ODbL).
+    columns:
+      - name: orden
+        description: Posición de la estación en la línea (1 = una terminal).
+      - name: lineas_en_estacion
+        description: Todas las líneas de la estación (más de una = correspondencia).
+
+  - name: colonia_gemela
+    description: >
+      Las 5 colonias con el perfil sectorial más parecido a cada colonia (Colonias gemelas). Similitud coseno entre
+      participaciones por sector; solo colonias con 30 o más establecimientos.
+    columns:
+      - name: lugar
+        description: 1 = la gemela más parecida.
+      - name: similitud
+        description: Similitud coseno de los perfiles (1 = idénticos).
+      - name: sectores_que_explican
+        description: Los tres sectores que más aportan a la similitud. Usarlo para explicar por qué se parecen.
+
+  - name: palabra_nombre
+    description: >
+      Palabras de los nombres comerciales por territorio (Cómo se llaman las cosas). Una fila por edición × territorio
+      × palabra. Excluye nombres genéricos (… SIN NOMBRE), palabras vacías y siglas societarias. Frecuencia mínima
+      5 en ciudad y alcaldías, 3 en colonias.
+    columns:
+      - name: palabra
+        description: Palabra en mayúsculas y sin acentos.
+      - name: negocios
+        description: Negocios cuyo nombre contiene la palabra.
+      - name: es_diminutivo
+        description: Termina en -ITO, -ITA, -ITOS o -ITAS.
+      - name: lugar
+        description: Posición por frecuencia en el territorio.
+

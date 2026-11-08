@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: raw
+    schema: raw
+    tables:
+      - name: denue
+        description: DENUE CDMX tal como llega del CSV de INEGI (todo texto), una fila por establecimiento y edición.
+      - name: carga_log
+        description: Registro de cada edición cargada (archivo, hash, filas).
+      - name: colonias_cdmx
+        description: Catálogo de colonias de datos abiertos CDMX (GeoJSON, CC BY 4.0), cargado con cargar_externas.py.
+      - name: mercados_publicos
+        description: Padrón de mercados públicos de datos abiertos CDMX (puntos con superficie y locales).
+      - name: ce2024_cdmx
+        description: Censos Económicos 2024, CDMX, datos abiertos de INEGI (todo texto), cargado con cargar_ce.py.
+      - name: ce2024_diccionario
+        description: Diccionario de datos de los Censos Económicos 2024.
+      - name: ce2024_catalogo_actividad
+        description: Catálogo de actividades SCIAN 2023 del Censo, con todos los niveles y nombres.
+      - name: osm_calles
+        description: Calles de OpenStreetMap (ODbL) del rectángulo de CDMX, un way por fila, con sus nodos y etiquetas.
+      - name: tianguis
+        description: Tianguis de la Ciudad de México (datos abiertos CDMX, puntos con día, horario y oferentes).
+      - name: mercados_sobre_ruedas
+        description: Mercados sobre ruedas (datos abiertos CDMX, puntos con ruta, día y oferentes).
+      - name: osm_comercio
+        description: Áreas comerciales de OpenStreetMap (shop=mall, amenity=marketplace, landuse=retail); polígonos y puntos.
+      - name: censo2020_ageb_mza
+        description: Censo de Población y Vivienda 2020 (INEGI), resultados por AGEB y manzana urbana de CDMX (todo texto), cargado con cargar_censo2020.py.
+      - name: censo2020_iter
+        description: Censo 2020, principales resultados por localidad (ITER) de CDMX, incluye localidades rurales.
+      - name: mg2020_municipio
+        description: Marco Geoestadístico 2020 de INEGI, áreas geoestadísticas municipales (alcaldías), EPSG 6372. Cargado con cargar_marco_geo.py.
+      - name: mg2020_ageb_urbana
+        description: Marco Geoestadístico 2020, AGEB urbanas, EPSG 6372.
+      - name: mg2020_ageb_rural
+        description: Marco Geoestadístico 2020, AGEB rurales, EPSG 6372.
+      - name: mg2020_manzana
+        description: Marco Geoestadístico 2020, polígonos de manzana, EPSG 6372.
+      - name: osm_metro
+        description: Líneas (relaciones route=subway) y estaciones del Metro de OpenStreetMap (ODbL), cargado con cargar_osm_metro.py.

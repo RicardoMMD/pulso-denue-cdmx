@@ -1,0 +1,13 @@
+# Sin secretos: todo sale del .env (cargado en el shell). Túnel: localhost:55432 -> VPS:5433
+pulso_denue:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('PGHOST', 'localhost') }}"
+      port: "{{ env_var('PGPORT', '55432') | as_number }}"
+      dbname: "{{ env_var('PGDATABASE', 'pulso_denue') }}"
+      user: "{{ env_var('PULSO_OWNER_USER') }}"
+      password: "{{ env_var('PULSO_OWNER_PASSWORD') }}"
+      schema: staging
+      threads: 4

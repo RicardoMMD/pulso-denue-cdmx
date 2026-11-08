@@ -1,0 +1,645 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pulso DENUE CDMX</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Figtree:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: escenario a pantalla completa con el panel narrativo flotando abajo a la izquierda; el Analista vive fijo a la derecha */
+:root{
+  --night:#080c14;
+  --stage:#0b1120;
+  --silhouette:#111c31;
+  --slab:#070b13;
+  --grid:#1c2a45;
+  --panel:#111a2b;
+  --panel-2:#17223a;
+  --rule:#243150;
+  --ink:#e9ecf3;
+  --muted:#8e99b1;
+  --sodium:#f5b84a;
+  --sodium-ink:#1c1405;
+  --caution:#f2967a;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  color-scheme:dark;
+}
+html,body{height:100%}
+body{background:var(--night);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--sodium);outline-offset:2px;border-radius:6px}
+
+.app{height:100%;display:grid;grid-template-rows:auto minmax(0,1fr);gap:12px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 16px}
+
+/* Encabezado */
+.top{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding-block:12px 0}
+.brand{display:flex;align-items:center;gap:10px}
+.brand svg{width:34px;height:20px}
+.wordmark{font-family:var(--display);font-weight:800;font-size:26px;letter-spacing:.02em;line-height:1;text-transform:uppercase}
+.city{font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--sodium-ink);background:var(--sodium);padding:3px 7px;border-radius:4px;font-weight:500}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs button{background:none;border:0;padding:8px 12px;color:var(--muted);font-weight:500;border-bottom:2px solid transparent;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sodium)}
+.tabs button:hover{color:var(--ink)}
+.edition{margin-left:auto;font-family:var(--mono);font-size:11.5px;color:var(--muted);display:flex;align-items:center;gap:8px;letter-spacing:.02em}
+.edition .pulse{width:7px;height:7px;border-radius:50%;background:var(--sodium);animation:ping 2.4s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--sodium) 60%,transparent)}70%{box-shadow:0 0 0 8px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* Cuerpo */
+.main{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:16px;min-height:0}
+.stage-col{position:relative;min-height:0;min-width:0}
+.stage{position:absolute;inset:0;border-radius:16px;overflow:hidden;border:1px solid var(--rule);
+  background:radial-gradient(120% 90% at 62% 38%,var(--stage),var(--night))}
+canvas#scene{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+canvas#scene.orbit{cursor:grab}
+canvas#scene.orbit:active{cursor:grabbing}
+.crumb{position:absolute;top:14px;left:18px;font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.03em;z-index:2}
+.crumb b{color:var(--ink);font-weight:500}
+.mock-tag{position:absolute;top:34px;left:18px;font-family:var(--mono);font-size:10.5px;color:var(--muted);opacity:.75;z-index:2}
+.legend{position:absolute;top:12px;right:14px;display:flex;flex-wrap:wrap;gap:6px 12px;justify-content:flex-end;max-width:60%;
+  font-family:var(--mono);font-size:11px;color:var(--muted);z-index:2}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.legend .hkey i{border-radius:1px;width:6px;height:12px;background:var(--muted)}
+
+/* Controles de vista */
+.viewctl{position:absolute;right:14px;bottom:14px;z-index:2;display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.seg{display:flex;border:1px solid var(--rule);border-radius:9px;overflow:hidden;background:color-mix(in srgb,var(--panel) 85%,transparent)}
+.seg button{border:0;background:transparent;padding:6px 10px;font-size:12.5px;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--panel-2);color:var(--ink)}
+.vbtn{border:1px solid var(--rule);background:color-mix(in srgb,var(--panel) 85%,transparent);border-radius:9px;padding:6px 10px;font-size:12.5px;color:var(--muted);min-width:34px}
+.vbtn[aria-pressed="true"]{color:var(--sodium-ink);background:var(--sodium);border-color:var(--sodium)}
+.vbtn:disabled{opacity:.35;cursor:default}
+.vbtn:not(:disabled):hover,.seg button:hover{color:var(--ink)}
+
+/* Panel narrativo */
+.card{position:absolute;left:20px;bottom:20px;width:min(390px,calc(100% - 40px));max-height:calc(100% - 76px);overflow:auto;z-index:3;
+  background:color-mix(in srgb,var(--panel) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--rule);border-radius:14px;padding:18px 20px;display:grid;gap:12px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sodium)}
+.card h2{font-family:var(--display);font-weight:800;font-size:34px;line-height:1;margin:0;text-wrap:balance;letter-spacing:.005em}
+.card p{margin:0;color:var(--ink)}
+.figure{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-block:1px solid var(--rule)}
+.flabel{font-size:13px;color:var(--muted);min-width:0}
+.caution{font-size:13px;color:var(--caution);display:flex;gap:8px}
+.caution::before{content:"!";font-family:var(--mono);font-weight:500;border:1px solid currentColor;border-radius:50%;width:16px;height:16px;flex:none;display:grid;place-items:center;font-size:10px;margin-top:2px}
+.source{font-family:var(--mono);font-size:11px;color:var(--muted)}
+.controls{display:flex;align-items:center;gap:10px}
+.dots{display:flex;gap:6px;flex:1;justify-content:center}
+.dots button{width:20px;height:4px;border-radius:2px;border:0;background:var(--rule);padding:0}
+.dots button[aria-current="true"]{background:var(--sodium)}
+.btn{border:1px solid var(--rule);background:var(--panel-2);border-radius:9px;padding:7px 12px;font-size:13.5px;font-weight:500}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--sodium);color:var(--sodium-ink);border-color:var(--sodium)}
+.btn:disabled{opacity:.4;cursor:default}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+
+/* Cifra vinculada: hueco que se llena desde la consulta */
+.slot{display:inline-block;font-family:var(--mono);font-size:11.5px;color:var(--sodium);border:1px dashed color-mix(in srgb,var(--sodium) 65%,transparent);
+  background:color-mix(in srgb,var(--sodium) 8%,transparent);border-radius:6px;padding:0 7px;white-space:nowrap;line-height:1.7}
+.slot.big{font-size:13px;padding:8px 12px}
+
+/* Hojas superpuestas */
+.sheet{position:absolute;top:12px;right:12px;bottom:12px;width:min(460px,calc(100% - 24px));z-index:4;overflow:auto;
+  background:var(--panel);border:1px solid var(--rule);border-radius:14px;padding:18px 20px;display:flex;flex-direction:column;gap:14px}
+.sheet header{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.sheet h3{font-family:var(--display);font-weight:800;font-size:28px;line-height:1;margin:0}
+.sheet h4{font-size:14px;margin:0 0 4px;font-weight:600}
+.sheet p{margin:0;color:var(--muted);font-size:14px;max-width:62ch}
+.close{background:none;border:1px solid var(--rule);border-radius:8px;width:32px;height:32px;flex:none}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:9px 8px;border-bottom:1px solid var(--rule);white-space:nowrap}
+th{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--muted);text-transform:uppercase}
+td.num{font-variant-numeric:tabular-nums}
+.meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);display:grid;gap:4px}
+
+/* Explorador */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--rule);background:transparent;border-radius:999px;padding:4px 10px;font-size:13px;display:inline-flex;align-items:center;gap:6px}
+.chip[aria-pressed="true"]{background:var(--panel-2);border-color:var(--muted)}
+.chip i{width:8px;height:8px;border-radius:50%}
+.field{display:grid;gap:6px}
+.field label,.field .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+select{background:var(--panel-2);border:1px solid var(--rule);border-radius:9px;padding:7px 10px}
+
+/* El Analista */
+.drawer{background:var(--panel);border:1px solid var(--rule);border-radius:16px;display:flex;flex-direction:column;min-height:0}
+.drawer-head{padding:16px 18px 12px;border-bottom:1px solid var(--rule);display:grid;gap:2px}
+.drawer-head h2{font-family:var(--display);font-weight:800;font-size:26px;margin:0;line-height:1}
+.drawer-head p{margin:0;font-size:13px;color:var(--muted)}
+.msgs{flex:1;overflow:auto;padding:16px 18px;display:flex;flex-direction:column;gap:14px;min-height:0}
+.msg{max-width:100%;font-size:14px}
+.msg.user{align-self:flex-end;background:var(--panel-2);border:1px solid var(--rule);border-radius:12px 12px 4px 12px;padding:8px 12px;max-width:85%}
+.msg.bot{display:grid;gap:10px}
+.msg.bot p{margin:0}
+.resp{border:1px solid var(--rule);border-radius:12px;padding:12px;display:grid;gap:10px;background:color-mix(in srgb,var(--panel-2) 60%,transparent)}
+.resp .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--sodium)}
+.statechips{display:flex;flex-wrap:wrap;gap:4px}
+.statechips span{font-family:var(--mono);font-size:10.5px;color:var(--muted);border:1px solid var(--rule);border-radius:5px;padding:1px 6px}
+details{font-size:12.5px;color:var(--muted)}
+summary{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.04em}
+.thinking{font-family:var(--mono);font-size:12px;color:var(--muted)}
+.suggest{padding:10px 18px 0;display:flex;flex-wrap:wrap;gap:6px}
+.suggest button{background:transparent;border:1px dashed var(--rule);border-radius:999px;padding:4px 10px;font-size:12.5px;color:var(--muted);text-align:left}
+.suggest button:hover{color:var(--ink);border-color:var(--muted)}
+.ask{display:flex;gap:8px;padding:12px 18px 16px}
+.ask input{flex:1;min-width:0;background:var(--panel-2);border:1px solid var(--rule);border-radius:10px;padding:9px 12px}
+.ask input::placeholder{color:var(--muted)}
+
+/* Teléfono */
+@media (max-width:880px){
+  .app{height:auto;min-height:100%}
+  .edition{margin-left:0;width:100%}
+  .top{gap:10px 16px}
+  .main{grid-template-columns:1fr}
+  .stage-col{display:grid;gap:12px}
+  .stage{position:relative;inset:auto;height:min(64vh,540px)}
+  .card{position:static;width:auto;max-height:none}
+  .legend{max-width:70%}
+  .drawer{display:none;min-height:70vh}
+  body.tab-analista .drawer{display:flex}
+  body.tab-analista .card{display:none}
+  .sheet{top:0;right:0;bottom:auto;width:100%;max-height:min(64vh,540px)}
+}
+@media (prefers-reduced-motion:reduce){.edition .pulse{animation:none}}
+</style>
+
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <svg viewBox="0 0 34 20" aria-hidden="true"><polyline points="1,12 9,12 12,4 16,17 20,8 23,12 33,12" fill="none" stroke="var(--sodium)" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="wordmark">Pulso DENUE</span><span class="city">CDMX</span>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="Secciones">
+      <button role="tab" id="tab-historias" data-tab="historias" aria-selected="true">Historias</button>
+      <button role="tab" id="tab-explorador" data-tab="explorador" aria-selected="false">Explorador</button>
+      <button role="tab" id="tab-analista" data-tab="analista" aria-selected="false">El Analista</button>
+      <button role="tab" id="tab-metodologia" data-tab="metodologia" aria-selected="false">Metodología</button>
+    </nav>
+    <div class="edition"><span class="pulse"></span>DENUE · edición y fecha de corte por definir</div>
+  </header>
+
+  <main class="main">
+    <div class="stage-col">
+      <section class="stage" aria-label="Escena">
+        <canvas id="scene" aria-label="Escena animada de establecimientos de la Ciudad de México"></canvas>
+        <div class="crumb" id="crumb"></div>
+        <div class="mock-tag">Maqueta · puntos sintéticos · arrastra el mapa para girarlo</div>
+        <div class="legend" id="legend"></div>
+        <div class="viewctl" role="group" aria-label="Vista del mapa">
+          <div class="seg">
+            <button id="vFlat" aria-pressed="false">Plano</button>
+            <button id="vIso" aria-pressed="true">Isométrica</button>
+          </div>
+          <button class="vbtn" id="vRelief" aria-pressed="false" title="Columnas con el número de establecimientos por celda">Relieve</button>
+          <button class="vbtn" id="rotL" aria-label="Girar a la izquierda" title="Girar a la izquierda">⟲</button>
+          <button class="vbtn" id="rotR" aria-label="Girar a la derecha" title="Girar a la derecha">⟳</button>
+        </div>
+      </section>
+      <article class="card" id="card" aria-live="polite"></article>
+
+      <div class="sheet" id="exact" hidden>
+        <header>
+          <div><div class="eyebrow">Vista exacta</div><h3 id="exactTitle">Tabla del panel</h3></div>
+          <button class="close" id="closeExact" aria-label="Cerrar vista exacta">✕</button>
+        </header>
+        <div class="table-wrap"><table id="exactTable"></table></div>
+        <div class="meta" id="exactMeta"></div>
+        <p>En la versión final, cada valor sale de la misma consulta que alimenta la cifra del panel. Aquí aparecen como huecos.</p>
+      </div>
+
+      <div class="sheet" id="method" hidden>
+        <header>
+          <div><div class="eyebrow">Metodología y datos</div><h3>Lo que hay detrás de cada punto</h3></div>
+          <button class="close" id="closeMethod" aria-label="Cerrar metodología">✕</button>
+        </header>
+        <div><h4>Qué es el DENUE</h4><p>El Directorio Estadístico Nacional de Unidades Económicas de INEGI registra establecimientos con ubicación. La unidad es el establecimiento, no la empresa.</p></div>
+        <div><h4>Fecha de corte</h4><p>Todas las cifras corresponden a una edición del DENUE. La fecha de corte aparece en cada panel y en cada respuesta del Analista.</p></div>
+        <div><h4>Cómo se calculan las cifras</h4><p>Ninguna cifra se escribe a mano. Cada número sale de una vista semántica con parámetros visibles en la vista exacta del panel.</p></div>
+        <div><h4>Relieve de densidad</h4><p>Cada columna suma los establecimientos de una celda de la cuadrícula. El tamaño de la celda cambia la forma del relieve, así que la versión final lo fija y lo documenta.</p></div>
+        <div><h4>Distancias y cercanía</h4><p>Las zonas caminables alrededor de estaciones se calculan sobre la red peatonal. Cada negocio cuenta para su estación más cercana.</p></div>
+        <div><h4>Lo que el DENUE no te dice</h4><p>Cubre de forma parcial el comercio en vía pública y la actividad informal sin instalación. La fecha de alta indica cuándo entró al directorio, no cuándo abrió el negocio.</p></div>
+        <div><h4>Privacidad</h4><p>Muchos registros son de personas físicas. El portal muestra conteos y agregados; no publica listados individuales con nombre.</p></div>
+      </div>
+    </div>
+
+    <aside class="drawer" id="drawer" aria-label="El Analista">
+      <div class="drawer-head">
+        <h2>El Analista</h2>
+        <p>Pregunta en lenguaje común. Cada respuesta trae su cifra, su fecha de corte y un panel en la escena.</p>
+      </div>
+      <div class="msgs" id="msgs"></div>
+      <div class="suggest" id="suggest"></div>
+      <form class="ask" id="ask">
+        <input id="q" type="text" autocomplete="off" placeholder="¿Dónde faltan farmacias cerca de escuelas?" aria-label="Pregunta para el Analista">
+        <button class="btn primary" type="submit">Preguntar</button>
+      </form>
+    </aside>
+  </main>
+</div>
+
+<script>
+(() => {
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const $ = id => document.getElementById(id);
+
+/* ---------- Datos sintéticos ---------- */
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+const rnd = mulberry32(20261101);
+const gauss = () => {let u=0;while(!u)u=rnd();const v=rnd();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+
+const POLY=[[.38,.02],[.52,0],[.6,.08],[.62,.2],[.74,.27],[.78,.4],[.74,.5],[.85,.58],[.82,.72],[.7,.86],[.55,.98],[.38,.95],[.3,.82],[.22,.66],[.12,.55],[.08,.42],[.18,.3],[.24,.18],[.3,.08]];
+const BB={x0:.08,x1:.85,y0:0,y1:.98};
+const MX=(BB.x0+BB.x1)/2, MY=(BB.y0+BB.y1)/2;
+const RAD=Math.max(...POLY.map(([x,y])=>Math.hypot(x-MX,y-MY)));
+function inPoly(x,y){let c=false;for(let i=0,j=POLY.length-1;i<POLY.length;j=i++){const [xi,yi]=POLY[i],[xj,yj]=POLY[j];if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))c=!c}return c}
+
+const SECT=[
+  {n:'Comercio',c:'#ff9047',w:.46},
+  {n:'Servicios',c:'#4fc7ee',w:.38},
+  {n:'Industria',c:'#b88dff',w:.08},
+  {n:'Salud, educación y gobierno',c:'#7fd994',w:.06},
+  {n:'Otros',c:'#e8e1d0',w:.02}];
+SECT.forEach(s=>{s.rgb=[1,3,5].map(i=>parseInt(s.c.slice(i,i+2),16))});
+const shade=(rgb,f,a)=>`rgba(${rgb.map(v=>Math.min(255,Math.round(v*f))).join(',')},${a})`;
+SECT.forEach(s=>{s.top=shade(s.rgb,1.08,.95);s.left=shade(s.rgb,.62,.95);s.right=shade(s.rgb,.42,.95)});
+
+const LINES={
+ L1:{name:'Línea 1',color:'#ec5a9a',st:[['Observatorio',.36,.31],['Tacubaya',.39,.31],['Juanacatlán',.41,.305],['Chapultepec',.43,.3],['Sevilla',.445,.295],['Insurgentes',.46,.29],['Cuauhtémoc',.475,.285],['Balderas',.49,.28],['Salto del Agua',.505,.28],['Isabel la Católica',.518,.28],['Pino Suárez',.53,.28],['Merced',.55,.275],['Candelaria',.565,.27],['San Lázaro',.58,.268],['Moctezuma',.6,.266],['Balbuena',.615,.264],['Blvd. Puerto Aéreo',.635,.262],['Gómez Farías',.655,.262],['Zaragoza',.675,.262],['Pantitlán',.7,.265]]},
+ L2:{name:'Línea 2',color:'#3d8ee0',st:[['Cuatro Caminos',.3,.17],['Panteones',.33,.18],['Tacuba',.36,.19],['Cuitláhuac',.38,.195],['Popotla',.4,.2],['Colegio Militar',.42,.205],['Normal',.44,.21],['San Cosme',.46,.215],['Revolución',.475,.225],['Hidalgo',.49,.235],['Bellas Artes',.5,.24],['Allende',.515,.25],['Zócalo',.53,.26],['Pino Suárez',.53,.28],['San Antonio Abad',.53,.3],['Chabacano',.53,.32],['Viaducto',.53,.34],['Xola',.53,.355],['Villa de Cortés',.53,.37],['Nativitas',.53,.385],['Portales',.53,.4],['Ermita',.53,.415],['General Anaya',.535,.435],['Tasqueña',.54,.455]]},
+ L3:{name:'Línea 3',color:'#b9ac3a',st:[['Indios Verdes',.52,.08],['Deportivo 18 de Marzo',.515,.1],['Potrero',.51,.12],['La Raza',.505,.145],['Tlatelolco',.5,.175],['Guerrero',.495,.2],['Hidalgo',.49,.235],['Juárez',.488,.255],['Balderas',.49,.28],['Niños Héroes',.49,.3],['Hospital General',.49,.32],['Centro Médico',.49,.335],['Etiopía',.49,.355],['Eugenia',.49,.37],['División del Norte',.49,.385],['Zapata',.49,.4],['Coyoacán',.488,.42],['Viveros',.485,.44],['M. A. de Quevedo',.482,.46],['Copilco',.48,.485],['Universidad',.478,.51]]}
+};
+const STATIONS={};
+for(const [k,l] of Object.entries(LINES)) for(const [n,x,y] of l.st){ (STATIONS[n] ||= {n,x,y,lines:[],count:0}).lines.push(k) }
+const SLIST=Object.values(STATIONS);
+const NEAR=.02;
+
+const CLUSTERS=[[.52,.27,.07,.45],[.64,.4,.06,.2],[.52,.12,.05,.12],[.48,.48,.06,.1]];
+function sample(){const r=rnd();let acc=0;for(const c of CLUSTERS){acc+=c[3];if(r<acc)return[c[0]+gauss()*c[2],c[1]+gauss()*c[2]]}
+  return r<.97?[.08+rnd()*.77,rnd()*.6]:[.08+rnd()*.77,rnd()*.98]}
+function pickSector(){const r=rnd();let a=0;for(let i=0;i<SECT.length;i++){a+=SECT[i].w;if(r<a)return i}return 0}
+
+/* Cuadrícula para el relieve */
+const GX=34, CW=(BB.x1-BB.x0)/GX, GY=Math.ceil((BB.y1-BB.y0)/CW);
+const CELLS=new Map();
+
+const N = innerWidth < 600 ? 4200 : 6500;
+const P=[];
+while(P.length<N){const [x,y]=sample();if(!inPoly(x,y))continue;
+  const p={hx:x,hy:y,cx:x-MX,cy:y-MY,s:pickSector(),a:0,ta:0,mx:0,mt:0,rx:0,ry:0,k:.06+rnd()*.05,delay:0};
+  let best=null,bd=9;for(const s of SLIST){const d=Math.hypot(s.x-x,s.y-y);if(d<bd){bd=d;best=s}}
+  p.ns=best;p.nd=bd;if(bd<NEAR)best.count++;
+  p.li={};for(const [k,l] of Object.entries(LINES)){let bi=0,b=9;l.st.forEach((s,i)=>{const d=Math.hypot(s[1]-x,s[2]-y);if(d<b){b=d;bi=i}});p.li[k]={i:bi,d:b}}
+  const ci=Math.floor((x-BB.x0)/CW),cj=Math.floor((y-BB.y0)/CW),key=ci+','+cj;
+  if(!CELLS.has(key)){const g=CW*.14,x0=BB.x0+ci*CW+g,y0=BB.y0+cj*CW+g,x1=x0+CW-2*g,y1=y0+CW-2*g;
+    CELLS.set(key,{q:[[x0,y0],[x1,y0],[x1,y1],[x0,y1]],m:[(x0+x1)/2,(y0+y1)/2],counts:[0,0,0,0,0]})}
+  CELLS.get(key).counts[p.s]++;
+  P.push(p)}
+const CELL_LIST=[...CELLS.values()];
+const MAXC=Math.max(...CELL_LIST.map(c=>c.counts.reduce((a,b)=>a+b,0)));
+const BYSECT=SECT.map((_,i)=>P.filter(p=>p.s===i));
+const TOP=[...SLIST].sort((a,b)=>b.count-a.count).slice(0,6);
+
+/* ---------- Cámara ---------- */
+const ISO_TILT=.5;
+const VIEW={iso:1,isoT:1,theta:-.55,thetaT:-.55,relief:0,drift:!reduce,drag:null};
+const CAM={c:1,s:0,tilt:1,S:1,ox:0,oy:0};
+function proj(x,y,h){const cx=x-MX,cy=y-MY;return[CAM.ox+(cx*CAM.c-cy*CAM.s)*CAM.S,CAM.oy+(cx*CAM.s+cy*CAM.c)*CAM.tilt*CAM.S-(h||0)]}
+let W=0,H=0,dpr=1,padL=20;
+function computeCam(){
+  const iso=VIEW.iso,A=VIEW.theta*iso;
+  CAM.c=Math.cos(A);CAM.s=Math.sin(A);CAM.tilt=1+(ISO_TILT-1)*iso;
+  const padR=20,padT=56,padB=64,aw=W-padL-padR,ah=H-padT-padB,head=78*iso;
+  const sFlat=Math.min(aw/(BB.x1-BB.x0),ah/(BB.y1-BB.y0));
+  const sIso=Math.min(aw/(2*RAD),(ah-head)/(2*RAD*ISO_TILT));
+  CAM.S=sFlat+(sIso-sFlat)*iso;
+  CAM.ox=padL+aw/2;CAM.oy=padT+head+(ah-head)/2;
+}
+
+/* ---------- Escena ---------- */
+const cv=$('scene'),ctx=cv.getContext('2d');
+let scene={mode:'luz'},stamp=0,pulseT0=0,lastT=0;
+const lineA={L1:0,L2:0,L3:0},lineT={L1:0,L2:0,L3:0};
+const ov={st:0,stT:0,rk:0,rkT:0};
+const reliefAllowed=()=>(scene.mode==='luz'||scene.mode==='explorar')&&VIEW.isoT>0;
+
+function resize(){
+  const r=cv.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(devicePixelRatio||1,2);
+  cv.width=W*dpr;cv.height=H*dpr;padL=innerWidth>880?Math.min(420,W*.38):18;
+  computeCam();applyTargets();
+}
+
+function setScene(st){scene=st;stamp=performance.now();pulseT0=stamp;
+  for(const p of P)p.delay=Math.hypot(p.hx-.52,p.hy-.27)*900+rnd()*160;
+  applyTargets();updateCtl()}
+
+function applyTargets(){
+  const m=scene.mode,sec=scene.sectors?new Set(scene.sectors):null;
+  for(const k in lineT)lineT[k]=0;ov.stT=0;ov.rkT=0;
+  if(m==='red'){for(const k in lineT)lineT[k]=1}
+  if(m==='linea'){for(const k in lineT)lineT[k]=k===scene.line?1:.12}
+  if(m==='estaciones'){for(const k in lineT)lineT[k]=.3;ov.stT=1}
+  if(m==='luz')for(const k in lineT)lineT[k]=.1;
+  if(m==='ranking')ov.rkT=1;
+  const rank=new Map();
+  if(m==='ranking'){
+    const x0=padL+20,x1=W-30,colW=(x1-x0)/TOP.length,base=H-90,maxH=H*.55,per=7;
+    const rows=Math.ceil(Math.max(...TOP.map(s=>s.count))/per),gy=Math.min(5,maxH/rows),gx=Math.min(5,colW*.6/per);
+    const fill=TOP.map(()=>0);
+    TOP.forEach((s,i)=>{s.bx=x0+colW*(i+.5);s.colW=colW;s.base=base});
+    for(const p of P){const i=TOP.indexOf(p.ns);if(i<0||p.nd>=NEAR)continue;const j=fill[i]++;
+      rank.set(p,[x0+colW*(i+.5)-(per-1)*gx/2+(j%per)*gx,base-Math.floor(j/per)*gy])}
+  }
+  for(const p of P){
+    let a=.85;const on=!sec||sec.has(p.s);
+    if(m==='luz'||m==='explorar')a=on?.85:.05;
+    else if(m==='red')a=p.nd<NEAR?1:.08;
+    else if(m==='linea')a=p.li[scene.line].d<NEAR?.15:.04;
+    else if(m==='estaciones')a=.13;
+    const r=rank.get(p);
+    if(m==='ranking'){if(r){[p.rx,p.ry]=r;a=1;p.mt=1}else{a=.03;p.mt=0}}else p.mt=0;
+    p.ta=a;
+  }
+}
+
+function frame(t){
+  const dt=Math.min(50,t-(lastT||t));lastT=t;
+  const e=f=>reduce?1:f;
+  VIEW.iso+=(VIEW.isoT-VIEW.iso)*e(.07);
+  if(VIEW.drift&&VIEW.isoT>0&&!VIEW.drag&&scene.mode!=='ranking')VIEW.thetaT+=dt*1.1e-5;
+  VIEW.theta+=(VIEW.thetaT-VIEW.theta)*e(.12);
+  const rT=reliefAllowed()&&scene.relief?1:0;
+  VIEW.relief+=(rT-VIEW.relief)*e(.05);
+  computeCam();
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+  const fade=1-ov.rk*.6;
+
+  // Terreno: grosor, superficie y cuadrícula
+  const ground=POLY.map(([x,y])=>proj(x,y,0)),th=12*VIEW.iso;
+  ctx.globalAlpha=fade;
+  if(th>.5){ctx.fillStyle=css('--slab');
+    for(let i=0;i<ground.length;i++){const a=ground[i],b=ground[(i+1)%ground.length];
+      ctx.beginPath();ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1]);ctx.lineTo(b[0],b[1]+th);ctx.lineTo(a[0],a[1]+th);ctx.closePath();ctx.fill()}}
+  ctx.beginPath();ground.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();
+  ctx.fillStyle=css('--silhouette');ctx.fill();
+  ctx.save();ctx.clip();ctx.strokeStyle=css('--grid');ctx.lineWidth=1;ctx.globalAlpha=fade*(.35+.35*VIEW.iso);ctx.beginPath();
+  for(let i=0;i<=GX;i++){const x=BB.x0+i*CW;const a=proj(x,BB.y0,0),b=proj(x,BB.y1,0);ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1])}
+  for(let j=0;j<=GY;j++){const y=BB.y0+j*CW;const a=proj(BB.x0,y,0),b=proj(BB.x1,y,0);ctx.moveTo(a[0],a[1]);ctx.lineTo(b[0],b[1])}
+  ctx.stroke();ctx.restore();
+  ctx.globalAlpha=fade*.8;ctx.strokeStyle=css('--rule');ctx.lineWidth=1;
+  ctx.beginPath();ground.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.stroke();ctx.globalAlpha=1;
+
+  // Líneas de Metro
+  for(const [key,l] of Object.entries(LINES)){
+    lineA[key]+=(lineT[key]-lineA[key])*e(.08);if(lineA[key]<.01)continue;
+    ctx.globalAlpha=lineA[key]*(1-ov.rk);ctx.strokeStyle=l.color;ctx.lineWidth=2.2;ctx.lineJoin='round';ctx.beginPath();
+    const pts=l.st.map(([,x,y])=>proj(x,y,0));
+    pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();
+    ctx.fillStyle=css('--night');for(const [x,y] of pts){ctx.beginPath();ctx.ellipse(x,y,2.4,2.4*CAM.tilt,0,0,7);ctx.fill();ctx.stroke()}
+  }
+  ctx.globalAlpha=1;
+
+  // Pulso de la línea
+  let pulse=-1;
+  if(scene.mode==='linea'){const n=LINES[scene.line].st.length;pulse=reduce?n:Math.min(n,(t-pulseT0)/6500*n);
+    for(const p of P){const li=p.li[scene.line];if(li.d<NEAR)p.ta=li.i<=pulse?1:.15}}
+
+  // Puntos
+  ctx.globalCompositeOperation='lighter';
+  const el=t-stamp,dim=1-.7*VIEW.relief;
+  const S=CAM.S,c=CAM.c,s=CAM.s,tl=CAM.tilt,ox=CAM.ox,oy=CAM.oy;
+  BYSECT.forEach((arr,si)=>{ctx.fillStyle=SECT[si].c;
+    for(const p of arr){
+      if(reduce||el>p.delay){p.mx+=(p.mt-p.mx)*e(p.k)}
+      p.a+=(p.ta-p.a)*e(.07);
+      const a=p.a*(p.mt?1:dim);if(a<.012)continue;
+      let x=ox+(p.cx*c-p.cy*s)*S,y=oy+(p.cx*s+p.cy*c)*tl*S;
+      if(p.mx>.001){x+=(p.rx-x)*p.mx;y+=(p.ry-y)*p.mx}
+      ctx.globalAlpha=Math.min(1,a);ctx.fillRect(x-.9,y-.9,1.8,1.8)}});
+  ctx.globalCompositeOperation='source-over';ctx.globalAlpha=1;
+
+  // Relieve de densidad: columnas de atrás hacia adelante
+  if(VIEW.relief>.01){
+    const sel=scene.sectors||[0,1,2,3,4],hs=Math.min(170,H*.3)*VIEW.relief;
+    const list=[];
+    for(const cell of CELL_LIST){let n=0,best=-1,bn=0;for(const si of sel){const v=cell.counts[si];n+=v;if(v>bn){bn=v;best=si}}
+      if(!n)continue;const h=hs*Math.pow(n/MAXC,.8);if(h<.8)continue;list.push([proj(cell.m[0],cell.m[1],0)[1],cell,h,best])}
+    list.sort((a,b)=>a[0]-b[0]);
+    for(const [,cell,h,best] of list){
+      const g=cell.q.map(([x,y])=>proj(x,y,0)),tp=g.map(([x,y])=>[x,y-h]);
+      const edges=[0,1,2,3].map(i=>{const j=(i+1)%4;return{i,j,my:(g[i][1]+g[j][1])/2,mx:(g[i][0]+g[j][0])/2}}).sort((a,b)=>b.my-a.my).slice(0,2).sort((a,b)=>a.mx-b.mx);
+      const col=SECT[best];
+      edges.forEach((ed,k)=>{ctx.fillStyle=k?col.right:col.left;ctx.beginPath();ctx.moveTo(g[ed.i][0],g[ed.i][1]);ctx.lineTo(g[ed.j][0],g[ed.j][1]);ctx.lineTo(tp[ed.j][0],tp[ed.j][1]);ctx.lineTo(tp[ed.i][0],tp[ed.i][1]);ctx.closePath();ctx.fill()});
+      ctx.fillStyle=col.top;ctx.beginPath();tp.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();ctx.fill();
+    }
+  }
+
+  // Cabeza del pulso
+  if(pulse>=0&&pulse<LINES[scene.line].st.length-1){const st=LINES[scene.line].st,i=Math.floor(pulse),f=pulse-i;
+    const [ax,ay]=proj(st[i][1],st[i][2],0),[bx,by]=proj(st[i+1][1],st[i+1][2],0);const x=ax+(bx-ax)*f,y=ay+(by-ay)*f;
+    const gr=ctx.createRadialGradient(x,y,0,x,y,18);gr.addColorStop(0,'rgba(255,255,255,.95)');gr.addColorStop(1,'rgba(255,255,255,0)');
+    ctx.fillStyle=gr;ctx.beginPath();ctx.arc(x,y,18,0,7);ctx.fill()}
+
+  // Estaciones como discos sobre el suelo
+  ov.st+=(ov.stT-ov.st)*e(.08);
+  if(ov.st>.01){ctx.globalAlpha=ov.st;const acc=css('--sodium');
+    for(const st of SLIST){const [x,y]=proj(st.x,st.y,0);const r=2+Math.sqrt(st.count)*.75;
+      ctx.beginPath();ctx.ellipse(x,y,r,r*CAM.tilt,0,0,7);ctx.fillStyle='rgba(245,184,74,.16)';ctx.fill();ctx.strokeStyle=acc;ctx.lineWidth=1;ctx.stroke()}
+    ctx.fillStyle=css('--ink');ctx.font='500 11px "JetBrains Mono",monospace';
+    TOP.slice(0,4).forEach(st=>{const [x,y]=proj(st.x,st.y,0);const r=2+Math.sqrt(st.count)*.75;ctx.fillText(st.n,x+r+5,y+4)});ctx.globalAlpha=1}
+
+  // Etiquetas del ranking
+  ov.rk+=(ov.rkT-ov.rk)*e(.06);
+  if(ov.rk>.01&&TOP[0].bx){ctx.globalAlpha=ov.rk;ctx.strokeStyle=css('--rule');ctx.beginPath();
+    ctx.moveTo(TOP[0].bx-TOP[0].colW/2,TOP[0].base+6);ctx.lineTo(TOP[5].bx+TOP[5].colW/2,TOP[0].base+6);ctx.stroke();
+    ctx.textAlign='center';TOP.forEach((st,i)=>{
+      ctx.fillStyle=css('--sodium');ctx.font='800 20px "Big Shoulders Display",sans-serif';ctx.fillText(String(i+1),st.bx,st.base+30);
+      ctx.fillStyle=css('--muted');ctx.font='11px "JetBrains Mono",monospace';ctx.fillText(st.n,st.bx,st.base+46,st.colW-6)});
+    ctx.textAlign='start';ctx.globalAlpha=1}
+  requestAnimationFrame(frame);
+}
+
+/* ---------- Controles de vista ---------- */
+function updateCtl(){
+  const iso=VIEW.isoT>0;
+  $('vIso').setAttribute('aria-pressed',iso);$('vFlat').setAttribute('aria-pressed',!iso);
+  $('vRelief').disabled=!reliefAllowed();$('vRelief').setAttribute('aria-pressed',!!scene.relief&&reliefAllowed());
+  $('rotL').disabled=$('rotR').disabled=!iso;
+  cv.classList.toggle('orbit',iso);
+  const hk=$('legend').querySelector('.hkey');if(hk)hk.hidden=!(scene.relief&&reliefAllowed());
+}
+$('vIso').onclick=()=>{VIEW.isoT=1;updateCtl()};
+$('vFlat').onclick=()=>{VIEW.isoT=0;updateCtl()};
+$('vRelief').onclick=()=>{scene.relief=!scene.relief;updateCtl()};
+$('rotL').onclick=()=>{VIEW.drift=false;VIEW.thetaT-=Math.PI/4};
+$('rotR').onclick=()=>{VIEW.drift=false;VIEW.thetaT+=Math.PI/4};
+cv.addEventListener('pointerdown',ev=>{if(!VIEW.isoT)return;VIEW.drift=false;VIEW.drag={x:ev.clientX};cv.setPointerCapture(ev.pointerId)});
+cv.addEventListener('pointermove',ev=>{if(!VIEW.drag)return;const d=ev.clientX-VIEW.drag.x;VIEW.drag.x=ev.clientX;VIEW.thetaT+=d*.008;VIEW.theta=VIEW.thetaT});
+const endDrag=()=>{VIEW.drag=null};cv.addEventListener('pointerup',endDrag);cv.addEventListener('pointercancel',endDrag);
+
+/* ---------- Contenido ---------- */
+const slot=t=>`<span class="slot">${t}</span>`;
+const STORY=[
+ {scene:{mode:'luz'},crumb:'<b>Ciudad de México</b>',title:'Una ciudad hecha de puntos',
+  text:`Cada punto es un establecimiento registrado en el DENUE. En la ciudad suman ${slot('cifra vinculada')}.`,fig:'Establecimientos en la CDMX'},
+ {scene:{mode:'luz',relief:true},crumb:'CDMX › <b>Relieve de densidad</b>',title:'Donde se amontonan los negocios',
+  text:`Los puntos se apilan en columnas. Cada una suma los establecimientos de una celda; el pico más alto está en ${slot('colonia vinculada')}.`,fig:'Establecimientos en la celda más alta',
+  caution:'El tamaño de la celda cambia la forma del relieve; la versión final lo fija y lo documenta.'},
+ {scene:{mode:'red'},crumb:'CDMX › <b>Red de Metro</b>',title:'El Metro como columna vertebral',
+  text:`Se encienden los negocios que están a una caminata corta de una estación. Son ${slot('% vinculado')} del total.`,fig:'Negocios a 500 m de una estación',
+  caution:'En la maqueta la cercanía es en línea recta; la versión final usa la red peatonal.'},
+ {scene:{mode:'linea',line:'L2'},crumb:'CDMX › <b>Línea 2</b>',title:'Tren de luz: Línea 2',
+  text:'Un pulso recorre la línea de Cuatro Caminos a Tasqueña y enciende los negocios de cada estación a su paso.',fig:'Negocios en la zona de la Línea 2'},
+ {scene:{mode:'estaciones'},crumb:'CDMX › <b>Estaciones</b>',title:'Estaciones que concentran comercio',
+  text:`El tamaño de cada disco indica cuántos negocios hay alrededor. La mayor concentración está en ${slot('estación vinculada')}.`,fig:'Negocios alrededor de la estación líder',
+  caution:'En transbordos, cada negocio cuenta solo para su estación más cercana.'},
+ {scene:{mode:'ranking'},crumb:'CDMX › <b>Ranking de estaciones</b>',title:'Del mapa al ranking',
+  text:'Los mismos puntos dejan el mapa y forman las barras. Cada barra está hecha de negocios, no de una cifra dibujada aparte.',fig:'Diferencia entre la 1.ª y la 6.ª estación'}
+];
+const ANSWERS=[
+ {q:'¿Qué estaciones tienen más negocios cerca?',key:/estaci/i,
+  text:`La estación con más negocios a 500 m es ${slot('estación vinculada')}, con ${slot('cifra vinculada')}. Armé un panel con las seis primeras.`,
+  fig:'Negocios a 500 m de la estación líder',scene:{mode:'ranking'},crumb:'CDMX › <b>Ranking de estaciones</b>',
+  chips:['Territorio: red de Metro','Escena: corredores del Metro','Selección: todos los giros'],view:'v_estacion_metro · radio = 500 m',caution:'Cada negocio cuenta para su estación más cercana.'},
+ {q:'¿Dónde se concentran los comercios?',key:/comercio|concentra|densidad/i,
+  text:`Levanté el relieve solo con establecimientos de comercio. La celda más densa está en ${slot('colonia vinculada')}, con ${slot('cifra vinculada')} comercios.`,
+  fig:'Comercios en la celda más densa',scene:{mode:'explorar',sectors:[0],relief:true},crumb:'CDMX › <b>Comercio · relieve</b>',
+  chips:['Territorio: CDMX','Escena: relieve de densidad','Selección: comercio (SCIAN 43–46)'],view:'v_densidad_celda · macrosector = comercio'},
+ {q:'Muéstrame la Línea 3',key:/l[ií]nea\s*3/i,
+  text:`La Línea 3 conecta Indios Verdes con Universidad. En su zona caminable hay ${slot('cifra vinculada')} negocios; el giro dominante es ${slot('giro vinculado')}.`,
+  fig:'Negocios en la zona de la Línea 3',scene:{mode:'linea',line:'L3'},crumb:'CDMX › <b>Línea 3</b>',
+  chips:['Territorio: Línea 3','Escena: corredores del Metro','Recorrido: tren de luz'],view:'v_linea_metro · línea = 3'},
+ {q:'¿Dónde se concentran los servicios?',key:/servicio/i,
+  text:`Encendí solo los establecimientos de servicios. La alcaldía con mayor proporción es ${slot('alcaldía vinculada')}, con ${slot('% vinculado')}.`,
+  fig:'Proporción de servicios en la alcaldía líder',scene:{mode:'explorar',sectors:[1]},crumb:'CDMX › <b>Servicios</b>',
+  chips:['Territorio: CDMX','Escena: ciudad de luz','Selección: servicios (SCIAN 51–81)'],view:'v_sector_alcaldia · macrosector = servicios'},
+ {q:'¿El DENUE incluye a los ambulantes?',key:/ambulante|informal|v[ií]a p[uú]blica/i,
+  text:'Solo en parte. El DENUE registra establecimientos fijos y semifijos con ubicación; el comercio en vía pública sin instalación tiene cobertura limitada. Esta respuesta viene de la nota metodológica, así que no genera panel.',
+  fig:null,scene:null,chips:['Fuente: nota metodológica','Tipo: pregunta metodológica'],view:'Búsqueda en documentación (RAG)'}
+];
+
+let view={kind:'story',step:0,ans:null};
+function renderLegend(){$('legend').innerHTML=SECT.map(s=>`<span><i style="background:${s.c}"></i>${s.n}</span>`).join('')+'<span class="hkey" hidden><i></i>Altura = establecimientos por celda</span>';updateCtl()}
+
+function renderCard(){
+  const c=$('card');
+  if(view.kind==='story'){const s=STORY[view.step];
+    c.innerHTML=`<div class="eyebrow">Historia · Vida comercial del Metro · ${view.step+1} de ${STORY.length}</div>
+      <h2>${s.title}</h2><p>${s.text}</p>
+      <div class="figure"><span class="slot big">cifra vinculada</span><span class="flabel">${s.fig}</span></div>
+      ${s.caution?`<div class="caution">${s.caution}</div>`:''}
+      <div class="source">Fuente: INEGI, DENUE · edición por definir</div>
+      <div class="controls"><button class="btn" id="prev" ${view.step===0?'disabled':''} aria-label="Panel anterior">←</button>
+        <div class="dots">${STORY.map((_,i)=>`<button aria-label="Ir al panel ${i+1}" data-step="${i}" aria-current="${i===view.step}"></button>`).join('')}</div>
+        <button class="btn primary" id="next">${view.step===STORY.length-1?'Explorar':'Siguiente →'}</button></div>
+      <div class="actions"><button class="btn" id="openExact">Vista exacta</button><button class="btn" id="explore">Explorar desde aquí</button></div>`;
+    $('crumb').innerHTML=s.crumb;
+    $('prev').onclick=()=>go(view.step-1);
+    $('next').onclick=()=>view.step===STORY.length-1?setTab('explorador'):go(view.step+1);
+    c.querySelectorAll('.dots button').forEach(b=>b.onclick=()=>go(+b.dataset.step));
+    $('openExact').onclick=openExact;$('explore').onclick=()=>setTab('explorador');
+  }else if(view.kind==='explore'){
+    const sec=new Set(scene.sectors||SECT.map((_,i)=>i));
+    c.innerHTML=`<div class="eyebrow">Explorador</div><h2>Explora la ciudad</h2>
+      <div class="field"><span class="lbl">Giro</span><div class="chips" id="secChips">${SECT.map((s,i)=>`<button class="chip" data-s="${i}" aria-pressed="${sec.has(i)}"><i style="background:${s.c}"></i>${s.n}</button>`).join('')}</div></div>
+      <div class="field"><span class="lbl">Personal ocupado</span><div class="chips">${['0–5','6–10','11–30','31–50','51–100','101–250','251 y más'].map(e=>`<button class="chip" aria-pressed="true">${e}</button>`).join('')}</div></div>
+      <div class="field"><label for="alc">Territorio</label><select id="alc"><option>Toda la ciudad</option>${['Álvaro Obregón','Azcapotzalco','Benito Juárez','Coyoacán','Cuajimalpa de Morelos','Cuauhtémoc','Gustavo A. Madero','Iztacalco','Iztapalapa','La Magdalena Contreras','Miguel Hidalgo','Milpa Alta','Tláhuac','Tlalpan','Venustiano Carranza','Xochimilco'].map(a=>`<option>${a}</option>`).join('')}</select></div>
+      <div class="figure"><span class="slot big">cifra vinculada</span><span class="flabel">Establecimientos con esta selección</span></div>
+      <div class="source">En la maqueta funcionan el filtro de giro y los controles de vista.</div>
+      <div class="actions"><button class="btn" id="openExact">Vista exacta</button><button class="btn" id="pin">Fijar como panel</button></div>`;
+    $('crumb').innerHTML='CDMX › <b>Explorador</b>';
+    c.querySelectorAll('#secChips .chip').forEach(b=>b.onclick=()=>{const on=b.getAttribute('aria-pressed')!=='true';b.setAttribute('aria-pressed',on);
+      const sel=[...c.querySelectorAll('#secChips .chip')].filter(x=>x.getAttribute('aria-pressed')==='true').map(x=>+x.dataset.s);
+      setScene({mode:'explorar',sectors:sel,relief:scene.relief})});
+    c.querySelectorAll('.chips:not(#secChips) .chip').forEach(b=>b.onclick=()=>b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')!=='true'));
+    $('openExact').onclick=openExact;
+    $('pin').onclick=ev=>{ev.target.textContent='Panel fijado';ev.target.disabled=true};
+  }else{const a=view.ans;
+    c.innerHTML=`<div class="eyebrow">Panel del Analista</div><h2>${a.q}</h2><p>${a.text}</p>
+      ${a.fig?`<div class="figure"><span class="slot big">cifra vinculada</span><span class="flabel">${a.fig}</span></div>`:''}
+      ${a.caution?`<div class="caution">${a.caution}</div>`:''}
+      <div class="source">Fuente: INEGI, DENUE · edición por definir</div>
+      <div class="actions"><button class="btn" id="back">← Volver a la historia</button><button class="btn" id="openExact">Vista exacta</button></div>`;
+    $('crumb').innerHTML=a.crumb;
+    $('back').onclick=()=>{setTab('historias');go(view.step)};$('openExact').onclick=openExact;
+  }
+}
+
+function go(i){view={kind:'story',step:Math.max(0,Math.min(STORY.length-1,i)),ans:null};$('exact').hidden=true;setScene({...STORY[view.step].scene});renderCard()}
+
+function openExact(){
+  const m=scene.mode;let title,head,rows,meta;
+  if(m==='ranking'||m==='estaciones'||m==='red'){title='Estaciones con más negocios cerca';head=['#','Estación','Líneas','Negocios a 500 m','Giro dominante'];
+    rows=TOP.map((s,i)=>[i+1,s.n,s.lines.map(l=>l.slice(1)).join(', '),slot('cifra'),slot('giro')]);meta=['Vista: v_estacion_metro','Parámetros: radio = 500 m · asignación a la estación más cercana'];}
+  else if(m==='linea'){const l=LINES[scene.line];title=`Estaciones de la ${l.name}`;head=['Estación','Negocios a 500 m','Giro dominante'];
+    rows=l.st.slice(0,8).map(s=>[s[0],slot('cifra'),slot('giro')]);meta=[`Vista: v_linea_metro`,`Parámetros: línea = ${scene.line.slice(1)} · radio = 500 m`];}
+  else if(scene.relief){title='Celdas con más establecimientos';head=['#','Colonia','Alcaldía','Establecimientos','Giro dominante'];
+    rows=[1,2,3,4,5,6].map(i=>[i,slot('colonia'),slot('alcaldía'),slot('cifra'),slot('giro')]);meta=['Vista: v_densidad_celda','Parámetros: tamaño de celda por definir'];}
+  else{title='Establecimientos por alcaldía';head=['Alcaldía','Establecimientos','Por cada mil habitantes'];
+    rows=['Iztapalapa','Cuauhtémoc','Gustavo A. Madero','Benito Juárez','Coyoacán','Miguel Hidalgo'].map(a=>[a,slot('cifra'),slot('tasa')]);meta=['Vista: v_establecimientos_alcaldia','Cruce: Censo de Población y Vivienda 2020'];}
+  $('exactTitle').textContent=title;
+  $('exactTable').innerHTML=`<thead><tr>${head.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((v,i)=>`<td class="${i===0?'num':''}">${v}</td>`).join('')}</tr>`).join('')}</tbody>`;
+  $('exactMeta').innerHTML=[...meta,'Edición: DENUE por definir'].map(x=>`<div>${x}</div>`).join('');
+  $('method').hidden=true;$('exact').hidden=false;$('closeExact').focus();
+}
+
+/* ---------- El Analista ---------- */
+const msgs=$('msgs');
+function addMsg(html,cls){const d=document.createElement('div');d.className='msg '+cls;d.innerHTML=html;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
+addMsg('<p>Hola. Pregúntame sobre los negocios de la Ciudad de México. Si la respuesta tiene una forma en el mapa, la verás en la escena como un panel nuevo.</p>','bot');
+$('suggest').innerHTML=ANSWERS.map((a,i)=>`<button data-i="${i}">${a.q}</button>`).join('');
+$('suggest').querySelectorAll('button').forEach(b=>b.onclick=()=>ask(ANSWERS[+b.dataset.i].q));
+$('ask').addEventListener('submit',ev=>{ev.preventDefault();const v=$('q').value.trim();if(v){ask(v);$('q').value=''}});
+
+function ask(q){
+  addMsg(q.replace(/</g,'&lt;'),'user');
+  const wait=addMsg('<span class="thinking">Resolviendo lugar · traduciendo giro · consultando vistas…</span>','bot');
+  const a=ANSWERS.find(x=>x.key.test(q));
+  setTimeout(()=>{
+    if(!a){wait.innerHTML='<p>En esta maqueta solo respondo las preguntas sugeridas. En la versión final, tu pregunta pasaría por la resolución del lugar, la traducción a SCIAN y la consulta a las vistas semánticas.</p>';return}
+    wait.innerHTML=`<p>${a.text}</p><div class="resp"><div class="tag">${a.scene?'Panel generado':'Respuesta sin panel'}</div>
+      ${a.fig?`<div><span class="slot big">cifra vinculada</span></div>`:''}
+      <div class="statechips">${a.chips.map(c=>`<span>${c}</span>`).join('')}</div>
+      <details><summary>Cómo se calculó</summary><div class="meta" style="margin-top:6px"><div>${a.view}</div><div>Edición: DENUE por definir</div></div></details>
+      ${a.scene?'<div><button class="btn">Ver en la escena</button></div>':''}</div>`;
+    const b=wait.querySelector('.btn');if(b)b.onclick=()=>showAnswer(a);
+    msgs.scrollTop=msgs.scrollHeight;
+    if(a.scene)showAnswer(a);
+  },reduce?0:850);
+}
+function showAnswer(a){view={kind:'analyst',step:view.step,ans:a};$('exact').hidden=true;$('method').hidden=true;
+  if(a.scene.relief)VIEW.isoT=1;setScene({...a.scene});
+  if(innerWidth<=880)setTab('historias',true);renderCard()}
+
+/* ---------- Pestañas ---------- */
+function setTab(t,keepView){
+  document.querySelectorAll('.tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.tab===t));
+  document.body.className='tab-'+t;
+  $('method').hidden=t!=='metodologia';if(t==='metodologia'){$('exact').hidden=true;$('closeMethod').focus()}
+  if(t==='historias'&&!keepView&&view.kind!=='story')go(view.step);
+  if(t==='explorador'){view={kind:'explore',step:view.step,ans:null};setScene({mode:'explorar',sectors:null,relief:true});renderCard()}
+  if(t==='analista'){if(innerWidth>880)$('q').focus();else setTimeout(()=>$('q').focus(),50)}
+}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+$('closeExact').onclick=()=>{$('exact').hidden=true};
+$('closeMethod').onclick=()=>{$('method').hidden=true;setTab('historias',true)};
+addEventListener('keydown',ev=>{if(ev.target.closest('input,select,textarea'))return;
+  if(ev.key==='Escape'){$('exact').hidden=true}
+  if(view.kind==='story'){if(ev.key==='ArrowRight')go(view.step+1);if(ev.key==='ArrowLeft')go(view.step-1)}});
+
+/* ---------- Arranque ---------- */
+renderLegend();
+new ResizeObserver(resize).observe(cv);
+resize();go(0);
+requestAnimationFrame(frame);
+})();
+</script>
+
+</body></html>

@@ -1,0 +1,9 @@
+[project]
+name = "pulso-denue-pipeline"
+version = "0.1.0"
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "psycopg[binary]>=3.2",
+  "dbt-postgres>=1.9",
+  "pyshp>=3.1.7",
+]
