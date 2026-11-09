@@ -1,0 +1,8 @@
+{
+  "name": "pulso-proto-renderizador",
+  "private": true,
+  "type": "module",
+  "scripts": { "dev": "vite --host", "build": "vite build", "preview": "vite preview --host" },
+  "dependencies": { "three": "0.170.0", "postprocessing": "6.36.4" },
+  "devDependencies": { "vite": "6.0.7" }
+}

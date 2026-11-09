@@ -1,0 +1,18 @@
+{
+  "nota": "Medido desde el Artifact publicado (versión sin brillo), en Chrome Android sobre un Samsung S26 Ultra",
+  "brillo": false,
+  "cuadroMaxMs": 25,
+  "cuadroP95ms": 16.8,
+  "cuadros": 720,
+  "dispositivo": "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Mobile Safari/537.36",
+  "dprUsado": 1.5,
+  "fecha": "2026-11-09T00:19:50.264Z",
+  "fpsP5": 59.5,
+  "fpsPromedio": 60,
+  "gpu": "ANGLE (Qualcomm, Adreno (TM) 840, OpenGL ES 3.2)",
+  "gpuMedianaMs": null,
+  "gpuMedidas": 0,
+  "gpuP95Ms": null,
+  "pantalla": "384x648@2.8125",
+  "puntos": 462729
+}
