@@ -1,6 +1,6 @@
 # Pulso DENUE CDMX — Síntesis del proyecto
 
-Nov 2, 2026 · @Ricardo MMD · Revisión 2
+Nov 8, 2026 · @Ricardo MMD · Revisión 3
 
 ## Cómo usar este documento
 
@@ -9,6 +9,13 @@ Pulso DENUE CDMX está en fase de concepto y diseño: hay decisiones cerradas de
 **Para retomar en otro chat:** pega este documento y pide continuar desde "Próximos pasos".
 
 **Para Claude Code:** guárdalo en el repositorio (por ejemplo, `docs/concepto.md`). Las secciones de vocabulario, contrato de escena, persistencia, recorridos y coreografía funcionan como especificación.
+
+**Cambios en la revisión 3 (8 nov 2026)**
+
+- Se actualiza el estado real: la capa `semantic` tiene 18 tablas con `lugar` (ver "Próximos pasos"); ya existen las de Metro, Colonias gemelas y Cómo se llaman las cosas, además de `censo_sector` y `cobertura_censo`.
+- Se unifica la numeración de prototipos: 1 = cobertura de campos y compuerta de conglomerados, 2 = renderizador, 3 = resolver lugar.
+- Se corrige la fuente del Metro: estaciones y líneas vienen de OpenStreetMap (`pipeline/cargar_osm_metro.py`); no se carga GTFS.
+- Se añade "Estado de avance" con lo hecho, lo pendiente y los desfases conocidos.
 
 **Cambios en la revisión 2**
 
@@ -93,7 +100,7 @@ El DENUE es un directorio de establecimientos con ubicación, no un censo: la un
 | Tipo de establecimiento (fijo o semifijo) | Filtro disponible |
 | Organización jurídica (persona física o moral) | Filtro disponible |
 
-Muchos de estos campos vienen incompletos. Hay que medir su cobertura en CDMX antes de construir cada escena (prototipo 2).
+Muchos de estos campos vienen incompletos. Hay que medir su cobertura en CDMX antes de construir cada escena (prototipo 1).
 
 **Trampas de calidad**
 
@@ -184,11 +191,11 @@ La ciudad de luz es la escena neutra de inicio y de paso entre escenas; hay 10 e
 | Escena | Pregunta | Campo o cruce | Metáfora | Cuidado |
 | --- | --- | --- | --- | --- |
 | Ciudad de luz (neutra) | ¿Dónde vive la economía de la ciudad? | Ubicación, SCIAN | Todos los establecimientos como puntos sobre una CDMX oscura | — |
-| Ciudades dentro de la ciudad | ¿Cuánta economía cabe en un mercado, plaza o central? | Conglomerado, número de local | Cada conglomerado es una esfera de partículas que se abre en pasillos por giro | Compuerta de cobertura (prototipo 2) |
+| Ciudades dentro de la ciudad | ¿Cuánta economía cabe en un mercado, plaza o central? | Conglomerado, número de local | Cada conglomerado es una esfera de partículas que se abre en pasillos por giro | Compuerta de cobertura (prototipo 1) |
 | La ciudad que brilla en línea | ¿Qué negocios declaran presencia digital y dónde? | Web, correo, redes | Halo en negocios con presencia digital; brecha por alcaldía | Mide presencia declarada, no real |
 | Las calles hablan | ¿Qué calles se especializan en algo? | Vialidad + SCIAN, red vial | Calles con grosor por densidad y color por giro dominante | Asignación por nombre y cercanía |
 | Islas de 15 minutos | ¿Desde dónde se resuelve la vida diaria caminando? | Red peatonal OSM, población | Las zonas completas emergen del agua como islas | Categorías esenciales fijas |
-| Corredores del Metro | ¿Qué vida comercial tiene cada línea? | Estaciones y líneas (GTFS) | Tren de luz que enciende negocios estación por estación | Zona caminable definida abajo |
+| Corredores del Metro | ¿Qué vida comercial tiene cada línea? | Estaciones y líneas (OpenStreetMap) | Tren de luz que enciende negocios estación por estación | Zona caminable definida abajo |
 | El ADN de cada alcaldía | ¿Qué hace única a cada alcaldía? | Cociente de localización | Hélice con segmentos por sector; se transforma al comparar | — |
 | Colonias gemelas | ¿Qué colonia se parece a la mía? | Perfil sectorial, similitud coseno | Arcos de luz entre colonias gemelas | Explicar por qué se parecen |
 | Rarezas | ¿Qué negocios son únicos en su territorio? | Conteo de clases SCIAN | Apagón general; queda una constelación de lo raro, con el nombre de cada negocio | — |
@@ -263,8 +270,9 @@ La complejidad está en el cálculo previo, no en el navegador: el frontend anim
 - DENUE CDMX (descarga masiva por edición).
 - Marco Geoestadístico INEGI: alcaldías, AGEB, manzanas, vialidades.
 - Censo 2020: población por AGEB y manzana.
-- Datos abiertos CDMX: polígonos de colonias, estaciones, GTFS de transporte y padrón de mercados públicos.
-- OpenStreetMap: red peatonal, mercados y centros comerciales.
+- Datos abiertos CDMX: polígonos de colonias, estaciones de transporte y padrón de mercados públicos.
+- OpenStreetMap: red peatonal, calles, estaciones y líneas del Metro, mercados y centros comerciales.
+- GTFS de CDMX: no se carga por ahora; solo se necesitaría si se agregan Metrobús o Tren Ligero.
 
 **Productos del pipeline por edición**
 
@@ -525,6 +533,102 @@ Así se respeta la regla de nunca tener dos movimientos fuertes al mismo tiempo:
 
 **Celular:** todas las duraciones se multiplican por 0.8 (estándar 0.96–1.18 s), escalonamiento de 0.1–0.2 s, agregados por AGEB o colonia y sin vuelos rasantes largos.
 
+## Estado de avance
+
+Corte: 8 nov 2026. Capa de datos avanzada; producto sin iniciar.
+
+| Frente | Estado |
+| --- | --- |
+| Datos (`raw`, `staging`, `core`) | Cuatro ediciones cargadas; SCD tipo 2 y reconciliación; colonia, tramo y conglomerados (5 993, cinco fuentes); Censos Económicos 2024 y validación contra el DENUE |
+| Capa `semantic` | 18 tablas: edicion, establecimiento, territorio, actividad, perfil_sector, conteo_clase, calle, conglomerado, dinamica, resumen_territorio, censo_sector, cobertura_censo, metro_estacion, metro_linea, metro_recorrido, colonia_gemela, palabra_nombre, lugar. Falta Islas de 15 minutos |
+| Infraestructura | Clúster PostgreSQL 18 y tres roles operando |
+| Prototipo 1 | Cerrado: compuerta de conglomerados en verde |
+| Prototipo 2 | Cerrado: 60 FPS con todos los puntos en un S26 Ultra; faltan prueba con brillo y en gama media |
+| Prototipo 3 | Cerrado: resuelve lugares con 87 % de acierto en casos nuevos; falta respaldo con modelo y probar con usuarios reales |
+| Contrato, backend, frontend, Analista | Sin código |
+| Diseño editorial | Sin guiones ni sistema visual |
+
+**Desfases conocidos**
+
+- Islas de 15 minutos no tiene red peatonal ni accesibilidad calculada (Pandana o r5py).
+- `pgvector` está habilitado en la base, pero aún no hay embeddings para traducir giros ni perfiles de similitud vectoriales. El glosario de giros (lenguaje común → SCIAN) sigue pendiente.
+- La edición DENUE 11/2026 se publica el 25 de noviembre: probar con ella la recarga y la reconciliación.
+
+## Resultado del prototipo 1
+
+Edición 2026-05 (462 729 establecimientos). Consulta reproducible: `dbt/analyses/prototipo1_compuerta_conglomerados.sql`.
+
+| Métrica | Resultado |
+| --- | --- |
+| Establecimientos con tipo y nombre de conglomerado (campo DENUE) | 21.0 % (97 178) |
+| Mercados del padrón (329) con un grupo MERCADO PUBLICO del DENUE que cruza su círculo y al menos 10 locales | 88.4 % (291) |
+| Ídem, y además con nombre parecido (definición de la compuerta) | **82.1 %** (270) |
+
+**Compuerta: verde** (umbral de 70 %). Ciudades dentro de la ciudad entra a la primera versión tal cual, sin sustituirla por Rarezas. Los conglomerados de `dim_conglomerado` ya incorporan además las otras fuentes (OSM, tianguis, mercados sobre ruedas), útiles para los casos fuera del campo.
+
+**Otras coberturas (2026-05)**
+
+| Campo | Cobertura |
+| --- | --- |
+| Nombre de vialidad | 100 % con valor; el tramo de calle se asigna 76.7 % por nombre, 6.8 % por nombre parecido, 15.1 % por cercanía y 1.4 % sin asignar |
+| Sitio web | 10.6 % |
+| Correo | 22.6 % |
+| Sitio web o correo | 25.1 % |
+
+**Notas y límites**
+
+- La cobertura del campo es de 21.0 % en la tabla de pertenencia y 22.1 % en el campo crudo; la diferencia son registros cuyo punto no se pudo emparejar con su grupo. Conviene revisar esos casos.
+- La coincidencia del padrón usa intersección espacial más similitud de nombre; no se revisó a mano una muestra. Un mercado grande vecino podría haberse contado por error: conviene validar unas 20 parejas antes de dar la cifra por definitiva.
+- Redes sociales (Facebook, Twitter) no se midieron: el campo no está cargado en el modelo, así que "La ciudad que brilla en línea" solo cuenta web y correo por ahora.
+- La presencia digital es baja (25 %): la escena mostrará una brecha real, pero el texto debe decir que mide presencia declarada.
+
+## Resultado del prototipo 2
+
+Implementado en `prototipos/02-renderizador/` (Vite + Three.js, WebGL2, un solo lienzo, fondo desde datos propios, 7 macrosectores con paleta provisional, encendido desde el Zócalo, selección que atenúa y telemetría). Paquete exportado de la base: 462 729 puntos en 3.2 MB (7 bytes por punto).
+
+Costo de GPU por cuadro, medido con temporizador de GPU en una GTX 1660 SUPER (1080×873, recorrido de 12 s):
+
+| Configuración | Mediana | p95 |
+| --- | --- | --- |
+| dpr 1, sin brillo | 3.55 ms | 4.75 ms |
+| dpr 1, con brillo | 9.22 ms | 10.27 ms |
+| dpr 2.5, sin brillo | 11.82 ms | 18.54 ms |
+
+Lectura: dibujar todos los puntos es barato; el costo lo ponen el relleno de píxeles (resolución) y el brillo. En escritorio hay holgura para 60 FPS (16.7 ms).
+
+**Prueba en celular real (9 nov 2026): superada.** Samsung S26 Ultra (Adreno 840), Chrome Android, ventana de 384×648 a dpr 1.5, sin brillo, con los 462 729 puntos y un recorrido de 12 s con zoom y órbita (720 cuadros):
+
+| Métrica | Resultado |
+| --- | --- |
+| FPS promedio | 60 |
+| FPS en el peor 5 % | 59.5 |
+| Cuadro p95 | 16.8 ms |
+| Cuadro máximo | 25 ms |
+
+Cumple el criterio de 60 cuadros por segundo con todos los puntos. El temporizador de GPU no está disponible en este navegador móvil, así que no hay milisegundos de GPU; el techo de 60 FPS podría ocultar holgura o estar justo en el límite. Falta medir con brillo, en un teléfono de gama media (el presupuesto del diseño) y en iOS. Resultado crudo en `prototipos/02-renderizador/resultados/bench-movil-s26-ultra-2026-11-09.json`. El Artifact de prueba (sin brillo) es la versión del prototipo que se midió en el teléfono.
+
+**Notas:** los FPS del navegador automatizado de desarrollo no son válidos (un lienzo vacío daba 5 FPS); por eso se mide GPU por cuadro.
+
+## Resultado del prototipo 3
+
+Implementado en `prototipos/03-resolver-lugar/`: la herramienta "Resolver lugar" del Analista (definición para la API de Claude en `herramienta.py`). Es determinista y sin modelo de lenguaje; lee solo la nueva vista `semantic.lugar`, un catálogo único de 14 mil lugares (ciudad, 16 alcaldías, 1 543 colonias, 163 estaciones, 2 885 conglomerados y 9 655 calles) con punto representativo, y un glosario CDMX de alias (`glosario.json`).
+
+Entiende alcaldías y apodos ("GAM"), colonias y zonas que abarcan varias colonias ("la Roma" = Roma Norte y Roma Sur), estaciones y líneas del Metro, mercados, calles, errores de escritura ("Iztapalpa") y relaciones espaciales ("cerca del metro Balderas" = 500 m; "a 10 minutos del Zócalo" = 800 m). Responde con un estado (`resuelto`, `grupo`, `ambiguo`, `sin_resultado`, `fuera_de_cdmx`), confianza y una nota para el usuario; rechaza referencias personales ("mi casa") y municipios de fuera ("Toluca").
+
+**Resultados** (128 formas de nombrar lugares, ejecutadas con el rol de solo lectura del Analista):
+
+| Banco | Casos | Correctos | Nota |
+| --- | --- | --- | --- |
+| Ajuste | 66 | 66 | Se usó para desarrollar; no mide generalización |
+| Ciego 1 | 38 | 33 antes de corregir (87 %); 38 después | Las 5 fallas fueron errores reales del resolutor y se corrigieron |
+| Ciego 2 | 24 | 24 | Escrito y fijado antes de ejecutarlo; una sola corrida |
+
+La cifra que mejor estima el desempeño con formas nuevas es la del banco ciego 1 antes de corregir: **87 %**. Los bancos ciegos los escribió el mismo equipo que el resolutor, así que probablemente sobrestiman el desempeño con usuarios reales. Una revisión a ojo del banco ciego 2 encontró un acierto falso ("Calzada de Tlalpan" devolvía otra vía) que las expectativas permisivas no detectaban; se corrigió y se endurecieron las expectativas. Tiempo por consulta: 110–250 ms por el túnel SSH (aún no medido desde el VPS).
+
+**Hallazgos de datos:** el catálogo de calles guarda "Calzada de Tlalpan" como `DE TLALPAN` (sin el tipo de vía, con la preposición); "Eje Central" figura como Avenida Lázaro Cárdenas; existen polígonos de colonia duplicados con el mismo nombre ("Anzures"); y hay calles y estaciones llamadas como municipios de fuera ("Toluca", "Ecatepec").
+
+**Pendiente:** respaldo con modelo ligero (Haiku) para formas que ningún método cubre; probar con preguntas reales de usuarios; alias de vías (ejes viales) y de más apodos; medir la latencia desde el VPS.
+
 ## Riesgos, primera versión y próximos pasos
 
 Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin mapa base, la cobertura de campos y la resolución de lugares.
@@ -539,7 +643,7 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 | Costo de la API | Modelo ligero para clasificar, caché de prompt y de intención, límites de uso y presupuesto con modo degradado |
 | Campos incompletos | Medir cobertura antes de construir cada escena |
 | Datos desactualizados | Fecha de corte visible en todas las vistas; paneles con edición y aviso de edición nueva |
-| Cobertura insuficiente del campo conglomerado | Compuerta de decisión en el prototipo 2, enriquecimiento espacial y escena de reemplazo |
+| Cobertura insuficiente del campo conglomerado | Compuerta de decisión en el prototipo 1, enriquecimiento espacial y escena de reemplazo |
 | Costo de la alternativa 2D por escena | Componentes 2D genéricos por tipo de resultado |
 | Dependencia de Theatre.js | Formato propio de recorrido; Theatre.js solo como editor |
 
@@ -547,7 +651,7 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 
 *Cobertura del campo conglomerado.* Ciudades dentro de la ciudad está en la primera versión y depende de un campo opcional.
 
-1. **Medir dos coberturas en el prototipo 2:**
+1. **Medir dos coberturas en el prototipo 1:**
    - porcentaje de establecimientos con tipo y nombre de conglomerado;
    - porcentaje de mercados del padrón oficial de mercados públicos que aparecen en el DENUE con su nombre y al menos 10 locales.
 2. **Compuerta de decisión:**
@@ -587,11 +691,11 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 - [x] Fijar la edición base del DENUE (05/2026) y actualizar las cifras de escala
 - [x] Conseguir las ediciones anteriores del DENUE (05/2024, 11/2024, 05/2025; descargadas a mano)
 - [x] Cargar las cuatro ediciones a `raw` y construir `staging` y `core` (dbt; ver `dbt/README.md`)
-- [ ] Prototipo 1: cobertura de campos y compuerta de conglomerados
-- [ ] Prototipo 2: renderizador sin mapa base con paleta provisional
-- [ ] Prototipo 3: resolver lugar, junto con el glosario CDMX de giros (lenguaje común → SCIAN)
+- [x] Prototipo 1: cobertura de campos y compuerta de conglomerados: **verde** (82.1 % del padrón; ver "Resultado del prototipo 1")
+- [x] Prototipo 2: renderizador sin mapa base con paleta provisional (escritorio: GPU 3.55 ms por cuadro; S26 Ultra: 60 FPS, p5 59.5)
+- [x] Prototipo 3: resolver lugar (87 % en casos nuevos; ver "Resultado del prototipo 3"); falta el glosario CDMX de giros (lenguaje común → SCIAN)
 - [ ] Contrato de escena en Pydantic v2 y exportación a JSON Schema
-- [x] Catálogo de vistas semánticas, primera versión: 12 tablas en `semantic` (ver `dbt/README.md`); faltan las de Metro, Islas de 15 minutos, Colonias gemelas y Cómo se llaman las cosas
+- [x] Catálogo de vistas semánticas, primera versión: 18 tablas en `semantic` (ver `dbt/README.md`), con `lugar` para resolver lugares, incluidas Metro, Colonias gemelas y Cómo se llaman las cosas; falta la de Islas de 15 minutos
 - [ ] Banco de preguntas de evaluación del Analista
 - [ ] Guion panel por panel de "Vida comercial del Metro"
 - [x] Macrosectores definidos (7 familias de sectores SCIAN; ver `docs/Core — Documentación del modelo de datos.md`, sección 4.11)
