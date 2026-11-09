@@ -1,0 +1,304 @@
+{
+  "descripcion": "Alias de lugares de CDMX que la búsqueda por nombre no resuelve bien: zonas que abarcan varias colonias, apodos y nombres que el catálogo oficial no usa. Claves en mayúsculas sin acentos ni artículos iniciales. Cada destino se valida contra semantic.lugar al resolver.",
+  "alias": {
+    "ROMA": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "ROMA NORTE",
+          "alcaldia_norm": "CUAUHTEMOC"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "ROMA SUR",
+          "alcaldia_norm": "CUAUHTEMOC"
+        }
+      ],
+      "nota": "La Roma abarca las colonias Roma Norte y Roma Sur."
+    },
+    "CONDESA": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "CONDESA",
+          "alcaldia_norm": "CUAUHTEMOC"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "HIPODROMO CONDESA",
+          "alcaldia_norm": "CUAUHTEMOC"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "HIPODROMO",
+          "alcaldia_norm": "CUAUHTEMOC"
+        }
+      ],
+      "nota": "La Condesa se entiende como las colonias Condesa, Hipódromo Condesa e Hipódromo."
+    },
+    "POLANCO": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "POLANCO I SECCION"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "POLANCO II SECCION"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "POLANCO III SECCION"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "POLANCO IV SECCION"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "POLANCO V SECCION"
+        }
+      ],
+      "nota": "Polanco abarca sus cinco secciones. Para la estación del Metro di \"metro Polanco\"."
+    },
+    "DEL VALLE": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "DEL VALLE NORTE"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "DEL VALLE CENTRO"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "DEL VALLE SUR"
+        }
+      ],
+      "nota": "La Del Valle abarca Del Valle Norte, Centro y Sur."
+    },
+    "CENTRO": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "CENTRO",
+          "alcaldia_norm": "CUAUHTEMOC"
+        }
+      ],
+      "nota": "El Centro se entiende como la colonia Centro de la alcaldía Cuauhtémoc (Centro Histórico)."
+    },
+    "CENTRO HISTORICO": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "CENTRO",
+          "alcaldia_norm": "CUAUHTEMOC"
+        }
+      ],
+      "nota": "El Centro Histórico se entiende como la colonia Centro de la alcaldía Cuauhtémoc."
+    },
+    "ZOCALO": {
+      "destinos": [
+        {
+          "tipo": "estacion_metro",
+          "nombre_norm": "ZOCALO TENOCHTITLAN"
+        }
+      ],
+      "nota": "Uso la estación Zócalo/Tenochtitlan como punto de referencia del Zócalo."
+    },
+    "TEPITO": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "MORELOS",
+          "alcaldia_norm": "CUAUHTEMOC"
+        }
+      ],
+      "nota": "Tepito es un barrio dentro de la colonia Morelos, alcaldía Cuauhtémoc."
+    },
+    "CU": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "CIUDAD UNIVERSITARIA"
+        }
+      ]
+    },
+    "LA MERCED": {
+      "destinos": [
+        {
+          "tipo": "conglomerado",
+          "nombre_norm": "MERCED NAVE MAYOR"
+        }
+      ],
+      "nota": "Uso el mercado Merced Nave Mayor como referencia de La Merced."
+    },
+    "MERCED": {
+      "destinos": [
+        {
+          "tipo": "conglomerado",
+          "nombre_norm": "MERCED NAVE MAYOR"
+        }
+      ],
+      "nota": "Uso el mercado Merced Nave Mayor como referencia de La Merced."
+    },
+    "CENTRAL DE ABASTO": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "CENTRAL DE ABASTO",
+          "alcaldia_norm": "IZTAPALAPA"
+        }
+      ]
+    },
+    "GAM": {
+      "destinos": [
+        {
+          "tipo": "alcaldia",
+          "nombre_norm": "GUSTAVO A MADERO"
+        }
+      ]
+    },
+    "CDMX": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "CD MX": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "DF": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "D F": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "CIUDAD": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "SANTA FE": {
+      "destinos": [
+        {
+          "tipo": "colonia",
+          "nombre_norm": "SANTA FE"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "SANTA FE CENTRO CIUDAD"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "SANTA FE CUAJIMALPA"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "SANTA FE LA LOMA"
+        },
+        {
+          "tipo": "colonia",
+          "nombre_norm": "SANTA FE PENA BLANCA"
+        }
+      ],
+      "nota": "Santa Fe abarca varias colonias en Álvaro Obregón y Cuajimalpa."
+    },
+    "TODA LA CIUDAD": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ]
+    },
+    "DISTRITO FEDERAL": {
+      "destinos": [
+        {
+          "tipo": "ciudad",
+          "nombre_norm": "CIUDAD DE MEXICO"
+        }
+      ],
+      "nota": "El Distrito Federal es hoy la Ciudad de México."
+    },
+    "CUAJIMALPA": {
+      "destinos": [
+        {
+          "tipo": "alcaldia",
+          "nombre_norm": "CUAJIMALPA DE MORELOS"
+        }
+      ],
+      "nota": "Entendí la alcaldía Cuajimalpa de Morelos; para la colonia Cuajimalpa (el centro) dilo con el tipo: \"colonia Cuajimalpa\"."
+    },
+    "EJE CENTRAL": {
+      "destinos": [
+        {
+          "tipo": "calle",
+          "nombre_norm": "LAZARO CARDENAS",
+          "alcaldia_norm": "CUAUHTEMOC"
+        },
+        {
+          "tipo": "calle",
+          "nombre_norm": "LAZARO CARDENAS",
+          "alcaldia_norm": "BENITO JUAREZ"
+        }
+      ],
+      "nota": "El Eje Central es la avenida Lázaro Cárdenas en el catálogo de calles."
+    }
+  },
+  "fuera_de_cdmx": [
+    "NAUCALPAN",
+    "ECATEPEC",
+    "NEZAHUALCOYOTL",
+    "NEZA",
+    "TLALNEPANTLA",
+    "TOLUCA",
+    "CUERNAVACA",
+    "PUEBLA",
+    "GUADALAJARA",
+    "MONTERREY",
+    "CHALCO",
+    "TEXCOCO",
+    "HUIXQUILUCAN",
+    "ATIZAPAN",
+    "COACALCO",
+    "TECAMAC",
+    "PACHUCA",
+    "QUERETARO",
+    "EDOMEX",
+    "TULTITLAN",
+    "CUAUTITLAN",
+    "LA PAZ",
+    "CHIMALHUACAN",
+    "IXTAPALUCA",
+    "NICOLAS ROMERO",
+    "ZUMPANGO",
+    "TEOTIHUACAN",
+    "TEPOTZOTLAN",
+    "AMECAMECA",
+    "VALLE DE CHALCO",
+    "SATELITE",
+    "CIUDAD SATELITE"
+  ]
+}

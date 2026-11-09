@@ -1,0 +1,220 @@
+[
+ {
+  "id": 1,
+  "consulta": "Álvaro Obregón",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Álvaro Obregón"
+  ]
+ },
+ {
+  "id": 2,
+  "consulta": "colonia del Valle",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Del Valle Norte",
+   "Del Valle Centro",
+   "Del Valle Sur"
+  ]
+ },
+ {
+  "id": 3,
+  "consulta": "la Narvarte Poniente",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Narvarte Poniente"
+  ]
+ },
+ {
+  "id": 4,
+  "consulta": "San Ángel",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "colonia",
+  "nombres": [
+   "San Angel"
+  ]
+ },
+ {
+  "id": 5,
+  "consulta": "metro Auditorio",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Auditorio"
+  ]
+ },
+ {
+  "id": 6,
+  "consulta": "metro Tasqueña",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Tasqueña"
+  ]
+ },
+ {
+  "id": 7,
+  "consulta": "estación Hidalgo",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Hidalgo"
+  ]
+ },
+ {
+  "id": 8,
+  "consulta": "a 7 minutos del metro Coyoacán",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Coyoacán"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 560
+ },
+ {
+  "id": 9,
+  "consulta": "cerca de la Condesa",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Condesa"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 800
+ },
+ {
+  "id": 10,
+  "consulta": "cerca de la alcaldía Tlalpan",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Tlalpan"
+  ],
+  "relacion": "en"
+ },
+ {
+  "id": 11,
+  "consulta": "Santa Fe Cuajimalpa",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Santa Fe Cuajimalpa"
+  ]
+ },
+ {
+  "id": 12,
+  "consulta": "Mercado de la Merced",
+  "estado_en": [
+   "resuelto",
+   "grupo"
+  ],
+  "tipo": "conglomerado",
+  "nombres": [
+   "Mercado La Merced"
+  ]
+ },
+ {
+  "id": 13,
+  "consulta": "Tacubaya",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "nombres": [
+   "Tacubaya"
+  ]
+ },
+ {
+  "id": 14,
+  "consulta": "Guadalajara",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 15,
+  "consulta": "Cuernavaca",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 16,
+  "consulta": "Ciudad Nezahualcóyotl",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 17,
+  "consulta": "mi trabajo",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 18,
+  "consulta": "donde vivo",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 19,
+  "consulta": "xyz123",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 20,
+  "consulta": "la ciudad",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 21,
+  "consulta": "Insurgentes Norte",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Insurgentes Norte"
+  ]
+ },
+ {
+  "id": 22,
+  "consulta": "colonia Escandón",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Escandon I Seccion",
+   "Escandon Ii Seccion"
+  ]
+ },
+ {
+  "id": 23,
+  "consulta": "alcaldía Gustavo A. Madero",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Gustavo A. Madero"
+  ]
+ },
+ {
+  "id": 24,
+  "consulta": "Calzada de Tlalpan",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Calzada de Tlalpan"
+  ]
+ }
+]

@@ -1,0 +1,348 @@
+[
+ {
+  "id": 1,
+  "consulta": "colonia Roma Sur",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Roma Sur"
+  ]
+ },
+ {
+  "id": 2,
+  "consulta": "Tláhuac",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Tláhuac"
+  ]
+ },
+ {
+  "id": 3,
+  "consulta": "Milpa Alta",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Milpa Alta"
+  ]
+ },
+ {
+  "id": 4,
+  "consulta": "Venustiano Carranza",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Venustiano Carranza"
+  ]
+ },
+ {
+  "id": 5,
+  "consulta": "Cuajimalpa",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Cuajimalpa de Morelos"
+  ]
+ },
+ {
+  "id": 6,
+  "consulta": "Xochimilko",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Xochimilco"
+  ],
+  "nota": "errata"
+ },
+ {
+  "id": 7,
+  "consulta": "Coyoacan",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Coyoacán"
+  ],
+  "nota": "sin acento"
+ },
+ {
+  "id": 8,
+  "consulta": "Iztacalco",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Iztacalco"
+  ]
+ },
+ {
+  "id": 9,
+  "consulta": "Ciudad de Mexico",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 10,
+  "consulta": "toda la CDMX",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 11,
+  "consulta": "Distrito Federal",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 12,
+  "consulta": "la Nápoles",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Napoles"
+  ]
+ },
+ {
+  "id": 13,
+  "consulta": "la Anzures",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Anzures"
+  ]
+ },
+ {
+  "id": 14,
+  "consulta": "Xoco",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Xoco"
+  ]
+ },
+ {
+  "id": 15,
+  "consulta": "la Guerrero",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Guerrero"
+  ]
+ },
+ {
+  "id": 16,
+  "consulta": "Lomas de Chapultepec",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Lomas De Chapultepec I Seccion",
+   "Lomas De Chapultepec Viii Seccion"
+  ]
+ },
+ {
+  "id": 17,
+  "consulta": "cerca del metro Chapultepec",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Chapultepec"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 500
+ },
+ {
+  "id": 18,
+  "consulta": "a 15 minutos del metro Universidad",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Universidad"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 1200
+ },
+ {
+  "id": 19,
+  "consulta": "metro Mixcoac",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Mixcoac"
+  ]
+ },
+ {
+  "id": 20,
+  "consulta": "estación Observatorio",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Observatorio"
+  ]
+ },
+ {
+  "id": 21,
+  "consulta": "línea 12",
+  "estado": "resuelto",
+  "tipo": "linea_metro",
+  "nombres": [
+   "Línea 12"
+  ]
+ },
+ {
+  "id": 22,
+  "consulta": "línea 2 del metro",
+  "estado": "resuelto",
+  "tipo": "linea_metro",
+  "nombres": [
+   "Línea 2"
+  ]
+ },
+ {
+  "id": 23,
+  "consulta": "a 800 m del metro Indios Verdes",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Indios Verdes"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 800
+ },
+ {
+  "id": 24,
+  "consulta": "Nezahualcóyotl",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 25,
+  "consulta": "Tlalnepantla",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 26,
+  "consulta": "cerca de Querétaro",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 27,
+  "consulta": "mi colonia",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 28,
+  "consulta": "aquí",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 29,
+  "consulta": "una colonia chida",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 30,
+  "consulta": "Eje Central",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Lázaro Cárdenas"
+  ]
+ },
+ {
+  "id": 31,
+  "consulta": "Calzada de Tlalpan",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Calzada de Tlalpan"
+  ]
+ },
+ {
+  "id": 32,
+  "consulta": "avenida Universidad",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Universidad"
+  ]
+ },
+ {
+  "id": 33,
+  "consulta": "Periférico",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Periférico"
+  ]
+ },
+ {
+  "id": 34,
+  "consulta": "mercado de San Juan",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "tipo": "conglomerado",
+  "nombres": [
+   "Mercado de San Juan"
+  ]
+ },
+ {
+  "id": 35,
+  "consulta": "Plaza Satélite",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 36,
+  "consulta": "los Pinos",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "nombres": []
+ },
+ {
+  "id": 37,
+  "consulta": "la Raza",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "nombres": []
+ },
+ {
+  "id": 38,
+  "consulta": "Aeropuerto",
+  "estado_en": [
+   "resuelto",
+   "grupo",
+   "ambiguo"
+  ],
+  "nombres": []
+ }
+]

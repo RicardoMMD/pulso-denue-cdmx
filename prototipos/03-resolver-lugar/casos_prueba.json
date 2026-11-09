@@ -1,0 +1,605 @@
+[
+ {
+  "id": 1,
+  "consulta": "Iztapalapa",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Iztapalapa"
+  ]
+ },
+ {
+  "id": 2,
+  "consulta": "la alcaldía Cuauhtémoc",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Cuauhtémoc"
+  ]
+ },
+ {
+  "id": 3,
+  "consulta": "Delegación Coyoacán",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Coyoacán"
+  ]
+ },
+ {
+  "id": 4,
+  "consulta": "GAM",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Gustavo A. Madero"
+  ]
+ },
+ {
+  "id": 5,
+  "consulta": "Gustavo A. Madero",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Gustavo A. Madero"
+  ]
+ },
+ {
+  "id": 6,
+  "consulta": "Magdalena Contreras",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "La Magdalena Contreras"
+  ]
+ },
+ {
+  "id": 7,
+  "consulta": "Benito Juárez",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Benito Juárez"
+  ],
+  "nota": "no confundir con la colonia Juárez"
+ },
+ {
+  "id": 8,
+  "consulta": "Iztapalpa",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Iztapalapa"
+  ],
+  "nota": "errata"
+ },
+ {
+  "id": 9,
+  "consulta": "Alvaro Obregon",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Álvaro Obregón"
+  ],
+  "nota": "sin acentos"
+ },
+ {
+  "id": 10,
+  "consulta": "Xochimilco",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Xochimilco"
+  ]
+ },
+ {
+  "id": 11,
+  "consulta": "Cuahutemoc",
+  "estado": "ambiguo",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Cuauhtémoc"
+  ],
+  "nota": "errata común; hay calles con esa escritura",
+  "primero_tipo": "alcaldia"
+ },
+ {
+  "id": 12,
+  "consulta": "en Tlalpan",
+  "estado": "resuelto",
+  "tipo": "alcaldia",
+  "nombres": [
+   "Tlalpan"
+  ]
+ },
+ {
+  "id": 13,
+  "consulta": "CDMX",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 14,
+  "consulta": "toda la ciudad",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 15,
+  "consulta": "el DF",
+  "estado": "resuelto",
+  "tipo": "ciudad",
+  "nombres": [
+   "Ciudad de México"
+  ]
+ },
+ {
+  "id": 16,
+  "consulta": "la Roma",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Roma Norte",
+   "Roma Sur"
+  ]
+ },
+ {
+  "id": 17,
+  "consulta": "Roma Norte",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Roma Norte"
+  ]
+ },
+ {
+  "id": 18,
+  "consulta": "la Condesa",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Condesa",
+   "Hipodromo Condesa",
+   "Hipodromo"
+  ]
+ },
+ {
+  "id": 19,
+  "consulta": "Polanco",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Polanco I Seccion",
+   "Polanco V Seccion"
+  ]
+ },
+ {
+  "id": 20,
+  "consulta": "la Del Valle",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Del Valle Norte",
+   "Del Valle Centro",
+   "Del Valle Sur"
+  ]
+ },
+ {
+  "id": 21,
+  "consulta": "la Narvarte",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Narvarte Oriente",
+   "Narvarte Poniente"
+  ]
+ },
+ {
+  "id": 22,
+  "consulta": "Santa Fe",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Santa Fe",
+   "Santa Fe Cuajimalpa"
+  ]
+ },
+ {
+  "id": 23,
+  "consulta": "el Centro",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Centro"
+  ]
+ },
+ {
+  "id": 24,
+  "consulta": "Centro Histórico",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Centro"
+  ]
+ },
+ {
+  "id": 25,
+  "consulta": "Tepito",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Morelos"
+  ],
+  "nota": "barrio dentro de la colonia Morelos"
+ },
+ {
+  "id": 26,
+  "consulta": "CU",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Ciudad Universitaria"
+  ]
+ },
+ {
+  "id": 27,
+  "consulta": "la Doctores",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Doctores"
+  ]
+ },
+ {
+  "id": 28,
+  "consulta": "la Juárez",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Juarez"
+  ]
+ },
+ {
+  "id": 29,
+  "consulta": "colonia Narvarte Poniente",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Narvarte Poniente"
+  ]
+ },
+ {
+  "id": 30,
+  "consulta": "Santa María la Ribera",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Santa Maria La Ribera"
+  ]
+ },
+ {
+  "id": 31,
+  "consulta": "El Rosario",
+  "estado": "ambiguo",
+  "tipo": "colonia",
+  "nombres": [
+   "El Rosario"
+  ],
+  "nota": "hay colonias con ese nombre en varias alcaldías"
+ },
+ {
+  "id": 32,
+  "consulta": "Morelos",
+  "estado": "ambiguo",
+  "tipo": "colonia",
+  "nombres": [
+   "Morelos"
+  ],
+  "nota": "Cuauhtémoc y Venustiano Carranza"
+ },
+ {
+  "id": 33,
+  "consulta": "las Portales",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Portales Norte",
+   "Portales Sur",
+   "Portales Oriente"
+  ]
+ },
+ {
+  "id": 34,
+  "consulta": "Escandón",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Escandon I Seccion",
+   "Escandon Ii Seccion"
+  ]
+ },
+ {
+  "id": 35,
+  "consulta": "Lindavista",
+  "estado": "grupo",
+  "tipo": "colonia",
+  "nombres": [
+   "Lindavista Norte",
+   "Lindavista Sur"
+  ]
+ },
+ {
+  "id": 36,
+  "consulta": "metro Balderas",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Balderas"
+  ]
+ },
+ {
+  "id": 37,
+  "consulta": "estación Pino Suárez",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Pino Suárez"
+  ]
+ },
+ {
+  "id": 38,
+  "consulta": "metro Polanco",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Polanco"
+  ],
+  "nota": "con la pista \"metro\" gana la estación, no la colonia"
+ },
+ {
+  "id": 39,
+  "consulta": "metro Tepito",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Tepito"
+  ]
+ },
+ {
+  "id": 40,
+  "consulta": "metro Zócalo",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Zócalo/Tenochtitlan"
+  ]
+ },
+ {
+  "id": 41,
+  "consulta": "estación Tacubaya",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Tacubaya"
+  ]
+ },
+ {
+  "id": 42,
+  "consulta": "metro Cuatro Caminos",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Cuatro Caminos"
+  ]
+ },
+ {
+  "id": 43,
+  "consulta": "cerca del metro Balderas",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Balderas"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 500
+ },
+ {
+  "id": 44,
+  "consulta": "a 5 minutos del metro Insurgentes",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Insurgentes"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 400
+ },
+ {
+  "id": 45,
+  "consulta": "a 300 metros del metro Hidalgo",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Hidalgo"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 300
+ },
+ {
+  "id": 46,
+  "consulta": "alrededor del Zócalo",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Zócalo/Tenochtitlan"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 500
+ },
+ {
+  "id": 47,
+  "consulta": "junto al metro Copilco",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Copilco"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 500
+ },
+ {
+  "id": 48,
+  "consulta": "a 10 minutos del Zócalo",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Zócalo/Tenochtitlan"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 800
+ },
+ {
+  "id": 49,
+  "consulta": "a 1 km de metro Pantitlán",
+  "estado": "resuelto",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Pantitlán"
+  ],
+  "relacion": "cerca_de",
+  "radio_m": 1000
+ },
+ {
+  "id": 50,
+  "consulta": "línea 7 del metro",
+  "estado": "resuelto",
+  "tipo": "linea_metro",
+  "nombres": [
+   "Línea 7"
+  ]
+ },
+ {
+  "id": 51,
+  "consulta": "metro línea B",
+  "estado": "resuelto",
+  "tipo": "linea_metro",
+  "nombres": [
+   "Línea B"
+  ]
+ },
+ {
+  "id": 52,
+  "consulta": "mercado de Sonora",
+  "estado": "resuelto",
+  "tipo": "conglomerado",
+  "nombres": [
+   "Mercado Sonora"
+  ]
+ },
+ {
+  "id": 53,
+  "consulta": "la Merced",
+  "estado": "resuelto",
+  "tipo": "conglomerado",
+  "nombres": [
+   "MERCED NAVE MAYOR"
+  ]
+ },
+ {
+  "id": 54,
+  "consulta": "Central de Abasto",
+  "estado": "resuelto",
+  "tipo": "colonia",
+  "nombres": [
+   "Central De Abasto"
+  ]
+ },
+ {
+  "id": 55,
+  "consulta": "mercado de Jamaica",
+  "estado": "grupo",
+  "tipo": "conglomerado",
+  "nombres": [
+   "Mercado Jamaica Vive"
+  ]
+ },
+ {
+  "id": 56,
+  "consulta": "avenida Insurgentes Sur",
+  "estado": "resuelto",
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Insurgentes Sur"
+  ]
+ },
+ {
+  "id": 57,
+  "consulta": "Paseo de la Reforma",
+  "estado": "resuelto",
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Paseo de la Reforma"
+  ]
+ },
+ {
+  "id": 58,
+  "consulta": "Insurgentes Sur",
+  "estado": "ambiguo",
+  "tipo": "calle",
+  "nombres": [
+   "Avenida Insurgentes Sur"
+  ],
+  "nota": "calle, estación y conglomerado se llaman igual"
+ },
+ {
+  "id": 59,
+  "consulta": "Balderas",
+  "estado": "ambiguo",
+  "tipo": "estacion_metro",
+  "nombres": [
+   "Balderas"
+  ],
+  "nota": "estación, avenida y conglomerado"
+ },
+ {
+  "id": 60,
+  "consulta": "Naucalpan",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 61,
+  "consulta": "cerca de Ecatepec",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 62,
+  "consulta": "Toluca",
+  "estado": "fuera_de_cdmx"
+ },
+ {
+  "id": 63,
+  "consulta": "Narnia",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 64,
+  "consulta": "asdf",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 65,
+  "consulta": "cerca de mi casa",
+  "estado": "sin_resultado"
+ },
+ {
+  "id": 66,
+  "consulta": "",
+  "estado": "sin_resultado"
+ }
+]

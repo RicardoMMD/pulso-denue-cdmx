@@ -424,3 +424,33 @@ models:
       - name: lugar
         description: Posición por frecuencia en el territorio.
 
+
+  - name: lugar
+    description: >
+      Catálogo único para resolver lugares con la herramienta "Resolver lugar" del Analista. Una fila por lugar
+      nombrable: ciudad, alcaldías, colonias, estaciones del Metro, conglomerados (mercados, plazas, centrales,
+      tianguis) y calles (una fila por alcaldía donde la calle tiene al menos 5 establecimientos). Buscar con
+      similarity(nombre_norm, <texto normalizado>) y filtrar por tipo. Para "cerca de", usar ST_DWithin sobre geom.
+    columns:
+      - name: tipo
+        description: "'ciudad', 'alcaldia', 'colonia', 'estacion_metro', 'conglomerado' o 'calle'."
+      - name: clave
+        description: "Clave del lugar dentro de su tipo: cve_territorio, estacion_norm, clave_conglomerado o cve_municipio:calle_norm."
+      - name: nombre
+        description: Nombre oficial o más común.
+      - name: nombre_norm
+        description: Nombre en mayúsculas, sin acentos ni puntuación, para buscar.
+      - name: cve_municipio
+        description: Alcaldía a la que pertenece (nula para ciudad y estaciones).
+      - name: alcaldia
+        description: Nombre de la alcaldía.
+      - name: detalle
+        description: Clasificación de la colonia, líneas de la estación o tipo de conglomerado.
+      - name: peso
+        description: Para desempatar candidatos. Población (territorios), número de líneas (estaciones), locales (conglomerados) o establecimientos (calles).
+      - name: latitud
+        description: Latitud de un punto representativo (WGS84).
+      - name: longitud
+        description: Longitud de un punto representativo (WGS84).
+      - name: geom
+        description: Punto representativo como geography(point, 4326).

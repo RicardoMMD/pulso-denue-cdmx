@@ -55,6 +55,7 @@ uv run dbt build --project-dir ../dbt --profiles-dir ../dbt
 | `conglomerado` | edición × conglomerado | Ciudades dentro de la ciudad |
 | `dinamica` | edición × alcaldía × macrosector | Altas, bajas, reapariciones |
 | `resumen_territorio` | edición × ciudad o alcaldía | Fichas por alcaldía, presencia digital |
+| `lugar` | lugar (ciudad, alcaldía, colonia, estación, conglomerado, calle) | Resolver lugar: catálogo único con punto representativo (prototipo 3) |
 | `censo_sector` | ciudad o alcaldía × sector | Censos Económicos 2024 con nombres legibles |
 | `cobertura_censo` | edición × alcaldía × sector | Qué tan completo es el DENUE frente al Censo |
 
