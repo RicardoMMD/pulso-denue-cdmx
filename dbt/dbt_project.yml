@@ -41,3 +41,7 @@ seeds:
     ref_macrosector:
       +column_types:
         cve_macrosector: text
+    ref_subsector_corto:
+      +column_types:
+        cve_subsector: text
+        nombre_corto: text

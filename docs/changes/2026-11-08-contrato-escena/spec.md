@@ -127,8 +127,9 @@ slug: vida-comercial-del-metro
 titulo: Vida comercial del Metro
 exploracion: bloqueada        # o libre; se puede cambiar por panel
 paneles:
-  - estado: {...}             # el primero es completo
-  - estado: {territorio: {tipo: linea_metro, clave: "L2"}}   # los demás, parciales
+  - pregunta: ¿Qué estaciones concentran más negocios?   # opcional, del guion; no entra al estado ni al id
+    estado: {...}             # el primero es completo
+  - estado: {territorio: {tipo: linea_metro, clave: "2"}}   # los demás, parciales
     exploracion: libre
 ```
 

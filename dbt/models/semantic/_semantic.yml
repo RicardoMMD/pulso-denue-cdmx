@@ -208,6 +208,11 @@ models:
         description: Nombre en mayúsculas y sin acentos, para buscar con similarity().
       - name: clase_scian_2023
         description: Clase equivalente en SCIAN 2023 (nula si se reparte en varias).
+      - name: nombre_subsector_corto
+        description: >
+          Nombre corto y editorial del subsector, en minúsculas, para insertarlo a media frase ("consultorios médicos",
+          "abarrotes y alimentos"). Sale del seed ref_subsector_corto.
+        data_tests: [not_null]
       - name: establecimientos_vigente
         description: Establecimientos de la clase en la edición vigente.
 
@@ -361,7 +366,8 @@ models:
     description: >
       Vida comercial alrededor de cada estación del Metro (Corredores del Metro, ranking). Una fila por edición × estación
       × radio (300, 500 u 800 m en línea recta). Cada establecimiento cuenta solo en su estación más cercana. Filtrar por
-      radio_m (500 por omisión).
+      radio_m (500 por omisión). Para rankings, filtrar en_cdmx: las estaciones del Estado de México tienen cifras
+      truncadas y lugar nulo.
     columns:
       - name: estacion
         description: Nombre de la estación.
@@ -369,14 +375,29 @@ models:
         description: Nombre normalizado (mayúsculas, sin acentos). Une con metro_recorrido.
       - name: lineas
         description: Líneas que pasan por la estación.
+      - name: en_cdmx
+        description: >
+          Verdadero si la estación está dentro de una alcaldía. Falso para las del Estado de México: el DENUE cargado es
+          solo de CDMX, así que alrededor de ellas solo se cuentan los negocios del lado de la Ciudad.
+      - name: alcaldia
+        description: Alcaldía donde está la estación; nula fuera de la Ciudad.
       - name: radio_m
         description: Radio en metros (300, 500 u 800).
       - name: establecimientos
         description: Establecimientos cuya estación más cercana es esta, dentro del radio.
+      - name: micronegocios
+        description: Establecimientos de 0 a 10 personas ocupadas (estratos 1 y 2) entre los de la estación.
       - name: giro_dominante
-        description: Subsector SCIAN más frecuente alrededor de la estación.
+        description: Subsector SCIAN más frecuente alrededor de la estación (nombre oficial).
+      - name: giro_dominante_corto
+        description: Nombre corto y editorial del giro dominante, para textos (seed ref_subsector_corto).
+        data_tests: [not_null]
+      - name: participacion_giro_dominante
+        description: Parte del giro dominante en los establecimientos de la estación (0 a 1).
       - name: lugar
-        description: Posición en el ranking de estaciones por establecimientos (misma edición y radio).
+        description: >
+          Posición en el ranking de estaciones de la Ciudad por establecimientos (misma edición y radio). Nula para
+          las estaciones fuera de la Ciudad.
 
   - name: metro_linea
     description: >
@@ -388,6 +409,8 @@ models:
         description: Establecimientos dentro del radio de alguna estación de la línea.
       - name: estaciones
         description: Estaciones de la línea.
+      - name: estaciones_en_cdmx
+        description: Estaciones de la línea dentro de la Ciudad. Para promedios por estación, usar esta y no estaciones.
 
   - name: metro_recorrido
     description: Estaciones de cada línea en orden de recorrido, con su ubicación. Fuente OpenStreetMap (ODbL).
@@ -396,6 +419,8 @@ models:
         description: Posición de la estación en la línea (1 = una terminal).
       - name: lineas_en_estacion
         description: Todas las líneas de la estación (más de una = correspondencia).
+      - name: en_cdmx
+        description: Falso para las estaciones del Estado de México; siguen en el recorrido, con cifras truncadas.
 
   - name: colonia_gemela
     description: >

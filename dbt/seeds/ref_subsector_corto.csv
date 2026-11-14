@@ -1,0 +1,94 @@
+cve_subsector,nombre_corto
+112,cría de animales
+114,pesca y caza
+115,servicios agropecuarios
+211,petróleo y gas
+212,minería
+213,servicios a la minería
+221,"electricidad, agua y gas"
+236,edificación
+237,obra civil
+238,trabajos de construcción
+311,elaboración de alimentos
+312,elaboración de bebidas y tabaco
+313,insumos textiles
+314,productos textiles
+315,confección de ropa
+316,artículos de cuero
+321,carpintería y madera
+322,productos de papel
+323,imprentas
+324,derivados del petróleo
+325,productos químicos
+326,plástico y hule
+327,"vidrio, cerámica y concreto"
+331,metalurgia básica
+332,herrería y productos metálicos
+333,maquinaria y equipo
+334,equipo electrónico
+335,aparatos eléctricos
+336,equipo de transporte
+337,muebles
+339,otras manufacturas
+431,mayoreo de abarrotes y alimentos
+432,mayoreo de textiles y calzado
+433,mayoreo de farmacia y perfumería
+434,mayoreo de materias primas
+435,mayoreo de maquinaria y equipo
+436,mayoreo de refacciones y camiones
+437,intermediación de mayoreo
+461,abarrotes y alimentos
+462,supermercados y tiendas departamentales
+463,"ropa, calzado y accesorios"
+464,farmacias y artículos de salud
+465,papelerías y artículos personales
+466,"electrónicos, muebles y artículos usados"
+467,ferreterías y tlapalerías
+468,"autos, refacciones y gasolina"
+469,venta por catálogo
+481,transporte aéreo
+482,ferrocarril
+483,transporte por agua
+484,autotransporte de carga
+485,transporte de pasajeros
+486,transporte por ductos
+487,transporte turístico
+488,servicios al transporte
+491,servicios postales
+492,mensajería y paquetería
+493,almacenamiento
+511,edición de publicaciones y software
+512,"cine, video y sonido"
+513,edición de publicaciones y software
+515,radio y televisión
+516,"radio, televisión y contenidos"
+517,telecomunicaciones
+518,cómputo y hospedaje web
+519,bibliotecas y servicios de información
+521,banca central
+522,bancos y crédito
+523,"bolsa, cambio e inversión"
+524,seguros y afores
+525,fondos de inversión
+531,inmobiliarias
+532,alquiler de bienes
+533,franquicias y marcas
+541,servicios profesionales
+551,corporativos
+561,servicios de apoyo a negocios
+562,manejo de residuos
+611,escuelas
+621,consultorios médicos
+622,hospitales
+623,residencias de asistencia
+624,asistencia social y guarderías
+711,"artistas, cultura y deporte"
+712,museos y sitios históricos
+713,recreación y entretenimiento
+721,hoteles y alojamiento
+722,comida preparada y bares
+811,talleres de reparación
+812,servicios personales
+813,asociaciones y organizaciones
+931,gobierno
+932,organismos internacionales

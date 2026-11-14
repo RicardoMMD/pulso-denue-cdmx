@@ -1,0 +1,98 @@
+# Vida comercial del Metro (guion de H12). Escena Corredores del Metro, modos ranking y línea.
+# Ninguna cifra está escrita: cada {hueco} nombra una medida de la vista exacta del panel (contrato v1).
+# Valores al escribirlo (edición 2026-05, comprobados en semantic el 14 nov 2026), solo como referencia:
+#   1  462 729 establecimientos en la ciudad
+#   2  126 339 a 500 m de una estación de la Ciudad; Merced 6 103, 44 % abarrotes y alimentos
+#   3  Línea 1: 30 711 en 20 estaciones; la mayor, Merced
+#   4  Línea 1 contra Línea 12: 30 711 contra 10 874, 20 estaciones cada una
+#   5  Chilpancingo: lugar 8, consultorios médicos, 39 %
+#   6  a 300 m: San Juan de Letrán al frente con 4 050
+slug: vida-comercial-metro
+titulo: Vida comercial del Metro
+exploracion: bloqueada
+paneles:
+  - pregunta: ¿Cuánta economía hay en la ciudad?
+    estado:
+      contrato: 1
+      edicion: "2026-05"
+      territorio: {tipo: ciudad, clave: "09"}
+      encuadre: {modo: recorrido, recorrido: el_despertar}
+      escena: {tipo: ciudad_de_luz}
+      narrativa:
+        titulo: "La economía de {territorio}"
+        texto: "{principal} establecimientos encendidos al {fecha_corte}. Muchos se juntan donde pasa el Metro."
+        principal: {medida: establecimientos, fila: total}
+        nota_cautela: "El DENUE registra negocios con domicilio fijo o semifijo; el comercio ambulante no aparece."
+
+  - pregunta: ¿Qué estaciones concentran más negocios?
+    estado:
+      encuadre: {modo: recorrido, recorrido: constelacion_estaciones}
+      escena: {tipo: corredores_metro, modo: ranking}
+      narrativa:
+        titulo: "Las estaciones con más negocios"
+        texto: "{principal} establecimientos están a {radio} metros o menos de una estación. {lider} encabeza con {cifra_lider}, y {peso} de ellos son de un solo giro."
+        principal: {medida: establecimientos, fila: total}
+        secundarias:
+          - {nombre: lider, medida: estacion, fila: mayor, formato: texto}
+          - {nombre: cifra_lider, medida: establecimientos, fila: mayor}
+          - {nombre: peso, medida: participacion_giro, fila: mayor, formato: porcentaje}
+        nota_cautela: "Distancia en línea recta, no a pie. Cada negocio cuenta en su estación más cercana; las estaciones del Estado de México no entran al ranking."
+
+  - pregunta: ¿Cómo cambia la vida comercial a lo largo de una línea?
+    estado:
+      territorio: {tipo: linea_metro, clave: "1"}
+      encuadre: {modo: recorrido, recorrido: tren_de_luz}
+      escena: {modo: linea}
+      narrativa:
+        titulo: "La {territorio}, estación por estación"
+        texto: "{principal} establecimientos a lo largo de {estaciones} estaciones. El tren se enciende al cruzar el Centro, y {mayor} es la más intensa."
+        principal: {medida: establecimientos, fila: total}
+        secundarias:
+          - {nombre: estaciones, medida: estaciones, fila: total}
+          - {nombre: mayor, medida: estacion, fila: mayor, formato: texto}
+        nota_cautela: "Un negocio cerca de una correspondencia cuenta en las dos líneas: las líneas no se suman entre sí."
+
+  - pregunta: ¿Todas las líneas tienen la misma vida comercial?
+    estado:
+      comparacion:
+        forma: lado_a_lado
+        territorio: {tipo: linea_metro, clave: "12"}
+      encuadre: {modo: ajustar}
+      narrativa:
+        titulo: "Dos líneas del mismo largo"
+        texto: "{principal} establecimientos en {est_a} estaciones, contra {otra} en {est_b}."
+        principal: {medida: establecimientos, fila: total}
+        secundarias:
+          - {nombre: est_a, medida: estaciones, fila: total}
+          - {nombre: otra, medida: establecimientos, fila: total, lado: b}
+          - {nombre: est_b, medida: estaciones, fila: total, lado: b}
+        nota_cautela: "Misma regla en las dos: negocios a {radio} metros o menos de alguna estación de la línea."
+
+  - pregunta: ¿Hay estaciones que no vivan del comercio?
+    estado:
+      territorio: {tipo: ciudad, clave: "09"}
+      comparacion: null
+      escena: {modo: ranking}
+      encuadre: {modo: angulo, angulo: oblicua}
+      narrativa:
+        titulo: "La estación de los consultorios"
+        texto: "Alrededor de {estacion} el giro dominante es {giro}: {peso} de los negocios. Es la estación número {principal} de la ciudad."
+        principal: {medida: lugar, fila: {clave: CHILPANCINGO}}
+        secundarias:
+          - {nombre: estacion, medida: estacion, fila: {clave: CHILPANCINGO}, formato: texto}
+          - {nombre: giro, medida: giro_dominante, fila: {clave: CHILPANCINGO}, formato: texto}
+          - {nombre: peso, medida: participacion_giro, fila: {clave: CHILPANCINGO}, formato: porcentaje}
+        nota_cautela: "Giro dominante: el subsector SCIAN con más establecimientos alrededor de la estación."
+
+  - pregunta: ¿El ranking depende de cómo medimos la cercanía?
+    estado:
+      escena: {radio_m: 300}
+      encuadre: {modo: ajustar}
+      narrativa:
+        titulo: "A {radio} metros, otra estación al frente"
+        texto: "Con un radio más corto, {lider} pasa al primer lugar con {principal} establecimientos. Explora tu estación."
+        principal: {medida: establecimientos, fila: mayor}
+        secundarias:
+          - {nombre: lider, medida: estacion, fila: mayor, formato: texto}
+        nota_cautela: "El radio es una convención para contar; cambia el orden, no la ciudad."
+    exploracion: libre

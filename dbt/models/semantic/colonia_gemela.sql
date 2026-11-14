@@ -6,9 +6,10 @@
 -- sectores_que_explican: los tres sectores que más aportan a la similitud, para explicar por qué se parecen.
 --
 -- Cálculo: el perfil de cada colonia es un vector de participaciones por sector. Se normaliza una vez por colonia
--- y la similitud de cada par es el producto punto de los vectores normalizados. Los sectores van en columnas
--- (pivot con cuatro sectores pesados por suma de cuadrados), así el producto de pares se hace con una sola
--- agregación por colonia y no con un cruce de sectores.
+-- y la similitud de cada par es el producto punto de los vectores normalizados (cruce por sector compartido).
+-- Los sectores que explican se calculan solo para los pares del top 5, cruzando sus dos vectores: volver a
+-- cruzar todos los pares (decenas de millones de filas) dependía de las estimaciones del planificador y llegó a
+-- tardar más de 55 minutos (14 nov 2026).
 with perfiles as (
     select edicion, cve_territorio as cve_col, territorio as colonia, alcaldia, cve_sector, nombre_sector, participacion
     from {{ ref('perfil_sector') }}
@@ -29,18 +30,12 @@ vectores as (
     join normas n using (edicion, cve_col)
 ),
 
--- producto punto de pares que comparten al menos un sector: se agrupa por par y sector una sola vez
-pares as (
-    select a.edicion, a.cve_col as cve_col, b.cve_col as cve_col_gemela,
-           a.cve_sector, a.w * b.w as aporte
+-- producto punto de cada par de colonias que comparten al menos un sector
+similitud as (
+    select a.edicion, a.cve_col as cve_col, b.cve_col as cve_col_gemela, sum(a.w * b.w) as similitud
     from vectores a
     join vectores b
       on b.edicion = a.edicion and b.cve_sector = a.cve_sector and b.cve_col <> a.cve_col
-),
-
-similitud as (
-    select edicion, cve_col, cve_col_gemela, sum(aporte) as similitud
-    from pares
     group by 1, 2, 3
 ),
 
@@ -53,12 +48,14 @@ top5 as (
     select * from top where lugar <= 5
 ),
 
--- los tres sectores que más aportan a cada par del top 5
+-- los tres sectores que más aportan a cada par del top 5: solo se cruzan los dos vectores del par
 aportes as (
-    select p.edicion, p.cve_col, p.cve_col_gemela, p.cve_sector, p.aporte,
-           row_number() over (partition by p.edicion, p.cve_col, p.cve_col_gemela order by p.aporte desc, p.cve_sector) as rn
-    from pares p
-    join top5 t using (edicion, cve_col, cve_col_gemela)
+    select t.edicion, t.cve_col, t.cve_col_gemela, a.cve_sector, a.w * b.w as aporte,
+           row_number() over (partition by t.edicion, t.cve_col, t.cve_col_gemela
+                              order by a.w * b.w desc, a.cve_sector) as rn
+    from top5 t
+    join vectores a on a.edicion = t.edicion and a.cve_col = t.cve_col
+    join vectores b on b.edicion = t.edicion and b.cve_col = t.cve_col_gemela and b.cve_sector = a.cve_sector
 ),
 
 motivo as (

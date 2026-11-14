@@ -21,7 +21,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H09 | Contrato de escena | Definición | ✅ | H03 |
 | H10 | Traducir giro: glosario y embeddings | Definición | ⬜ | H03 |
 | H11 | Banco de evaluación del Analista | Definición | ⬜ | H06, H10 |
-| H12 | Guion de "Vida comercial del Metro" | Definición | ⬜ | H09 |
+| H12 | Guion de "Vida comercial del Metro" | Definición | ✅ | H09 |
 | H13 | Paquete estático y prueba de paridad | Construcción | ⬜ | H09 |
 | H14 | Backend: validación y persistencia de paneles | Construcción | ⬜ | H09 |
 | H15 | Motor de escenas y coreografía | Construcción | ⬜ | H05, H08, H09 |
@@ -103,11 +103,12 @@ Preguntas sobre CDMX con respuestas verificadas a mano contra `semantic`.
 - **Entregables:** al menos 20 preguntas para la primera versión (cuantitativas, metodológicas y mixtas), con cifra esperada, consulta de referencia y escena esperada; casos reales de usuarios para resolver lugar.
 - **Terminado cuando:** corre en integración continua y reporta acierto por tipo de pregunta.
 
-### H12 · Guion de "Vida comercial del Metro" ⬜
+### H12 · Guion de "Vida comercial del Metro" ✅
 Historia de 5 a 8 paneles sobre Corredores del Metro (modos línea y ranking).
 - **Entregables:** guion panel por panel con pregunta, estado de escena, cifra vinculada, nota de cautela y recorrido.
 - **Terminado cuando:** cada panel valida contra el contrato (H09) y sus cifras salen de `semantic`.
 - **Decidido (14 nov 2026):** el guion no lleva un panel con cifras por giro ("dónde se come junto al Metro"). En Corredores del Metro la selección por giro solo atenúa puntos; las cifras no cambian, porque `semantic.metro_estacion` no tiene conteos por giro. Pasa a H27.
+- **Resultado (14 nov 2026):** `contenido/historias/vida-comercial-metro.yml`, 6 paneles con pregunta, estado, cifras vinculadas, nota de cautela y recorrido; valida contra el contrato y sus cifras se comprobaron en `semantic`. Pidió siete ajustes al contrato (spec de H09) y dos en `semantic`: estaciones del Estado de México fuera del ranking (`en_cdmx`) y nombres cortos de giro (`ref_subsector_corto`). De paso se reescribió `colonia_gemela` (de 4.5–55 min a 2.5 min, mismo resultado). `make verify` en verde.
 
 ## Fase 5 · Construcción
 
