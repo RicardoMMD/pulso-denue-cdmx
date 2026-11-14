@@ -1,0 +1,25 @@
+{
+ "descripcion": "El hueco {radio} en una escena sin radio",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "Hay {principal} establecimientos a {radio} metros.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "hueco_sin_declarar"
+}

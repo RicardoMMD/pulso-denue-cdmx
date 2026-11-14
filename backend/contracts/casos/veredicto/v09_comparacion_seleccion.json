@@ -1,0 +1,38 @@
+{
+ "descripcion": "Comparación de dos selecciones",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "seleccion": {
+   "scian": [
+    "46"
+   ]
+  },
+  "comparacion": {
+   "forma": "transformacion",
+   "seleccion": {
+    "scian": [
+     "72"
+    ]
+   }
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

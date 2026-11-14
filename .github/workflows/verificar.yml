@@ -1,0 +1,22 @@
+# Verificación sin base de datos: sintaxis, dbt parse y el contrato de escena (pruebas, historias, archivos generados).
+# Una historia inválida o un archivo generado desactualizado deja el workflow en rojo.
+name: Verificar
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10.3.3
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+      - name: make ci
+        run: make ci

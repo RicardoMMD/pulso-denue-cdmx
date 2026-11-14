@@ -1,0 +1,26 @@
+{
+ "descripcion": "R8: radio de 400 m en Corredores",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "2"
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "radio_m": 400
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 1,
+ "codigo": "valor_no_admitido"
+}

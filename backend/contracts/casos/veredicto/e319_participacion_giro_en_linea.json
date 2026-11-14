@@ -1,0 +1,26 @@
+{
+ "descripcion": "La parte del giro dominante solo existe en el ranking, no en la línea",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "1"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "El giro dominante pesa {principal}.",
+   "principal": {
+    "medida": "participacion_giro",
+    "formato": "porcentaje"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "cifra_no_disponible"
+}

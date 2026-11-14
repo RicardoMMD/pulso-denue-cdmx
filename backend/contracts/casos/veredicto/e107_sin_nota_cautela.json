@@ -1,0 +1,24 @@
+{
+ "descripcion": "Falta la nota de cautela",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 1,
+ "codigo": "campo_faltante"
+}

@@ -1,0 +1,28 @@
+{
+ "descripcion": "Tipo de conglomerado que no existe",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "tipo_conglomerado": [
+    "feria del pueblo"
+   ]
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 2,
+ "codigo": "tipo_conglomerado_inexistente"
+}

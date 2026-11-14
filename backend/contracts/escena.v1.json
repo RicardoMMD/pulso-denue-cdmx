@@ -1,0 +1,668 @@
+{
+ "$defs": {
+  "Cifra": {
+   "additionalProperties": false,
+   "description": "Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado.\n\n`lado` solo importa en una comparación: `a` es el territorio o la selección del estado y `b` lo comparado.",
+   "properties": {
+    "fila": {
+     "anyOf": [
+      {
+       "enum": [
+        "primera",
+        "ultima",
+        "mayor",
+        "total"
+       ],
+       "type": "string"
+      },
+      {
+       "$ref": "#/$defs/FilaClave"
+      }
+     ],
+     "default": "primera",
+     "title": "FilaCifra"
+    },
+    "formato": {
+     "default": "entero",
+     "enum": [
+      "entero",
+      "porcentaje",
+      "decimal1",
+      "texto"
+     ],
+     "title": "FormatoCifra",
+     "type": "string"
+    },
+    "lado": {
+     "default": "a",
+     "enum": [
+      "a",
+      "b"
+     ],
+     "title": "LadoCifra",
+     "type": "string"
+    },
+    "medida": {
+     "enum": [
+      "establecimientos",
+      "establecimientos_seleccion",
+      "locales_declarados",
+      "estaciones",
+      "estacion",
+      "giro_dominante",
+      "lugar",
+      "macrosector",
+      "participacion",
+      "participacion_giro",
+      "micronegocios",
+      "nombre",
+      "tipo"
+     ],
+     "title": "MedidaCifra",
+     "type": "string"
+    }
+   },
+   "required": [
+    "medida"
+   ],
+   "title": "Cifra",
+   "type": "object"
+  },
+  "CifraSecundaria": {
+   "additionalProperties": false,
+   "properties": {
+    "fila": {
+     "anyOf": [
+      {
+       "enum": [
+        "primera",
+        "ultima",
+        "mayor",
+        "total"
+       ],
+       "type": "string"
+      },
+      {
+       "$ref": "#/$defs/FilaClave"
+      }
+     ],
+     "default": "primera",
+     "title": "FilaCifra"
+    },
+    "formato": {
+     "default": "entero",
+     "enum": [
+      "entero",
+      "porcentaje",
+      "decimal1",
+      "texto"
+     ],
+     "title": "FormatoCifra",
+     "type": "string"
+    },
+    "lado": {
+     "default": "a",
+     "enum": [
+      "a",
+      "b"
+     ],
+     "title": "LadoCifra",
+     "type": "string"
+    },
+    "medida": {
+     "enum": [
+      "establecimientos",
+      "establecimientos_seleccion",
+      "locales_declarados",
+      "estaciones",
+      "estacion",
+      "giro_dominante",
+      "lugar",
+      "macrosector",
+      "participacion",
+      "participacion_giro",
+      "micronegocios",
+      "nombre",
+      "tipo"
+     ],
+     "title": "MedidaCifra",
+     "type": "string"
+    },
+    "nombre": {
+     "maxLength": 40,
+     "pattern": "^[a-z_]+$",
+     "title": "Nombre",
+     "type": "string"
+    }
+   },
+   "required": [
+    "medida",
+    "nombre"
+   ],
+   "title": "CifraSecundaria",
+   "type": "object"
+  },
+  "CiudadDeLuz": {
+   "additionalProperties": false,
+   "properties": {
+    "modo": {
+     "const": "unico",
+     "default": "unico",
+     "title": "ModoCiudadDeLuz",
+     "type": "string"
+    },
+    "tipo": {
+     "const": "ciudad_de_luz",
+     "title": "TipoEscenaCiudadDeLuz",
+     "type": "string"
+    }
+   },
+   "required": [
+    "tipo"
+   ],
+   "title": "CiudadDeLuz",
+   "type": "object"
+  },
+  "CiudadesDentro": {
+   "additionalProperties": false,
+   "properties": {
+    "modo": {
+     "default": "exterior",
+     "enum": [
+      "exterior",
+      "interior"
+     ],
+     "title": "ModoCiudadesDentro",
+     "type": "string"
+    },
+    "tamano": {
+     "default": "establecimientos",
+     "enum": [
+      "establecimientos",
+      "establecimientos_seleccion",
+      "locales_declarados"
+     ],
+     "title": "TamanoCiudadesDentro",
+     "type": "string"
+    },
+    "tipo": {
+     "const": "ciudades_dentro",
+     "title": "TipoEscenaCiudadesDentro",
+     "type": "string"
+    },
+    "tipo_conglomerado": {
+     "anyOf": [
+      {
+       "items": {
+        "maxLength": 80,
+        "minLength": 1,
+        "type": "string"
+       },
+       "maxItems": 18,
+       "minItems": 1,
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "TiposConglomerado"
+    }
+   },
+   "required": [
+    "tipo"
+   ],
+   "title": "CiudadesDentro",
+   "type": "object"
+  },
+  "ComparacionSeleccion": {
+   "additionalProperties": false,
+   "properties": {
+    "forma": {
+     "enum": [
+      "lado_a_lado",
+      "transformacion"
+     ],
+     "title": "FormaComparacionSeleccion",
+     "type": "string"
+    },
+    "seleccion": {
+     "$ref": "#/$defs/Seleccion"
+    }
+   },
+   "required": [
+    "forma",
+    "seleccion"
+   ],
+   "title": "ComparacionSeleccion",
+   "type": "object"
+  },
+  "ComparacionTerritorio": {
+   "additionalProperties": false,
+   "properties": {
+    "forma": {
+     "enum": [
+      "lado_a_lado",
+      "transformacion"
+     ],
+     "title": "FormaComparacionTerritorio",
+     "type": "string"
+    },
+    "territorio": {
+     "$ref": "#/$defs/Territorio"
+    }
+   },
+   "required": [
+    "forma",
+    "territorio"
+   ],
+   "title": "ComparacionTerritorio",
+   "type": "object"
+  },
+  "CorredoresMetro": {
+   "additionalProperties": false,
+   "properties": {
+    "modo": {
+     "default": "linea",
+     "enum": [
+      "linea",
+      "ranking"
+     ],
+     "title": "ModoCorredoresMetro",
+     "type": "string"
+    },
+    "radio_m": {
+     "default": 500,
+     "enum": [
+      300,
+      500,
+      800
+     ],
+     "title": "RadioCorredoresMetro",
+     "type": "integer"
+    },
+    "tipo": {
+     "const": "corredores_metro",
+     "title": "TipoEscenaCorredoresMetro",
+     "type": "string"
+    }
+   },
+   "required": [
+    "tipo"
+   ],
+   "title": "CorredoresMetro",
+   "type": "object"
+  },
+  "EncuadreAjustar": {
+   "additionalProperties": false,
+   "properties": {
+    "modo": {
+     "const": "ajustar",
+     "title": "ModoEncuadreAjustar",
+     "type": "string"
+    }
+   },
+   "required": [
+    "modo"
+   ],
+   "title": "EncuadreAjustar",
+   "type": "object"
+  },
+  "EncuadreAngulo": {
+   "additionalProperties": false,
+   "properties": {
+    "angulo": {
+     "enum": [
+      "cenital",
+      "oblicua",
+      "rasante"
+     ],
+     "title": "AnguloEncuadre",
+     "type": "string"
+    },
+    "modo": {
+     "const": "angulo",
+     "title": "ModoEncuadreAngulo",
+     "type": "string"
+    }
+   },
+   "required": [
+    "modo",
+    "angulo"
+   ],
+   "title": "EncuadreAngulo",
+   "type": "object"
+  },
+  "EncuadreRecorrido": {
+   "additionalProperties": false,
+   "properties": {
+    "modo": {
+     "const": "recorrido",
+     "title": "ModoEncuadreRecorrido",
+     "type": "string"
+    },
+    "recorrido": {
+     "enum": [
+      "el_despertar",
+      "tren_de_luz",
+      "constelacion_estaciones",
+      "entrar_al_mercado"
+     ],
+     "title": "RecorridoEncuadre",
+     "type": "string"
+    }
+   },
+   "required": [
+    "modo",
+    "recorrido"
+   ],
+   "title": "EncuadreRecorrido",
+   "type": "object"
+  },
+  "FilaClave": {
+   "additionalProperties": false,
+   "properties": {
+    "clave": {
+     "maxLength": 200,
+     "minLength": 1,
+     "title": "Clave",
+     "type": "string"
+    }
+   },
+   "required": [
+    "clave"
+   ],
+   "title": "FilaClave",
+   "type": "object"
+  },
+  "Narrativa": {
+   "additionalProperties": false,
+   "properties": {
+    "nota_cautela": {
+     "maxLength": 240,
+     "minLength": 1,
+     "pattern": "^[^0-9{}]*(\\{[a-z_]+\\}[^0-9{}]*)*$",
+     "title": "Nota Cautela",
+     "type": "string"
+    },
+    "principal": {
+     "anyOf": [
+      {
+       "$ref": "#/$defs/Cifra"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null
+    },
+    "secundarias": {
+     "default": [],
+     "items": {
+      "$ref": "#/$defs/CifraSecundaria"
+     },
+     "maxItems": 3,
+     "title": "Secundarias",
+     "type": "array"
+    },
+    "texto": {
+     "maxLength": 400,
+     "minLength": 1,
+     "pattern": "^[^0-9{}]*(\\{[a-z_]+\\}[^0-9{}]*)*$",
+     "title": "Texto",
+     "type": "string"
+    },
+    "titulo": {
+     "maxLength": 80,
+     "minLength": 1,
+     "pattern": "^[^0-9{}]*(\\{[a-z_]+\\}[^0-9{}]*)*$",
+     "title": "Titulo",
+     "type": "string"
+    }
+   },
+   "required": [
+    "titulo",
+    "texto",
+    "nota_cautela"
+   ],
+   "title": "Narrativa",
+   "type": "object"
+  },
+  "Seleccion": {
+   "additionalProperties": false,
+   "description": "Filtrar atenúa, nunca elimina puntos. Solo giro SCIAN (de sector a clase) en v1.",
+   "properties": {
+    "estrato": {
+     "anyOf": [
+      {
+       "items": {
+        "enum": [
+         1,
+         2,
+         3,
+         4,
+         5,
+         6,
+         7
+        ],
+        "type": "integer"
+       },
+       "maxItems": 7,
+       "minItems": 1,
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "Estratos"
+    },
+    "presencia_digital": {
+     "anyOf": [
+      {
+       "type": "boolean"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "PresenciaDigital"
+    },
+    "scian": {
+     "anyOf": [
+      {
+       "items": {
+        "pattern": "^[0-9]{2,6}$",
+        "type": "string"
+       },
+       "maxItems": 20,
+       "minItems": 1,
+       "type": "array"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "CodigosScian"
+    },
+    "tipo_unidad": {
+     "anyOf": [
+      {
+       "enum": [
+        "fijo",
+        "semifijo"
+       ],
+       "type": "string"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "TipoUnidad"
+    }
+   },
+   "title": "Seleccion",
+   "type": "object"
+  },
+  "Territorio": {
+   "additionalProperties": false,
+   "properties": {
+    "clave": {
+     "maxLength": 200,
+     "minLength": 1,
+     "title": "ClaveTerritorio",
+     "type": "string"
+    },
+    "radio_m": {
+     "anyOf": [
+      {
+       "enum": [
+        300,
+        500,
+        800
+       ],
+       "type": "integer"
+      },
+      {
+       "type": "null"
+      }
+     ],
+     "default": null,
+     "title": "RadioTerritorio"
+    },
+    "tipo": {
+     "enum": [
+      "ciudad",
+      "alcaldia",
+      "colonia",
+      "estacion_metro",
+      "linea_metro",
+      "conglomerado",
+      "calle"
+     ],
+     "title": "TipoTerritorio",
+     "type": "string"
+    }
+   },
+   "required": [
+    "tipo",
+    "clave"
+   ],
+   "title": "Territorio",
+   "type": "object"
+  }
+ },
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "additionalProperties": false,
+ "description": "Lo que se ve. Entra al id por contenido. Origen y panel anterior van aparte, en `Metadatos`.",
+ "properties": {
+  "capas": {
+   "default": [],
+   "items": {
+    "enum": [
+     "alcaldias",
+     "lineas_metro",
+     "calles_principales",
+     "etiquetas"
+    ],
+    "type": "string"
+   },
+   "maxItems": 4,
+   "title": "Capas",
+   "type": "array"
+  },
+  "comparacion": {
+   "anyOf": [
+    {
+     "$ref": "#/$defs/ComparacionTerritorio"
+    },
+    {
+     "$ref": "#/$defs/ComparacionSeleccion"
+    },
+    {
+     "type": "null"
+    }
+   ],
+   "default": null,
+   "title": "Comparacion"
+  },
+  "contrato": {
+   "const": 1,
+   "title": "Contrato",
+   "type": "integer"
+  },
+  "edicion": {
+   "pattern": "^[0-9]{4}-[0-9]{2}$",
+   "title": "Edicion",
+   "type": "string"
+  },
+  "encuadre": {
+   "default": {
+    "modo": "ajustar"
+   },
+   "discriminator": {
+    "propertyName": "modo"
+   },
+   "oneOf": [
+    {
+     "$ref": "#/$defs/EncuadreAjustar"
+    },
+    {
+     "$ref": "#/$defs/EncuadreAngulo"
+    },
+    {
+     "$ref": "#/$defs/EncuadreRecorrido"
+    }
+   ],
+   "title": "Encuadre",
+   "type": "object"
+  },
+  "escena": {
+   "discriminator": {
+    "propertyName": "tipo"
+   },
+   "oneOf": [
+    {
+     "$ref": "#/$defs/CiudadDeLuz"
+    },
+    {
+     "$ref": "#/$defs/CorredoresMetro"
+    },
+    {
+     "$ref": "#/$defs/CiudadesDentro"
+    }
+   ],
+   "title": "Escena",
+   "type": "object"
+  },
+  "narrativa": {
+   "$ref": "#/$defs/Narrativa"
+  },
+  "seleccion": {
+   "$ref": "#/$defs/Seleccion",
+   "default": {
+    "estrato": null,
+    "presencia_digital": null,
+    "scian": null,
+    "tipo_unidad": null
+   }
+  },
+  "territorio": {
+   "$ref": "#/$defs/Territorio"
+  }
+ },
+ "required": [
+  "contrato",
+  "edicion",
+  "territorio",
+  "escena",
+  "narrativa"
+ ],
+ "title": "Estado",
+ "type": "object"
+}

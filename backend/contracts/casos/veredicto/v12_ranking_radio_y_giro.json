@@ -1,0 +1,45 @@
+{
+ "descripcion": "Ranking con el hueco {radio}, la parte del giro dominante, micronegocios y la fila mayor (H12)",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "modo": "ranking"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "{lider} reúne {principal} establecimientos a {radio} metros; {peso} son de su giro dominante y {micro} en total son micronegocios.",
+   "principal": {
+    "medida": "establecimientos",
+    "fila": "mayor"
+   },
+   "secundarias": [
+    {
+     "nombre": "lider",
+     "medida": "estacion",
+     "fila": "mayor",
+     "formato": "texto"
+    },
+    {
+     "nombre": "peso",
+     "medida": "participacion_giro",
+     "formato": "porcentaje"
+    },
+    {
+     "nombre": "micro",
+     "medida": "micronegocios",
+     "fila": "total"
+    }
+   ]
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

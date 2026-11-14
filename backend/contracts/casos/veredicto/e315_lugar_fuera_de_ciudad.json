@@ -1,0 +1,26 @@
+{
+ "descripcion": "La medida lugar solo existe con territorio ciudad",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "2"
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "modo": "ranking"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "lugar"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "cifra_no_disponible"
+}

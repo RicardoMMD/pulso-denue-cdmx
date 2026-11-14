@@ -1,0 +1,26 @@
+{
+ "descripcion": "Radio en un territorio que no lo admite",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "colonia",
+   "clave": "002-001",
+   "radio_m": 500
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "radio_no_admitido"
+}

@@ -1,0 +1,25 @@
+{
+ "descripcion": "Corredores, modo línea, Línea 2",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "2"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "estaciones"
+   }
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

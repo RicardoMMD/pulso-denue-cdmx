@@ -1,0 +1,27 @@
+{
+ "descripcion": "Una cifra del lado b en un estado que no compara",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "1"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "Hay {principal} establecimientos.",
+   "principal": {
+    "medida": "establecimientos",
+    "fila": "total",
+    "lado": "b"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "lado_sin_comparacion"
+}

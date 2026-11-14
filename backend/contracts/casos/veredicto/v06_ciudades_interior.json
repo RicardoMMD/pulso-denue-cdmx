@@ -1,0 +1,31 @@
+{
+ "descripcion": "Ciudades dentro, interior de un conglomerado con radio",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "conglomerado",
+   "clave": "denue:AEROPUERTO|AEROPUERTO DE LA CIUDAD DE MEXICO|1",
+   "radio_m": 300
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "modo": "interior"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "encuadre": {
+   "modo": "recorrido",
+   "recorrido": "entrar_al_mercado"
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

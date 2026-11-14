@@ -1,0 +1,26 @@
+{
+ "descripcion": "Corredores enfocado en una estación",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "estacion_metro",
+   "clave": "CUATRO CAMINOS"
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "radio_m": 300
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

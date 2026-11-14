@@ -1,0 +1,26 @@
+{
+ "descripcion": "Claves en otro orden en la entrada",
+ "estado": {
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "radio_m": 800,
+   "modo": "ranking"
+  },
+  "territorio": {
+   "clave": "09",
+   "tipo": "ciudad"
+  },
+  "edicion": "2026-05",
+  "contrato": 1
+ },
+ "texto": "{\"contrato\":1,\"edicion\":\"2026-05\",\"escena\":{\"modo\":\"ranking\",\"radio_m\":800,\"tipo\":\"corredores_metro\"},\"narrativa\":{\"nota_cautela\":\"El DENUE no registra todo.\",\"principal\":{\"medida\":\"establecimientos\"},\"texto\":\"Hay {principal} establecimientos.\",\"titulo\":\"Comercio en {territorio}\"},\"territorio\":{\"clave\":\"09\",\"tipo\":\"ciudad\"}}",
+ "hex": "7b22636f6e747261746f223a312c2265646963696f6e223a22323032362d3035222c22657363656e61223a7b226d6f646f223a2272616e6b696e67222c22726164696f5f6d223a3830302c227469706f223a22636f727265646f7265735f6d6574726f227d2c226e6172726174697661223a7b226e6f74615f63617574656c61223a22456c2044454e5545206e6f20726567697374726120746f646f2e222c227072696e636970616c223a7b226d6564696461223a2265737461626c6563696d69656e746f73227d2c22746578746f223a22486179207b7072696e636970616c7d2065737461626c6563696d69656e746f732e222c22746974756c6f223a22436f6d657263696f20656e207b7465727269746f72696f7d227d2c227465727269746f72696f223a7b22636c617665223a223039222c227469706f223a22636975646164227d7d"
+}

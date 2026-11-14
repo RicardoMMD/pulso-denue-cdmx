@@ -1,0 +1,15 @@
+# Puerta a la base real: solo hay una base (pulso_denue en el VPS). Una regex ERE por línea, sin distinguir mayúsculas.
+# Cualquier coincidencia pide confirmación humana en ese momento.
+
+# dbt que escribe en la base (test, parse, compile y docs no coinciden)
+\bdbt\b.*\b(build|run|seed|snapshot|run-operation|clone)\b
+# make build = dbt build
+\bmake\b.*\bbuild\b
+# cargas del pipeline a raw
+\bcargar_[a-z0-9_]*\.py\b
+# SQL que cambia datos, esquema o permisos
+\bpsql\b.*\b(create|drop|alter|truncate|delete|insert|update|grant|revoke|vacuum|reindex)\b
+# cambios en el VPS
+\bssh\b.*\bvps\b.*\b(systemctl|pg_ctlcluster|pg_dropcluster|apt|apt-get|ufw|rm|crontab|docker|psql)\b
+# git destructivo
+\bgit[[:space:]]+push\b.*(--force|-f\b)

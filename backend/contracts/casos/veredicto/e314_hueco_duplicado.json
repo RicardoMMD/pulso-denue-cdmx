@@ -1,0 +1,35 @@
+{
+ "descripcion": "Dos cifras con el mismo hueco",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "{lider} y {principal}.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   },
+   "secundarias": [
+    {
+     "nombre": "lider",
+     "medida": "establecimientos"
+    },
+    {
+     "nombre": "lider",
+     "medida": "establecimientos"
+    }
+   ]
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "hueco_duplicado"
+}

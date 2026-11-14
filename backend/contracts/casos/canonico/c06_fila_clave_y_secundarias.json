@@ -1,0 +1,42 @@
+{
+ "descripcion": "Fila por clave y secundarias en orden",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "alcaldia",
+   "clave": "007"
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "tamano": "locales_declarados"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "{zeta}, {alfa} y {principal}.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "locales_declarados",
+    "fila": {
+     "clave": "mercado:1"
+    },
+    "formato": "porcentaje"
+   },
+   "secundarias": [
+    {
+     "nombre": "zeta",
+     "medida": "nombre",
+     "formato": "texto"
+    },
+    {
+     "nombre": "alfa",
+     "medida": "tipo",
+     "formato": "texto",
+     "fila": "ultima"
+    }
+   ]
+  }
+ },
+ "texto": "{\"contrato\":1,\"edicion\":\"2026-05\",\"escena\":{\"tamano\":\"locales_declarados\",\"tipo\":\"ciudades_dentro\"},\"narrativa\":{\"nota_cautela\":\"El DENUE no registra todo.\",\"principal\":{\"fila\":{\"clave\":\"mercado:1\"},\"formato\":\"porcentaje\",\"medida\":\"locales_declarados\"},\"secundarias\":[{\"formato\":\"texto\",\"medida\":\"nombre\",\"nombre\":\"zeta\"},{\"fila\":\"ultima\",\"formato\":\"texto\",\"medida\":\"tipo\",\"nombre\":\"alfa\"}],\"texto\":\"{zeta}, {alfa} y {principal}.\",\"titulo\":\"Comercio en {territorio}\"},\"territorio\":{\"clave\":\"007\",\"tipo\":\"alcaldia\"}}",
+ "hex": "7b22636f6e747261746f223a312c2265646963696f6e223a22323032362d3035222c22657363656e61223a7b2274616d616e6f223a226c6f63616c65735f6465636c617261646f73222c227469706f223a2263697564616465735f64656e74726f227d2c226e6172726174697661223a7b226e6f74615f63617574656c61223a22456c2044454e5545206e6f20726567697374726120746f646f2e222c227072696e636970616c223a7b2266696c61223a7b22636c617665223a226d65726361646f3a31227d2c22666f726d61746f223a22706f7263656e74616a65222c226d6564696461223a226c6f63616c65735f6465636c617261646f73227d2c22736563756e646172696173223a5b7b22666f726d61746f223a22746578746f222c226d6564696461223a226e6f6d627265222c226e6f6d627265223a227a657461227d2c7b2266696c61223a22756c74696d61222c22666f726d61746f223a22746578746f222c226d6564696461223a227469706f222c226e6f6d627265223a22616c6661227d5d2c22746578746f223a227b7a6574617d2c207b616c66617d2079207b7072696e636970616c7d2e222c22746974756c6f223a22436f6d657263696f20656e207b7465727269746f72696f7d227d2c227465727269746f72696f223a7b22636c617665223a22303037222c227469706f223a22616c63616c646961227d7d"
+}
