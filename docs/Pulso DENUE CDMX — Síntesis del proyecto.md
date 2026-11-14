@@ -649,7 +649,26 @@ Implementado en `backend/contracts/` (Python) y `backend/contracts-ts/` (navegad
 - **Validación sin base:** estructura, referencias (archivo `referencias/2026-05.json`, 0.69 MB, exportado de `semantic` con el rol de solo lectura) y coherencia. Python y Ajv dan el mismo veredicto en los 49 casos del banco para los niveles 1 y 2.
 - **Forma canónica:** Python y TypeScript producen los mismos bytes en 10 casos fijos y en 300 estados aleatorios con texto difícil (acentos en NFC y NFD, emoji, comillas, claves con `|`). Es la base del id por contenido de H14.
 - **Verificación:** 148 pruebas de Python, 60 de Node, `make ci` en 4 s sin base y `make verify` en verde.
-- **Pendiente:** crear el remoto público (con gitleaks sobre el historial) para que el workflow de GitHub Actions corra; hoy solo está escrito.
+- **Remoto:** público en GitHub desde el 14 nov 2026 (gitleaks sin hallazgos sobre el historial); el workflow corre `make ci` en cada push.
+- **Ajustes por el guion de H12:** hueco `{radio}`, fila `mayor`, `lado` en las cifras de una comparación, medidas `participacion_giro` y `micronegocios`, y la definición de cada medida por vista. Cinco de los siete huecos que encontró el guion pasaban la validación con la cifra equivocada (ver la spec, "Ajustes por el guion de H12").
+
+## Resultado del guion "Vida comercial del Metro"
+
+Guion de H12 en `contenido/historias/vida-comercial-metro.yml`, escrito el 14 nov 2026. Valida contra el contrato y cada cifra se comprobó en `semantic` (edición 2026-05).
+
+| Panel | Pregunta | Escena · recorrido | Lo que muestra |
+|---|---|---|---|
+| 1 | ¿Cuánta economía hay en la ciudad? | Ciudad de luz · El despertar | 462 729 establecimientos |
+| 2 | ¿Qué estaciones concentran más negocios? | Ranking · Constelación de estaciones | 126 339 a 500 m; Merced al frente con 6 103, 44 % de un solo giro |
+| 3 | ¿Cómo cambia a lo largo de una línea? | Línea 1 · Tren de luz | 30 711 en 20 estaciones; la mayor, Merced |
+| 4 | ¿Todas las líneas tienen la misma vida comercial? | Línea 1 contra Línea 12 | 30 711 contra 10 874, con 20 estaciones cada una |
+| 5 | ¿Hay estaciones que no vivan del comercio? | Ranking · Chilpancingo | Lugar 8; giro dominante: consultorios médicos, 39 % |
+| 6 | ¿El ranking depende de cómo medimos la cercanía? | Ranking a 300 m | San Juan de Letrán pasa al frente con 4 050 |
+
+- **Cambios en `semantic` que pidió el guion:** las 11 estaciones del Estado de México quedan fuera del ranking (`en_cdmx`, `lugar` nulo), porque sus cifras solo cuentan el lado de la Ciudad. Cada subsector tiene un nombre corto para los textos (seed `ref_subsector_corto`, 93 subsectores, editorial).
+- **Lo que corrigió:** con las estaciones fuera de la Ciudad separadas, la línea con menos negocios por estación es la 12 (544), no la A (723); el panel de comparación usa la 12.
+- **Fuera del guion:** cifras por giro en Corredores del Metro (pasa a H27).
+- **De paso:** `colonia_gemela` tardaba de 4.5 a más de 55 minutos según el plan que eligiera PostgreSQL. Se reescribió para calcular los sectores que explican solo con los pares del top 5: el mismo resultado (26 155 filas, sin diferencias) en 2.5 minutos.
 
 ## Riesgos, primera versión y próximos pasos
 
@@ -719,7 +738,7 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 - [x] Contrato de escena en Pydantic v2 y exportación a JSON Schema (H09; ver "Resultado del contrato de escena")
 - [x] Catálogo de vistas semánticas, primera versión: 18 tablas en `semantic` (ver `dbt/README.md`), con `lugar` para resolver lugares, incluidas Metro, Colonias gemelas y Cómo se llaman las cosas; falta la de Islas de 15 minutos
 - [ ] Banco de preguntas de evaluación del Analista
-- [ ] Guion panel por panel de "Vida comercial del Metro"
+- [x] Guion panel por panel de "Vida comercial del Metro" (H12; ver "Resultado del guion")
 - [x] Macrosectores definidos (7 familias de sectores SCIAN; ver `docs/Core — Documentación del modelo de datos.md`, sección 4.11)
 - [ ] Sistema visual: paleta por macrosector, tipografía, tratamiento de la luz
 - [ ] Guion panel por panel de "Centro contra periferia"
