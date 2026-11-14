@@ -9,3 +9,4 @@ logs/
 .claude/settings.local.json
 .archify/
 dbt/.user.yml
+.claude/tests-locked

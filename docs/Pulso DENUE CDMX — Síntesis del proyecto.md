@@ -10,6 +10,15 @@ Pulso DENUE CDMX está en fase de concepto y diseño: hay decisiones cerradas de
 
 **Para Claude Code:** guárdalo en el repositorio (por ejemplo, `docs/concepto.md`). Las secciones de vocabulario, contrato de escena, persistencia, recorridos y coreografía funcionan como especificación.
 
+**Ajustes al contrato de escena (14 nov 2026, spec de H09 aceptada)**
+
+El detalle está en `docs/changes/2026-11-08-contrato-escena/spec.md`. Cambia cuatro puntos de la sección "Contrato del estado de escena":
+
+- El origen y el panel anterior salen del estado y pasan a ser metadatos, para que el mismo panel tenga el mismo id venga de donde venga.
+- La validación tiene tres niveles. El de dispositivo deja de ser validación: cada escena declara su agregado para celular y el motor lo aplica.
+- En Corredores del Metro la línea es el territorio, no un parámetro, y el ranking admite toda la ciudad.
+- En Corredores del Metro la selección por giro solo atenúa puntos; sus cifras no cambian con el giro.
+
 **Cambios en la revisión 3 (8 nov 2026)**
 
 - Se actualiza el estado real: la capa `semantic` tiene 18 tablas con `lugar` (ver "Próximos pasos"); ya existen las de Metro, Colonias gemelas y Cómo se llaman las cosas, además de `censo_sector` y `cobertura_censo`.
@@ -367,7 +376,7 @@ El estado de escena es el contrato central: lo escriben las historias, el explor
 
 | Bloque | Contenido |
 | --- | --- |
-| Identidad | Versión del contrato, edición DENUE, origen (historia, explorador, Analista), panel anterior |
+| Identidad | Versión del contrato y edición DENUE. El origen (historia, explorador, Analista) y el panel anterior son metadatos del panel, fuera del estado |
 | Territorio y encuadre | Ciudad, alcaldía, colonia, AGEB, manzana, estación, calle, conglomerado o punto con radio. Modos: ajustar al territorio, vista con ángulo (cenital, oblicua, rasante) o recorrido de autor |
 | Escena | Tipo de escena, modo y sus parámetros |
 | Selección | Giro SCIAN, estrato, tipo de establecimiento, organización jurídica, conglomerado, presencia digital. Filtrar atenúa, nunca elimina puntos |
@@ -387,7 +396,7 @@ El estado de escena es el contrato central: lo escriben las historias, el explor
 | La ciudad que brilla en línea | Ciudad | Tipo de presencia (web, correo, redes, cualquiera) | Presencia digital |
 | Las calles hablan | Alcaldía o colonia | Mínimo de negocios por calle | Giro dominante, densidad |
 | Islas de 15 minutos | Alcaldía o ciudad | Distancia: 10, 15 o 20 minutos; categorías fijas | Categorías alcanzables |
-| Corredores del Metro | Línea o estación | Línea; modo línea o ranking; distancia caminable 300, 500 u 800 m | Giro, conteo por estación |
+| Corredores del Metro | Línea o estación; ciudad en modo ranking | Modo línea o ranking; distancia caminable 300, 500 u 800 m | Giro, conteo por estación |
 | ADN de alcaldía | Alcaldía | Base: ciudad u otra alcaldía | Cociente de localización |
 | Colonias gemelas | Colonia | Número de gemelas (1 a 5); modo arcos o perfiles | Similitud |
 | Rarezas | Alcaldía o ciudad | Umbral: únicas o hasta 3; etiquetas con nombre sí o no | Giro |
@@ -413,14 +422,15 @@ El estado de escena es el contrato central: lo escriben las historias, el explor
 | Narrativa | Se hereda como plantilla y sus cifras se vuelven a vincular |
 | Vista exacta | Se recalcula siempre |
 
-**Validación en cuatro niveles**
+**Validación en tres niveles**
 
 1. Estructura: campos y valores permitidos.
 2. Referencias: los identificadores existen en la edición.
 3. Coherencia: la combinación tiene sentido (rarezas no admite manzana; gemelas exige colonia).
-4. Dispositivo: en celular el motor sustituye puntos por agregados sin cambiar el estado.
 
-El navegador valida los niveles 1 y 2 con el esquema y el catálogo de referencias del paquete estático; el backend valida los cuatro.
+El dispositivo no es un nivel de validación: en celular el motor sustituye puntos por el agregado que declara cada escena, sin cambiar el estado.
+
+El navegador valida los niveles 1 y 2 con el esquema y el catálogo de referencias del paquete estático; el backend valida los tres.
 
 **Lo que el Analista puede y no puede hacer**
 
