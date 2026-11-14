@@ -1,5 +1,5 @@
 # Spec: contrato de escena v1 (de intent.md 2026-11-08)
-Estado: aceptada (2026-11-14) · Ref: H09
+Estado: implementada (2026-11-14) · Ref: H09
 
 Diseño previo: síntesis, secciones "Vocabulario", "Contrato del estado de escena", "Persistencia de paneles", "Recorridos de autor" y "Coreografía de transiciones". Esta spec la concreta para las tres escenas de la primera versión. Donde se aparta de la síntesis, lo dice.
 
@@ -58,7 +58,7 @@ Estado (lo que se ve: entra al id)   Metadatos (quién y de dónde: no entra al 
 |---|---|---|
 | `territorio` | `tipo`, `clave`, `radio_m` | `tipo` ∈ ciudad, alcaldia, colonia, estacion_metro, linea_metro, conglomerado, calle. `clave` es la de `semantic.lugar` (o `cve_linea`). `radio_m` ∈ {300, 500, 800}, solo para estacion_metro y conglomerado, y nunca dentro de `corredores_metro` (ahí el radio es el parámetro de la escena). La calle se usa completa |
 | `encuadre` | `modo`, `angulo` o `recorrido` | `ajustar` (predeterminado) · `angulo` ∈ cenital, oblicua, rasante · `recorrido` ∈ el_despertar, tren_de_luz, constelacion_estaciones, entrar_al_mercado |
-| `seleccion` | `scian`, `estrato`, `tipo_unidad`, `presencia_digital`, `tipo_conglomerado` | `scian`: lista de 1 a 20 códigos de 2 a 6 dígitos (sector a clase) · `estrato`: lista de 1 a 7 · `tipo_unidad` ∈ fijo, semifijo · `presencia_digital`: bool · `tipo_conglomerado`: lista del catálogo. Filtrar atenúa, nunca elimina |
+| `seleccion` | `scian`, `estrato`, `tipo_unidad`, `presencia_digital` | `scian`: lista de 1 a 20 códigos de 2 a 6 dígitos (sector a clase) · `estrato`: lista de 1 a 7 · `tipo_unidad` ∈ fijo, semifijo · `presencia_digital`: bool. El tipo de conglomerado no va aquí: es parámetro de `ciudades_dentro` (§3), para no tener dos fuentes. Filtrar atenúa, nunca elimina |
 | `capas` | lista | alcaldias, lineas_metro, calles_principales, etiquetas |
 | `comparacion` | `forma` + exactamente uno de `territorio`, `seleccion` | `forma` ∈ lado_a_lado, transformacion |
 | `narrativa` | `titulo` (≤ 80), `texto` (≤ 400), `principal`, `secundarias` (≤ 3), `nota_cautela` (obligatoria, ≤ 240) | Ver §5. Fuente y fecha de corte salen de la edición; no se escriben |
@@ -86,6 +86,10 @@ La columna "Agregado en celular" sustituye el nivel 4 de la síntesis: es un dat
 | `cifra_no_disponible` | Un hueco o cifra nombra una medida que la vista exacta de este estado no tiene |
 | `hueco_sin_declarar` | El texto usa `{x}` y `x` no es una cifra declarada en la narrativa |
 | `comparacion_misma` | Se compara un territorio o una selección consigo misma |
+| `tamano_sin_seleccion` | `ciudades_dentro` con tamaño `establecimientos_seleccion` y sin selección |
+| `hueco_duplicado` | Una cifra secundaria usa un nombre ya ocupado (`principal`, un reservado u otra secundaria) |
+
+Códigos del nivel 2: `edicion_no_disponible`, `referencia_inexistente` (clave que no está en el catálogo), `scian_inexistente` y `tipo_conglomerado_inexistente`. Del nivel 1: `campo_faltante`, `campo_no_admitido`, `valor_no_admitido`, `texto_con_cifras`, `formato_incorrecto`, `demasiado_largo`, `demasiado_corto` y `tipo_incorrecto`.
 
 ### 5. Narrativa y cifras vinculadas
 Responde la pregunta abierta del intent.
@@ -203,6 +207,20 @@ contenido/historias/          # historias YAML (en H09, una de ejemplo)
 - **Sin radio alrededor de una calle.** El punto de una calle en `lugar` es el promedio de sus establecimientos y el círculo caería a media avenida (§2).
 - **Ciudad de luz fuera de ciudad, alcaldía y colonia** cuenta sobre `establecimiento` (§6).
 - **`metro_estacion.lugar`** es el puesto en toda la ciudad; dentro de una línea el orden se recalcula (§6).
+
+## Lo que cambió al implementar (2026-11-14)
+Todo lo de arriba se cumplió. Estos ajustes salieron del código y de la revisión contra `semantic`:
+- `tipo_conglomerado` pasó de la selección al parámetro de `ciudades_dentro` (§2, §3): estaba en los dos lugares.
+- El encuadre es una unión por modo (`ajustar`, `angulo`, `recorrido`): un ángulo sin ángulo o un recorrido sin recorrido son errores de estructura, no de coherencia. La comparación son dos variantes (con territorio o con selección), para que "exactamente uno" también lo vea Ajv.
+- Herencia (R5), precisiones a las seis reglas: el territorio se reemplaza completo si el parcial trae `tipo` o `clave` (si solo trae `clave`, el `tipo` se hereda; si solo trae `radio_m`, se fusiona); al cambiar de escena el encuadre vuelve a `ajustar`; al cambiar de qué se compara, la forma se hereda y territorio y selección no se mezclan.
+- La forma canónica omite todo valor igual a su predeterminado del esquema y se escribe dos veces (`canonico.py`, `canonico.ts`) sin una segunda lista de predeterminados en TS: lee el esquema generado. Hay una prueba de 300 estados aleatorios entre ambos lenguajes además del banco fijo.
+- `500.0` equivale a `500` (JSON de JS no los distingue) y se normaliza a entero; `"500"` se rechaza.
+- El validador Ajv generado usaba `require()` dentro de un módulo ESM; `generar.mjs` lo cambia por un `import` y falla si Ajv cambia esa forma.
+- Las pruebas de Node corren `.ts` con el recorte de tipos de Node 24 (sin compilador). CI usa Node 24.
+- `make check` usa variables de mentira para `dbt parse` cuando no hay `.env` (GitHub Actions); `make verify` = `ci` + túnel + `dbt test`.
+- Cifras: 148 pruebas de Python, 60 de Node, 49 casos de veredicto, 10 de bytes canónicos y 7 historias inválidas.
+
+Sigue pendiente de Ricardo: crear el remoto público (con gitleaks sobre el historial antes del primer `push`). El workflow `.github/workflows/verificar.yml` está escrito pero no se ha ejecutado en GitHub.
 
 ## Preguntas del intent
 - Narrativa con huecos → respondida en §5: `{nombre}`, cifras con `medida`, `fila` y `formato` que deben existir en la vista exacta.

@@ -1,0 +1,32 @@
+{
+ "descripcion": "Comparar un territorio consigo mismo",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "alcaldia",
+   "clave": "007"
+  },
+  "escena": {
+   "tipo": "ciudades_dentro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "comparacion": {
+   "forma": "lado_a_lado",
+   "territorio": {
+    "tipo": "alcaldia",
+    "clave": "007"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "comparacion_misma"
+}

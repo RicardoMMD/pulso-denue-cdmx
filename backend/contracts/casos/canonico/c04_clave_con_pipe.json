@@ -1,0 +1,26 @@
+{
+ "descripcion": "Clave de conglomerado con | y :",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "conglomerado",
+   "clave": "denue:AEROPUERTO|AEROPUERTO DE LA CIUDAD DE MEXICO|1",
+   "radio_m": 300
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "modo": "interior"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "texto": "{\"contrato\":1,\"edicion\":\"2026-05\",\"escena\":{\"modo\":\"interior\",\"tipo\":\"ciudades_dentro\"},\"narrativa\":{\"nota_cautela\":\"El DENUE no registra todo.\",\"principal\":{\"medida\":\"establecimientos\"},\"texto\":\"Hay {principal} establecimientos.\",\"titulo\":\"Comercio en {territorio}\"},\"territorio\":{\"clave\":\"denue:AEROPUERTO|AEROPUERTO DE LA CIUDAD DE MEXICO|1\",\"radio_m\":300,\"tipo\":\"conglomerado\"}}",
+ "hex": "7b22636f6e747261746f223a312c2265646963696f6e223a22323032362d3035222c22657363656e61223a7b226d6f646f223a22696e746572696f72222c227469706f223a2263697564616465735f64656e74726f227d2c226e6172726174697661223a7b226e6f74615f63617574656c61223a22456c2044454e5545206e6f20726567697374726120746f646f2e222c227072696e636970616c223a7b226d6564696461223a2265737461626c6563696d69656e746f73227d2c22746578746f223a22486179207b7072696e636970616c7d2065737461626c6563696d69656e746f732e222c22746974756c6f223a22436f6d657263696f20656e207b7465727269746f72696f7d227d2c227465727269746f72696f223a7b22636c617665223a2264656e75653a4145524f50554552544f7c4145524f50554552544f204445204c4120434955444144204445204d455849434f7c31222c22726164696f5f6d223a3330302c227469706f223a22636f6e676c6f6d657261646f227d7d"
+}

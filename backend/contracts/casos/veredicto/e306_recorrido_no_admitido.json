@@ -1,0 +1,29 @@
+{
+ "descripcion": "Tren de luz en Ciudad de luz",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "encuadre": {
+   "modo": "recorrido",
+   "recorrido": "tren_de_luz"
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "recorrido_no_admitido"
+}

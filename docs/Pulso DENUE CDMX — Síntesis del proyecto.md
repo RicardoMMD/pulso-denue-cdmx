@@ -555,7 +555,8 @@ Corte: 8 nov 2026. Capa de datos avanzada; producto sin iniciar.
 | Prototipo 1 | Cerrado: compuerta de conglomerados en verde |
 | Prototipo 2 | Cerrado: 60 FPS con todos los puntos en un S26 Ultra; faltan prueba con brillo y en gama media |
 | Prototipo 3 | Cerrado: resuelve lugares con 87 % de acierto en casos nuevos; falta respaldo con modelo y probar con usuarios reales |
-| Contrato, backend, frontend, Analista | Sin código |
+| Contrato de escena (H09) | Hecho: modelos, validación en tres niveles, herencia, forma canónica, migraciones, tipos TS y Ajv, CI sin base |
+| Backend (API), frontend, Analista | Sin código |
 | Diseño editorial | Sin guiones ni sistema visual |
 
 **Desfases conocidos**
@@ -639,6 +640,17 @@ La cifra que mejor estima el desempeño con formas nuevas es la del banco ciego 
 
 **Pendiente:** respaldo con modelo ligero (Haiku) para formas que ningún método cubre; probar con preguntas reales de usuarios; alias de vías (ejes viales) y de más apodos; medir la latencia desde el VPS.
 
+## Resultado del contrato de escena
+
+Implementado en `backend/contracts/` (Python) y `backend/contracts-ts/` (navegador), el 14 nov 2026. El diseño y sus ajustes están en `docs/changes/2026-11-08-contrato-escena/spec.md`.
+
+- **Fuente única:** modelos Pydantic v2 con tres escenas (Ciudad de luz, Corredores del Metro en línea y ranking, Ciudades dentro de la ciudad en exterior e interior). El esquema JSON, los tipos TypeScript y el validador Ajv se generan; `make contratos` falla si están desactualizados.
+- **Lo que no cabe en el estado:** ninguna cifra, color, escala, coordenada ni duración. Los textos no admiten dígitos fuera de los huecos `{nombre}`; las cifras se nombran (`medida`, `fila`, `formato`) y deben existir en la vista exacta del estado.
+- **Validación sin base:** estructura, referencias (archivo `referencias/2026-05.json`, 0.69 MB, exportado de `semantic` con el rol de solo lectura) y coherencia. Python y Ajv dan el mismo veredicto en los 49 casos del banco para los niveles 1 y 2.
+- **Forma canónica:** Python y TypeScript producen los mismos bytes en 10 casos fijos y en 300 estados aleatorios con texto difícil (acentos en NFC y NFD, emoji, comillas, claves con `|`). Es la base del id por contenido de H14.
+- **Verificación:** 148 pruebas de Python, 60 de Node, `make ci` en 4 s sin base y `make verify` en verde.
+- **Pendiente:** crear el remoto público (con gitleaks sobre el historial) para que el workflow de GitHub Actions corra; hoy solo está escrito.
+
 ## Riesgos, primera versión y próximos pasos
 
 Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin mapa base, la cobertura de campos y la resolución de lugares.
@@ -704,7 +716,7 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 - [x] Prototipo 1: cobertura de campos y compuerta de conglomerados: **verde** (82.1 % del padrón; ver "Resultado del prototipo 1")
 - [x] Prototipo 2: renderizador sin mapa base con paleta provisional (escritorio: GPU 3.55 ms por cuadro; S26 Ultra: 60 FPS, p5 59.5)
 - [x] Prototipo 3: resolver lugar (87 % en casos nuevos; ver "Resultado del prototipo 3"); falta el glosario CDMX de giros (lenguaje común → SCIAN)
-- [ ] Contrato de escena en Pydantic v2 y exportación a JSON Schema
+- [x] Contrato de escena en Pydantic v2 y exportación a JSON Schema (H09; ver "Resultado del contrato de escena")
 - [x] Catálogo de vistas semánticas, primera versión: 18 tablas en `semantic` (ver `dbt/README.md`), con `lugar` para resolver lugares, incluidas Metro, Colonias gemelas y Cómo se llaman las cosas; falta la de Islas de 15 minutos
 - [ ] Banco de preguntas de evaluación del Analista
 - [ ] Guion panel por panel de "Vida comercial del Metro"

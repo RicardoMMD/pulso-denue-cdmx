@@ -1,0 +1,27 @@
+{
+ "descripcion": "Ranking de estaciones de toda la ciudad (con lugar)",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "corredores_metro",
+   "modo": "ranking",
+   "radio_m": 800
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "lugar"
+   }
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

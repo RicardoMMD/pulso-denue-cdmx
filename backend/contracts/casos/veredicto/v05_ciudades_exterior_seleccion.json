@@ -1,0 +1,46 @@
+{
+ "descripcion": "Ciudades dentro, exterior, tamaño por selección",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "alcaldia",
+   "clave": "007"
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "tamano": "establecimientos_seleccion",
+   "tipo_conglomerado": [
+    "aeropuerto"
+   ]
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "{lider} concentra {principal}.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos_seleccion"
+   },
+   "secundarias": [
+    {
+     "nombre": "lider",
+     "medida": "nombre"
+    }
+   ]
+  },
+  "seleccion": {
+   "scian": [
+    "722"
+   ],
+   "estrato": [
+    1,
+    2
+   ],
+   "tipo_unidad": "fijo",
+   "presencia_digital": true
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

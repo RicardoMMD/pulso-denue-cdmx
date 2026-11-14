@@ -1,0 +1,26 @@
+{
+ "descripcion": "Tamaño por selección sin selección",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "alcaldia",
+   "clave": "007"
+  },
+  "escena": {
+   "tipo": "ciudades_dentro",
+   "tamano": "establecimientos_seleccion"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "tamano_sin_seleccion"
+}

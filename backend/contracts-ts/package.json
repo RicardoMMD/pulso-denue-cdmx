@@ -1,0 +1,17 @@
+{
+  "name": "pulso-denue-contratos-ts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Parte del navegador del contrato de escena: tipos, validador Ajv, referencias y forma canónica.",
+  "scripts": {
+    "generar": "node generar.mjs",
+    "test": "node --test \"test/*.test.ts\""
+  },
+  "dependencies": {
+    "ajv": "8.17.1"
+  },
+  "devDependencies": {
+    "json-schema-to-typescript": "15.0.4"
+  }
+}

@@ -1,0 +1,32 @@
+{
+ "descripcion": "Comparar una estación con una línea que no pasa por ella",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "estacion_metro",
+   "clave": "AGRICOLA ORIENTAL"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  },
+  "comparacion": {
+   "forma": "lado_a_lado",
+   "territorio": {
+    "tipo": "linea_metro",
+    "clave": "2"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "estacion_fuera_de_linea"
+}

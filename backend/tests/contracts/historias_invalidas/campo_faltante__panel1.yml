@@ -1,0 +1,34 @@
+slug: ejemplo-mercados
+titulo: Mercados con más locales de comida
+exploracion: bloqueada
+paneles:
+- estado:
+    contrato: 1
+    edicion: 2026-05
+    territorio:
+      tipo: alcaldia
+      clave: '007'
+    escena:
+      tipo: ciudades_dentro
+      modo: exterior
+      tamano: establecimientos_seleccion
+    seleccion:
+      scian:
+      - '722'
+    narrativa:
+      titulo: Mercados de {territorio} con más locales de comida
+      texto: '{lider} concentra {principal} establecimientos de preparación de alimentos.'
+      principal:
+        medida: establecimientos_seleccion
+        fila: primera
+        formato: entero
+      secundarias:
+      - nombre: lider
+        medida: nombre
+        fila: primera
+        formato: texto
+- estado:
+    territorio:
+      tipo: alcaldia
+      clave: '015'
+  exploracion: libre

@@ -18,7 +18,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H06 | Prototipo 3: resolver lugar | Validación | ✅ | H03 |
 | H07 | Carga de la edición DENUE 11/2026 | Datos | ⬜ | H02 |
 | H08 | Sistema visual | Definición | ⬜ | H05 |
-| H09 | Contrato de escena | Definición | 🟡 | H03 |
+| H09 | Contrato de escena | Definición | ✅ | H03 |
 | H10 | Traducir giro: glosario y embeddings | Definición | ⬜ | H03 |
 | H11 | Banco de evaluación del Analista | Definición | ⬜ | H06, H10 |
 | H12 | Guion de "Vida comercial del Metro" | Definición | ⬜ | H09 |
@@ -87,11 +87,11 @@ Paleta definitiva por macrosector (7 colores), tipografía y tratamiento de la l
 - **Entregables:** tokens de color y tipografía; parámetros del shader de puntos y del posprocesado.
 - **Terminado cuando:** la paleta se distingue con daltonismo común, funciona con brillo aditivo sobre fondo oscuro y el renderizador del prototipo 2 la aplica sin perder rendimiento.
 
-### H09 · Contrato de escena 🟡
+### H09 · Contrato de escena ✅
 El contrato central que escriben historias, explorador y Analista, y que interpreta un solo motor.
-- **Entregables:** `backend/contracts/escena.py` (Pydantic v2) con el catálogo de valores por escena; `backend/contracts/escena.v1.json`; tipos TypeScript y validador Ajv generados; reglas de herencia; función de migración entre versiones.
+- **Entregables:** `backend/contracts/escena.py` (Pydantic v2) y `catalogo.py` con los valores por escena; `backend/contracts/escena.v1.json`; tipos TypeScript y validador Ajv generados; reglas de herencia; función de migración entre versiones.
 - **Terminado cuando:** valida en tres niveles (estructura, referencias, coherencia), la integración continua rechaza una historia inválida y cubre las escenas de la primera versión.
-- **Avance (14 nov 2026):** intent y spec aceptados y plan escrito en `docs/changes/2026-11-08-contrato-escena/`. Sin código todavía.
+- **Resultado (14 nov 2026):** `backend/contracts/` (modelos, validación en tres niveles, herencia, forma canónica y migraciones), `backend/contracts-ts/` (Ajv, tipos y forma canónica en TS), `contenido/historias/` y el workflow `.github/workflows/verificar.yml`. `make ci` (4 s, sin base) y `make verify` en verde. Pendiente: crear el remoto público para que el workflow corra en GitHub.
 
 ### H10 · Traducir giro: glosario y embeddings ⬜
 Segunda herramienta crítica del Analista: lenguaje común a clases SCIAN ("tiendita", "fonda", "estética").

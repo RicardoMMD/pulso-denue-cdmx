@@ -1,0 +1,25 @@
+{
+ "descripcion": "Cifra con una medida que la vista exacta no tiene",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "2"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos_seleccion"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "cifra_no_disponible"
+}

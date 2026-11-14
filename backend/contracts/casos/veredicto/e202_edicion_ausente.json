@@ -1,0 +1,25 @@
+{
+ "descripcion": "Edición que no está en las referencias",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2031-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "texto": "Hay {principal} establecimientos.",
+   "nota_cautela": "El DENUE no registra todo.",
+   "principal": {
+    "medida": "establecimientos"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 2,
+ "codigo": "edicion_no_disponible"
+}

@@ -1,0 +1,22 @@
+[project]
+name = "pulso-denue-backend"
+version = "0.1.0"
+description = "Backend de Pulso DENUE CDMX: contrato de escena y, después, la API."
+requires-python = ">=3.12,<3.14"
+dependencies = [
+  "pydantic>=2.9",
+  "pyyaml>=6.0",
+]
+
+[dependency-groups]
+dev = ["pytest>=8"]
+# Solo lo usa exportar_referencias.py (lee semantic con el rol pulso_analista).
+base = ["psycopg[binary]>=3.2"]
+
+[tool.uv]
+package = false
+default-groups = ["dev"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

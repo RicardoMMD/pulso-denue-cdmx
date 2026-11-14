@@ -1,5 +1,5 @@
 # Plan: contrato de escena v1 (de spec.md, aceptada el 2026-11-14)
-Estado: borrador · Ref: H09
+Estado: ejecutado (2026-11-14), salvo el remoto público · Ref: H09
 
 Quien no vio la conversación debería poder implementar H09 con este plan y la spec. Los números de requisito (R1–R15) y de sección (§1–§9) son los de `spec.md`.
 
@@ -107,3 +107,11 @@ Los ocho criterios de "Cómo sabremos que funcionó" del intent, cada uno con su
 | Migración a una v2 ficticia | `tests/contracts/test_migraciones.py` |
 | Historia inválida deja CI en rojo | `make ci` con una historia de `historias_invalidas/` copiada a `contenido/`; en GitHub cuando exista el remoto |
 | `make verify` incluye el contrato y termina en 0 | salida del comando al cerrar |
+
+## Desviaciones del plan al ejecutarlo
+- Paso 1: `tipo_conglomerado` quedó como parámetro de la escena y no en la selección (ver spec, "Lo que cambió al implementar").
+- Paso 2: el validador Ajv generado necesitó un parche (`require` → `import`) y `ignoreMinAndMaxItems` en los tipos TS, para que `maxItems` no genere uniones de tuplas.
+- Paso 6: además del banco de bytes, una prueba de 300 estados aleatorios entre Python y Node (`tests/contracts/test_paridad_ts.py`, con `contracts-ts/canonico-lote.ts`).
+- Paso 3: los códigos SCIAN se derivan como prefijos de las 948 clases de `semantic.actividad`; la consulta por establecimientos excede los 8 s del rol de solo lectura.
+- Paso 10: `ci` no usa un `.env.ci`; `check` define `PULSO_OWNER_USER` y `PULSO_OWNER_PASSWORD` de mentira solo si no hay `.env`. Se añadió `generado-al-dia` a `contratos`.
+- No se creó el remoto ni se hizo `push`: queda esperando el "adelante" de Ricardo.
