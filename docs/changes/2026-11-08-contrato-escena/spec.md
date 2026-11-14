@@ -88,6 +88,8 @@ La columna "Agregado en celular" sustituye el nivel 4 de la síntesis: es un dat
 | `comparacion_misma` | Se compara un territorio o una selección consigo misma |
 | `tamano_sin_seleccion` | `ciudades_dentro` con tamaño `establecimientos_seleccion` y sin selección |
 | `hueco_duplicado` | Una cifra secundaria usa un nombre ya ocupado (`principal`, un reservado u otra secundaria) |
+| `fila_no_disponible` | Cifra con `fila: total` de una medida que no tiene total en esa vista (un nombre, un lugar, una participación) |
+| `lado_sin_comparacion` | Cifra con `lado: b` en un estado sin comparación |
 
 Códigos del nivel 2: `edicion_no_disponible`, `referencia_inexistente` (clave que no está en el catálogo), `scian_inexistente` y `tipo_conglomerado_inexistente`. Del nivel 1: `campo_faltante`, `campo_no_admitido`, `valor_no_admitido`, `texto_con_cifras`, `formato_incorrecto`, `demasiado_largo`, `demasiado_corto` y `tipo_incorrecto`.
 
@@ -102,16 +104,18 @@ narrativa:
     - {nombre: lider, medida: nombre, fila: primera}
   nota_cautela: "El DENUE registra cada local como establecimiento; un puesto sin registro no aparece."
 ```
-- Un hueco es `{nombre}`: `principal`, el `nombre` de una secundaria, o los reservados `territorio`, `fecha_corte` y `edicion` (los llena el motor).
-- `medida` debe existir en la vista exacta del estado. `fila` ∈ primera, ultima, total o `{clave: ...}`. `formato` ∈ entero, porcentaje, decimal1, texto.
+- Un hueco es `{nombre}`: `principal`, el `nombre` de una secundaria, o los reservados `territorio`, `fecha_corte` y `edicion` (los llena el motor). En `corredores_metro` también `{radio}`, que es `escena.radio_m`.
+- `medida` debe existir en la vista exacta del estado. `fila` ∈ primera, ultima, mayor, total o `{clave: ...}`; `primera` y `ultima` siguen el orden de filas de la vista y `mayor` es la fila con más establecimientos; `total` solo para medidas con total. `formato` ∈ entero, porcentaje, decimal1, texto. `lado` ∈ a (predeterminado) o b: en una comparación, `b` es lo comparado.
 - **Sin dígitos fuera de los huecos.** "Línea 12" entra por `{territorio}`. Es una regla mecánica que atrapa "1,200 negocios", pero no "mil doscientos negocios". Lo demás lo cubre el banco del Analista (H11).
 
 ### 6. Vista exacta derivada
 | Escena · modo | Tabla `semantic` | Tipo de resultado | Medidas |
 |---|---|---|---|
 | ciudad_de_luz | `resumen_territorio` / `perfil_sector` si el territorio es ciudad, alcaldía o colonia; conteo sobre `establecimiento` para estación, línea, conglomerado o calle | territorial | establecimientos, macrosector, participacion |
-| corredores_metro · linea | `metro_linea`, `metro_recorrido` | serie | establecimientos, estaciones, estacion, giro_dominante |
-| corredores_metro · ranking | `metro_estacion` | ranking | establecimientos, lugar (solo con territorio `ciudad`; dentro de una línea el orden se recalcula), estacion, giro_dominante |
+| corredores_metro · linea | `metro_linea`, `metro_recorrido`, `metro_estacion` | serie | establecimientos (total = unión de radios de la línea, no la suma de las filas), estaciones, estacion, giro_dominante |
+| corredores_metro · ranking | `metro_estacion` | ranking | establecimientos, micronegocios, lugar (solo con territorio `ciudad`; dentro de una línea el orden se recalcula), estacion, giro_dominante, participacion_giro |
+
+Qué es una fila en cada vista, qué significa cada medida y si tiene total está en `catalogo.VISTAS`, y la vista exacta lo devuelve en `filas` y `definiciones`.
 | ciudades_dentro · exterior | `conglomerado` (+ `establecimiento` si hay selección) | ranking | establecimientos, establecimientos_seleccion, locales_declarados, nombre, tipo |
 | ciudades_dentro · interior | `establecimiento` del conglomerado | perfil | establecimientos por subsector, nombre |
 
@@ -220,7 +224,22 @@ Todo lo de arriba se cumplió. Estos ajustes salieron del código y de la revisi
 - `make check` usa variables de mentira para `dbt parse` cuando no hay `.env` (GitHub Actions); `make verify` = `ci` + túnel + `dbt test`.
 - Cifras: 148 pruebas de Python, 60 de Node, 49 casos de veredicto, 10 de bytes canónicos y 7 historias inválidas.
 
-Sigue pendiente de Ricardo: crear el remoto público (con gitleaks sobre el historial antes del primer `push`). El workflow `.github/workflows/verificar.yml` está escrito pero no se ha ejecutado en GitHub.
+El remoto público se creó el 14 nov 2026 (gitleaks sin hallazgos sobre el historial) y el workflow corre en GitHub.
+
+## Ajustes por el guion de H12 (2026-11-14)
+Escribir el guion de "Vida comercial del Metro" contra el contrato encontró siete huecos. Dos los atrapaba el validador; cinco no: el panel pasaba y la cifra mostrada habría sido otra. Los ajustes caben en v1 sin migración: no hay paneles guardados y los campos nuevos tienen valor predeterminado, así que la forma canónica de los estados existentes no cambia (el banco de bytes sigue igual).
+
+| Hueco | ¿Lo atrapaba? | Ajuste |
+|---|---|---|
+| No se podía escribir "a {radio} metros" | Sí | Hueco reservado `{radio}` solo en `corredores_metro` |
+| Sin la parte del giro dominante ni micronegocios en el ranking | Sí | Medidas `participacion_giro` y `micronegocios` |
+| En modo línea `fila: primera` es la terminal, no la estación con más negocios | No | Fila `mayor`; cada vista declara qué es una fila y su orden |
+| En una comparación no se podía pedir la cifra de lo comparado | No | `lado: a \| b` en la cifra; `lado_sin_comparacion` |
+| `participacion` existe en Ciudad de luz pero es la del macrosector | No | Definición de cada medida por vista en `catalogo.VISTAS` |
+| "Total" de una línea: unión de radios o suma de estaciones | No | Total = unión (`metro_linea`); documentado en la definición |
+| `fila: total` sobre un nombre o un lugar | No | Cada medida dice si tiene total; `fila_no_disponible` |
+
+El panel con cifras por giro ("dónde se come junto al Metro") se quitó del guion: en Corredores la selección solo atenúa. Queda en H27.
 
 ## Preguntas del intent
 - Narrativa con huecos → respondida en §5: `{nombre}`, cifras con `medida`, `fila` y `formato` que deben existir en la vista exacta.

@@ -1,0 +1,41 @@
+{
+ "descripcion": "Comparación de dos líneas con una cifra de cada lado (H12)",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "1"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "{principal} establecimientos contra {otra}.",
+   "principal": {
+    "medida": "establecimientos",
+    "fila": "total"
+   },
+   "secundarias": [
+    {
+     "nombre": "otra",
+     "medida": "establecimientos",
+     "fila": "total",
+     "lado": "b"
+    }
+   ]
+  },
+  "comparacion": {
+   "forma": "lado_a_lado",
+   "territorio": {
+    "tipo": "linea_metro",
+    "clave": "A"
+   }
+  }
+ },
+ "valido": true,
+ "nivel": null,
+ "codigo": null
+}

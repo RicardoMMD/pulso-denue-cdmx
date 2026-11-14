@@ -18,13 +18,20 @@ class VistaExacta:
     tablas: tuple[str, ...]
     medidas: tuple[str, ...]
     filtros: dict = field(default_factory=dict)
+    filas: str = ""  # qué es una fila y en qué orden van
+    # medida -> {"total": bool, "definicion": str}; lo leen la vista 2D (H17), la metodología y el Analista
+    definiciones: dict = field(default_factory=dict)
+
+    def admite_total(self, medida: str) -> bool:
+        return self.definiciones.get(medida, {}).get("total", False)
 
 
 def vista_exacta(estado: Estado) -> VistaExacta:
     escena = estado.escena
     base = cat.VISTAS[(escena.tipo, escena.modo)]
     tablas = tuple(base.get("tablas", ()))
-    medidas = list(base["medidas"])
+    definiciones = dict(base["medidas"])
+    medidas = list(definiciones)
     territorio = estado.territorio
 
     if escena.tipo == "ciudad_de_luz":
@@ -37,6 +44,7 @@ def vista_exacta(estado: Estado) -> VistaExacta:
     elif escena.tipo == "ciudades_dentro" and escena.modo == "exterior" and not estado.seleccion.vacia():
         tablas += ("establecimiento",)
         medidas.insert(1, "establecimientos_seleccion")
+        definiciones["establecimientos_seleccion"] = cat.MEDIDA_SELECCION
 
     filtros: dict = {"edicion": estado.edicion, "territorio": territorio.model_dump(exclude_none=True),
                      "modo": escena.modo}
@@ -49,4 +57,6 @@ def vista_exacta(estado: Estado) -> VistaExacta:
     if estado.comparacion is not None:
         filtros["comparacion"] = estado.comparacion.model_dump(exclude_none=True)
 
-    return VistaExacta(tipo_resultado=base["tipo_resultado"], tablas=tablas, medidas=tuple(medidas), filtros=filtros)
+    definiciones = {m: definiciones[m] for m in medidas}
+    return VistaExacta(tipo_resultado=base["tipo_resultado"], tablas=tablas, medidas=tuple(medidas), filtros=filtros,
+                       filas=base["filas"], definiciones=definiciones)

@@ -107,6 +107,7 @@ Preguntas sobre CDMX con respuestas verificadas a mano contra `semantic`.
 Historia de 5 a 8 paneles sobre Corredores del Metro (modos línea y ranking).
 - **Entregables:** guion panel por panel con pregunta, estado de escena, cifra vinculada, nota de cautela y recorrido.
 - **Terminado cuando:** cada panel valida contra el contrato (H09) y sus cifras salen de `semantic`.
+- **Decidido (14 nov 2026):** el guion no lleva un panel con cifras por giro ("dónde se come junto al Metro"). En Corredores del Metro la selección por giro solo atenúa puntos; las cifras no cambian, porque `semantic.metro_estacion` no tiene conteos por giro. Pasa a H27.
 
 ## Fase 5 · Construcción
 
@@ -186,6 +187,7 @@ Ciclo de uso de herramientas de la API de Claude: Haiku clasifica, resuelve luga
 - **Escenas:** La ciudad que brilla en línea, Las calles hablan, Islas de 15 minutos (red peatonal y su tabla en `semantic`), El ADN de cada alcaldía, Colonias gemelas, Rarezas, Cómo se llaman las cosas y Anillos de densidad.
 - **Historias y fichas:** Centro contra periferia; fichas por alcaldía y por sector.
 - **Extensiones:** Metrobús y Tren Ligero, zona caminable por red peatonal, WebGPU.
+- **Cifras por giro en Corredores del Metro** (viene de H12): conteos por estación y giro SCIAN en `semantic`, para que elegir un giro cambie también las cifras y no solo atenúe puntos. Responde preguntas como "¿qué estación tiene más farmacias?" en el explorador y el Analista. Pide cambio en dbt y `make build`, y una medida nueva en el contrato.
 
 ## Decisiones pendientes
 

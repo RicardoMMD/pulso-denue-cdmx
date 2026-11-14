@@ -122,17 +122,22 @@ class FilaClave(Modelo):
     clave: str = Field(min_length=1, max_length=200)
 
 
-Fila = Union[Literal["primera", "ultima", "total"], FilaClave]
+Fila = Union[Literal["primera", "ultima", "mayor", "total"], FilaClave]
 Medida = Literal["establecimientos", "establecimientos_seleccion", "locales_declarados", "estaciones", "estacion",
-                 "giro_dominante", "lugar", "macrosector", "participacion", "nombre", "tipo"]
+                 "giro_dominante", "lugar", "macrosector", "participacion", "participacion_giro", "micronegocios",
+                 "nombre", "tipo"]
 
 
 class Cifra(Modelo):
-    """Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado."""
+    """Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado.
+
+    `lado` solo importa en una comparación: `a` es el territorio o la selección del estado y `b` lo comparado.
+    """
 
     medida: Medida = Field(title="MedidaCifra")
     fila: Fila = Field(default="primera", title="FilaCifra")
     formato: Literal["entero", "porcentaje", "decimal1", "texto"] = Field(default="entero", title="FormatoCifra")
+    lado: Literal["a", "b"] = Field(default="a", title="LadoCifra")
 
 
 class CifraSecundaria(Cifra):
@@ -213,6 +218,7 @@ class CifraParcial(Modelo):
     medida: Optional[Medida] = None
     fila: Optional[Fila] = None
     formato: Optional[Literal["entero", "porcentaje", "decimal1", "texto"]] = None
+    lado: Optional[Literal["a", "b"]] = None
 
 
 class NarrativaParcial(Modelo):

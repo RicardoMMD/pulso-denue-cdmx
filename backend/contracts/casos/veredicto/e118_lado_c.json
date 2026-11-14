@@ -1,0 +1,26 @@
+{
+ "descripcion": "Una cifra con un lado que no existe",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "ciudad",
+   "clave": "09"
+  },
+  "escena": {
+   "tipo": "ciudad_de_luz"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "Hay {principal} establecimientos.",
+   "principal": {
+    "medida": "establecimientos",
+    "lado": "c"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 1,
+ "codigo": "valor_no_admitido"
+}

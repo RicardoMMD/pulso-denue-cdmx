@@ -1,0 +1,27 @@
+{
+ "descripcion": "Fila total de una medida que no se suma (el nombre de la estación)",
+ "estado": {
+  "contrato": 1,
+  "edicion": "2026-05",
+  "territorio": {
+   "tipo": "linea_metro",
+   "clave": "1"
+  },
+  "escena": {
+   "tipo": "corredores_metro"
+  },
+  "narrativa": {
+   "titulo": "Comercio en {territorio}",
+   "nota_cautela": "El DENUE no registra todo.",
+   "texto": "La estación es {principal}.",
+   "principal": {
+    "medida": "estacion",
+    "fila": "total",
+    "formato": "texto"
+   }
+  }
+ },
+ "valido": false,
+ "nivel": 3,
+ "codigo": "fila_no_disponible"
+}

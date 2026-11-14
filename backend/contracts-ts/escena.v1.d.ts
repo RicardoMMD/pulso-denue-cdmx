@@ -34,9 +34,10 @@ export type TamanoCiudadesDentro = "establecimientos" | "establecimientos_selecc
 export type TipoEscenaCiudadesDentro = "ciudades_dentro";
 export type TiposConglomerado = string[] | null;
 export type NotaCautela = string;
-export type FilaCifra = ("primera" | "ultima" | "total") | FilaClave;
+export type FilaCifra = ("primera" | "ultima" | "mayor" | "total") | FilaClave;
 export type Clave = string;
 export type FormatoCifra = "entero" | "porcentaje" | "decimal1" | "texto";
+export type LadoCifra = "a" | "b";
 export type MedidaCifra =
   | "establecimientos"
   | "establecimientos_seleccion"
@@ -47,10 +48,13 @@ export type MedidaCifra =
   | "lugar"
   | "macrosector"
   | "participacion"
+  | "participacion_giro"
+  | "micronegocios"
   | "nombre"
   | "tipo";
-export type FilaCifra1 = ("primera" | "ultima" | "total") | FilaClave;
+export type FilaCifra1 = ("primera" | "ultima" | "mayor" | "total") | FilaClave;
 export type FormatoCifra1 = "entero" | "porcentaje" | "decimal1" | "texto";
+export type LadoCifra1 = "a" | "b";
 export type MedidaCifra1 =
   | "establecimientos"
   | "establecimientos_seleccion"
@@ -61,6 +65,8 @@ export type MedidaCifra1 =
   | "lugar"
   | "macrosector"
   | "participacion"
+  | "participacion_giro"
+  | "micronegocios"
   | "nombre"
   | "tipo";
 export type Nombre = string;
@@ -142,10 +148,13 @@ export interface Narrativa {
 }
 /**
  * Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado.
+ *
+ * `lado` solo importa en una comparación: `a` es el territorio o la selección del estado y `b` lo comparado.
  */
 export interface Cifra {
   fila?: FilaCifra;
   formato?: FormatoCifra;
+  lado?: LadoCifra;
   medida: MedidaCifra;
 }
 export interface FilaClave {
@@ -154,6 +163,7 @@ export interface FilaClave {
 export interface CifraSecundaria {
   fila?: FilaCifra1;
   formato?: FormatoCifra1;
+  lado?: LadoCifra1;
   medida: MedidaCifra1;
   nombre: Nombre;
 }

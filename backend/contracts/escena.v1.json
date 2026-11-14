@@ -2,7 +2,7 @@
  "$defs": {
   "Cifra": {
    "additionalProperties": false,
-   "description": "Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado.",
+   "description": "Una cifra se nombra, no se escribe: `medida` y `fila` apuntan a la vista exacta del estado.\n\n`lado` solo importa en una comparación: `a` es el territorio o la selección del estado y `b` lo comparado.",
    "properties": {
     "fila": {
      "anyOf": [
@@ -10,6 +10,7 @@
        "enum": [
         "primera",
         "ultima",
+        "mayor",
         "total"
        ],
        "type": "string"
@@ -32,6 +33,15 @@
      "title": "FormatoCifra",
      "type": "string"
     },
+    "lado": {
+     "default": "a",
+     "enum": [
+      "a",
+      "b"
+     ],
+     "title": "LadoCifra",
+     "type": "string"
+    },
     "medida": {
      "enum": [
       "establecimientos",
@@ -43,6 +53,8 @@
       "lugar",
       "macrosector",
       "participacion",
+      "participacion_giro",
+      "micronegocios",
       "nombre",
       "tipo"
      ],
@@ -65,6 +77,7 @@
        "enum": [
         "primera",
         "ultima",
+        "mayor",
         "total"
        ],
        "type": "string"
@@ -87,6 +100,15 @@
      "title": "FormatoCifra",
      "type": "string"
     },
+    "lado": {
+     "default": "a",
+     "enum": [
+      "a",
+      "b"
+     ],
+     "title": "LadoCifra",
+     "type": "string"
+    },
     "medida": {
      "enum": [
       "establecimientos",
@@ -98,6 +120,8 @@
       "lugar",
       "macrosector",
       "participacion",
+      "participacion_giro",
+      "micronegocios",
       "nombre",
       "tipo"
      ],

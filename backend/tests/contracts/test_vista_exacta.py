@@ -18,7 +18,8 @@ def test_ciudad_de_luz_usa_resumen_solo_para_ciudad_alcaldia_y_colonia():
 
 def test_corredores_linea_es_una_serie_y_ranking_un_ranking():
     linea = vista(territorio={"tipo": "linea_metro", "clave": "2"}, escena={"tipo": "corredores_metro"})
-    assert linea.tipo_resultado == "serie" and linea.tablas == ("metro_linea", "metro_recorrido")
+    # Las filas (estaciones) salen de metro_estacion; el total de la línea, de metro_linea (unión de radios).
+    assert linea.tipo_resultado == "serie" and linea.tablas == ("metro_linea", "metro_recorrido", "metro_estacion")
     assert linea.filtros["radio_m"] == 500
     ranking = vista(escena={"tipo": "corredores_metro", "modo": "ranking", "radio_m": 800})
     assert ranking.tipo_resultado == "ranking" and ranking.tablas == ("metro_estacion",) and ranking.filtros["radio_m"] == 800
@@ -60,3 +61,24 @@ def test_los_filtros_describen_el_estado_sin_valores_nulos():
 def test_toda_combinacion_de_escena_y_modo_tiene_vista(escena, modo):
     from contracts import catalogo
     assert (escena, modo) in catalogo.VISTAS
+
+
+def test_cada_medida_de_cada_vista_esta_definida_y_en_el_vocabulario():
+    from typing import get_args
+
+    from contracts import catalogo
+    from contracts.escena import Medida
+    for clave, base in catalogo.VISTAS.items():
+        assert base["filas"], clave
+        for medida, d in base["medidas"].items():
+            assert medida in catalogo.MEDIDAS and medida in get_args(Medida), (clave, medida)
+            assert d["definicion"] and isinstance(d["total"], bool), (clave, medida)
+    assert set(catalogo.MEDIDAS) == set(get_args(Medida))
+
+
+def test_la_vista_lleva_definiciones_solo_de_sus_medidas():
+    v = vista(territorio={"tipo": "linea_metro", "clave": "2"}, escena={"tipo": "corredores_metro", "modo": "ranking"})
+    assert set(v.definiciones) == set(v.medidas) and "lugar" not in v.definiciones
+    con = vista(territorio={"tipo": "alcaldia", "clave": "007"}, escena={"tipo": "ciudades_dentro"}, seleccion={"scian": ["722"]})
+    assert con.admite_total("establecimientos_seleccion")
+    assert not vista().admite_total("participacion")

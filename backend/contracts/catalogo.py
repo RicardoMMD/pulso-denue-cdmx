@@ -17,18 +17,21 @@ CAPAS = ("alcaldias", "lineas_metro", "calles_principales", "etiquetas")
 TIPOS_UNIDAD = ("fijo", "semifijo")
 FORMAS_COMPARACION = ("lado_a_lado", "transformacion")
 FORMATOS_CIFRA = ("entero", "porcentaje", "decimal1", "texto")
-FILAS = ("primera", "ultima", "total")
+FILAS = ("primera", "ultima", "mayor", "total")
+LADOS = ("a", "b")
 ORIGENES = ("historia", "explorador", "analista")
 
 # Medidas que una cifra de la narrativa puede nombrar (vocabulario cerrado). Cuáles existen en un estado
 # concreto lo decide la vista exacta.
 MEDIDAS = (
     "establecimientos", "establecimientos_seleccion", "locales_declarados", "estaciones", "estacion",
-    "giro_dominante", "lugar", "macrosector", "participacion", "nombre", "tipo",
+    "giro_dominante", "lugar", "macrosector", "participacion", "participacion_giro", "micronegocios", "nombre", "tipo",
 )
 
 # Huecos que llena el motor y no hay que declarar.
 HUECOS_RESERVADOS = ("territorio", "fecha_corte", "edicion")
+# Huecos que llena el motor solo en algunas escenas: `{radio}` es `escena.radio_m`.
+HUECOS_POR_ESCENA = {"corredores_metro": ("radio",)}
 
 ESCENAS: dict[str, dict] = {
     "ciudad_de_luz": {
@@ -67,30 +70,76 @@ ESCENAS: dict[str, dict] = {
 RECORRIDOS_FIJOS = ("el_despertar",)
 
 # Medidas disponibles por escena y modo en la vista exacta (descripción declarativa; H13 y H14 ejecutan la consulta).
+# Cada vista dice qué es una fila y en qué orden van, y cada medida qué significa en esa vista y si tiene fila
+# `total`. Así una cifra no puede nombrar una medida que existe pero significa otra cosa (H12).
+#
+# Filas de una cifra:
+#   primera, ultima  la primera y la última en el orden de filas de la vista
+#   mayor            la fila con más establecimientos (en un ranking coincide con `primera`)
+#   total            el total del territorio; solo para medidas con total
+#   {clave: ...}     la fila de esa clave (estación, conglomerado, subsector o macrosector)
 VISTAS: dict[tuple[str, str], dict] = {
     ("ciudad_de_luz", "unico"): {
         "tipo_resultado": "territorial",
-        "medidas": ("establecimientos", "macrosector", "participacion"),
+        "filas": "una por macrosector, de más a menos establecimientos",
+        "medidas": {
+            "establecimientos": {"total": True, "definicion": "establecimientos del macrosector; el total es el del "
+                                                              "territorio"},
+            "macrosector": {"total": False, "definicion": "nombre del macrosector"},
+            "participacion": {"total": False, "definicion": "parte del macrosector en los establecimientos del "
+                                                            "territorio"},
+        },
     },
     ("corredores_metro", "linea"): {
         "tipo_resultado": "serie",
-        "tablas": ("metro_linea", "metro_recorrido"),
-        "medidas": ("establecimientos", "estaciones", "estacion", "giro_dominante"),
+        "tablas": ("metro_linea", "metro_recorrido", "metro_estacion"),
+        "filas": "una por estación de la línea, en orden de recorrido (la primera es una terminal)",
+        "medidas": {
+            "establecimientos": {"total": True, "definicion": "establecimientos cuya estación más cercana dentro del "
+                                 "radio es esta. El total es la unión de radios de la línea (metro_linea): incluye "
+                                 "los negocios más cercanos a otra línea, así que no es la suma de las filas"},
+            "estaciones": {"total": True, "definicion": "estaciones de la línea; solo con fila total"},
+            "estacion": {"total": False, "definicion": "nombre de la estación"},
+            "giro_dominante": {"total": False, "definicion": "subsector SCIAN más frecuente alrededor de la estación"},
+        },
     },
     ("corredores_metro", "ranking"): {
         "tipo_resultado": "ranking",
         "tablas": ("metro_estacion",),
-        "medidas": ("establecimientos", "lugar", "estacion", "giro_dominante"),
+        "filas": "una por estación, de más a menos establecimientos",
+        "medidas": {
+            "establecimientos": {"total": True, "definicion": "establecimientos cuya estación más cercana dentro del "
+                                 "radio es esta; el total es la suma de las estaciones del territorio"},
+            "micronegocios": {"total": True, "definicion": "establecimientos de 0 a 10 personas ocupadas alrededor de "
+                                                           "la estación"},
+            "lugar": {"total": False, "definicion": "puesto de la estación entre todas las de la ciudad"},
+            "estacion": {"total": False, "definicion": "nombre de la estación"},
+            "giro_dominante": {"total": False, "definicion": "subsector SCIAN más frecuente alrededor de la estación"},
+            "participacion_giro": {"total": False, "definicion": "parte del giro dominante en los establecimientos "
+                                                                 "de la estación"},
+        },
     },
     ("ciudades_dentro", "exterior"): {
         "tipo_resultado": "ranking",
         "tablas": ("conglomerado",),
-        "medidas": ("establecimientos", "locales_declarados", "nombre", "tipo"),
+        "filas": "una por conglomerado, de más a menos establecimientos",
+        "medidas": {
+            "establecimientos": {"total": True, "definicion": "establecimientos del conglomerado"},
+            "locales_declarados": {"total": True, "definicion": "locales que el DENUE declara en el conglomerado"},
+            "nombre": {"total": False, "definicion": "nombre del conglomerado"},
+            "tipo": {"total": False, "definicion": "tipo de conglomerado (mercado público, plaza comercial…)"},
+        },
     },
     ("ciudades_dentro", "interior"): {
         "tipo_resultado": "perfil",
         "tablas": ("establecimiento",),
-        "medidas": ("establecimientos", "nombre"),
+        "filas": "una por subsector SCIAN del conglomerado, de más a menos establecimientos",
+        "medidas": {
+            "establecimientos": {"total": True, "definicion": "establecimientos del subsector en el conglomerado"},
+            "nombre": {"total": False, "definicion": "nombre del subsector"},
+        },
     },
 }
+# La añade la vista exacta de Ciudades dentro (exterior) cuando hay selección.
+MEDIDA_SELECCION = {"total": True, "definicion": "establecimientos de la selección en el conglomerado"}
 TERRITORIOS_CON_RESUMEN = ("ciudad", "alcaldia", "colonia")

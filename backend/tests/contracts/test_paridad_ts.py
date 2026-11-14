@@ -48,9 +48,12 @@ def estado_aleatorio(rng: random.Random) -> dict:
     nar = {"titulo": texto(rng, 80), "texto": texto(rng, 400), "nota_cautela": texto(rng, 240)}
     if rng.random() < 0.7:
         nar["principal"] = {"medida": rng.choice(["establecimientos", "lugar", "nombre"]), **rng.choice(
-            [{}, {"fila": "ultima"}, {"fila": {"clave": "ñ|:x"}}, {"formato": "texto"}, {"fila": "primera", "formato": "entero"}])}
+            [{}, {"fila": "ultima"}, {"fila": {"clave": "ñ|:x"}}, {"formato": "texto"}, {"fila": "primera", "formato": "entero"},
+             {"fila": "mayor"}, {"lado": "a"}, {"lado": "b", "fila": "total"}])}
     if rng.random() < 0.4:
-        nar["secundarias"] = [{"nombre": rng.choice(["a", "b_c", "zeta"]) + "x" * i, "medida": "nombre", **rng.choice([{}, {"formato": "texto"}])} for i in range(rng.randint(0, 3))]
+        nar["secundarias"] = [{"nombre": rng.choice(["a", "b_c", "zeta"]) + "x" * i, "medida": "nombre",
+                               **rng.choice([{}, {"formato": "texto"}, {"lado": "b"}, {"lado": "a", "fila": "mayor"}])}
+                              for i in range(rng.randint(0, 3))]
     estado = {"contrato": 1, "edicion": "2026-05", "territorio": territorio, "escena": escena, "narrativa": nar}
     if rng.random() < 0.3:
         estado["encuadre"] = rng.choice([{"modo": "ajustar"}, {"modo": "angulo", "angulo": "cenital"}, {"modo": "recorrido", "recorrido": "tren_de_luz"}])

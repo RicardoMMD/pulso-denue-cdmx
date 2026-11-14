@@ -229,18 +229,24 @@ def _coherencia(estado: Estado, ref: Referencias, ctx: Contexto) -> list[ErrorVa
 
     # Narrativa: cifras y huecos
     nar, vista = estado.narrativa, vista_exacta(estado)
-    declarados = set(cat.HUECOS_RESERVADOS)
+    declarados = set(cat.HUECOS_RESERVADOS) | set(cat.HUECOS_POR_ESCENA.get(escena.tipo, ()))
+
+    def cifra(c, ruta):
+        if c.medida not in vista.medidas:
+            err(f"{ruta}/medida", "cifra_no_disponible",
+                f"medida: '{c.medida}' no existe en la vista exacta de este estado ({', '.join(vista.medidas)})")
+        elif c.fila == "total" and not vista.admite_total(c.medida):
+            err(f"{ruta}/fila", "fila_no_disponible",
+                f"fila: '{c.medida}' no tiene total en esta vista; usa primera, ultima, mayor o una clave")
+        if c.lado == "b" and estado.comparacion is None:
+            err(f"{ruta}/lado", "lado_sin_comparacion", "lado: 'b' es lo comparado y este estado no compara nada")
+
     if nar.principal is not None:
         declarados.add("principal")
-        if nar.principal.medida not in vista.medidas:
-            err("/narrativa/principal/medida", "cifra_no_disponible",
-                f"medida: '{nar.principal.medida}' no existe en la vista exacta de este estado "
-                f"({', '.join(vista.medidas)})")
+        cifra(nar.principal, "/narrativa/principal")
     vistos: set[str] = set()
     for i, sec in enumerate(nar.secundarias):
-        if sec.medida not in vista.medidas:
-            err(f"/narrativa/secundarias/{i}/medida", "cifra_no_disponible",
-                f"medida: '{sec.medida}' no existe en la vista exacta de este estado ({', '.join(vista.medidas)})")
+        cifra(sec, f"/narrativa/secundarias/{i}")
         if sec.nombre in declarados or sec.nombre in vistos:
             err(f"/narrativa/secundarias/{i}/nombre", "hueco_duplicado",
                 f"nombre: '{sec.nombre}' ya está en uso como hueco")
