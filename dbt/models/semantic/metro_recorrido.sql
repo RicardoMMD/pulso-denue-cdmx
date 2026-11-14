@@ -1,5 +1,6 @@
 -- Estaciones de cada línea en orden de recorrido (para el tren de luz que enciende negocios estación por estación).
--- Grano: línea × estación. Une con metro_estacion por estacion_norm para las cifras.
+-- Grano: línea × estación. Une con metro_estacion por estacion_norm para las cifras. Las estaciones fuera de la
+-- Ciudad (en_cdmx falso) siguen en el recorrido para no cortar la línea; sus cifras están truncadas.
 select
     m.linea,
     m.cve_linea,
@@ -7,6 +8,7 @@ select
     e.estacion,
     m.estacion_norm,
     array_to_string(e.lineas, ', ')                                  as lineas_en_estacion,
+    e.en_cdmx,
     st_y(st_transform(e.geom_utm, 4326))                             as latitud,
     st_x(st_transform(e.geom_utm, 4326))                             as longitud
 from {{ ref('stg_metro') }} m

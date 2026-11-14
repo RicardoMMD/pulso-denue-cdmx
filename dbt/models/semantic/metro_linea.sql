@@ -17,7 +17,9 @@ select
     r.radio_m,
     count(distinct a.id_denue)                                       as establecimientos,
     count(distinct l.estacion_norm)                                  as estaciones_con_negocios,
-    (select count(*) from {{ ref('stg_metro') }} m where m.cve_linea = l.cve_linea) as estaciones
+    (select count(*) from {{ ref('stg_metro') }} m where m.cve_linea = l.cve_linea) as estaciones,
+    (select count(*) from {{ ref('stg_metro') }} m join {{ ref('dim_estacion_metro') }} e using (estacion_norm)
+      where m.cve_linea = l.cve_linea and e.en_cdmx)                  as estaciones_en_cdmx
 from {{ ref('asignacion_estacion') }} a
 join lineas l using (estacion_norm)
 join radios r on a.distancia_m <= r.radio_m

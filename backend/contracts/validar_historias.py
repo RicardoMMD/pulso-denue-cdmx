@@ -34,6 +34,8 @@ DIRECTORIO_HISTORIAS = RAIZ_REPO / "contenido" / "historias"
 
 class Panel(BaseModel):
     model_config = ConfigDict(extra="forbid")
+    # La pregunta que responde el panel: es del guion (H12), no del estado, así que no entra al id del panel.
+    pregunta: Optional[str] = Field(default=None, min_length=1, max_length=160)
     estado: dict
     exploracion: Optional[Literal["bloqueada", "libre"]] = None
 

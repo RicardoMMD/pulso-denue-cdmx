@@ -93,28 +93,32 @@ VISTAS: dict[tuple[str, str], dict] = {
     ("corredores_metro", "linea"): {
         "tipo_resultado": "serie",
         "tablas": ("metro_linea", "metro_recorrido", "metro_estacion"),
-        "filas": "una por estación de la línea, en orden de recorrido (la primera es una terminal)",
+        "filas": "una por estación de la línea, en orden de recorrido (la primera es una terminal); las del "
+                 "Estado de México siguen en el recorrido con cifras truncadas",
         "medidas": {
             "establecimientos": {"total": True, "definicion": "establecimientos cuya estación más cercana dentro del "
                                  "radio es esta. El total es la unión de radios de la línea (metro_linea): incluye "
                                  "los negocios más cercanos a otra línea, así que no es la suma de las filas"},
             "estaciones": {"total": True, "definicion": "estaciones de la línea; solo con fila total"},
             "estacion": {"total": False, "definicion": "nombre de la estación"},
-            "giro_dominante": {"total": False, "definicion": "subsector SCIAN más frecuente alrededor de la estación"},
+            "giro_dominante": {"total": False, "definicion": "nombre corto del subsector SCIAN más frecuente "
+                                                               "alrededor de la estación (giro_dominante_corto)"},
         },
     },
     ("corredores_metro", "ranking"): {
         "tipo_resultado": "ranking",
         "tablas": ("metro_estacion",),
-        "filas": "una por estación, de más a menos establecimientos",
+        "filas": "una por estación de la Ciudad, de más a menos establecimientos (las del Estado de México "
+                 "no entran: sus cifras están truncadas)",
         "medidas": {
             "establecimientos": {"total": True, "definicion": "establecimientos cuya estación más cercana dentro del "
                                  "radio es esta; el total es la suma de las estaciones del territorio"},
             "micronegocios": {"total": True, "definicion": "establecimientos de 0 a 10 personas ocupadas alrededor de "
                                                            "la estación"},
-            "lugar": {"total": False, "definicion": "puesto de la estación entre todas las de la ciudad"},
+            "lugar": {"total": False, "definicion": "puesto de la estación entre las de la Ciudad"},
             "estacion": {"total": False, "definicion": "nombre de la estación"},
-            "giro_dominante": {"total": False, "definicion": "subsector SCIAN más frecuente alrededor de la estación"},
+            "giro_dominante": {"total": False, "definicion": "nombre corto del subsector SCIAN más frecuente "
+                                                               "alrededor de la estación (giro_dominante_corto)"},
             "participacion_giro": {"total": False, "definicion": "parte del giro dominante en los establecimientos "
                                                                  "de la estación"},
         },
