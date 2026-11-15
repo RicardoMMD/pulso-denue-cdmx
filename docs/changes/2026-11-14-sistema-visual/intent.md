@@ -28,7 +28,7 @@ Existe un sistema visual v1 que el portal usa en todas partes, con una sola fuen
 - **Tratamiento de la luz:** tamaño de punto por zoom, halo, brillo y mapeo de tonos, con valores que eviten que el Centro se queme a blanco.
 - **Tipografía:** una sola familia, con tamaños y pesos para la interfaz, títulos, textos de panel, cifras (con dígitos de ancho fijo para los contadores) y etiquetas 3D.
 - **Tokens como fuente única, en `diseno/`:** `diseno/tokens.json` genera lo que leen el motor (JS para shaders) y la interfaz y los componentes 2D (variables CSS). Ningún color ni tamaño se repite a mano en el código.
-- **Laboratorio visual:** una página sobre el prototipo 2 para cambiar paletas y parámetros en vivo, con tomas fijas reproducibles (Centro denso, periferia, Línea 1, filtro por macrosector y una vista exacta 2D en papel). Sirve para decidir ahora y como banco visual de H15 y H16 después.
+- **Laboratorio visual** (carpeta `laboratorio/` en la raíz): una página sobre el prototipo 2 para cambiar paletas y parámetros en vivo, con tomas fijas reproducibles (Centro denso, periferia, Línea 1, filtro por macrosector y una vista exacta 2D en papel). Sirve para decidir ahora y como banco visual de H15 y H16 después.
 - **Aplicado:** el prototipo 2 usa los tokens, sin colores ni parámetros de luz escritos a mano.
 
 ## Usuarios y sistemas afectados

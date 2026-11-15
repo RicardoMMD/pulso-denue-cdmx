@@ -654,7 +654,7 @@ Implementado en `backend/contracts/` (Python) y `backend/contracts-ts/` (navegad
 
 ## Resultado del sistema visual
 
-Elegido por Ricardo el 15 nov 2026 en el laboratorio (`prototipos/02-renderizador/laboratorio.html`). Fuente única: `diseno/tokens.json`; de él salen `diseno/generado/tokens.js` (motor) y `tokens.css` (interfaz y vista 2D).
+Elegido por Ricardo el 15 nov 2026 en el laboratorio (`laboratorio/`). Fuente única: `diseno/tokens.json`; de él salen `diseno/generado/tokens.js` (motor) y `tokens.css` (interfaz y vista 2D).
 
 - **Paleta:** vívida (siete tonos, Comercio apagado para que no domine). Variante clara derivada de la oscura, con contraste mínimo de 3:1 sobre papel, comprobado por `make diseno`.
 - **Brillo:** posprocesado (Bloom) con mapeo de tonos `neutral`. Se descartaron el halo en el punto y la imagen sin brillo.

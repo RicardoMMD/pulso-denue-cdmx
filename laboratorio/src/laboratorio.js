@@ -3,8 +3,8 @@
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
 import { EffectComposer, RenderPass, EffectPass, BloomEffect, ToneMappingEffect, ToneMappingMode, KernelSize } from "postprocessing";
-import "../../../diseno/generado/tokens.css";
-import * as T from "../../../diseno/generado/tokens.js";
+import "../../diseno/generado/tokens.css";
+import * as T from "../../diseno/generado/tokens.js";
 
 const $ = (id) => document.getElementById(id);
 const MAPEOS = { ninguno: ToneMappingMode.LINEAR, reinhard: ToneMappingMode.REINHARD2, aces: ToneMappingMode.ACES_FILMIC, agx: ToneMappingMode.AGX, neutral: ToneMappingMode.NEUTRAL };

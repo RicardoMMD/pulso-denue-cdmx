@@ -26,7 +26,7 @@ ci: check contratos diseno
 check:
 	@cd pipeline && uv run python -m py_compile $(addprefix ../,$(PY_SRC))
 	@node --check prototipos/02-renderizador/src/main.js
-	@node --check prototipos/02-renderizador/src/laboratorio.js
+	@node --check laboratorio/src/laboratorio.js
 	@node --check diseno/generar.mjs
 	@cd pipeline && $(ENV_CHECK) && uv run dbt parse $(DBT_ARGS) --quiet
 	@echo "check: OK"
