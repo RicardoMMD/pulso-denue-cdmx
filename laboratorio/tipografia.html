@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulso DENUE CDMX — Laboratorio visual: tipografía</title>
+<style>
+  * { box-sizing: border-box; }
+  html,body { margin:0; background:var(--fondo); color:var(--texto); font:var(--peso-normal) var(--tam-texto)/1.5 var(--fuente); }
+  main { max-width:880px; margin:0 auto; padding:16px; }
+  nav { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; padding-bottom:12px; border-bottom:1px solid var(--trazo, var(--alcaldia-trazo)); }
+  nav a, nav button { color:var(--texto); font:inherit; background:none; border:1px solid var(--trazo, var(--alcaldia-trazo)); border-radius:6px; padding:5px 9px; cursor:pointer; text-decoration:none; }
+  nav .tenue { color:var(--texto-tenue); }
+  h1 { font-size:var(--tam-titulo-panel); font-weight:var(--peso-fuerte); line-height:1.15; margin:24px 0 8px; letter-spacing:-.01em; }
+  h2 { font-size:var(--tam-etiqueta); font-weight:var(--peso-medio); color:var(--texto-tenue); text-transform:uppercase; letter-spacing:.07em; margin:28px 0 8px; }
+  p { font-size:var(--tam-texto-panel); margin:0 0 12px; max-width:62ch; }
+  .etiqueta { font-size:var(--tam-etiqueta); color:var(--texto-tenue); }
+  .cifra-principal { font-size:var(--tam-cifra-principal); font-weight:var(--peso-fuerte); line-height:1; font-variant-numeric:tabular-nums; letter-spacing:-.02em; }
+  .tarjeta { border:1px solid var(--trazo, var(--alcaldia-trazo)); border-radius:10px; padding:14px 16px; }
+  table { border-collapse:collapse; width:100%; font-size:var(--tam-texto); }
+  th { text-align:left; font-weight:var(--peso-medio); color:var(--texto-tenue); font-size:var(--tam-etiqueta); }
+  th.n, td.n { text-align:right; font-variant-numeric:tabular-nums; }
+  td,th { padding:6px 4px; border-bottom:1px solid var(--trazo, var(--alcaldia-trazo)); }
+  .punto { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:8px; }
+  #escena { position:relative; height:240px; border-radius:10px; overflow:hidden; background:#05060b; border:1px solid var(--alcaldia-trazo); }
+  #escena canvas { display:block; width:100%; height:100%; }
+  .nota { color:var(--texto-tenue); font-size:var(--tam-etiqueta); margin-top:6px; }
+</style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="./index.html">← Brillo y paleta</a>
+    <button id="tema" aria-pressed="false">Tema: oscuro</button>
+    <button id="contar">Repetir conteo</button>
+    <span class="tenue" id="ancho"></span>
+  </nav>
+
+  <h2>Título de panel · 28 px</h2>
+  <h1>¿Cuánta economía hay en la ciudad?</h1>
+
+  <h2>Texto de panel · 17 px</h2>
+  <p>La Ciudad de México reúne establecimientos de todos los tamaños. Cada punto de luz es un negocio del DENUE: desde la fonda de la esquina hasta el corporativo de Santa Fe, con acentos, eñes y signos como ¿qué?, ¡mira!, 50 % o $1,250.</p>
+
+  <h2>Cifra principal · 56 px, dígitos de ancho fijo</h2>
+  <div class="tarjeta">
+    <div class="cifra-principal" id="cifra" aria-live="off">0</div>
+    <div class="etiqueta">establecimientos · DENUE 05/2026</div>
+  </div>
+
+  <h2>Tabla con cifras alineadas · 15 px</h2>
+  <div class="tarjeta">
+    <table id="tabla"><thead><tr><th>Macrosector</th><th class="n">Establecimientos</th><th class="n">Parte</th></tr></thead><tbody></tbody></table>
+  </div>
+
+  <h2>Etiquetas 3D (troika) sobre la ciudad de luz</h2>
+  <div id="escena"></div>
+  <div class="nota">Siempre sobre fondo oscuro: la ciudad 3D solo existe en tema oscuro.</div>
+</main>
+<script type="module" src="/src/tipografia.js"></script>
+</body>
+</html>

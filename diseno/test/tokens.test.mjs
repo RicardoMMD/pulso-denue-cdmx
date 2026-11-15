@@ -81,3 +81,15 @@ test("el CSS define los siete macrosectores en los dos temas", () => {
     assert.equal(css.split(variable).length - 1, 2, `${variable} debe aparecer en oscuro y en claro`);
   }
 });
+
+test("la tipografía se sirve desde el propio sitio: los archivos existen y el CSS declara la fuente", () => {
+  for (const [uso, ruta] of Object.entries(tokens.tipografia.archivos)) {
+    const bytes = readFileSync(join(AQUI, "..", ruta));
+    assert.ok(bytes.length > 10_000, `${uso}: ${ruta} es demasiado chico para ser una fuente`);
+  }
+  const licencia = readFileSync(join(AQUI, "..", "fuentes", "LICENCIA-Inter-OFL.txt"), "utf8");
+  assert.match(licencia, /SIL Open Font License/);
+  const css = archivos()["tokens.css"];
+  assert.match(css, /@font-face/);
+  assert.ok(css.includes(`url('../${tokens.tipografia.archivos.variable}')`));
+});

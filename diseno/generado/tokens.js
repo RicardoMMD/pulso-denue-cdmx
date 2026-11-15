@@ -1,6 +1,6 @@
 // Generado por diseno/generar.mjs desde diseno/tokens.json. No se edita a mano.
 export const version = 1;
-export const estado = "elegido por Ricardo el 15 nov 2026 en el laboratorio: paleta vívida, brillo por posprocesado; mapeo de tonos y tipografía por defecto";
+export const estado = "elegido por Ricardo el 15 nov 2026 en el laboratorio: paleta vívida, brillo por posprocesado; mapeo de tonos y tipografía pendientes de confirmar en el laboratorio";
 export const paletaActiva = "vivida";
 /** Macrosectores de la paleta activa, en el orden de ref_macrosector (el índice + 1 es el macrosector del paquete de puntos). */
 export const macrosectores = [
@@ -786,6 +786,10 @@ export const tipografia = {
   "familia": "Inter",
   "pila": "'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif",
   "licencia": "SIL Open Font License 1.1",
+  "archivos": {
+    "variable": "fuentes/Inter-latin-variable.woff2",
+    "etiqueta_3d": "fuentes/Inter-latin-600.woff"
+  },
   "cifras": "tabular-nums",
   "pesos": {
     "normal": 400,
