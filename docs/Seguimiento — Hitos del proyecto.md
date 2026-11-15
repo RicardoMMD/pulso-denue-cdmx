@@ -1,6 +1,6 @@
 # Pulso DENUE CDMX — Seguimiento de hitos
 
-Actualizado: 14 nov 2026 · Fuente de las decisiones: `docs/Pulso DENUE CDMX — Síntesis del proyecto.md` · Orden de trabajo: `docs/Plan de desarrollo — Primera versión.md`
+Actualizado: 15 nov 2026 · Fuente de las decisiones: `docs/Pulso DENUE CDMX — Síntesis del proyecto.md` · Orden de trabajo: `docs/Plan de desarrollo — Primera versión.md`
 
 Este documento lista los hitos para llegar a la primera versión pública y lo que queda para la segunda. Cada hito dice qué entrega, cuándo se da por terminado y de qué depende. Al cerrar un hito, se marca aquí y se registra el resultado en la síntesis.
 
@@ -17,7 +17,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H05 | Prototipo 2: renderizador sin mapa base | Validación | ✅ | H02 |
 | H06 | Prototipo 3: resolver lugar | Validación | ✅ | H03 |
 | H07 | Carga de la edición DENUE 11/2026 | Datos | ⬜ | H02 |
-| H08 | Sistema visual | Definición | ⬜ | H05 |
+| H08 | Sistema visual | Definición | ✅ | H05 |
 | H09 | Contrato de escena | Definición | ✅ | H03 |
 | H10 | Traducir giro: glosario y embeddings | Definición | ⬜ | H03 |
 | H11 | Banco de evaluación del Analista | Definición | ⬜ | H06, H10 |
@@ -33,7 +33,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H21 | Historia "Vida comercial del Metro" | Contenido | ⬜ | H12, H16, H18 |
 | H22 | Página de metodología | Contenido | ⬜ | H03, H04 |
 | H23 | Accesibilidad | Calidad | ⬜ | H17 |
-| H24 | Rendimiento en dispositivos | Calidad | ⬜ | H16 |
+| H24 | Rendimiento en dispositivos | Calidad | ⬜ fuera de la v1 | H16 |
 | H25 | Despliegue y operación | Lanzamiento | ⬜ | H13, H14 |
 | H26 | Lanzamiento de la primera versión | Lanzamiento | ⬜ | H07, H16 a H25 |
 | H27 | Segunda versión | Después | ⬜ | H26 |
@@ -82,10 +82,12 @@ INEGI publica la edición el 25 nov 2026. Es la primera recarga real: prueba el 
 
 ## Fase 4 · Definición
 
-### H08 · Sistema visual ⬜
+### H08 · Sistema visual ✅
 Paleta definitiva por macrosector (7 colores), tipografía y tratamiento de la luz (brillo, halos, fondo).
 - **Entregables:** tokens de color y tipografía; parámetros del shader de puntos y del posprocesado.
-- **Terminado cuando:** la paleta se distingue con daltonismo común, funciona con brillo aditivo sobre fondo oscuro y el renderizador del prototipo 2 la aplica sin perder rendimiento.
+- **Terminado cuando:** los tokens salen de una sola fuente (`diseno/`), la paleta funciona con brillo aditivo sobre fondo oscuro sin que el Centro se queme a blanco, la variante clara cumple 3:1 de contraste sobre papel y el prototipo 2 los aplica. Intent en `docs/changes/2026-11-14-sistema-visual/`.
+- **Decidido (14 nov 2026):** fuera de la primera versión, tanto el criterio de daltonismo como el de rendimiento (celular con brillo y gama media). Tema claro solo para la vista exacta 2D y la interfaz; la ciudad 3D solo en oscuro.
+- **Resultado (15 nov 2026):** paleta vívida, brillo por posprocesado con mapeo `neutral` e Inter, elegidos en el laboratorio. `diseno/tokens.json` es la fuente única y el prototipo 2 la aplica. `make verify` en verde. Detalle en la síntesis.
 
 ### H09 · Contrato de escena ✅
 El contrato central que escriben historias, explorador y Analista, y que interpreta un solo motor.
@@ -131,7 +133,7 @@ Vue 3 + Three.js con lienzo persistente: los paneles cambian estado, el canvas n
 - **Ciudad de luz:** escena neutra de inicio y de paso.
 - **Corredores del Metro:** modos línea y ranking; radio de 300, 500 u 800 m.
 - **Ciudades dentro de la ciudad:** modos exterior e interior.
-- **Terminado cuando:** cada escena responde su pregunta, tiene vista exacta (H17), pasa la prueba de rendimiento (H24) y se lee completa con lector de pantalla.
+- **Terminado cuando:** cada escena responde su pregunta, tiene vista exacta (H17) y se lee completa con lector de pantalla.
 
 ### H17 · Vista exacta y componentes 2D ⬜
 La alternativa 2D es la vista exacta, no una reinterpretación de la escena.
@@ -173,6 +175,7 @@ Ciclo de uso de herramientas de la API de Claude: Haiku clasifica, resuelve luga
 ### H24 · Rendimiento en dispositivos ⬜
 - **Trabajo:** medir cada escena en un celular de gama media Android, en iOS y con brillo; definir el umbral para cambiar a agregados por AGEB o colonia.
 - **Terminado cuando:** 60 FPS en escritorio y al menos 30 FPS estables en gama media, con resultados guardados en el repositorio.
+- **Decidido (14 nov 2026):** fuera de la primera versión. No se mide rendimiento en dispositivos ni se define el umbral para cambiar a agregados; el criterio de 60 FPS queda sin comprobar. Se retoma después del lanzamiento. Los agregados por AGEB o colonia siguen en el diseño del paquete (H13).
 
 ### H25 · Despliegue y operación ⬜
 - **Entregables:** contenedores Docker detrás de Traefik, estáticos en CDN, respaldo diario de la base con retención de 7 días, publicación de una edición nueva como procedimiento documentado.
@@ -180,7 +183,7 @@ Ciclo de uso de herramientas de la API de Claude: Haiku clasifica, resuelve luga
 
 ### H26 · Lanzamiento de la primera versión ⬜
 - **Alcance:** las tres escenas (H16), una historia (H21), el Analista con límites (H19, H20), paneles compartibles (H14), vista exacta (H17) y metodología (H22).
-- **Terminado cuando:** todos los hitos previos están cerrados con la edición vigente más reciente.
+- **Terminado cuando:** todos los hitos previos están cerrados con la edición vigente más reciente, salvo H24 (rendimiento en dispositivos), que queda fuera de la primera versión por decisión del 14 nov 2026.
 
 ## Fase 9 · Segunda versión
 
@@ -198,4 +201,4 @@ Ciclo de uso de herramientas de la API de Claude: Haiku clasifica, resuelve luga
 | Paleta, tipografía y tratamiento de luz | H08 | H15 |
 | Guion completo de las dos historias | H12 y H27 | H21 |
 | Proveedor de embeddings (Voyage AI o modelo local) | H10 | H19 |
-| Umbral de rendimiento para cambiar a agregados | H24 | H16 |
+| Umbral de rendimiento para cambiar a agregados | Fuera de la v1 (decisión del 14 nov 2026) | — |

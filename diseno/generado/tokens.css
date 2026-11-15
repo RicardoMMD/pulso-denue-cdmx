@@ -1,0 +1,43 @@
+/* Generado por diseno/generar.mjs desde diseno/tokens.json. No se edita a mano. */
+:root,
+[data-tema="oscuro"] {
+  --macro-comercio: #5d7295;
+  --macro-alimentos-hospedaje: #ffbd4a;
+  --macro-servicios-personales: #ff6f7a;
+  --macro-salud-educacion-gobierno: #00d8d9;
+  --macro-servicios-profesionales: #a37aff;
+  --macro-industria-construccion: #f87103;
+  --macro-transporte-campo: #acf93f;
+  --fondo: #05060b;
+  --alcaldia-relleno: #0a0e1d;
+  --alcaldia-trazo: #1d2a52;
+  --texto: #c9cfe0;
+  --texto-tenue: #6b7390;
+  --fuente: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --peso-normal: 400;
+  --peso-medio: 500;
+  --peso-fuerte: 650;
+  --tam-etiqueta: 12px;
+  --tam-texto: 15px;
+  --tam-texto-panel: 17px;
+  --tam-titulo-panel: 28px;
+  --tam-cifra-principal: 56px;
+  color-scheme: dark;
+}
+
+[data-tema="claro"] {
+  --macro-comercio: #5d7295;
+  --macro-alimentos-hospedaje: #be8400;
+  --macro-servicios-personales: #ff5065;
+  --macro-salud-educacion-gobierno: #00a0a1;
+  --macro-servicios-profesionales: #a075ff;
+  --macro-industria-construccion: #eb6a00;
+  --macro-transporte-campo: #689f00;
+  --fondo: #faf9f6;
+  --texto: #1c2030;
+  --texto-tenue: #5a6178;
+  --trazo: #c9ccd6;
+  color-scheme: light;
+}
+
+.cifra { font-variant-numeric: tabular-nums; }

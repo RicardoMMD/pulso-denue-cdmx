@@ -12,20 +12,22 @@ PY_SRC   := pipeline/*.py prototipos/02-renderizador/*.py prototipos/03-resolver
 GENERADOS := backend/contracts/escena.v1.json backend/contracts-ts/escena.v1.d.ts backend/contracts-ts/validar-estructura.js
 EDICION  ?= 2026-05
 
-.PHONY: verify ci check contratos generado-al-dia tunel test build referencias eval-lugar
+.PHONY: verify ci check contratos diseno generado-al-dia tunel test build referencias eval-lugar
 
 ## verify: comprobación completa antes de dar algo por terminado (solo lectura)
 verify: ci tunel test
 	@echo "verify: OK"
 
-## ci: lo que corre GitHub Actions, sin base de datos: check + contratos
-ci: check contratos
+## ci: lo que corre GitHub Actions, sin base de datos: check + contratos + diseno
+ci: check contratos diseno
 	@echo "ci: OK"
 
 ## check: sin base de datos — sintaxis de Python y JS, y dbt parse
 check:
 	@cd pipeline && uv run python -m py_compile $(addprefix ../,$(PY_SRC))
 	@node --check prototipos/02-renderizador/src/main.js
+	@node --check laboratorio/src/laboratorio.js
+	@node --check diseno/generar.mjs
 	@cd pipeline && $(ENV_CHECK) && uv run dbt parse $(DBT_ARGS) --quiet
 	@echo "check: OK"
 
@@ -39,6 +41,11 @@ contratos: backend/contracts-ts/node_modules
 	@cd backend && uv run python -m contracts.validar_historias
 	@$(MAKE) --no-print-directory generado-al-dia
 	@echo "contratos: OK"
+
+## diseno: pruebas de los tokens del sistema visual (contraste, macrosectores, generado al día), sin base
+diseno:
+	@node --test diseno/test/*.test.mjs >/dev/null || { node --test diseno/test/*.test.mjs; exit 1; }
+	@echo "diseno: OK"
 
 ## generado-al-dia: regenera escena.v1.json, los tipos TS y el validador Ajv, y falla si algo cambió
 generado-al-dia: backend/contracts-ts/node_modules

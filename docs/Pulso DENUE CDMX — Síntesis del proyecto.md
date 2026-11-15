@@ -652,6 +652,17 @@ Implementado en `backend/contracts/` (Python) y `backend/contracts-ts/` (navegad
 - **Remoto:** público en GitHub desde el 14 nov 2026 (gitleaks sin hallazgos sobre el historial); el workflow corre `make ci` en cada push.
 - **Ajustes por el guion de H12:** hueco `{radio}`, fila `mayor`, `lado` en las cifras de una comparación, medidas `participacion_giro` y `micronegocios`, y la definición de cada medida por vista. Cinco de los siete huecos que encontró el guion pasaban la validación con la cifra equivocada (ver la spec, "Ajustes por el guion de H12").
 
+## Resultado del sistema visual
+
+Elegido por Ricardo el 15 nov 2026 en el laboratorio (`laboratorio/`). Fuente única: `diseno/tokens.json`; de él salen `diseno/generado/tokens.js` (motor) y `tokens.css` (interfaz y vista 2D).
+
+- **Paleta:** vívida (siete tonos, Comercio apagado para que no domine). Variante clara derivada de la oscura, con contraste mínimo de 3:1 sobre papel, comprobado por `make diseno`.
+- **Brillo:** posprocesado (Bloom) con mapeo de tonos `neutral`. Se descartaron el halo en el punto y la imagen sin brillo.
+- **Tipografía:** Inter, cifras tabulares.
+- **Aplicado:** el prototipo 2 lee los tokens; no quedan colores ni parámetros de luz escritos a mano en `main.js`.
+- **Fuera de la v1:** daltonismo, rendimiento en celular y ciudad 3D en tema claro.
+- **No verificado aún:** el umbral medible de píxeles quemados en el Centro; la elección fue visual.
+
 ## Resultado del guion "Vida comercial del Metro"
 
 Guion de H12 en `contenido/historias/vida-comercial-metro.yml`, escrito el 14 nov 2026. Valida contra el contrato y cada cifra se comprobó en `semantic` (edición 2026-05).
@@ -740,5 +751,5 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 - [ ] Banco de preguntas de evaluación del Analista
 - [x] Guion panel por panel de "Vida comercial del Metro" (H12; ver "Resultado del guion")
 - [x] Macrosectores definidos (7 familias de sectores SCIAN; ver `docs/Core — Documentación del modelo de datos.md`, sección 4.11)
-- [ ] Sistema visual: paleta por macrosector, tipografía, tratamiento de la luz
+- [x] Sistema visual: paleta por macrosector, tipografía, tratamiento de la luz (H08; ver "Resultado del sistema visual")
 - [ ] Guion panel por panel de "Centro contra periferia"
