@@ -657,11 +657,12 @@ Implementado en `backend/contracts/` (Python) y `backend/contracts-ts/` (navegad
 Elegido por Ricardo el 15 nov 2026 en el laboratorio (`laboratorio/`). Fuente única: `diseno/tokens.json`; de él salen `diseno/generado/tokens.js` (motor) y `tokens.css` (interfaz y vista 2D).
 
 - **Paleta:** vívida (siete tonos, Comercio apagado para que no domine). Variante clara derivada de la oscura, con contraste mínimo de 3:1 sobre papel, comprobado por `make diseno`.
-- **Brillo:** posprocesado (Bloom) con mapeo de tonos `neutral`. Se descartaron el halo en el punto y la imagen sin brillo.
-- **Tipografía:** Inter, cifras tabulares.
-- **Aplicado:** el prototipo 2 lee los tokens; no quedan colores ni parámetros de luz escritos a mano en `main.js`.
+- **Luz:** brillo por posprocesado (intensidad 0.6, umbral 0.12) con mapeo de tonos `neutral` y alfa del punto 0.5. Se descartaron el halo en el punto y la imagen sin brillo.
+- **Tipografía:** Inter variable (latin, SIL OFL), servida desde `diseno/fuentes/`; cifras tabulares. Muestra en `laboratorio/tipografia.html`, legible a 390 px y en los dos temas, con etiquetas 3D en troika.
+- **Aplicado:** el prototipo 2 lee los tokens; no quedan colores ni parámetros de luz escritos a mano en `main.js`. El prototipo 2 y el laboratorio se ven iguales.
+- **Medido (laboratorio, brillo por posprocesado):** píxeles quemados a blanco: 0.1 % en el Centro denso y 2.0 % en la ciudad completa; saturación media 0.56 en el Centro y 0.25 en la ciudad completa.
+- **Límite conocido:** la vista de ciudad completa se ve pálida (rosa-blanco) porque el brillo aditivo suma muchos puntos por píxel. Con alfa 0.15 el quemado baja a 0.4 %, pero se eligió 0.5. Si molesta, la salida es un alfa que dependa de la distancia de la cámara (H15).
 - **Fuera de la v1:** daltonismo, rendimiento en celular y ciudad 3D en tema claro.
-- **No verificado aún:** el umbral medible de píxeles quemados en el Centro; la elección fue visual.
 
 ## Resultado del guion "Vida comercial del Metro"
 

@@ -1,6 +1,6 @@
 // Generado por diseno/generar.mjs desde diseno/tokens.json. No se edita a mano.
 export const version = 1;
-export const estado = "elegido por Ricardo el 15 nov 2026 en el laboratorio: paleta vívida, brillo por posprocesado; mapeo de tonos y tipografía pendientes de confirmar en el laboratorio";
+export const estado = "confirmado por Ricardo el 15 nov 2026 en el laboratorio: paleta vívida, brillo por posprocesado (0.6), mapeo neutral, alfa 0.5, tipografía Inter";
 export const paletaActiva = "vivida";
 /** Macrosectores de la paleta activa, en el orden de ref_macrosector (el índice + 1 es el macrosector del paquete de puntos). */
 export const macrosectores = [
@@ -768,17 +768,17 @@ export const claro = {
 };
 export const luz = {
   "punto_px": 1.6,
-  "alfa": 0.55,
+  "alfa": 0.5,
   "atenuado": 0.12,
   "brillo": {
     "tipo": "posprocesado",
-    "intensidad": 1.1,
+    "intensidad": 0.6,
     "umbral": 0.12,
     "suavizado": 0.4
   },
   "halo": {
     "tamano": 2.4,
-    "intensidad": 0.18
+    "intensidad": 0.2
   },
   "mapeo_tonos": "neutral"
 };
