@@ -2,7 +2,16 @@
   "name": "laboratorio-visual",
   "private": true,
   "type": "module",
-  "scripts": { "dev": "vite --host", "build": "vite build" },
-  "dependencies": { "three": "0.170.0", "postprocessing": "6.36.4" },
-  "devDependencies": { "vite": "6.0.7" }
+  "scripts": {
+    "dev": "vite --host",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "postprocessing": "6.36.4",
+    "three": "0.170.0",
+    "troika-three-text": "^0.52.4"
+  },
+  "devDependencies": {
+    "vite": "6.0.7"
+  }
 }

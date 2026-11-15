@@ -155,7 +155,16 @@ export function generarCss(t) {
     ...Object.entries(tipos.pesos).map(([k, v]) => `  --peso-${k}: ${v};`),
     ...Object.entries(tipos.escala_px).map(([k, v]) => `  --tam-${k.replaceAll("_", "-")}: ${v}px;`),
   ];
+  const fuenteFace = `@font-face {
+  font-family: '${tipos.familia}';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../${tipos.archivos.variable}') format('woff2');
+}
+`;
   return `/* Generado por diseno/generar.mjs desde diseno/tokens.json. No se edita a mano. */
+${fuenteFace}
 :root,
 [data-tema="oscuro"] {
 ${oscuro.join("\n")}

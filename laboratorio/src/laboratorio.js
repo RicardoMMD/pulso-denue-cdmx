@@ -8,10 +8,16 @@ import * as T from "../../diseno/generado/tokens.js";
 
 const $ = (id) => document.getElementById(id);
 const MAPEOS = { ninguno: ToneMappingMode.LINEAR, reinhard: ToneMappingMode.REINHARD2, aces: ToneMappingMode.ACES_FILMIC, agx: ToneMappingMode.AGX, neutral: ToneMappingMode.NEUTRAL };
-const PANELES = [
+const PANELES_BRILLO = [
   { id: "sin", titulo: "Sin brillo", nota: "Solo la suma de luz de los puntos", bloom: false, halo: false },
   { id: "bloom", titulo: "Brillo por posprocesado", nota: "Desenfoque de lo más luminoso, sumado a la imagen (como el prototipo 2)", bloom: true, halo: false },
   { id: "halo", titulo: "Halo en el punto", nota: "Cada punto lleva su resplandor; sin posprocesado de brillo", bloom: false, halo: true },
+];
+
+const PANELES_MAPEO = [
+  { id: "m1", titulo: "Mapeo de tonos", nota: "Con brillo; cambia el mapeo de este panel", bloom: true, halo: false, mapeo: "neutral" },
+  { id: "m2", titulo: "Mapeo de tonos", nota: "Con brillo; cambia el mapeo de este panel", bloom: true, halo: false, mapeo: "agx" },
+  { id: "m3", titulo: "Mapeo de tonos", nota: "Con brillo; cambia el mapeo de este panel", bloom: true, halo: false, mapeo: "aces" },
 ];
 
 const [meta, fondo, buf] = await Promise.all([
@@ -89,7 +95,10 @@ const fragment = /* glsl */ `
     gl_FragColor = vec4(vC * (nucleo + halo) * vA, 1.0);
   }`;
 
-const paneles = PANELES.map((def) => {
+let paneles = [];
+let selectorGlobal = null;
+let modoActual = "brillo";
+const montar = (defs) => defs.map((def) => {
   const caja = document.createElement("div"); caja.className = "panel";
   const renderer = new THREE.WebGLRenderer({ antialias: false, powerPreference: "high-performance", alpha: false });
   renderer.setPixelRatio(dpr);
@@ -98,6 +107,13 @@ const paneles = PANELES.map((def) => {
   const rotulo = document.createElement("div"); rotulo.className = "rotulo";
   rotulo.innerHTML = `<b>${def.titulo}</b><span>${def.nota}</span>`;
   caja.appendChild(rotulo);
+  let selMapeo = null;
+  if (def.mapeo) {
+    selMapeo = document.createElement("select"); selMapeo.setAttribute("aria-label", "Mapeo de tonos de este panel");
+    for (const k of Object.keys(MAPEOS)) { const o = document.createElement("option"); o.value = o.textContent = k; selMapeo.appendChild(o); }
+    selMapeo.value = def.mapeo; selMapeo.style.pointerEvents = "auto"; selMapeo.style.marginTop = "4px";
+    rotulo.appendChild(selMapeo);
+  }
   contenedor.appendChild(caja);
 
   const scene = new THREE.Scene();
@@ -119,11 +135,19 @@ const paneles = PANELES.map((def) => {
 
   const composer = new EffectComposer(renderer, { frameBufferType: THREE.HalfFloatType });
   composer.addPass(new RenderPass(scene, camera));
-  const mapeo = new ToneMappingEffect({ mode: MAPEOS[estado.mapeo] });
+  const mapeo = new ToneMappingEffect({ mode: MAPEOS[def.mapeo ?? estado.mapeo] });
   const bloom = def.bloom ? new BloomEffect({ intensity: estado.bloom, luminanceThreshold: T.luz.brillo.umbral, luminanceSmoothing: T.luz.brillo.suavizado, kernelSize: KernelSize.MEDIUM, mipmapBlur: true }) : null;
   composer.addPass(new EffectPass(camera, ...(bloom ? [bloom, mapeo] : [mapeo])));
+  if (selMapeo) selMapeo.onchange = () => { mapeo.mode = MAPEOS[selMapeo.value]; };
   return { def, caja, renderer, composer, mat, mapeo, bloom };
 });
+function modo(nombre) {
+  if (nombre === modoActual) return; modoActual = nombre;
+  for (const p of paneles) { p.renderer.dispose(); p.composer.dispose(); p.mat.dispose(); p.caja.remove(); }
+  paneles = montar(nombre === "mapeos" ? PANELES_MAPEO : PANELES_BRILLO);
+  if (selectorGlobal) selectorGlobal.disabled = nombre === "mapeos";
+  ajustarTamano();
+}
 
 function ajustarTamano() {
   const w = paneles[0].caja.clientWidth, h = paneles[0].caja.clientHeight;
@@ -131,7 +155,8 @@ function ajustarTamano() {
   camera.aspect = w / h; camera.updateProjectionMatrix();
   for (const p of paneles) { p.renderer.setSize(w, h); p.composer.setSize(w, h); p.mat.uniforms.uResY.value = h * dpr; }
 }
-new ResizeObserver(ajustarTamano).observe(paneles[0].caja);
+paneles = montar(PANELES_BRILLO);
+new ResizeObserver(ajustarTamano).observe(contenedor);
 
 // ── Tomas fijas: el Centro denso, una periferia y la ciudad completa ──
 const CELDA = 400;
@@ -156,8 +181,9 @@ const barra = $("controles");
 const selector = (rotulo, valores, actual, alCambiar) => {
   const l = document.createElement("label"); l.append(rotulo + " ");
   const s = document.createElement("select");
+  l.selectEl = s;
   for (const v of valores) { const o = document.createElement("option"); o.value = v; o.textContent = v; s.appendChild(o); }
-  s.value = actual; s.onchange = () => alCambiar(s.value); l.appendChild(s); barra.appendChild(l);
+  s.value = actual; s.onchange = () => alCambiar(s.value); l.appendChild(s); barra.appendChild(l); return s;
 };
 const deslizador = (rotulo, min, max, paso, clave, alCambiar) => {
   const l = document.createElement("label"); l.append(rotulo + " ");
@@ -169,7 +195,8 @@ const deslizador = (rotulo, min, max, paso, clave, alCambiar) => {
 const boton = (texto, alClic) => { const b = document.createElement("button"); b.textContent = texto; b.onclick = alClic; barra.appendChild(b); return b; };
 
 selector("Paleta", Object.keys(T.paletas), estado.paleta, (v) => { estado.paleta = v; aplicarPaleta(); salida(); });
-selector("Mapeo de tonos", Object.keys(MAPEOS), estado.mapeo, (v) => { estado.mapeo = v; for (const p of paneles) p.mapeo.mode = MAPEOS[v]; salida(); });
+selector("Comparar", ["brillo", "mapeos"], "brillo", (v) => modo(v));
+selectorGlobal = selector("Mapeo de tonos", Object.keys(MAPEOS), estado.mapeo, (v) => { estado.mapeo = v; for (const p of paneles) p.mapeo.mode = MAPEOS[v]; salida(); });
 deslizador("Punto", 0.1, 1.2, 0.05, "alfa", (v) => paneles.forEach((p) => (p.mat.uniforms.uAlfa.value = v)));
 deslizador("Brillo", 0, 3, 0.1, "bloom", (v) => paneles.forEach((p) => p.bloom && (p.bloom.intensity = v)));
 deslizador("Halo: tamaño", 1, 4, 0.1, "haloTamano", (v) => paneles.forEach((p) => p.def.halo && (p.mat.uniforms.uK.value = v)));

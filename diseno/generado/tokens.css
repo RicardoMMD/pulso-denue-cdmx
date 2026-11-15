@@ -1,4 +1,12 @@
 /* Generado por diseno/generar.mjs desde diseno/tokens.json. No se edita a mano. */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fuentes/Inter-latin-variable.woff2') format('woff2');
+}
+
 :root,
 [data-tema="oscuro"] {
   --macro-comercio: #5d7295;
