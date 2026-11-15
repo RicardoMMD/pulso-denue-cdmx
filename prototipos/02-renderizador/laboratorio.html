@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulso DENUE CDMX — Laboratorio visual (H08)</title>
+<style>
+  html,body { margin:0; height:100%; background:var(--fondo); color:var(--texto); font:13px/1.4 var(--fuente); }
+  body { display:grid; grid-template-rows:auto auto 1fr; height:100vh; overflow:hidden; }
+  header { padding:10px 14px 4px; display:flex; flex-wrap:wrap; gap:6px 18px; align-items:baseline; }
+  header b { font-size:15px; font-weight:var(--peso-fuerte); }
+  header span { color:var(--texto-tenue); }
+  #controles { display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; padding:4px 14px 8px; }
+  #controles label { display:flex; gap:6px; align-items:center; color:var(--texto-tenue); }
+  #controles output { color:var(--texto); min-width:3.2em; display:inline-block; }
+  button, select { font:inherit; color:var(--texto); background:var(--alcaldia-relleno); border:1px solid var(--alcaldia-trazo); border-radius:6px; padding:5px 9px; cursor:pointer; }
+  button:hover { border-color:var(--texto-tenue); }
+  #principal { display:grid; grid-template-columns:1fr 240px; min-height:0; }
+  #paneles { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; padding:0 0 8px 14px; min-height:0; touch-action:none; }
+  .panel { position:relative; min-height:0; border:1px solid var(--alcaldia-trazo); border-radius:8px; overflow:hidden; }
+  .panel canvas { display:block; width:100%; height:100%; }
+  .rotulo { position:absolute; left:0; right:0; top:0; padding:8px 10px; pointer-events:none; text-shadow:0 0 10px var(--fondo), 0 0 3px var(--fondo); }
+  .rotulo b { display:block; font-weight:var(--peso-medio); }
+  .rotulo span { color:var(--texto-tenue); font-size:12px; }
+  aside { padding:0 14px 8px 10px; overflow:auto; }
+  aside h2 { font-size:12px; font-weight:var(--peso-medio); color:var(--texto-tenue); margin:6px 0; text-transform:uppercase; letter-spacing:.06em; }
+  #leyenda { display:flex; flex-direction:column; gap:2px; }
+  #leyenda button { display:flex; gap:8px; align-items:center; text-align:left; border-color:transparent; background:transparent; padding:4px 6px; }
+  #leyenda button[aria-pressed=false] { opacity:.35; }
+  #leyenda i { width:10px; height:10px; border-radius:50%; flex:none; }
+  #papel { background:var(--fondo); border-radius:8px; padding:8px 10px; color:var(--texto); }
+  #papel div { display:flex; gap:8px; align-items:center; margin:3px 0; font-size:12px; }
+  #papel i { width:34px; height:10px; border-radius:2px; flex:none; }
+  #papel em { margin-left:auto; font-style:normal; font-variant-numeric:tabular-nums; }
+  #salida { margin-top:8px; color:var(--texto-tenue); font-size:12px; }
+  @media (max-width:900px) { #principal { grid-template-columns:1fr; overflow:auto; } #paneles { grid-template-columns:1fr; grid-auto-rows:70vh; padding-right:14px; } body { overflow:auto; height:auto; } }
+</style>
+</head>
+<body>
+<header><b>Laboratorio visual · H08</b><span id="corte"></span><span>Arrastra para mover, rueda para acercar: las tres vistas comparten la cámara.</span></header>
+<div id="controles"></div>
+<div id="principal">
+  <div id="paneles"></div>
+  <aside>
+    <h2>Macrosectores (clic = filtrar)</h2>
+    <div id="leyenda"></div>
+    <h2>En papel (vista exacta 2D)</h2>
+    <div id="papel" data-tema="claro"></div>
+    <div id="salida"></div>
+  </aside>
+</div>
+<script type="module" src="/src/laboratorio.js"></script>
+</body>
+</html>

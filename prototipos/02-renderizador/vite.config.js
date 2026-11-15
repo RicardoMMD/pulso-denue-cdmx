@@ -22,4 +22,4 @@ const guardarBench = () => ({
   },
 });
 
-export default defineConfig({ base: "./", build: { target: "es2022" }, server: { host: true }, plugins: [guardarBench()] });
+export default defineConfig({ base: "./", build: { target: "es2022" }, server: { host: true, fs: { allow: ["../.."] } }, plugins: [guardarBench()] });

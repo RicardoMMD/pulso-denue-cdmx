@@ -1,10 +1,13 @@
 import * as THREE from "three";
 import { MapControls } from "three/examples/jsm/controls/MapControls.js";
-import { EffectComposer, RenderPass, EffectPass, BloomEffect, KernelSize } from "postprocessing";
+import { EffectComposer, RenderPass, EffectPass, BloomEffect, ToneMappingEffect, ToneMappingMode, KernelSize } from "postprocessing";
+import "../../../diseno/generado/tokens.css";
+import * as T from "../../../diseno/generado/tokens.js";
 
 const params = new URLSearchParams(location.search);
 const esMovil = matchMedia("(pointer: coarse)").matches || Math.min(innerWidth, innerHeight) < 700;
-const PALETA = ["#ffb347", "#ff6b81", "#5ad1c4", "#7aa2ff", "#c792ff", "#ff8a4c", "#d4e86a"]; // provisional, 1 por macrosector
+const PALETA = T.macrosectores.map((m) => m.oscuro.hex); // diseno/tokens.json, 1 por macrosector
+const MAPEOS = { ninguno: ToneMappingMode.LINEAR, reinhard: ToneMappingMode.REINHARD2, aces: ToneMappingMode.ACES_FILMIC, agx: ToneMappingMode.AGX, neutral: ToneMappingMode.NEUTRAL };
 const $ = (id) => document.getElementById(id);
 
 const [meta, fondo, buf] = await Promise.all([
@@ -24,7 +27,7 @@ let dpr = Math.min(devicePixelRatio, esMovil ? 1.5 : 2);
 if (params.get("dpr")) dpr = +params.get("dpr");
 renderer.setPixelRatio(dpr);
 renderer.setSize(innerWidth, innerHeight);
-renderer.setClearColor(0x05060b, 1);
+renderer.setClearColor(new THREE.Color(T.oscuro.fondo), 1);
 document.body.prepend(renderer.domElement);
 const gl = renderer.getContext();
 const dbg = gl.getExtension("WEBGL_debug_renderer_info");
@@ -59,8 +62,8 @@ const mat = new THREE.ShaderMaterial({
     uCentro: { value: new THREE.Vector2(cx, cy) },
     uPal: { value: colores.map((c) => new THREE.Vector3(c.r, c.g, c.b)) },
     uMask: { value: new Array(8).fill(1) },
-    uPx: { value: 1.6 * dpr },
-    uAlfa: { value: 0.55 },
+    uPx: { value: T.luz.punto_px * dpr },
+    uAlfa: { value: T.luz.alfa },
     uRev: { value: 1e9 },          // radio de revelado (m) desde el centro
     uBorde: { value: 900 },
     uResY: { value: innerHeight * dpr },
@@ -81,7 +84,7 @@ const mat = new THREE.ShaderMaterial({
       for (int i = 0; i < 7; i++) if (i == k) c = uPal[i];
       float msk = 0.0;
       for (int i = 0; i < 8; i++) if (i == k + 1) msk = uMask[i];
-      vC = c; vA = uAlfa * (0.12 + 0.88 * msk) * rev;
+      vC = c; vA = uAlfa * (${T.luz.atenuado.toFixed(3)} + ${(1 - T.luz.atenuado).toFixed(3)} * msk) * rev;
       // tamaño en pixeles constante respecto a la escena: crece al acercar, con tope
       float escala = uResY / (2.0 * tan(0.3490659) * -mv.z);   // px por metro a esa distancia
       gl_PointSize = clamp(uPx * 0.5 + escala * 7.0, uPx, uPx * 6.0);
@@ -101,8 +104,8 @@ scene.add(puntos);
 
 // ── Fondo propio: siluetas de alcaldías dibujadas desde los datos ──
 const lineas = new THREE.Group();
-const lmat = new THREE.LineBasicMaterial({ color: 0x1d2a52, transparent: true, opacity: 0.9 });
-const fmat = new THREE.MeshBasicMaterial({ color: 0x0a0e1d, transparent: true, opacity: 0.95, depthWrite: false });
+const lmat = new THREE.LineBasicMaterial({ color: new THREE.Color(T.oscuro.alcaldia_trazo), transparent: true, opacity: 0.9 });
+const fmat = new THREE.MeshBasicMaterial({ color: new THREE.Color(T.oscuro.alcaldia_relleno), transparent: true, opacity: 0.95, depthWrite: false });
 for (const a of fondo) for (const ring of a.anillos) {
   const v = ring.map(([x, y]) => new THREE.Vector3(x - cx, -1, -(y - cy)));
   lineas.add(new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints(v), lmat));
@@ -119,7 +122,7 @@ let composer = null, bloomOn = params.get("bloom") ? params.get("bloom") === "1"
 function armarComposer() {
   composer = new EffectComposer(renderer, { frameBufferType: THREE.HalfFloatType });
   composer.addPass(new RenderPass(scene, camera));
-  composer.addPass(new EffectPass(camera, new BloomEffect({ intensity: 1.1, luminanceThreshold: 0.12, luminanceSmoothing: 0.4, kernelSize: KernelSize.MEDIUM, mipmapBlur: true })));
+  composer.addPass(new EffectPass(camera, new BloomEffect({ intensity: T.luz.brillo.intensidad, luminanceThreshold: T.luz.brillo.umbral, luminanceSmoothing: T.luz.brillo.suavizado, kernelSize: KernelSize.MEDIUM, mipmapBlur: true }), new ToneMappingEffect({ mode: MAPEOS[T.luz.mapeo_tonos] })));
 }
 armarComposer();
 $("b-bloom").onclick = () => { bloomOn = !bloomOn; };
@@ -225,7 +228,7 @@ function bucle(now) {
   // degradación automática solo en móvil sin parámetros manuales
   if (esMovil && !params.get("dpr") && !bench && dt.length > 90) {
     if (fpsActual < 40) calidadBaja++; else calidadBaja = 0;
-    if (calidadBaja > 30 && dpr > 1) { dpr = Math.max(1, dpr - 0.25); renderer.setPixelRatio(dpr); mat.uniforms.uPx.value = 1.6 * dpr; mat.uniforms.uResY.value = innerHeight * dpr; composer.setSize(innerWidth, innerHeight); calidadBaja = 0; dt.length = 0; }
+    if (calidadBaja > 30 && dpr > 1) { dpr = Math.max(1, dpr - 0.25); renderer.setPixelRatio(dpr); mat.uniforms.uPx.value = T.luz.punto_px * dpr; mat.uniforms.uResY.value = innerHeight * dpr; composer.setSize(innerWidth, innerHeight); calidadBaja = 0; dt.length = 0; }
   }
   requestAnimationFrame(bucle);
 }
