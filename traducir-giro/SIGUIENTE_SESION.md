@@ -1,30 +1,24 @@
 # Traducir giro — arranque de la siguiente sesión
 
-Escrito el 15 nov 2026. Lee primero `README.md` (planteamiento y criterios de logro) y `../docs/changes/2026-11-15-traducir-giro/plan.md` (plan de H10; el README manda donde difieran).
+Actualizado el 15 nov 2026. Lee primero `README.md`: la sección "Resultados" resume todo lo medido.
 
 ## Estado
-- El entorno está listo: proyecto `uv` propio con dependencias instaladas, catálogo exportado (`datos/clases.json`, 948 clases) y los scripts probados de punta a punta con un codificador de mentira.
-- No hay modelos descargados, ni bancos, ni nada en la base.
-- Rama de trabajo: `traducir-giro`, desde `main`. El grafo de graphify está actualizado al 15 nov (solo código; los `.md` nuevos no están en él).
+- Comparación de embeddings cerrada: ningún modelo cumplió solo en el banco ciego. Se eligió EmbeddingGemma (texto `palabras`) como generador de candidatos. Qwen3 quedó fuera por costo y acierto; BGE-M3, por peso.
+- Herramienta completa construida en `traducir_giro.py`: glosario, lugar, 10 candidatos de Gemma y `claude-haiku-5-5` que elige. En ajuste da 99 % de acierto, inflado porque el glosario salió de ese banco.
+- Segundo banco ciego escrito por un agente aislado (`bancos/ciego.json`, 90 casos). **No se ha corrido.**
+- Nada se ha escrito en la base. Modelos y vectores están en `modelos/` y `vectores/`, sin versionar.
 
-## Decisiones tomadas
-- Se comparan tres modelos locales: Qwen3-Embedding-0.6B, EmbeddingGemma y multilingual-e5-small. BGE-M3 salió por peso (15 nov 2026). Jina v5 queda fuera por licencia no comercial.
-- Todo en local; nada de pgvector ni de la base real hasta que haya un modelo ganador.
-- Jev (modelo "Sistema Uno") descartado: elige entre 255 opciones como máximo y hay unas 950 clases.
-- Los bancos se escriben antes de correr modelos; el ciego se corre una sola vez.
+## Pendiente de Ricardo
+1. Revisar las clases aceptadas de `bancos/ciego.json`. El agente señaló dudas en los casos 10, 16, 19, 30 y 43 (numerados desde 1). Quien afina la herramienta no debe abrir ese archivo.
+2. Dar la orden de correrlo: `make herramienta-ciego` (una sola vez; usa la llave de Anthropic del `.env`).
+3. Decidir dónde vive la herramienta en el proyecto principal y la decisión D3 del plan (pgvector o archivo).
 
-## Pendiente de Ricardo (confirmar antes de correr el banco ciego)
-1. Umbrales C1–C5 del README (85 %, 70 %, 80 % con 5 % de pérdida, 2 GB y 200 ms).
-2. Dónde se construye el resto de H10 (glosario, función completa, pgvector): en este directorio o en el proyecto principal.
-3. EmbeddingGemma tiene acceso restringido: aceptar los términos en su ficha de Hugging Face y poner un token de lectura en `.env` como `HF_TOKEN`.
-4. Permiso para cada descarga (`make descargar MODELO=...`).
-
-## Primeros pasos
-1. Escribir `bancos/ajuste.json` y `bancos/ciego.json` (formato en el README) y verificar a mano las clases esperadas. `make validar` revisa la forma.
-2. Descargar los modelos, con permiso, uno por uno.
-3. Línea base: `make ajuste`. Luego el afinado con `make ajuste VARIANTE=palabras`.
+## Después del ciego
+- Si cumple C1–C3: registrar el resultado en la síntesis, actualizar `docs/Herramientas del Analista.md`, marcar H10 si también se resolvió D3, y abrir el pull request.
+- Si no cumple: sus fallos pasan al ajuste (y al glosario los de palabra de la calle), y se escribe un tercer banco ciego con otro agente aislado.
 
 ## Cuidado
-- Pedir permiso antes de descargar cada modelo (nombre, fuente y tamaño).
+- Para regenerar vectores: `uv run python vectorizar.py gemma --variante palabras` (la herramienta los necesita).
+- Los modelos se cargan en fp32 a propósito (ver `comun.cargar_modelo`).
 - No escribir en la base. No copiar llaves ni credenciales.
-- Al terminar: repaso en `laboratorio/` (`giros.html`) y `make verify` a la vista.
+- Repaso en `laboratorio/giros.html` y `make verify` a la vista antes de dar algo por terminado.

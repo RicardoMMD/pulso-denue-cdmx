@@ -18,7 +18,7 @@ El ciclo es siempre el mismo: clasifica la pregunta, resuelve el lugar y traduce
 | # | Herramienta | Qué hace | Modelo | Hito | Estado |
 |---|---|---|---|---|---|
 | 1 | Resolver lugar | Convierte "la Roma" o "cerca del metro Balderas" en identificadores territoriales | Haiku | H06 (prototipo), H19 | Prototipo hecho: 87 % de acierto en casos nuevos |
-| 2 | Traducir giro | Convierte "tiendita" o "estética" en clases SCIAN | Haiku | H10, H19 | Pendiente |
+| 2 | Traducir giro | Convierte "tiendita" o "estética" en clases SCIAN | Haiku | H10, H19 | En curso: construida, falta medirla en banco ciego |
 | 3 | Consultar datos | Escribe y ejecuta SQL sobre las vistas autorizadas | Sonnet | H19 | Pendiente |
 | 4 | Buscar metodología | Responde preguntas sobre el DENUE, el SCIAN y los indicadores con notas escritas | Sonnet | H19 | Pendiente |
 | 5 | Construir escena | Devuelve un estado de escena que el backend valida | Sonnet | H09, H14, H19 | El contrato está hecho (H09); falta la herramienta |

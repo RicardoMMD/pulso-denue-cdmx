@@ -5,7 +5,7 @@ SHELL    := /bin/bash
 ENV      := set -a && . ../.env && set +a
 VARIANTE ?= simple
 
-.PHONY: catalogo validar modelos descargar vectores ajuste ciego
+.PHONY: catalogo validar modelos descargar vectores ajuste ciego herramienta herramienta-ciego
 
 ## catalogo: exporta las clases SCIAN a datos/clases.json (solo lectura, necesita túnel)
 catalogo:
@@ -36,3 +36,12 @@ ajuste: validar vectores
 ## ciego: banco ciego, UNA sola vez, con los umbrales confirmados
 ciego: validar
 	@uv run python evaluar.py ciego --variante $(VARIANTE) --confirmo-ciego
+
+## herramienta: la herramienta completa (glosario, lugar, Gemma y Haiku) contra el banco de ajuste. Necesita
+## ANTHROPIC_API_KEY en ../.env solo para los casos que no estén en cache_haiku.json
+herramienta: validar
+	@{ [ ! -f ../.env ] || $(ENV); } && uv run python evaluar_herramienta.py ajuste
+
+## herramienta-ciego: la herramienta completa contra el banco ciego, UNA sola vez
+herramienta-ciego: validar
+	@{ [ ! -f ../.env ] || $(ENV); } && uv run python evaluar_herramienta.py ciego --confirmo-ciego

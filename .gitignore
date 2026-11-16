@@ -17,3 +17,6 @@ laboratorio/.vite/
 # Traducir giro: modelos descargados y vectores
 traducir-giro/modelos/
 traducir-giro/vectores/
+
+# Grafo de graphify: se regenera con `graphify update .`
+graphify-out/

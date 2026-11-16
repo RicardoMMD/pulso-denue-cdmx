@@ -28,6 +28,7 @@ check:
 	@python3 traducir-giro/validar_bancos.py
 	@node --check prototipos/02-renderizador/src/main.js
 	@node --check laboratorio/src/laboratorio.js
+	@node --check laboratorio/src/giros.js
 	@node --check diseno/generar.mjs
 	@cd pipeline && $(ENV_CHECK) && uv run dbt parse $(DBT_ARGS) --quiet
 	@echo "check: OK"

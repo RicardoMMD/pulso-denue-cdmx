@@ -1,0 +1,903 @@
+{
+ "04a9c00407fa50bf9db222cd": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "No veo una actividad económica en «en la esquina»; ¿qué tipo de negocio buscas en esa esquina?",
+  "texto": "en la esquina"
+ },
+ "096af8cadf13ed75239ec0d8": {
+  "clases": [
+   "722515"
+  ],
+  "estado": "resuelto",
+  "nota": "Para tomar un café, lo más común son las cafeterías, fuentes de sodas y similares.",
+  "texto": "un lugar para tomar un café"
+ },
+ "0ef89d22e26ab4ceb31c7450": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu mensaje es un saludo, no nombra un giro o actividad económica. Escribe el tipo de negocio que buscas, por ejemplo una tienda, una farmacia o un restaurante.",
+  "texto": "hola, ¿qué tal?"
+ },
+ "0fdbccc8d195e52deb6af668": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Buenos días» es un saludo y no nombra una actividad económica. Dime qué tipo de negocio buscas.",
+  "texto": "buenos días"
+ },
+ "109876f61d090c00fd80d111": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu texto menciona un lugar, pero no un giro de negocio. Dime qué tipo de negocio buscas cerca del metro, por ejemplo una farmacia o una cafetería.",
+  "texto": "cerca del metro"
+ },
+ "1114871b62c3bf73dc1dfc7f": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«barato» es un adjetivo y no nombra un giro; dime qué tipo de negocio buscas, por ejemplo ropa, abarrotes o refaccionaria.",
+  "texto": "barato"
+ },
+ "1262031e51a894fc5f936c21": {
+  "clases": [
+   "561431"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas copias e impresiones de uso general; la clase de fotocopiado y servicios afines cubre ese giro.",
+  "texto": "donde hacen copias e impresiones"
+ },
+ "140566332aba51af7267d083": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Buena onda» es una expresión, no un giro de negocio. Dime qué tipo de negocio buscas.",
+  "texto": "buena onda"
+ },
+ "14b8812acc2b9d29cbeb2603": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu frase describe el clima, no un giro de negocio. Dime qué tipo de negocio buscas, por ejemplo servicio de aire acondicionado.",
+  "texto": "hace mucho calor"
+ },
+ "16c147ac02453b8589669601": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«rapidísimo» es un adjetivo, no nombra un giro o negocio. ¿Qué tipo de negocio buscas?",
+  "texto": "rapidísimo"
+ },
+ "1a359d28cb43c5ed8c419871": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu mensaje expresa una necesidad, pero no nombra una actividad económica. Dime qué tipo de negocio o servicio buscas, por ejemplo orientación social, alimentos comunitarios o grupos de apoyo.",
+  "texto": "necesito ayuda"
+ },
+ "1c992134e49c59728cee8502": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Qué onda» es un saludo y no nombra ningún giro de negocio. Dime qué tipo de negocio buscas para ayudarte.",
+  "texto": "qué onda"
+ },
+ "1e2fc3771adac7e68e5458ca": {
+  "clases": [
+   "323119",
+   "323111",
+   "323120",
+   "541430",
+   "541890"
+  ],
+  "estado": "grupo",
+  "nota": "Para imprimir tarjetas de presentación, estos giros de impresión y diseño gráfico son los que más se ajustan.",
+  "texto": "donde mandan a imprimir tarjetas de presentación"
+ },
+ "1f4d22c29fb53a19f1e32928": {
+  "clases": [
+   "541941",
+   "541942"
+  ],
+  "estado": "grupo",
+  "nota": "Para vacunar a tu perro puedes ir a una veterinaria privada o a una clínica veterinaria pública; te muestro ambas opciones.",
+  "texto": "donde llevo a vacunar al perro"
+ },
+ "21a7216bd8d8fdc2b2ee9c71": {
+  "clases": [
+   "561432"
+  ],
+  "estado": "resuelto",
+  "nota": "Pediste negocios que rentan computadoras con internet; eso corresponde a los servicios de acceso a computadoras, como los cibercafés.",
+  "texto": "donde rentan computadoras con internet"
+ },
+ "246239a9d8a43f20842294d5": {
+  "clases": [
+   "812210"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas lavanderías o tintorerías, donde lavan y planchan la ropa por ti.",
+  "texto": "donde me llevan la ropa a lavar"
+ },
+ "2526d23ba40c3491eb87f9a5": {
+  "clases": [
+   "337120"
+  ],
+  "estado": "resuelto",
+  "nota": "El giro corresponde a la fabricación de muebles de madera a medida, que encaja en la clase de muebles excepto cocinas integrales y de oficina.",
+  "texto": "donde hacen muebles de madera a medida"
+ },
+ "2b07e56463ccf21715ca7a5f": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu mensaje es un agradecimiento y no nombra una actividad económica. Escribe el giro que buscas, por ejemplo papelería o regalos.",
+  "texto": "gracias por todo"
+ },
+ "2cac28198ac75f052cbc9d2f": {
+  "clases": [
+   "464121",
+   "621320"
+  ],
+  "estado": "grupo",
+  "nota": "Revisan la vista y venden lentes: son ópticas, que combinan la consulta optométrica con la venta al por menor de lentes.",
+  "texto": "donde revisan la vista y venden lentes"
+ },
+ "2d22afaed1c2c20abe72533c": {
+  "clases": [
+   "541120"
+  ],
+  "estado": "resuelto",
+  "nota": "Los trámites de notaría se hacen en las notarías públicas, que es la clase que corresponde a tu búsqueda.",
+  "texto": "donde hacen trámites de notaría"
+ },
+ "2e851a459ef1c581619ffeb4": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Muy barato» es un comentario sobre precio, no nombra un giro o actividad económica. ¿Qué tipo de negocio buscas?",
+  "texto": "muy barato"
+ },
+ "2f5bbbcaed2fe0be4db100f6": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu texto parece una frase sobre disponibilidad y no nombra una actividad económica; indica el tipo de negocio que buscas, por ejemplo una tienda, un restaurante o una farmacia.",
+  "texto": "está abierto"
+ },
+ "2f61ecb4d9d1d930b08ef9c8": {
+  "clases": [
+   "238210"
+  ],
+  "estado": "resuelto",
+  "nota": "Para instalar luz en tu casa necesitas un servicio de instalaciones eléctricas, que es lo que ofrecen estos negocios.",
+  "texto": "quién me instala la luz en la casa"
+ },
+ "327039d79a513d5ecdb931b6": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«bonito» es un adjetivo, no nombra una actividad económica. Dime qué tipo de negocio buscas.",
+  "texto": "bonito"
+ },
+ "340334363af64b99ba5457db": {
+  "clases": [
+   "811311"
+  ],
+  "estado": "resuelto",
+  "nota": "Pensé en un taller mecánico de reparación; si buscas talleres de maquinado o torno, dímelo y lo ajusto.",
+  "texto": "talller mecanico"
+ },
+ "351df066281d8339e62ae650": {
+  "clases": [
+   "624411",
+   "624412"
+  ],
+  "estado": "grupo",
+  "nota": "Guarderías del sector privado y público, que son los negocios de cuidado infantil para bebés.",
+  "texto": "guardería para bebés"
+ },
+ "367c9ee13114eeb5da96011c": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Por aquí» es una referencia de lugar, no un giro de negocio. Dime qué tipo de negocio buscas.",
+  "texto": "por aquí"
+ },
+ "36dd4cce8747d741b6046a7a": {
+  "clases": [
+   "332320"
+  ],
+  "estado": "resuelto",
+  "nota": "Los portones y rejas se fabrican en talleres de herrería; esta clase agrupa ese giro.",
+  "texto": "donde hacen portones y rejas"
+ },
+ "375c0f2473f6d4853233aee9": {
+  "clases": [
+   "722514"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas lugares donde preparen tacos al pastor; la clase de taquerías y tortas es la que corresponde.",
+  "texto": "donde comer tacos al pastor"
+ },
+ "381f8609fcabd071bf283bba": {
+  "clases": [
+   "532281",
+   "463214"
+  ],
+  "estado": "grupo",
+  "nota": "Puedes buscar tanto en las tiendas de renta de prendas de vestir como en las de venta de vestidos de fiesta.",
+  "texto": "donde rentan vestidos de fiesta"
+ },
+ "3a7bbfe971be4f35f9177f0a": {
+  "clases": [
+   "621511",
+   "621512"
+  ],
+  "estado": "grupo",
+  "nota": "Para hacerse análisis de sangre, los laboratorios médicos y de diagnóstico son el giro que buscas, tanto del sector privado como del público.",
+  "texto": "donde me hacen análisis de sangre"
+ },
+ "3c31da2ea61538040e510b81": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu frase es una pregunta sobre la hora, no nombra un giro o negocio. Escribe el tipo de negocio que buscas, por ejemplo relojería.",
+  "texto": "¿qué hora es?"
+ },
+ "4330a812f4c7e60b7cc4d7d0": {
+  "clases": [
+   "467116"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas que vendan materiales para construcción al público; aquí te muestro las tiendas de autoservicio especializadas en ese giro.",
+  "texto": "donde compro materiales para construir"
+ },
+ "435e2ae648a729ceee58ed04": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Esa frase describe el clima, no un giro de negocio. Si buscas un negocio, por ejemplo calefacción o venta de cobijas, dime cuál y lo busco.",
+  "texto": "hace frío"
+ },
+ "43cc19bcf37723e7494a9d8b": {
+  "clases": [
+   "465212"
+  ],
+  "estado": "resuelto",
+  "nota": "El giro que buscas es la venta de juguetes al por menor, así que te muestro los negocios de esa clase.",
+  "texto": "donde venden juguetes para niños"
+ },
+ "4542d6d14f950c4f05308b4b": {
+  "clases": [
+   "811219"
+  ],
+  "estado": "resuelto",
+  "nota": "Busca talleres que reparen consolas de videojuegos; esa actividad corresponde a la reparación de otro equipo electrónico.",
+  "texto": "donde arreglan consolas de videojuegos"
+ },
+ "49f4114cb5a3685e9e92a775": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "No veo una actividad económica en ese texto; ¿qué tipo de negocio buscas?",
+  "texto": "lo más bonito del mundo"
+ },
+ "4af393198a1fbb6d518f63e1": {
+  "clases": [
+   "811112"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un lugar donde cambien la batería del auto, que corresponde a la reparación del sistema eléctrico automotriz.",
+  "texto": "donde me cambian la pila del coche"
+ },
+ "4cef9b0b14c9d615a570da1a": {
+  "clases": [
+   "611631",
+   "611632"
+  ],
+  "estado": "grupo",
+  "nota": "Encontré escuelas de idiomas, tanto privadas como públicas, donde puedes aprender inglés; revisa si te interesa alguna en horario vespertino.",
+  "texto": "donde aprender inglés en las tardes"
+ },
+ "51b993bd38d43ceb5e4568a9": {
+  "clases": [
+   "722518"
+  ],
+  "estado": "resuelto",
+  "nota": "Entiendo que buscas fondas o cocinas económicas, que son restaurantes de comida casera y para llevar.",
+  "texto": "cocina ecnomica"
+ },
+ "536ebbc9063334d16ce414d6": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu texto es un comentario sobre precio y no nombra un giro; dime qué tipo de negocio buscas.",
+  "texto": "muy caro"
+ },
+ "611a3b663e0cd5eeb371bae9": {
+  "clases": [
+   "463113",
+   "463111"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas tiendas que venden hilos y botones, normalmente de mercería; también incluí comercios de telas por si la mercería está junto a ellos.",
+  "texto": "donde venden hilos y botones"
+ },
+ "61853a537949015821952e5c": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu texto describe una sensación, no una actividad económica. Si buscas instalación, venta o reparación de aire acondicionado, escríbelo así y te muestro esos negocios.",
+  "texto": "mucho calor"
+ },
+ "64f232ff64091e80ebf0c005": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "No identifico una actividad económica en el texto; ¿qué tipo de negocio buscas?",
+  "texto": "xyz qwk"
+ },
+ "654a47d96aede8fede8ba73b": {
+  "clases": [
+   "466410"
+  ],
+  "estado": "resuelto",
+  "nota": "Ropa de segunda mano se busca en el comercio de artículos usados.",
+  "texto": "donde venden ropa de segunda mano"
+ },
+ "65527dbec261cb01e63b8234": {
+  "clases": [
+   "461122"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas de pollo al menudeo, así que te muestro las pollerías de venta al público.",
+  "texto": "donde venden pollo fresco por kilo"
+ },
+ "65e3186cc8297b73c8854cda": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Sin tráfico» describe una situación de la vía, no un giro de negocio. ¿Buscas algún tipo de transporte o servicio en particular?",
+  "texto": "sin tráfico"
+ },
+ "6674a8bd56acb31d9c31a3a9": {
+  "clases": [
+   "238320"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas a alguien que pinte la casa; te muestro los negocios de trabajos de pintura en muros y paredes.",
+  "texto": "donde me pintan la casa"
+ },
+ "682cfc9e7424463e7db560d0": {
+  "clases": [
+   "811112"
+  ],
+  "estado": "resuelto",
+  "nota": "El sistema eléctrico del coche corresponde a la reparación eléctrica de automóviles y camiones.",
+  "texto": "donde arreglan el sistema eléctrico del coche"
+ },
+ "6b21f7879f40281dec7ceddf": {
+  "clases": [
+   "468212"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas que venden refacciones usadas para automóviles, camionetas y camiones.",
+  "texto": "donde venden refacciones usadas para el carro"
+ },
+ "6b587355868a32a3edd7f034": {
+  "clases": [
+   "461213",
+   "461190"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas tiendas que vendan refrescos y botanas; te muestro los negocios de bebidas no alcohólicas y de botanas al menor.",
+  "texto": "donde venden refrescos y botanas"
+ },
+ "6d8a78a9d931a5dff0eca8d8": {
+  "clases": [
+   "311812"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas panaderías que vendan pan recién hecho; la clase de panificación tradicional cubre esos negocios.",
+  "texto": "donde comprar pan recién hecho"
+ },
+ "6f8d5abe40fa4d0418576648": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu mensaje pregunta por un precio, pero no nombra ningún giro o negocio. Dime qué tipo de negocio buscas, por ejemplo restaurante, florería o clases particulares.",
+  "texto": "¿cuánto cuesta?"
+ },
+ "7087e75a6982d39ce67396bd": {
+  "clases": [
+   "466312"
+  ],
+  "estado": "resuelto",
+  "nota": "Para comprar flores naturales te sirven las floristerías y tiendas de plantas y flores.",
+  "texto": "donde compro flores para regalar"
+ },
+ "715642a3462b38786386a321": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«sábado» es un día de la semana, no un giro de negocio. Escribe el tipo de negocio que buscas, por ejemplo tienda, farmacia o taller.",
+  "texto": "sábado"
+ },
+ "7167276b8b249a06afd3fefe": {
+  "clases": [
+   "466312"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas que venden plantas para el jardín; la clase de plantas y flores naturales es la que corresponde.",
+  "texto": "donde venden plantas para el jardín"
+ },
+ "772ecadc4d15ffeb76823e2c": {
+  "clases": [
+   "463310"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas que venden zapatos al público; te muestro los negocios de comercio al por menor de calzado.",
+  "texto": "donde venden zapatos"
+ },
+ "776a182908b79cd29bd4f519": {
+  "clases": [
+   "465911"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas comida para perro; eso se encuentra en tiendas de mascotas.",
+  "texto": "donde me venden comida para el perro"
+ },
+ "78b0014983eb1492fdb712d9": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "La palabra \"mañana\" no nombra una actividad económica; ¿buscas algún tipo de negocio en particular?",
+  "texto": "mañana"
+ },
+ "7aefaf81ee0335ccd1a78317": {
+  "clases": [
+   "812110"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un lugar donde cortan el cabello, y para niños. Esa actividad corresponde a peluquerías y salones de belleza.",
+  "texto": "donde hacen cortes de pelo para niños"
+ },
+ "801272fdfd6eac2c2e484d9d": {
+  "clases": [
+   "492110"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un lugar para enviar paquetes a otra ciudad, así que te muestro los servicios de mensajería y paquetería foránea.",
+  "texto": "donde mando una encomienda a otra ciudad"
+ },
+ "819a3c889e384b3295a468c7": {
+  "clases": [
+   "238221"
+  ],
+  "estado": "resuelto",
+  "nota": "Para arreglar fugas de agua lo más común son los negocios de instalaciones hidrosanitarias, es decir, plomería.",
+  "texto": "donde arreglan fugas de agua"
+ },
+ "848261a9026fbaccebbfc49a": {
+  "clases": [
+   "465313"
+  ],
+  "estado": "resuelto",
+  "nota": "Lo más probable es que busques el comercio al por menor de revistas y periódicos, como un puesto o expendio de barrio.",
+  "texto": "donde venden periódicos y revistas"
+ },
+ "868505be5cccdff12db5c3ee": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«fonsa» no corresponde a una actividad económica clara. ¿Quisiste escribir otro giro, como fonda, fundición o fondo?",
+  "texto": "fonsa"
+ },
+ "87c561ea798751192694eaca": {
+  "clases": [
+   "461170",
+   "311520"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas lugares donde venden paletas y helados; incluyo tanto la venta al público como la fabricación, que suelen estar juntas en las neverías y paleterías.",
+  "texto": "donde venden paletas y helados"
+ },
+ "88506522a23485be30e6d515": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Adiós» es una despedida, no un giro de negocio. Dime qué tipo de negocio buscas.",
+  "texto": "adiós"
+ },
+ "8bf615fbd028d222ccd94491": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Esa frase indica una ubicación, no un giro; dime qué tipo de negocio buscas cerca del metro.",
+  "texto": "a dos cuadras del metro"
+ },
+ "8e7d34902b5bfb8d38e527e8": {
+  "clases": [
+   "722515",
+   "461213"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas lugares que venden jugos y licuados; los encontré en cafeterías y refresquerías, y en tiendas de bebidas no alcohólicas.",
+  "texto": "donde venden jugos y licuados"
+ },
+ "8fb5f96158637cbe329f9c29": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "La Narvarte es una colonia de la Ciudad de México, no una actividad económica. Escribe el giro que buscas, por ejemplo tiendas, farmacias o paleterías, y te ayudo a encontrarlos.",
+  "texto": "la narvarte"
+ },
+ "9132d4ec305b26287163372f": {
+  "clases": [
+   "466312"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas tiendas que vendan flores naturales para regalo; aquí están las floristerías.",
+  "texto": "donde venden flores para regalar"
+ },
+ "941e866ce4fe60111ab3c27d": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«A la vuelta» indica una ubicación, no una actividad económica. Dime qué tipo de negocio buscas, por ejemplo tortillería o taquería.",
+  "texto": "a la vuelta"
+ },
+ "942378b08b2a8a2eea8d6339": {
+  "clases": [
+   "713112"
+  ],
+  "estado": "resuelto",
+  "nota": "Bosque de Chapultepec corresponde a un parque público; se eligió la clase de parques temáticos y de diversiones del sector público, la de mayor afinidad con el nombre.",
+  "texto": "Bosque de Chapultepec"
+ },
+ "9bf3466842f1a88a280868d1": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu frase es un comentario y no nombra una actividad económica; si buscas un tipo de negocio, dime cuál.",
+  "texto": "es muy bonito"
+ },
+ "9ffdd4a600b4d53503ccb93d": {
+  "clases": [
+   "624411",
+   "624412"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas dónde dejar a tu hijo mientras trabajas: son guarderías, tanto privadas como públicas. Te muestro ambas.",
+  "texto": "donde dejo a mi hijo mientras trabajo"
+ },
+ "a04020362869290119e9aa44": {
+  "clases": [
+   "311830",
+   "311813"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas tortillerías que hacen tortillas a mano: incluyo las de maíz y las de harina de trigo elaboradas de forma tradicional.",
+  "texto": "donde venden tortillas hechas a mano"
+ },
+ "a0aaccf17676c92d3f9c3d50": {
+  "clases": [
+   "811192"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas lavado de autos; esta clase agrupa los autolavados y lavados de vehículos.",
+  "texto": "donde me lavan el carro"
+ },
+ "a4c6ffaf7115400b1783677d": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«gracias» es un saludo, no nombra una actividad económica. Dime qué giro buscas, por ejemplo tiendas de abarrotes o papelerías.",
+  "texto": "gracias"
+ },
+ "a6497a1a56025f9e85272a4c": {
+  "clases": [
+   "468420",
+   "811111"
+  ],
+  "estado": "ambiguo",
+  "nota": "¿Buscas un lugar donde solo vendan aceite para el carro o un taller mecánico que haga el cambio de aceite? Dime cuál para mostrarte los negocios.",
+  "texto": "donde cambian el aceite del carro"
+ },
+ "a6a45bc33313a9e49c1249e9": {
+  "clases": [
+   "811219",
+   "466212"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas lugares que reparan celulares; incluí los talleres de reparación de equipo electrónico y las tiendas que también reparan celulares.",
+  "texto": "donde arreglan celulares"
+ },
+ "a75869c17d03ca54a6c2b8f5": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Hace diez minutos» es una referencia de tiempo, no un giro de negocio. Dime qué tipo de negocio buscas.",
+  "texto": "hace diez minutos"
+ },
+ "a8e3926470cdfcc80b053be9": {
+  "clases": [
+   "812210"
+  ],
+  "estado": "resuelto",
+  "nota": "Lavar y planchar ropa corresponde a lavanderías y tintorerías.",
+  "texto": "donde lavan y planchan ropa"
+ },
+ "abd55977e99963205e1b4bae": {
+  "clases": [
+   "812110"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas salones de belleza donde se hacen uñas; esta clase cubre esos negocios.",
+  "texto": "donde me hago las uñas"
+ },
+ "aeb72838e4ccc7b352808bd6": {
+  "clases": [
+   "461150",
+   "461110"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas lugares que vendan crema y queso; las cremerías y las tiendas de abarrotes suelen ofrecer ambos productos.",
+  "texto": "donde venden crema y queso"
+ },
+ "aebe47e2a662d4c51bbe97c8": {
+  "clases": [
+   "463212"
+  ],
+  "estado": "resuelto",
+  "nota": "Ropa de bebé es una categoría específica; te muestro los negocios que venden exclusivamente ese tipo de prenda.",
+  "texto": "donde venden ropa de bebé"
+ },
+ "b221ee89fd1f3613ecc602c1": {
+  "clases": [
+   "541910",
+   "461130",
+   "461140",
+   "461123",
+   "461122"
+  ],
+  "estado": "ambiguo",
+  "nota": "«Mercado» puede referirse a una investigación de mercados o a un mercado de abasto con puestos de frutas, verduras, granos, pescados o pollo. ¿Qué tipo de negocio buscas?",
+  "texto": "mercado"
+ },
+ "b29573545e79180cbf970a88": {
+  "clases": [
+   "467114",
+   "238390"
+  ],
+  "estado": "grupo",
+  "nota": "Lo más probable es que busques tiendas que venden vidrios y canceles de aluminio, o los instaladores que los colocan; estas dos clases cubren ambos casos.",
+  "texto": "donde ponen vidrios y ventanas de aluminio"
+ },
+ "b2b047053c3ee87546801813": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Buenas noches» es un saludo, no un giro de negocio. Escribe la actividad que buscas, por ejemplo bar, farmacia o hotel.",
+  "texto": "buenas noches"
+ },
+ "b3297ea218a74519de80e2fb": {
+  "clases": [
+   "722412",
+   "722411"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas un lugar donde tomar cerveza en compañía; te muestro bares, cantinas y centros nocturnos.",
+  "texto": "lugar para tomar cerveza con amigos"
+ },
+ "b48222ca9053009c84bb90da": {
+  "clases": [
+   "811119"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas talleres que revisen y reparen frenos de automóviles, que suelen clasificarse como otras reparaciones mecánicas.",
+  "texto": "donde revisan los frenos del coche"
+ },
+ "b6d578b4d14ef685c3095c4c": {
+  "clases": [
+   "722514"
+  ],
+  "estado": "resuelto",
+  "nota": "Interpreté «tacso» como «tacos»; la clase corresponde a restaurantes de tacos y tortas.",
+  "texto": "tacso"
+ },
+ "b91a0242929668d3d5f51f1f": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«de nada» es una frase de cortesía, no nombra un giro o actividad económica. Escribe el tipo de negocio que buscas.",
+  "texto": "de nada"
+ },
+ "bba6964b9d3323555660174c": {
+  "clases": [
+   "492110",
+   "492210"
+  ],
+  "estado": "grupo",
+  "nota": "Para enviar paquetes a otro estado o localmente, estas son las clases de mensajería y paquetería que encajan.",
+  "texto": "donde mandan paquetes a otro estado"
+ },
+ "bd48b449d1ad474dcd392d25": {
+  "clases": [
+   "811430"
+  ],
+  "estado": "resuelto",
+  "nota": "Busco reparación de calzado: lo más probable es el taller de reparación de zapatos.",
+  "texto": "donde arreglan zapatos"
+ },
+ "c6bc1fea92579e90fb544ab0": {
+  "clases": [
+   "812110"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un salón de belleza o peluquería, donde te pintan o tiñen el cabello.",
+  "texto": "donde me pintan el pelo"
+ },
+ "cd25e6d27d5d95691e2bf3e2": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Tu mensaje es una petición de ayuda general y no nombra un giro o actividad económica. ¿Qué tipo de negocio buscas?",
+  "texto": "ayuda por favor"
+ },
+ "ce4ac4cc8f5b627bc8e5f7a9": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "No veo una actividad económica en tu texto. Dime qué tipo de negocio buscas, por ejemplo una tienda, una farmacia o un taller.",
+  "texto": "no sé"
+ },
+ "cf0f110794bd015f8dd3bf66": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Rumbo al centro» indica una dirección, no una actividad económica. ¿Qué tipo de negocio buscas en el centro?",
+  "texto": "rumbo al centro"
+ },
+ "d1a2e83b562b30f479665cf3": {
+  "clases": [
+   "467111"
+  ],
+  "estado": "resuelto",
+  "nota": "Para comprar herramientas para la casa, lo más adecuado son las ferreterías y tlapalerías.",
+  "texto": "donde compro herramientas para la casa"
+ },
+ "d29570a648635a48cacb72d5": {
+  "clases": [
+   "621211",
+   "621212"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas consultorios dentales; te muestro los del sector privado y los del público juntos.",
+  "texto": "donde me atienden los dientes"
+ },
+ "d2ffe13a7a5e64829ed6a2c1": {
+  "clases": [
+   "722519"
+  ],
+  "estado": "resuelto",
+  "nota": "Los tamales y el atole se venden como alimento para consumo inmediato, así que te conviene la clase de desayunadores y preparación de alimentos para comer en el momento.",
+  "texto": "donde desayunar tamales y atole"
+ },
+ "d443762262d69589eba9d71e": {
+  "clases": [
+   "464111",
+   "464112"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas medicamentos sin receta; eso lo venden las farmacias, con o sin minisúper. Te muestro esos dos tipos de farmacia.",
+  "texto": "donde compro medicina sin receta"
+ },
+ "d5c3ef3d2feb876aa58be873": {
+  "clases": [
+   "722511"
+  ],
+  "estado": "resuelto",
+  "nota": "Los restaurantes de comida china caen en la clase de restaurantes con servicio a la carte, que incluye todos los restaurantes de ese tipo; el portal no puede filtrar por tipo de cocina.",
+  "texto": "donde comer comida china"
+ },
+ "d7a15d7dd13ccf108d16d72e": {
+  "clases": [
+   "811191",
+   "468213"
+  ],
+  "estado": "ambiguo",
+  "nota": "¿Buscas un lugar que repare o vulcanice llantas, o uno que las venda? Dime cuál para mostrarte los negocios correctos.",
+  "texto": "donde cambian llantas"
+ },
+ "d80e78254e8d3e339693c864": {
+  "clases": [
+   "315225"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas talleres de confección de ropa a la medida, que corresponden a la clase de confección sobre medida.",
+  "texto": "donde hacen ropa a la medida"
+ },
+ "da68f103378e90c76c5c829d": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«ahorita» es una expresión de tiempo, no un giro de negocio. Indícame qué tipo de negocio buscas, por ejemplo tacos, hotel o supermercado.",
+  "texto": "ahorita"
+ },
+ "dbc94f23c697c604710d22e7": {
+  "clases": [
+   "722518",
+   "722513"
+  ],
+  "estado": "grupo",
+  "nota": "Buscas comida corrida barata; las fondas y restaurantes económicos de comida casera suelen estar en estas dos clases.",
+  "texto": "donde compro comida corrida barata"
+ },
+ "e0b217104120ca1a206bae39": {
+  "clases": [
+   "811121"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas talleres de hojalatería y pintura de automóviles, que se encargan de pintar y reparar la carrocería.",
+  "texto": "donde pintan y arreglan la carrocería"
+ },
+ "e666fdff128756bfa08c3da8": {
+  "clases": [
+   "531113"
+  ],
+  "estado": "resuelto",
+  "nota": "Busca alquiler de salones para fiestas; te muestro los negocios que rentan salones para eventos infantiles.",
+  "texto": "donde renta salón para una fiesta infantil"
+ },
+ "e76d76d8fd699dc753ce019b": {
+  "clases": [
+   "466111"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas comprar camas y sillones, que son muebles para el hogar; te muestro los comercios de muebles para el hogar.",
+  "texto": "donde compro una cama o un sillón"
+ },
+ "eb851aba639897d2defcd7ef": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "Escribiste un saludo, no un giro o negocio. Dime qué tipo de negocio buscas.",
+  "texto": "hola"
+ },
+ "ee30f202d1c91c5aa914a796": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "No indicaste qué tipo de negocio buscas. Dime el giro, por ejemplo tacos, hoteles o tiendas de conveniencia, y te muestro cuántos hay.",
+  "texto": "¿cuántos hay?"
+ },
+ "f1be9d2cd79782f7b48b3307": {
+  "clases": [
+   "466212"
+  ],
+  "estado": "resuelto",
+  "nota": "Busqué negocios que venden celulares y accesorios; la clase de comercio al por menor de teléfonos y aparatos de comunicación cubre ese giro.",
+  "texto": "donde venden celulares y accesorios"
+ },
+ "f2f95288d9ea33ddc1b566a9": {
+  "clases": [
+   "311812"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas panaderías que vendan pan dulce para llevar; la clase de panificación tradicional cubre ese giro.",
+  "texto": "donde venden pan dulce para llevar"
+ },
+ "f5191b3f9e4ab33a098ea183": {
+  "clases": [
+   "541211",
+   "541219"
+  ],
+  "estado": "grupo",
+  "nota": "Lo que buscas son despachos de contabilidad; incluyo también los servicios de consultoría contable relacionados.",
+  "texto": "donde me llevan la contabilidad"
+ },
+ "f556cb97cd4fefbdfa8d47a0": {
+  "clases": [],
+  "estado": "no_es_giro",
+  "nota": "«Tráfico pesado» describe un tipo de vehículos o de circulación, no un giro de negocio. ¿Buscas servicios de grúa, transportes de carga o autotransporte? Dime cuál y lo busco.",
+  "texto": "tráfico pesado"
+ },
+ "f66cd33e79898c701776cbe8": {
+  "clases": [
+   "621211"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un consultorio dental del sector privado para sacarte una muela.",
+  "texto": "donde me sacan una muela"
+ },
+ "f6b050a72f860fc3262f53b0": {
+  "clases": [
+   "811219"
+  ],
+  "estado": "resuelto",
+  "nota": "Buscas un lugar que repare pantallas de celular; la clase de reparación de equipo electrónico y de precisión es la que mejor lo cubre.",
+  "texto": "donde arreglan la pantalla del celular"
+ },
+ "fa47f856cff259998efdc7bc": {
+  "clases": [
+   "812110"
+  ],
+  "estado": "resuelto",
+  "nota": "El giro que buscas son las peluquerías y barberías, que corresponden a salones de belleza.",
+  "texto": "lugar para cortarse el pelo"
+ },
+ "fc87374b4f51fe19a74683db": {
+  "clases": [
+   "461110",
+   "462112",
+   "431199"
+  ],
+  "estado": "ambiguo",
+  "nota": "«Tianguis» puede referirse a un mercado al aire libre o a una tienda de abarrotes o minisuper; ¿buscas puestos de mercado, tiendas de abarrotes o mayoristas de alimentos?",
+  "texto": "tianguis"
+ }
+}

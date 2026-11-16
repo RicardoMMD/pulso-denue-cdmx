@@ -51,6 +51,19 @@ def main():
                 errores.append(f"{donde}: término repetido (ya está en {vistos[llave]})")
             vistos[llave] = donde
 
+    ruta = RAIZ / "glosario.json"
+    if ruta.exists():
+        claves = set()
+        for i, e in enumerate(json.loads(ruta.read_text(encoding="utf-8"))["entradas"], 1):
+            if any(x not in validas for x in e["clases"]):
+                errores.append(f"glosario entrada {i}: clase que no está en el catálogo")
+            if not e["clases"] and not e.get("nota"):
+                errores.append(f"glosario entrada {i}: sin clases y sin nota")
+            for nombre in [e["termino"], *e.get("variantes", [])]:
+                if nombre.strip().lower() in claves:
+                    errores.append(f"glosario entrada {i}: término o variante repetida")
+                claves.add(nombre.strip().lower())
+
     if errores:
         print("\n".join(errores))
         sys.exit(1)

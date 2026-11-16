@@ -1,8 +1,46 @@
 # Traducir giro — subproyecto
 
-Planteamiento del 15 nov 2026 · Estado: entorno listo, sin modelos descargados ni bancos · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
+Planteamiento del 15 nov 2026 · Estado: comparación de embeddings cerrada (no favorable por sí sola); herramienta completa construida y pendiente de medir en el segundo banco ciego · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
 
 Subproyecto independiente para responder una sola pregunta: **¿un modelo de embeddings local encuentra la clase SCIAN correcta cuando alguien nombra un giro como se habla en la calle?** Cuando el resultado sea favorable, se regresa al proyecto principal y se marca H10.
+
+## Resultados (15 nov 2026)
+
+### Comparación de embeddings: no favorable por sí sola
+
+Ningún modelo cumplió los criterios en el banco ciego, corrido una vez con el texto enriquecido (`palabras`). Los umbrales se confirmaron antes de correrlo y no se movieron.
+
+| Modelo | Primeros 5 (C1: 85 %) | Palabra de la calle (C2: 70 %) | Rechazo de no giro (C3: 80 %, pérdida ≤ 5 %) | Costo (C4) |
+|---|---|---|---|---|
+| EmbeddingGemma | 79 % | 68 % | 47 %, perdiendo 19 % de giros | cumple: 110 ms y 1.19 GB |
+| multilingual-e5-small | 70 % | 56 % | 53 %, perdiendo 11 % de giros | cumple: 8 ms y 0.92 GB |
+
+Tablas completas en `resultados/`: `ajuste-simple.md`, `ajuste-palabras.md` y `ciego-1-palabras.md`.
+
+Lo que se aprendió:
+
+- **El texto con palabras de los nombres comerciales ayuda mucho.** En el banco de ajuste, Gemma pasó de 77 % a 92 % entre los primeros 5, y e5-small de 60 % a 87 %.
+- **Qwen3-Embedding-0.6B quedó fuera antes del ciego.** No superó a Gemma en acierto (82 % en ajuste) y no cumple C4: unos 200 ms por consulta y 4 GB de pico en fp32. En bf16, como viene, ocupa 1.5 GB pero es unas 5 veces más lento en procesador.
+- **Un umbral de parecido no sirve para rechazar lo que no es giro.** Rechazó casos donde la clase correcta estaba en primer lugar y dejó pasar nombres de alcaldías con más parecido que muchos giros.
+- **Las palabras de la calle que fallan son de glosario** ("changarro", "rosticería", "lonchería"): no están en los nombres oficiales.
+- **El primer banco ciego tuvo un sesgo.** 27 de sus 68 términos repetían los del ajuste y se reemplazaron con una lista de prohibidos; algunos reemplazos son palabras raras en CDMX ("tahona", "latonería"). El número de palabra de la calle es por eso algo pesimista. Dos reemplazos los escribió quien afinaba, viendo solo el tipo del caso.
+
+**Elección:** EmbeddingGemma con el texto `palabras`, como generador de candidatos. Con 10 candidatos, la clase correcta estuvo entre ellos en 87 % de los giros del ciego. Su licencia es la de Gemma, con condiciones de uso: hay que leerla antes de llevarlo a producción.
+
+### Herramienta completa: construida, pendiente de su banco ciego
+
+Siguiendo el tercer camino previsto abajo (reabrir el diseño), se construyó aquí la herramienta de cuatro capas en `traducir_giro.py`:
+
+1. **Glosario** (`glosario.json`): búsqueda exacta y, para errores de dedo, por parecido de escritura. Sembrado con las palabras de la calle del banco de ajuste. Una entrada sin clases marca lo que parece giro y no lo es ("mercado", "tianguis").
+2. **Lugar:** si el texto es una alcaldía, colonia o estación (catálogo de `backend/contracts/referencias/` y alias del prototipo 3), no es un giro.
+3. **Embeddings:** 10 candidatos de EmbeddingGemma. No decide.
+4. **Modelo:** `claude-haiku-5-5` elige entre los candidatos, o dice que ninguno o que no es un giro. Un código fuera de la lista se descarta. Las respuestas se guardan en `cache_haiku.json` para que la evaluación sea repetible y no gaste en cada corrida.
+
+En el banco de ajuste (262 casos, que ya incluyen los del primer ciego): 99 % de acierto en giros, 98 % de rechazo de lo que no es giro y 0 % de giros perdidos. **Ese número está inflado**, porque el glosario se sembró con ese mismo banco. El número que cuenta es el del segundo banco ciego.
+
+**Segundo banco ciego** (`bancos/ciego.json`, 90 casos): lo escribió un agente aislado, con la lista de términos prohibidos desde el inicio y sin ver glosario, bancos ni resultados. **No se ha corrido.** Antes, Ricardo revisa las clases aceptadas; quien afina la herramienta no debe abrir ese archivo. Se corre una vez con `make herramienta-ciego` y se mide con los mismos umbrales C1–C3.
+
+Repaso visual: `laboratorio/giros.html`.
 
 ## La idea
 
@@ -58,6 +96,12 @@ traducir-giro/
   buscar.py              término → clases más cercanas
   evaluar.py             corre los bancos y escribe resultados/
   validar_bancos.py      forma de los bancos y clases válidas; lo corre `make check` del repo
+  glosario.json          giros de la calle y sus clases; se mantiene a mano
+  traducir_giro.py       la herramienta completa: glosario, lugar, embeddings y Haiku
+  herramienta.py         definición para el ciclo de herramientas de la API de Claude
+  evaluar_herramienta.py mide la herramienta completa contra un banco
+  cache_haiku.json       respuestas de Haiku ya vistas, para repetir la evaluación sin gastar
+  bancos/usados/         bancos ciegos ya corridos (sus casos pasaron al de ajuste)
   resultados/            tablas por modelo y comparación, y umbrales.json
   modelos/, vectores/    no versionados
 ```
@@ -75,6 +119,9 @@ Se corren desde `traducir-giro/`.
 | `make ajuste` | Vectores, banco de ajuste y tabla en `resultados/ajuste-simple.md`. Con `VARIANTE=palabras`, el texto enriquecido |
 | `make ciego` | Banco ciego. Una sola vez: se niega a repetirse si ya existe `resultados/ciego/` |
 | `uv run python buscar.py qwen3 "tiendita"` | Prueba suelta de un término |
+| `make herramienta` | La herramienta completa contra el banco de ajuste; escribe `resultados/herramienta-ajuste.md`. Solo llama a Haiku en lo que no esté en `cache_haiku.json` (entonces necesita `ANTHROPIC_API_KEY` en el `.env`) |
+| `make herramienta-ciego` | La herramienta completa contra el banco ciego. Una sola vez |
+| `uv run python traducir_giro.py "donde arreglan celulares"` | Prueba suelta de la herramienta completa |
 
 Cargar un modelo nunca dispara una descarga: fuera de `descargar.py` todo corre sin red.
 
@@ -159,12 +206,10 @@ Los umbrales son propuestas. Se confirman **antes** de correr el banco ciego y n
 - **EmbeddingGemma** tiene acceso restringido (verificado el 15 nov 2026): Ricardo acepta los términos de Google en la ficha del modelo con su cuenta, crea un token de lectura y lo pone en el `.env` del repo como `HF_TOKEN`. Su licencia es la de Gemma, con condiciones de uso; se lee antes de elegirlo.
 - **Licencias.** Qwen3-Embedding-0.6B es Apache 2.0 y multilingual-e5-small es MIT, según la etiqueta de cada ficha en Hugging Face (15 nov 2026).
 
-## Qué falta para marcar H10 después de este subproyecto
+## Qué falta para marcar H10
 
-El hito pide más que la búsqueda por embeddings. Con un modelo elegido aquí, quedan:
-
-- El glosario CDMX de giros y la función `traducir_giro` completa (glosario, embeddings y elección entre candidatos).
-- Los vectores en pgvector, que es escribir en la base real y se hace solo con permiso.
-- El acierto de la herramienta completa en un banco ciego de al menos 50 giros.
-
-Queda por decidir si esas piezas se construyen dentro de este directorio o en el proyecto principal.
+- Revisar las clases del segundo banco ciego y correrlo una vez (`make herramienta-ciego`). Si no cumple, sus fallos pasan al ajuste y se escribe otro.
+- Decidir dónde vive la herramienta en el proyecto principal (hoy está aquí porque aquí están el modelo y sus dependencias) y cómo carga el modelo el backend en el VPS.
+- Los vectores en pgvector o en archivo (decisión D3 del plan). Escribir en la base real se hace solo con permiso.
+- Leer la licencia de Gemma antes de producción.
+- Lo que el laboratorio aún no muestra: encender en la ciudad los puntos de una clase, que llega con H13.

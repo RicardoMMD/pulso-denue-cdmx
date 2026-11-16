@@ -1,0 +1,751 @@
+{
+ "descripcion": "Giros de la Ciudad de México como se dicen en la calle y sus clases SCIAN 2023. Se mantiene a mano: cada entrada lleva el término, variantes de escritura opcionales y las clases que lo forman (una clase, o varias cuando el giro común abarca varias). Sembrado el 15 nov 2026 con las palabras de la calle del banco de ajuste. `make validar` revisa que las clases existan. Una entrada con `clases` vacía marca un texto que parece giro pero no lo es (por ejemplo un mercado, que es un lugar con puestos de muchos giros); lleva `nota`.",
+ "entradas": [
+  {
+   "termino": "abarrotes",
+   "variantes": [],
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "autopartes",
+   "variantes": [],
+   "clases": [
+    "468211",
+    "468212"
+   ]
+  },
+  {
+   "termino": "barbería",
+   "variantes": [],
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "bazar",
+   "variantes": [],
+   "clases": [
+    "466410"
+   ]
+  },
+  {
+   "termino": "billar",
+   "variantes": [],
+   "clases": [
+    "713991"
+   ]
+  },
+  {
+   "termino": "bolería",
+   "variantes": [],
+   "clases": [
+    "812130"
+   ]
+  },
+  {
+   "termino": "botonería",
+   "variantes": [],
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "cafetería",
+   "variantes": [],
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "cantina",
+   "variantes": [],
+   "clases": [
+    "722412"
+   ]
+  },
+  {
+   "termino": "carnicería",
+   "variantes": [],
+   "clases": [
+    "461121"
+   ]
+  },
+  {
+   "termino": "carpintería",
+   "variantes": [],
+   "clases": [
+    "321910",
+    "337120"
+   ]
+  },
+  {
+   "termino": "cenaduría",
+   "variantes": [],
+   "clases": [
+    "722513",
+    "722511"
+   ]
+  },
+  {
+   "termino": "cerrajería",
+   "variantes": [],
+   "clases": [
+    "811491"
+   ]
+  },
+  {
+   "termino": "cervecería",
+   "variantes": [],
+   "clases": [
+    "461212",
+    "722412"
+   ]
+  },
+  {
+   "termino": "changarro",
+   "variantes": [],
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "ciber",
+   "variantes": [],
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "cibercafé",
+   "variantes": [],
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "cocina económica",
+   "variantes": [],
+   "clases": [
+    "722518"
+   ]
+  },
+  {
+   "termino": "comedor",
+   "variantes": [],
+   "clases": [
+    "722511"
+   ]
+  },
+  {
+   "termino": "consultorio médico",
+   "variantes": [],
+   "clases": [
+    "621111",
+    "621113"
+   ]
+  },
+  {
+   "termino": "cremería",
+   "variantes": [],
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "depósito de cerveza",
+   "variantes": [],
+   "clases": [
+    "461212"
+   ]
+  },
+  {
+   "termino": "dulcería",
+   "variantes": [],
+   "clases": [
+    "461160"
+   ]
+  },
+  {
+   "termino": "eléctrico automotriz",
+   "variantes": [],
+   "clases": [
+    "811112"
+   ]
+  },
+  {
+   "termino": "estilista",
+   "variantes": [],
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "estética",
+   "variantes": [],
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "farmacia",
+   "variantes": [],
+   "clases": [
+    "464111",
+    "464112"
+   ]
+  },
+  {
+   "termino": "ferretería",
+   "variantes": [],
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "fonda",
+   "variantes": [],
+   "clases": [
+    "722511",
+    "722518"
+   ]
+  },
+  {
+   "termino": "fondita",
+   "variantes": [],
+   "clases": [
+    "722511",
+    "722518"
+   ]
+  },
+  {
+   "termino": "fotocopiadora",
+   "variantes": [],
+   "clases": [
+    "561431"
+   ]
+  },
+  {
+   "termino": "frutería",
+   "variantes": [],
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "funeraria",
+   "variantes": [],
+   "clases": [
+    "812310"
+   ]
+  },
+  {
+   "termino": "gimnasio",
+   "variantes": [],
+   "clases": [
+    "713943",
+    "713944"
+   ]
+  },
+  {
+   "termino": "herrería",
+   "variantes": [],
+   "clases": [
+    "332320"
+   ]
+  },
+  {
+   "termino": "hielera",
+   "variantes": [],
+   "clases": [
+    "461213"
+   ]
+  },
+  {
+   "termino": "hojalatería",
+   "variantes": [],
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "jugos y licuados",
+   "variantes": [],
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "juguetería",
+   "variantes": [],
+   "clases": [
+    "465212"
+   ]
+  },
+  {
+   "termino": "latonería",
+   "variantes": [],
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "lavandería",
+   "variantes": [],
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "lechería",
+   "variantes": [],
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "librería",
+   "variantes": [],
+   "clases": [
+    "465312"
+   ]
+  },
+  {
+   "termino": "llantera",
+   "variantes": [],
+   "clases": [
+    "468213",
+    "811191"
+   ]
+  },
+  {
+   "termino": "lonchería",
+   "variantes": [],
+   "clases": [
+    "722511",
+    "722514"
+   ]
+  },
+  {
+   "termino": "marisquería",
+   "variantes": [],
+   "clases": [
+    "722512"
+   ]
+  },
+  {
+   "termino": "mecánico",
+   "variantes": [],
+   "clases": [
+    "811111",
+    "811119"
+   ]
+  },
+  {
+   "termino": "mercería",
+   "variantes": [],
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "minisúper",
+   "variantes": [],
+   "clases": [
+    "462112"
+   ]
+  },
+  {
+   "termino": "miscelanea",
+   "variantes": [],
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "molino",
+   "variantes": [],
+   "clases": [
+    "311830",
+    "461190"
+   ]
+  },
+  {
+   "termino": "mueblería",
+   "variantes": [],
+   "clases": [
+    "466111"
+   ]
+  },
+  {
+   "termino": "nevería",
+   "variantes": [],
+   "clases": [
+    "722515",
+    "461170",
+    "311520"
+   ]
+  },
+  {
+   "termino": "nieves",
+   "variantes": [],
+   "clases": [
+    "461170",
+    "722515"
+   ]
+  },
+  {
+   "termino": "novedades",
+   "variantes": [],
+   "clases": [
+    "465912"
+   ]
+  },
+  {
+   "termino": "paletería",
+   "variantes": [],
+   "clases": [
+    "461170",
+    "311520"
+   ]
+  },
+  {
+   "termino": "panadería",
+   "variantes": [],
+   "clases": [
+    "311812",
+    "311811",
+    "461190"
+   ]
+  },
+  {
+   "termino": "papelería",
+   "variantes": [],
+   "clases": [
+    "465311"
+   ]
+  },
+  {
+   "termino": "peluquería",
+   "variantes": [],
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "perfumería",
+   "variantes": [],
+   "clases": [
+    "465111"
+   ]
+  },
+  {
+   "termino": "pescadería",
+   "variantes": [],
+   "clases": [
+    "461123"
+   ]
+  },
+  {
+   "termino": "pinturería",
+   "variantes": [],
+   "clases": [
+    "467113"
+   ]
+  },
+  {
+   "termino": "plomero",
+   "variantes": [],
+   "clases": [
+    "238221"
+   ]
+  },
+  {
+   "termino": "pollería",
+   "variantes": [],
+   "clases": [
+    "461122"
+   ]
+  },
+  {
+   "termino": "pozolería",
+   "variantes": [],
+   "clases": [
+    "722513",
+    "722511"
+   ]
+  },
+  {
+   "termino": "puesto de periódicos",
+   "variantes": [],
+   "clases": [
+    "465313"
+   ]
+  },
+  {
+   "termino": "pulquería",
+   "variantes": [],
+   "clases": [
+    "722412"
+   ]
+  },
+  {
+   "termino": "purificadora",
+   "variantes": [],
+   "clases": [
+    "312112"
+   ]
+  },
+  {
+   "termino": "recaudería",
+   "variantes": [],
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "refaccionaria",
+   "variantes": [],
+   "clases": [
+    "468211",
+    "468212"
+   ]
+  },
+  {
+   "termino": "refresquería",
+   "variantes": [],
+   "clases": [
+    "722515",
+    "461170"
+   ]
+  },
+  {
+   "termino": "regalos",
+   "variantes": [],
+   "clases": [
+    "465912"
+   ]
+  },
+  {
+   "termino": "repostería",
+   "variantes": [],
+   "clases": [
+    "461160"
+   ]
+  },
+  {
+   "termino": "restaurante",
+   "variantes": [],
+   "clases": [
+    "722511",
+    "722512",
+    "722513",
+    "722514",
+    "722516",
+    "722517",
+    "722518"
+   ]
+  },
+  {
+   "termino": "rosticería",
+   "variantes": [],
+   "clases": [
+    "461122",
+    "722517"
+   ]
+  },
+  {
+   "termino": "sastrería",
+   "variantes": [],
+   "clases": [
+    "811499",
+    "315225"
+   ]
+  },
+  {
+   "termino": "semillas y chiles secos",
+   "variantes": [],
+   "clases": [
+    "461140"
+   ]
+  },
+  {
+   "termino": "supermercado",
+   "variantes": [],
+   "clases": [
+    "462111"
+   ]
+  },
+  {
+   "termino": "tablajería",
+   "variantes": [],
+   "clases": [
+    "461121",
+    "461122"
+   ]
+  },
+  {
+   "termino": "tacos",
+   "variantes": [],
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "tahona",
+   "variantes": [],
+   "clases": [
+    "311812",
+    "311811"
+   ]
+  },
+  {
+   "termino": "tamales",
+   "variantes": [],
+   "clases": [
+    "722519"
+   ]
+  },
+  {
+   "termino": "taquería",
+   "variantes": [],
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "tiendita",
+   "variantes": [],
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "tintorería",
+   "variantes": [],
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "tlapalería",
+   "variantes": [],
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "tornillería",
+   "variantes": [],
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "torteria",
+   "variantes": [],
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "tortillería",
+   "variantes": [],
+   "clases": [
+    "311830",
+    "311813"
+   ]
+  },
+  {
+   "termino": "ultramarinos",
+   "variantes": [],
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "uñas",
+   "variantes": [],
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "verdulería",
+   "variantes": [],
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "veterinaria",
+   "variantes": [],
+   "clases": [
+    "541941",
+    "541942"
+   ]
+  },
+  {
+   "termino": "vidriería",
+   "variantes": [],
+   "clases": [
+    "467114"
+   ]
+  },
+  {
+   "termino": "vinatería",
+   "variantes": [],
+   "clases": [
+    "461211"
+   ]
+  },
+  {
+   "termino": "vulcanizadora",
+   "variantes": [],
+   "clases": [
+    "811191"
+   ]
+  },
+  {
+   "termino": "zapatero",
+   "variantes": [],
+   "clases": [
+    "463310",
+    "811430"
+   ]
+  },
+  {
+   "termino": "zapatería",
+   "variantes": [],
+   "clases": [
+    "463310"
+   ]
+  },
+  {
+   "termino": "óptica",
+   "variantes": [],
+   "clases": [
+    "464121",
+    "621320"
+   ]
+  },
+  {
+   "termino": "mercado",
+   "variantes": [
+    "mercado público",
+    "mercado publico"
+   ],
+   "clases": [],
+   "nota": "Un mercado es un lugar con puestos de muchos giros, no un giro. Para ubicar mercados se usa resolver_lugar."
+  },
+  {
+   "termino": "tianguis",
+   "variantes": [
+    "tianguis sobre ruedas"
+   ],
+   "clases": [],
+   "nota": "Un tianguis reúne puestos de muchos giros y casi no aparece en el DENUE; no corresponde a una clase."
+  }
+ ]
+}

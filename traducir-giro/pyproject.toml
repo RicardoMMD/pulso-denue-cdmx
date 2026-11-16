@@ -8,6 +8,8 @@ dependencies = [
   "torch>=2.6",
   "numpy>=2.0",
   "psutil>=6.0",
+  "anthropic>=1.0",
+  "pydantic>=2",
 ]
 
 [dependency-groups]

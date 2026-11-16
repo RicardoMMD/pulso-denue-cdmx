@@ -19,7 +19,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H07 | Carga de la edición DENUE 11/2026 | Datos | ⬜ | H02 |
 | H08 | Sistema visual | Definición | ✅ | H05 |
 | H09 | Contrato de escena | Definición | ✅ | H03 |
-| H10 | Traducir giro: glosario y embeddings | Definición | ⬜ | H03 |
+| H10 | Traducir giro: glosario y embeddings | Definición | 🟡 | H03 |
 | H11 | Banco de evaluación del Analista | Definición | ⬜ | H06, H10 |
 | H12 | Guion de "Vida comercial del Metro" | Definición | ✅ | H09 |
 | H13 | Paquete estático y prueba de paridad | Construcción | ⬜ | H09 |
@@ -95,10 +95,11 @@ El contrato central que escriben historias, explorador y Analista, y que interpr
 - **Terminado cuando:** valida en tres niveles (estructura, referencias, coherencia), la integración continua rechaza una historia inválida y cubre las escenas de la primera versión.
 - **Resultado (14 nov 2026):** `backend/contracts/` (modelos, validación en tres niveles, herencia, forma canónica y migraciones), `backend/contracts-ts/` (Ajv, tipos y forma canónica en TS), `contenido/historias/` y el workflow `.github/workflows/verificar.yml`. `make ci` (4 s, sin base) y `make verify` en verde. Pendiente: crear el remoto público para que el workflow corra en GitHub.
 
-### H10 · Traducir giro: glosario y embeddings ⬜
+### H10 · Traducir giro: glosario y embeddings 🟡
 Segunda herramienta crítica del Analista: lenguaje común a clases SCIAN ("tiendita", "fonda", "estética").
 - **Entregables:** glosario CDMX de giros; embeddings de clases SCIAN en pgvector (Voyage AI o modelo multilingüe local); función `traducir_giro` con banco de pruebas.
 - **Terminado cuando:** resuelve al menos 50 giros coloquiales con acierto medido en un banco ciego.
+- **Avance (15 nov 2026):** en `traducir-giro/`. Los embeddings solos no alcanzaron en el banco ciego (EmbeddingGemma 79 % entre los primeros 5; el criterio era 85 %). Se construyó la herramienta completa (glosario, lugar, candidatos de Gemma y Haiku que elige). Falta medirla en el segundo banco ciego, ya escrito, y decidir dónde viven los vectores. Detalle en `traducir-giro/README.md`.
 
 ### H11 · Banco de evaluación del Analista ⬜
 Preguntas sobre CDMX con respuestas verificadas a mano contra `semantic`.

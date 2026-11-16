@@ -1,0 +1,1865 @@
+{
+ "casos": [
+  {
+   "termino": "abarrotes",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "tiendita",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "miscelanea",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "ultramarinos",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "tlapalería",
+   "tipo": "calle",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "ferretería",
+   "tipo": "calle",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "estética",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "peluquería",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "barbería",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "uñas",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "fonda",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722518"
+   ]
+  },
+  {
+   "termino": "fondita",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722518"
+   ]
+  },
+  {
+   "termino": "taquería",
+   "tipo": "calle",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "torteria",
+   "tipo": "calle",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "cenaduría",
+   "tipo": "calle",
+   "clases": [
+    "722513",
+    "722511"
+   ]
+  },
+  {
+   "termino": "pozolería",
+   "tipo": "calle",
+   "clases": [
+    "722513",
+    "722511"
+   ]
+  },
+  {
+   "termino": "marisquería",
+   "tipo": "calle",
+   "clases": [
+    "722512"
+   ]
+  },
+  {
+   "termino": "cafetería",
+   "tipo": "calle",
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "nevería",
+   "tipo": "calle",
+   "clases": [
+    "722515",
+    "461170",
+    "311520"
+   ]
+  },
+  {
+   "termino": "panadería",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "311811",
+    "461190"
+   ]
+  },
+  {
+   "termino": "carnicería",
+   "tipo": "calle",
+   "clases": [
+    "461121"
+   ]
+  },
+  {
+   "termino": "pollería",
+   "tipo": "calle",
+   "clases": [
+    "461122"
+   ]
+  },
+  {
+   "termino": "verdulería",
+   "tipo": "calle",
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "tortillería",
+   "tipo": "calle",
+   "clases": [
+    "311830",
+    "311813"
+   ]
+  },
+  {
+   "termino": "papelería",
+   "tipo": "calle",
+   "clases": [
+    "465311"
+   ]
+  },
+  {
+   "termino": "librería",
+   "tipo": "calle",
+   "clases": [
+    "465312"
+   ]
+  },
+  {
+   "termino": "juguetería",
+   "tipo": "calle",
+   "clases": [
+    "465212"
+   ]
+  },
+  {
+   "termino": "lavandería",
+   "tipo": "calle",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "tintorería",
+   "tipo": "calle",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "gimnasio",
+   "tipo": "calle",
+   "clases": [
+    "713943",
+    "713944"
+   ]
+  },
+  {
+   "termino": "billar",
+   "tipo": "calle",
+   "clases": [
+    "713991"
+   ]
+  },
+  {
+   "termino": "bolería",
+   "tipo": "calle",
+   "clases": [
+    "812130"
+   ]
+  },
+  {
+   "termino": "cerrajería",
+   "tipo": "calle",
+   "clases": [
+    "811491"
+   ]
+  },
+  {
+   "termino": "refaccionaria",
+   "tipo": "calle",
+   "clases": [
+    "468211",
+    "468212"
+   ]
+  },
+  {
+   "termino": "llantera",
+   "tipo": "calle",
+   "clases": [
+    "468213",
+    "811191"
+   ]
+  },
+  {
+   "termino": "hojalatería",
+   "tipo": "calle",
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "mecánico",
+   "tipo": "calle",
+   "clases": [
+    "811111",
+    "811119"
+   ]
+  },
+  {
+   "termino": "farmacia",
+   "tipo": "calle",
+   "clases": [
+    "464111",
+    "464112"
+   ]
+  },
+  {
+   "termino": "dulcería",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ]
+  },
+  {
+   "termino": "óptica",
+   "tipo": "calle",
+   "clases": [
+    "464121",
+    "621320"
+   ]
+  },
+  {
+   "termino": "veterinaria",
+   "tipo": "calle",
+   "clases": [
+    "541941",
+    "541942"
+   ]
+  },
+  {
+   "termino": "fotocopiadora",
+   "tipo": "calle",
+   "clases": [
+    "561431"
+   ]
+  },
+  {
+   "termino": "perfumería",
+   "tipo": "calle",
+   "clases": [
+    "465111"
+   ]
+  },
+  {
+   "termino": "pinturería",
+   "tipo": "calle",
+   "clases": [
+    "467113"
+   ]
+  },
+  {
+   "termino": "vinatería",
+   "tipo": "calle",
+   "clases": [
+    "461211"
+   ]
+  },
+  {
+   "termino": "cervecería",
+   "tipo": "calle",
+   "clases": [
+    "461212",
+    "722412"
+   ]
+  },
+  {
+   "termino": "cantina",
+   "tipo": "calle",
+   "clases": [
+    "722412"
+   ]
+  },
+  {
+   "termino": "hielera",
+   "tipo": "calle",
+   "clases": [
+    "461213"
+   ]
+  },
+  {
+   "termino": "supermercado",
+   "tipo": "calle",
+   "clases": [
+    "462111"
+   ]
+  },
+  {
+   "termino": "minisúper",
+   "tipo": "calle",
+   "clases": [
+    "462112"
+   ]
+  },
+  {
+   "termino": "restaurante",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722512",
+    "722513",
+    "722514",
+    "722516",
+    "722517",
+    "722518"
+   ]
+  },
+  {
+   "termino": "donde arreglan celulares",
+   "tipo": "descripcion",
+   "clases": [
+    "811219"
+   ]
+  },
+  {
+   "termino": "donde arreglan la pantalla del celular",
+   "tipo": "descripcion",
+   "clases": [
+    "811219"
+   ]
+  },
+  {
+   "termino": "donde venden celulares y accesorios",
+   "tipo": "descripcion",
+   "clases": [
+    "466212"
+   ]
+  },
+  {
+   "termino": "lugar para cortarse el pelo",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "donde me hago las uñas",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "donde venden refrescos y botanas",
+   "tipo": "descripcion",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "donde comprar pan recién hecho",
+   "tipo": "descripcion",
+   "clases": [
+    "311812",
+    "311811",
+    "461190"
+   ]
+  },
+  {
+   "termino": "donde compro herramientas para la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "donde compro medicina sin receta",
+   "tipo": "descripcion",
+   "clases": [
+    "464111",
+    "464112"
+   ]
+  },
+  {
+   "termino": "donde lavan y planchan ropa",
+   "tipo": "descripcion",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "donde comer tacos al pastor",
+   "tipo": "descripcion",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "donde desayunar tamales y atole",
+   "tipo": "descripcion",
+   "clases": [
+    "722513",
+    "722511",
+    "722519"
+   ]
+  },
+  {
+   "termino": "donde venden tortillas hechas a mano",
+   "tipo": "descripcion",
+   "clases": [
+    "311830"
+   ]
+  },
+  {
+   "termino": "donde venden flores para regalar",
+   "tipo": "descripcion",
+   "clases": [
+    "466312"
+   ]
+  },
+  {
+   "termino": "donde cambian el aceite del carro",
+   "tipo": "descripcion",
+   "clases": [
+    "811111",
+    "811119"
+   ]
+  },
+  {
+   "termino": "donde revisan los frenos del coche",
+   "tipo": "descripcion",
+   "clases": [
+    "811111",
+    "811119"
+   ]
+  },
+  {
+   "termino": "donde pintan y arreglan la carrocería",
+   "tipo": "descripcion",
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "donde cambian llantas",
+   "tipo": "descripcion",
+   "clases": [
+    "468213",
+    "811191"
+   ]
+  },
+  {
+   "termino": "donde llevo a vacunar al perro",
+   "tipo": "descripcion",
+   "clases": [
+    "541941",
+    "541942"
+   ]
+  },
+  {
+   "termino": "donde revisan la vista y venden lentes",
+   "tipo": "descripcion",
+   "clases": [
+    "464121",
+    "621320"
+   ]
+  },
+  {
+   "termino": "donde me sacan una muela",
+   "tipo": "descripcion",
+   "clases": [
+    "621211",
+    "621212"
+   ]
+  },
+  {
+   "termino": "donde hacen copias e impresiones",
+   "tipo": "descripcion",
+   "clases": [
+    "561431"
+   ]
+  },
+  {
+   "termino": "donde mandan paquetes a otro estado",
+   "tipo": "descripcion",
+   "clases": [
+    "492110"
+   ]
+  },
+  {
+   "termino": "un lugar para tomar un café",
+   "tipo": "descripcion",
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "donde venden pollo fresco por kilo",
+   "tipo": "descripcion",
+   "clases": [
+    "461122"
+   ]
+  },
+  {
+   "termino": "guardería para bebés",
+   "tipo": "descripcion",
+   "clases": [
+    "624411",
+    "624412"
+   ]
+  },
+  {
+   "termino": "donde hacen trámites de notaría",
+   "tipo": "descripcion",
+   "clases": [
+    "541120"
+   ]
+  },
+  {
+   "termino": "donde me llevan la contabilidad",
+   "tipo": "descripcion",
+   "clases": [
+    "541211",
+    "541219"
+   ]
+  },
+  {
+   "termino": "lugar para tomar cerveza con amigos",
+   "tipo": "descripcion",
+   "clases": [
+    "722412"
+   ]
+  },
+  {
+   "termino": "donde venden plantas para el jardín",
+   "tipo": "descripcion",
+   "clases": [
+    "466312"
+   ]
+  },
+  {
+   "termino": "donde venden ropa de bebé",
+   "tipo": "descripcion",
+   "clases": [
+    "463212"
+   ]
+  },
+  {
+   "termino": "donde venden juguetes para niños",
+   "tipo": "descripcion",
+   "clases": [
+    "465212"
+   ]
+  },
+  {
+   "termino": "donde compro materiales para construir",
+   "tipo": "descripcion",
+   "clases": [
+    "467116"
+   ]
+  },
+  {
+   "termino": "donde comer comida china",
+   "tipo": "descripcion",
+   "clases": [
+    "722511"
+   ]
+  },
+  {
+   "termino": "donde hacen cortes de pelo para niños",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "donde venden pan dulce para llevar",
+   "tipo": "descripcion",
+   "clases": [
+    "311812",
+    "311811",
+    "461190"
+   ]
+  },
+  {
+   "termino": "tlapaleria",
+   "tipo": "error_dedo",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "feretería",
+   "tipo": "error_dedo",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "estetca",
+   "tipo": "error_dedo",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "papeleria",
+   "tipo": "error_dedo",
+   "clases": [
+    "465311"
+   ]
+  },
+  {
+   "termino": "farmasia",
+   "tipo": "error_dedo",
+   "clases": [
+    "464111",
+    "464112"
+   ]
+  },
+  {
+   "termino": "carnisería",
+   "tipo": "error_dedo",
+   "clases": [
+    "461121"
+   ]
+  },
+  {
+   "termino": "polleria",
+   "tipo": "error_dedo",
+   "clases": [
+    "461122"
+   ]
+  },
+  {
+   "termino": "barberiia",
+   "tipo": "error_dedo",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "peluqeria",
+   "tipo": "error_dedo",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "lavanderria",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "taqeria",
+   "tipo": "error_dedo",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "fonsa",
+   "tipo": "error_dedo",
+   "clases": [
+    "722511"
+   ]
+  },
+  {
+   "termino": "paneria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311812",
+    "311811",
+    "461190"
+   ]
+  },
+  {
+   "termino": "refacionaria",
+   "tipo": "error_dedo",
+   "clases": [
+    "468211",
+    "468212"
+   ]
+  },
+  {
+   "termino": "cerajería",
+   "tipo": "error_dedo",
+   "clases": [
+    "811491"
+   ]
+  },
+  {
+   "termino": "vetrinaria",
+   "tipo": "error_dedo",
+   "clases": [
+    "541941",
+    "541942"
+   ]
+  },
+  {
+   "termino": "kafetería",
+   "tipo": "error_dedo",
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "talller mecanico",
+   "tipo": "error_dedo",
+   "clases": [
+    "811111",
+    "811119"
+   ]
+  },
+  {
+   "termino": "la Roma",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "barato",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "cerca del metro",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "hola",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿qué hora es?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "buena onda",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "ahorita",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "mañana",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "xyz qwk",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Coyoacán",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "mucho calor",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "gracias",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "sin tráfico",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "ayuda por favor",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "lo más bonito del mundo",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "la colonia Doctores",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "está abierto",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "zapatería",
+   "tipo": "calle",
+   "clases": [
+    "463310"
+   ]
+  },
+  {
+   "termino": "mueblería",
+   "tipo": "calle",
+   "clases": [
+    "466111"
+   ]
+  },
+  {
+   "termino": "cibercafé",
+   "tipo": "calle",
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "cocina económica",
+   "tipo": "calle",
+   "clases": [
+    "722518"
+   ]
+  },
+  {
+   "termino": "cremería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "recaudería",
+   "tipo": "calle",
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "mercería",
+   "tipo": "calle",
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "regalos",
+   "tipo": "calle",
+   "clases": [
+    "465912"
+   ]
+  },
+  {
+   "termino": "novedades",
+   "tipo": "calle",
+   "clases": [
+    "465912"
+   ]
+  },
+  {
+   "termino": "bazar",
+   "tipo": "calle",
+   "clases": [
+    "466410"
+   ]
+  },
+  {
+   "termino": "tamales",
+   "tipo": "calle",
+   "clases": [
+    "722519"
+   ]
+  },
+  {
+   "termino": "jugos y licuados",
+   "tipo": "calle",
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "paletería",
+   "tipo": "calle",
+   "clases": [
+    "461170",
+    "311520"
+   ]
+  },
+  {
+   "termino": "puesto de periódicos",
+   "tipo": "calle",
+   "clases": [
+    "465313"
+   ]
+  },
+  {
+   "termino": "semillas y chiles secos",
+   "tipo": "calle",
+   "clases": [
+    "461140"
+   ]
+  },
+  {
+   "termino": "herrería",
+   "tipo": "calle",
+   "clases": [
+    "332320"
+   ]
+  },
+  {
+   "termino": "carpintería",
+   "tipo": "calle",
+   "clases": [
+    "321910",
+    "337120"
+   ]
+  },
+  {
+   "termino": "vidriería",
+   "tipo": "calle",
+   "clases": [
+    "467114"
+   ]
+  },
+  {
+   "termino": "plomero",
+   "tipo": "calle",
+   "clases": [
+    "238221"
+   ]
+  },
+  {
+   "termino": "eléctrico automotriz",
+   "tipo": "calle",
+   "clases": [
+    "811112"
+   ]
+  },
+  {
+   "termino": "sastrería",
+   "tipo": "calle",
+   "clases": [
+    "811499",
+    "315225"
+   ]
+  },
+  {
+   "termino": "depósito de cerveza",
+   "tipo": "calle",
+   "clases": [
+    "461212"
+   ]
+  },
+  {
+   "termino": "consultorio médico",
+   "tipo": "calle",
+   "clases": [
+    "621111",
+    "621113"
+   ]
+  },
+  {
+   "termino": "donde arreglan zapatos",
+   "tipo": "descripcion",
+   "clases": [
+    "811430"
+   ]
+  },
+  {
+   "termino": "donde venden zapatos",
+   "tipo": "descripcion",
+   "clases": [
+    "463310"
+   ]
+  },
+  {
+   "termino": "donde compro una cama o un sillón",
+   "tipo": "descripcion",
+   "clases": [
+    "466111"
+   ]
+  },
+  {
+   "termino": "donde rentan computadoras con internet",
+   "tipo": "descripcion",
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "donde hacen ropa a la medida",
+   "tipo": "descripcion",
+   "clases": [
+    "315225",
+    "811499"
+   ]
+  },
+  {
+   "termino": "donde venden crema y queso",
+   "tipo": "descripcion",
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "donde venden hilos y botones",
+   "tipo": "descripcion",
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "donde hacen portones y rejas",
+   "tipo": "descripcion",
+   "clases": [
+    "332320"
+   ]
+  },
+  {
+   "termino": "donde hacen muebles de madera a medida",
+   "tipo": "descripcion",
+   "clases": [
+    "337120",
+    "321910"
+   ]
+  },
+  {
+   "termino": "donde ponen vidrios y ventanas de aluminio",
+   "tipo": "descripcion",
+   "clases": [
+    "467114"
+   ]
+  },
+  {
+   "termino": "donde arreglan fugas de agua",
+   "tipo": "descripcion",
+   "clases": [
+    "238221"
+   ]
+  },
+  {
+   "termino": "donde arreglan el sistema eléctrico del coche",
+   "tipo": "descripcion",
+   "clases": [
+    "811112"
+   ]
+  },
+  {
+   "termino": "donde venden periódicos y revistas",
+   "tipo": "descripcion",
+   "clases": [
+    "465313"
+   ]
+  },
+  {
+   "termino": "donde venden jugos y licuados",
+   "tipo": "descripcion",
+   "clases": [
+    "722515"
+   ]
+  },
+  {
+   "termino": "donde compro comida corrida barata",
+   "tipo": "descripcion",
+   "clases": [
+    "722518",
+    "722511"
+   ]
+  },
+  {
+   "termino": "donde venden paletas y helados",
+   "tipo": "descripcion",
+   "clases": [
+    "461170",
+    "311520"
+   ]
+  },
+  {
+   "termino": "zapatreia",
+   "tipo": "error_dedo",
+   "clases": [
+    "463310"
+   ]
+  },
+  {
+   "termino": "mueblria",
+   "tipo": "error_dedo",
+   "clases": [
+    "466111"
+   ]
+  },
+  {
+   "termino": "sibercafe",
+   "tipo": "error_dedo",
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "mersería",
+   "tipo": "error_dedo",
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "crmeria",
+   "tipo": "error_dedo",
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "cocina ecnomica",
+   "tipo": "error_dedo",
+   "clases": [
+    "722518"
+   ]
+  },
+  {
+   "termino": "herería",
+   "tipo": "error_dedo",
+   "clases": [
+    "332320"
+   ]
+  },
+  {
+   "termino": "carpinteia",
+   "tipo": "error_dedo",
+   "clases": [
+    "321910",
+    "337120"
+   ]
+  },
+  {
+   "termino": "tamals",
+   "tipo": "error_dedo",
+   "clases": [
+    "722519"
+   ]
+  },
+  {
+   "termino": "mercado",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "tianguis",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "gracias por todo",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "de nada",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "buenas noches",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "adiós",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "qué onda",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "no sé",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "a la vuelta",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "por aquí",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Polanco",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Chapultepec",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "el Zócalo",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Metro Insurgentes",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "hace mucho calor",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "muy caro",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "rapidísimo",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "sábado",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿cuánto cuesta?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "necesito ayuda",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "es muy bonito",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿cuántos hay?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "la alcaldía Benito Juárez",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "tráfico pesado",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "changarro",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "comedor",
+   "tipo": "calle",
+   "clases": [
+    "722511"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "estilista",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tornillería",
+   "tipo": "calle",
+   "clases": [
+    "467111"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "molino",
+   "tipo": "calle",
+   "clases": [
+    "311830",
+    "461190"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "refresquería",
+   "tipo": "calle",
+   "clases": [
+    "722515",
+    "461170"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tablajería",
+   "tipo": "calle",
+   "clases": [
+    "461121",
+    "461122"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "rosticería",
+   "tipo": "calle",
+   "clases": [
+    "461122",
+    "722517"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "frutería",
+   "tipo": "calle",
+   "clases": [
+    "461130"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "pescadería",
+   "tipo": "calle",
+   "clases": [
+    "461123"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tacos",
+   "tipo": "calle",
+   "clases": [
+    "722514"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "lonchería",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722514"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "lechería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "botonería",
+   "tipo": "calle",
+   "clases": [
+    "463113"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "zapatero",
+   "tipo": "calle",
+   "clases": [
+    "463310",
+    "811430"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "ciber",
+   "tipo": "calle",
+   "clases": [
+    "561432"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "nieves",
+   "tipo": "calle",
+   "clases": [
+    "461170",
+    "722515"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "autopartes",
+   "tipo": "calle",
+   "clases": [
+    "468211",
+    "468212"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "vulcanizadora",
+   "tipo": "calle",
+   "clases": [
+    "811191"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "latonería",
+   "tipo": "calle",
+   "clases": [
+    "811121"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "purificadora",
+   "tipo": "calle",
+   "clases": [
+    "312112"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "repostería",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tahona",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "311811"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "pulquería",
+   "tipo": "calle",
+   "clases": [
+    "722412"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "funeraria",
+   "tipo": "calle",
+   "clases": [
+    "812310"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde arreglan consolas de videojuegos",
+   "tipo": "descripcion",
+   "clases": [
+    "811219"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me pintan el pelo",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde venden refacciones usadas para el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "468212"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me lavan el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "811192"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde mando una encomienda a otra ciudad",
+   "tipo": "descripcion",
+   "clases": [
+    "492110"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me pintan la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238320"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "quién me instala la luz en la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238210"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me atienden los dientes",
+   "tipo": "descripcion",
+   "clases": [
+    "621211",
+    "621212"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me hacen análisis de sangre",
+   "tipo": "descripcion",
+   "clases": [
+    "621511",
+    "621512"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde dejo a mi hijo mientras trabajo",
+   "tipo": "descripcion",
+   "clases": [
+    "624411",
+    "624412"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde aprender inglés en las tardes",
+   "tipo": "descripcion",
+   "clases": [
+    "611631",
+    "611632"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde venden ropa de segunda mano",
+   "tipo": "descripcion",
+   "clases": [
+    "466410",
+    "463211"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde compro flores para regalar",
+   "tipo": "descripcion",
+   "clases": [
+    "466312"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me venden comida para el perro",
+   "tipo": "descripcion",
+   "clases": [
+    "465911"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde mandan a imprimir tarjetas de presentación",
+   "tipo": "descripcion",
+   "clases": [
+    "323119"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde rentan vestidos de fiesta",
+   "tipo": "descripcion",
+   "clases": [
+    "532281"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde me llevan la ropa a lavar",
+   "tipo": "descripcion",
+   "clases": [
+    "812210"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "donde renta salón para una fiesta infantil",
+   "tipo": "descripcion",
+   "clases": [
+    "531113"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tortillria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311830",
+    "461190"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "fonnda",
+   "tipo": "error_dedo",
+   "clases": [
+    "722511"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "tacso",
+   "tipo": "error_dedo",
+   "clases": [
+    "722514"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "nebería",
+   "tipo": "error_dedo",
+   "clases": [
+    "722515",
+    "461170"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "carnecería",
+   "tipo": "error_dedo",
+   "clases": [
+    "461121",
+    "461122"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "pannadería",
+   "tipo": "error_dedo",
+   "clases": [
+    "311812",
+    "311811"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "lavanedria",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "ferreteira",
+   "tipo": "error_dedo",
+   "clases": [
+    "467111"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "hojalatria",
+   "tipo": "error_dedo",
+   "clases": [
+    "811121"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "funerarea",
+   "tipo": "error_dedo",
+   "clases": [
+    "812310"
+   ],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "hace frío",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "rumbo al centro",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "buenos días",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "Tlalpan",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "bonito",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "la narvarte",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "Iztapalapa",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "hace diez minutos",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "muy barato",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "a dos cuadras del metro",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "Xochimilco",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "Condesa",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "hola, ¿qué tal?",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "Bosque de Chapultepec",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  },
+  {
+   "termino": "en la esquina",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-1"
+  }
+ ]
+}

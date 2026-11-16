@@ -74,8 +74,11 @@ def cargar_modelo(nombre):
     ruta = ruta_modelo(nombre)
     if not (ruta / "modules.json").exists():
         raise SystemExit(f"El modelo '{nombre}' no está descargado. Corre: uv run python descargar.py {nombre}")
+    import torch
     from sentence_transformers import SentenceTransformer
-    return SentenceTransformer(str(ruta), device="cpu")
+    # fp32 explícito: Qwen3 viene en bf16 y, sin esto, se carga así y es ~3 veces más lento en procesador
+    # (medido el 15 nov 2026). Los tres modelos se miden con la misma precisión para que C4 sea comparable.
+    return SentenceTransformer(str(ruta), device="cpu", model_kwargs={"dtype": torch.float32})
 
 
 def codificar(modelo, nombre, textos, papel):

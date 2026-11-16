@@ -28,6 +28,9 @@ C2_POR_TIPO = 0.70
 C3_RECHAZO, C3_PERDIDA_MAX = 0.80, 0.05
 C4_MEMORIA_GB, C4_MS = 2.0, 200
 
+# Modelos que no entran al banco ciego (ver main).
+EXCLUIDOS_CIEGO = {"qwen3"}
+
 
 def ruta_resultado(banco, variante, modelo):
     return RESULTADOS / banco / f"{modelo}.{variante}.json"
@@ -203,6 +206,12 @@ def main():
                              "al banco de ajuste y se escribe un banco ciego nuevo.")
     leer_banco(a.banco)
     nombres = [n for n in MODELOS if rutas(n, a.variante)[0].exists()]
+    if a.banco == "ciego":
+        # Qwen3 no cumple C1, C3 ni C4 en el ajuste con ninguna variante: no gana aunque mejore en el ciego,
+        # así que no se gasta el único intento del banco ciego en él (decisión del 15 nov 2026).
+        nombres = [n for n in nombres if n not in EXCLUIDOS_CIEGO]
+        if not nombres:
+            raise SystemExit("No quedan modelos para el banco ciego.")
     if not nombres:
         raise SystemExit(f"No hay vectores con la variante «{a.variante}». Corre: uv run python vectorizar.py "
                          f"--variante {a.variante}")

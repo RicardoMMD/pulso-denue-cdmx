@@ -1,0 +1,468 @@
+{
+ "casos": [
+  {
+   "termino": "changarro",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ]
+  },
+  {
+   "termino": "comedor",
+   "tipo": "calle",
+   "clases": [
+    "722511"
+   ]
+  },
+  {
+   "termino": "estilista",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "tornillería",
+   "tipo": "calle",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "molino",
+   "tipo": "calle",
+   "clases": [
+    "311830",
+    "461190"
+   ]
+  },
+  {
+   "termino": "refresquería",
+   "tipo": "calle",
+   "clases": [
+    "722515",
+    "461170"
+   ]
+  },
+  {
+   "termino": "tablajería",
+   "tipo": "calle",
+   "clases": [
+    "461121",
+    "461122"
+   ]
+  },
+  {
+   "termino": "rosticería",
+   "tipo": "calle",
+   "clases": [
+    "461122",
+    "722517"
+   ]
+  },
+  {
+   "termino": "frutería",
+   "tipo": "calle",
+   "clases": [
+    "461130"
+   ]
+  },
+  {
+   "termino": "pescadería",
+   "tipo": "calle",
+   "clases": [
+    "461123"
+   ]
+  },
+  {
+   "termino": "tacos",
+   "tipo": "calle",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "lonchería",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722514"
+   ]
+  },
+  {
+   "termino": "lechería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "botonería",
+   "tipo": "calle",
+   "clases": [
+    "463113"
+   ]
+  },
+  {
+   "termino": "zapatero",
+   "tipo": "calle",
+   "clases": [
+    "463310",
+    "811430"
+   ]
+  },
+  {
+   "termino": "ciber",
+   "tipo": "calle",
+   "clases": [
+    "561432"
+   ]
+  },
+  {
+   "termino": "nieves",
+   "tipo": "calle",
+   "clases": [
+    "461170",
+    "722515"
+   ]
+  },
+  {
+   "termino": "autopartes",
+   "tipo": "calle",
+   "clases": [
+    "468211",
+    "468212"
+   ]
+  },
+  {
+   "termino": "vulcanizadora",
+   "tipo": "calle",
+   "clases": [
+    "811191"
+   ]
+  },
+  {
+   "termino": "latonería",
+   "tipo": "calle",
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "purificadora",
+   "tipo": "calle",
+   "clases": [
+    "312112"
+   ]
+  },
+  {
+   "termino": "repostería",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ]
+  },
+  {
+   "termino": "tahona",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "311811"
+   ]
+  },
+  {
+   "termino": "pulquería",
+   "tipo": "calle",
+   "clases": [
+    "722412"
+   ]
+  },
+  {
+   "termino": "funeraria",
+   "tipo": "calle",
+   "clases": [
+    "812310"
+   ]
+  },
+  {
+   "termino": "donde arreglan consolas de videojuegos",
+   "tipo": "descripcion",
+   "clases": [
+    "811219"
+   ]
+  },
+  {
+   "termino": "donde me pintan el pelo",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ]
+  },
+  {
+   "termino": "donde venden refacciones usadas para el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "468212"
+   ]
+  },
+  {
+   "termino": "donde me lavan el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "811192"
+   ]
+  },
+  {
+   "termino": "donde mando una encomienda a otra ciudad",
+   "tipo": "descripcion",
+   "clases": [
+    "492110"
+   ]
+  },
+  {
+   "termino": "donde me pintan la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238320"
+   ]
+  },
+  {
+   "termino": "quién me instala la luz en la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238210"
+   ]
+  },
+  {
+   "termino": "donde me atienden los dientes",
+   "tipo": "descripcion",
+   "clases": [
+    "621211",
+    "621212"
+   ]
+  },
+  {
+   "termino": "donde me hacen análisis de sangre",
+   "tipo": "descripcion",
+   "clases": [
+    "621511",
+    "621512"
+   ]
+  },
+  {
+   "termino": "donde dejo a mi hijo mientras trabajo",
+   "tipo": "descripcion",
+   "clases": [
+    "624411",
+    "624412"
+   ]
+  },
+  {
+   "termino": "donde aprender inglés en las tardes",
+   "tipo": "descripcion",
+   "clases": [
+    "611631",
+    "611632"
+   ]
+  },
+  {
+   "termino": "donde venden ropa de segunda mano",
+   "tipo": "descripcion",
+   "clases": [
+    "466410",
+    "463211"
+   ]
+  },
+  {
+   "termino": "donde compro flores para regalar",
+   "tipo": "descripcion",
+   "clases": [
+    "466312"
+   ]
+  },
+  {
+   "termino": "donde me venden comida para el perro",
+   "tipo": "descripcion",
+   "clases": [
+    "465911"
+   ]
+  },
+  {
+   "termino": "donde mandan a imprimir tarjetas de presentación",
+   "tipo": "descripcion",
+   "clases": [
+    "323119"
+   ]
+  },
+  {
+   "termino": "donde rentan vestidos de fiesta",
+   "tipo": "descripcion",
+   "clases": [
+    "532281"
+   ]
+  },
+  {
+   "termino": "donde me llevan la ropa a lavar",
+   "tipo": "descripcion",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "donde renta salón para una fiesta infantil",
+   "tipo": "descripcion",
+   "clases": [
+    "531113"
+   ]
+  },
+  {
+   "termino": "tortillria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311830",
+    "461190"
+   ]
+  },
+  {
+   "termino": "fonnda",
+   "tipo": "error_dedo",
+   "clases": [
+    "722511"
+   ]
+  },
+  {
+   "termino": "tacso",
+   "tipo": "error_dedo",
+   "clases": [
+    "722514"
+   ]
+  },
+  {
+   "termino": "nebería",
+   "tipo": "error_dedo",
+   "clases": [
+    "722515",
+    "461170"
+   ]
+  },
+  {
+   "termino": "carnecería",
+   "tipo": "error_dedo",
+   "clases": [
+    "461121",
+    "461122"
+   ]
+  },
+  {
+   "termino": "pannadería",
+   "tipo": "error_dedo",
+   "clases": [
+    "311812",
+    "311811"
+   ]
+  },
+  {
+   "termino": "lavanedria",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "ferreteira",
+   "tipo": "error_dedo",
+   "clases": [
+    "467111"
+   ]
+  },
+  {
+   "termino": "hojalatria",
+   "tipo": "error_dedo",
+   "clases": [
+    "811121"
+   ]
+  },
+  {
+   "termino": "funerarea",
+   "tipo": "error_dedo",
+   "clases": [
+    "812310"
+   ]
+  },
+  {
+   "termino": "hace frío",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "rumbo al centro",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "buenos días",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Tlalpan",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "bonito",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "la narvarte",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Iztapalapa",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "hace diez minutos",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "muy barato",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "a dos cuadras del metro",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Xochimilco",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Condesa",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "hola, ¿qué tal?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "Bosque de Chapultepec",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "en la esquina",
+   "tipo": "no_es_giro",
+   "clases": []
+  }
+ ]
+}

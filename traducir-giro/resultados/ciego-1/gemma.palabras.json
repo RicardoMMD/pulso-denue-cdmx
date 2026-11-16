@@ -1,0 +1,4933 @@
+{
+ "banco": "ciego",
+ "modelo": "gemma",
+ "repo": "google/embeddinggemma-300m",
+ "revision": "57c266a740f537b4dc058e1b0cda161fd15afa75",
+ "variante": "palabras",
+ "instruccion_consulta": "task: search result | query: ",
+ "instruccion_documento": "title: none | text: ",
+ "huella_textos": "d4aebcab631cd40c",
+ "corrido": "2026-11-15T21:36:03",
+ "metricas": {
+  "casos": 68,
+  "giros": 53,
+  "no_giros": 15,
+  "primero": 0.5283,
+  "primeros_5": 0.7925,
+  "primeros_10": 0.8679,
+  "por_tipo": {
+   "calle": {
+    "casos": 25,
+    "primero": 0.32,
+    "primeros_5": 0.68,
+    "primeros_10": 0.76
+   },
+   "descripcion": {
+    "casos": 18,
+    "primero": 0.8333,
+    "primeros_5": 0.9444,
+    "primeros_10": 1.0
+   },
+   "error_dedo": {
+    "casos": 10,
+    "primero": 0.5,
+    "primeros_5": 0.8,
+    "primeros_10": 0.9
+   }
+  },
+  "umbral": 0.2857,
+  "rechazo_no_giro": 0.4667,
+  "giros_perdidos": 0.1887,
+  "ms_mediana": 109.9,
+  "ms_p95": 121.9,
+  "memoria_gb": 1.19,
+  "memoria_pico_gb": 1.19,
+  "hilos": 4
+ },
+ "casos": [
+  {
+   "termino": "changarro",
+   "tipo": "calle",
+   "clases": [
+    "461110"
+   ],
+   "posicion": null,
+   "parecido": 0.2356,
+   "candidatos": [
+    {
+     "clase": "313210",
+     "nombre": "Fabricación de telas anchas de tejido de trama",
+     "parecido": 0.2356,
+     "acierta": false
+    },
+    {
+     "clase": "314912",
+     "nombre": "Confección de productos de textiles recubiertos y de materiales sucedáneos",
+     "parecido": 0.221,
+     "acierta": false
+    },
+    {
+     "clase": "484129",
+     "nombre": "Otro autotransporte foráneo de carga general",
+     "parecido": 0.1986,
+     "acierta": false
+    },
+    {
+     "clase": "315224",
+     "nombre": "Confección en serie de disfraces y trajes típicos",
+     "parecido": 0.1977,
+     "acierta": false
+    },
+    {
+     "clase": "523122",
+     "nombre": "Centros cambiarios",
+     "parecido": 0.1972,
+     "acierta": false
+    },
+    {
+     "clase": "481111",
+     "nombre": "Transporte aéreo regular en líneas aéreas nacionales",
+     "parecido": 0.1962,
+     "acierta": false
+    },
+    {
+     "clase": "238350",
+     "nombre": "Realización de trabajos de carpintería en el lugar de la construcción",
+     "parecido": 0.1903,
+     "acierta": false
+    },
+    {
+     "clase": "532411",
+     "nombre": "Alquiler de maquinaria y equipo para construcción, minería y actividades forestales",
+     "parecido": 0.1901,
+     "acierta": false
+    },
+    {
+     "clase": "311350",
+     "nombre": "Elaboración de chocolate y productos de chocolate",
+     "parecido": 0.1898,
+     "acierta": false
+    },
+    {
+     "clase": "487210",
+     "nombre": "Transporte turístico por agua",
+     "parecido": 0.1877,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "comedor",
+   "tipo": "calle",
+   "clases": [
+    "722511"
+   ],
+   "posicion": 3,
+   "parecido": 0.4333,
+   "candidatos": [
+    {
+     "clase": "722310",
+     "nombre": "Servicios de comedor para empresas e instituciones",
+     "parecido": 0.4333,
+     "acierta": false
+    },
+    {
+     "clase": "624212",
+     "nombre": "Servicios de alimentación comunitarios prestados por el sector público",
+     "parecido": 0.3347,
+     "acierta": false
+    },
+    {
+     "clase": "722511",
+     "nombre": "Restaurantes con servicio de preparación de alimentos a la carta o de comida corrida",
+     "parecido": 0.3331,
+     "acierta": true
+    },
+    {
+     "clase": "624211",
+     "nombre": "Servicios de alimentación comunitarios prestados por el sector privado",
+     "parecido": 0.3319,
+     "acierta": false
+    },
+    {
+     "clase": "722518",
+     "nombre": "Restaurantes que preparan otro tipo de alimentos para llevar",
+     "parecido": 0.3305,
+     "acierta": false
+    },
+    {
+     "clase": "466111",
+     "nombre": "Comercio al por menor de muebles para el hogar",
+     "parecido": 0.3133,
+     "acierta": false
+    },
+    {
+     "clase": "466113",
+     "nombre": "Comercio al por menor de muebles para jardín",
+     "parecido": 0.3105,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.3087,
+     "acierta": false
+    },
+    {
+     "clase": "722320",
+     "nombre": "Servicios de preparación de alimentos para ocasiones especiales",
+     "parecido": 0.306,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.2987,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "estilista",
+   "tipo": "calle",
+   "clases": [
+    "812110"
+   ],
+   "posicion": 2,
+   "parecido": 0.3767,
+   "candidatos": [
+    {
+     "clase": "541490",
+     "nombre": "Diseño de modas y otros diseños especializados",
+     "parecido": 0.3767,
+     "acierta": false
+    },
+    {
+     "clase": "812110",
+     "nombre": "Salones y clínicas de belleza y peluquerías",
+     "parecido": 0.3224,
+     "acierta": true
+    },
+    {
+     "clase": "611511",
+     "nombre": "Escuelas del sector privado dedicadas a la enseñanza de oficios",
+     "parecido": 0.2912,
+     "acierta": false
+    },
+    {
+     "clase": "315225",
+     "nombre": "Confección de prendas de vestir sobre medida",
+     "parecido": 0.2909,
+     "acierta": false
+    },
+    {
+     "clase": "541410",
+     "nombre": "Diseño y decoración de interiores",
+     "parecido": 0.2722,
+     "acierta": false
+    },
+    {
+     "clase": "315229",
+     "nombre": "Confección en serie de otra ropa exterior de materiales textiles",
+     "parecido": 0.2479,
+     "acierta": false
+    },
+    {
+     "clase": "463211",
+     "nombre": "Comercio al por menor de ropa, excepto de bebé y lencería",
+     "parecido": 0.2409,
+     "acierta": false
+    },
+    {
+     "clase": "811420",
+     "nombre": "Reparación de tapicería de muebles para el hogar",
+     "parecido": 0.2356,
+     "acierta": false
+    },
+    {
+     "clase": "465111",
+     "nombre": "Comercio al por menor de artículos de perfumería y cosméticos",
+     "parecido": 0.2343,
+     "acierta": false
+    },
+    {
+     "clase": "811499",
+     "nombre": "Reparación y mantenimiento de otros artículos para el hogar y personales",
+     "parecido": 0.2335,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "tornillería",
+   "tipo": "calle",
+   "clases": [
+    "467111"
+   ],
+   "posicion": 5,
+   "parecido": 0.5108,
+   "candidatos": [
+    {
+     "clase": "332720",
+     "nombre": "Fabricación de tornillos, tuercas, remaches y similares",
+     "parecido": 0.5108,
+     "acierta": false
+    },
+    {
+     "clase": "332710",
+     "nombre": "Maquinado de piezas metálicas para maquinaria y equipo en general",
+     "parecido": 0.4808,
+     "acierta": false
+    },
+    {
+     "clase": "467117",
+     "nombre": "Comercio al por menor de artículos para albercas y otros artículos",
+     "parecido": 0.3976,
+     "acierta": false
+    },
+    {
+     "clase": "332510",
+     "nombre": "Fabricación de herrajes y cerraduras",
+     "parecido": 0.3814,
+     "acierta": false
+    },
+    {
+     "clase": "467111",
+     "nombre": "Comercio al por menor en ferreterías y tlapalerías",
+     "parecido": 0.3472,
+     "acierta": true
+    },
+    {
+     "clase": "811491",
+     "nombre": "Cerrajerías",
+     "parecido": 0.3445,
+     "acierta": false
+    },
+    {
+     "clase": "326211",
+     "nombre": "Fabricación de llantas y cámaras",
+     "parecido": 0.3444,
+     "acierta": false
+    },
+    {
+     "clase": "332211",
+     "nombre": "Fabricación de herramientas de mano metálicas sin motor",
+     "parecido": 0.3395,
+     "acierta": false
+    },
+    {
+     "clase": "332110",
+     "nombre": "Fabricación de productos metálicos forjados y troquelados",
+     "parecido": 0.3383,
+     "acierta": false
+    },
+    {
+     "clase": "332610",
+     "nombre": "Fabricación de alambre, productos de alambre y resortes",
+     "parecido": 0.337,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "molino",
+   "tipo": "calle",
+   "clases": [
+    "311830",
+    "461190"
+   ],
+   "posicion": 2,
+   "parecido": 0.512,
+   "candidatos": [
+    {
+     "clase": "311214",
+     "nombre": "Elaboración de harina de otros productos agrícolas",
+     "parecido": 0.512,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.4238,
+     "acierta": true
+    },
+    {
+     "clase": "311212",
+     "nombre": "Elaboración de harina de trigo",
+     "parecido": 0.4047,
+     "acierta": false
+    },
+    {
+     "clase": "311423",
+     "nombre": "Conservación de guisos y otros alimentos preparados por procesos distintos a la congelación",
+     "parecido": 0.4044,
+     "acierta": false
+    },
+    {
+     "clase": "311213",
+     "nombre": "Elaboración de harina de maíz",
+     "parecido": 0.3671,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.3482,
+     "acierta": false
+    },
+    {
+     "clase": "311230",
+     "nombre": "Elaboración de cereales para el desayuno",
+     "parecido": 0.3419,
+     "acierta": false
+    },
+    {
+     "clase": "311221",
+     "nombre": "Elaboración de féculas y otros almidones y sus derivados",
+     "parecido": 0.3366,
+     "acierta": false
+    },
+    {
+     "clase": "461140",
+     "nombre": "Comercio al por menor de semillas y granos alimenticios, especias y chiles secos",
+     "parecido": 0.3266,
+     "acierta": false
+    },
+    {
+     "clase": "311922",
+     "nombre": "Elaboración de café tostado y molido",
+     "parecido": 0.3193,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "refresquería",
+   "tipo": "calle",
+   "clases": [
+    "722515",
+    "461170"
+   ],
+   "posicion": 1,
+   "parecido": 0.4581,
+   "candidatos": [
+    {
+     "clase": "722515",
+     "nombre": "Cafeterías, fuentes de sodas, neverías, refresquerías y similares",
+     "parecido": 0.4581,
+     "acierta": true
+    },
+    {
+     "clase": "312111",
+     "nombre": "Elaboración de refrescos y otras bebidas no alcohólicas",
+     "parecido": 0.4021,
+     "acierta": false
+    },
+    {
+     "clase": "461213",
+     "nombre": "Comercio al por menor de bebidas no alcohólicas y hielo",
+     "parecido": 0.3984,
+     "acierta": false
+    },
+    {
+     "clase": "722412",
+     "nombre": "Bares, cantinas y similares",
+     "parecido": 0.3775,
+     "acierta": false
+    },
+    {
+     "clase": "431211",
+     "nombre": "Comercio al por mayor de bebidas no alcohólicas y hielo",
+     "parecido": 0.3628,
+     "acierta": false
+    },
+    {
+     "clase": "461160",
+     "nombre": "Comercio al por menor de dulces y materias primas para repostería",
+     "parecido": 0.3519,
+     "acierta": false
+    },
+    {
+     "clase": "312120",
+     "nombre": "Elaboración de cerveza",
+     "parecido": 0.3509,
+     "acierta": false
+    },
+    {
+     "clase": "461212",
+     "nombre": "Comercio al por menor de cerveza",
+     "parecido": 0.3501,
+     "acierta": false
+    },
+    {
+     "clase": "461170",
+     "nombre": "Comercio al por menor de paletas de hielo y helados",
+     "parecido": 0.3455,
+     "acierta": true
+    },
+    {
+     "clase": "312113",
+     "nombre": "Elaboración de hielo",
+     "parecido": 0.3414,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "tablajería",
+   "tipo": "calle",
+   "clases": [
+    "461121",
+    "461122"
+   ],
+   "posicion": null,
+   "parecido": 0.3775,
+   "candidatos": [
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.3775,
+     "acierta": false
+    },
+    {
+     "clase": "238311",
+     "nombre": "Colocación de muros falsos y aislamiento",
+     "parecido": 0.376,
+     "acierta": false
+    },
+    {
+     "clase": "321112",
+     "nombre": "Aserrado de tablas y tablones",
+     "parecido": 0.3298,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.3164,
+     "acierta": false
+    },
+    {
+     "clase": "238312",
+     "nombre": "Trabajos de enyesado, empastado y tiroleado",
+     "parecido": 0.3062,
+     "acierta": false
+    },
+    {
+     "clase": "327420",
+     "nombre": "Fabricación de yeso y productos de yeso",
+     "parecido": 0.2994,
+     "acierta": false
+    },
+    {
+     "clase": "332110",
+     "nombre": "Fabricación de productos metálicos forjados y troquelados",
+     "parecido": 0.2933,
+     "acierta": false
+    },
+    {
+     "clase": "434219",
+     "nombre": "Comercio al por mayor de otros materiales para la construcción, excepto de madera y metálicos",
+     "parecido": 0.293,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.2886,
+     "acierta": false
+    },
+    {
+     "clase": "321910",
+     "nombre": "Fabricación de productos de madera para la construcción",
+     "parecido": 0.2796,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "rosticería",
+   "tipo": "calle",
+   "clases": [
+    "461122",
+    "722517"
+   ],
+   "posicion": null,
+   "parecido": 0.3535,
+   "candidatos": [
+    {
+     "clase": "316211",
+     "nombre": "Fabricación de calzado con corte de piel y cuero",
+     "parecido": 0.3535,
+     "acierta": false
+    },
+    {
+     "clase": "321999",
+     "nombre": "Fabricación de otros productos de madera",
+     "parecido": 0.3406,
+     "acierta": false
+    },
+    {
+     "clase": "332110",
+     "nombre": "Fabricación de productos metálicos forjados y troquelados",
+     "parecido": 0.3343,
+     "acierta": false
+    },
+    {
+     "clase": "332320",
+     "nombre": "Fabricación de productos de herrería",
+     "parecido": 0.3323,
+     "acierta": false
+    },
+    {
+     "clase": "811499",
+     "nombre": "Reparación y mantenimiento de otros artículos para el hogar y personales",
+     "parecido": 0.3312,
+     "acierta": false
+    },
+    {
+     "clase": "316212",
+     "nombre": "Fabricación de calzado con corte de tela",
+     "parecido": 0.3288,
+     "acierta": false
+    },
+    {
+     "clase": "332211",
+     "nombre": "Fabricación de herramientas de mano metálicas sin motor",
+     "parecido": 0.3266,
+     "acierta": false
+    },
+    {
+     "clase": "315225",
+     "nombre": "Confección de prendas de vestir sobre medida",
+     "parecido": 0.3239,
+     "acierta": false
+    },
+    {
+     "clase": "316991",
+     "nombre": "Fabricación de bolsos de mano, maletas y similares",
+     "parecido": 0.3221,
+     "acierta": false
+    },
+    {
+     "clase": "316999",
+     "nombre": "Fabricación de otros productos de cuero, piel y materiales sucedáneos",
+     "parecido": 0.3218,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "frutería",
+   "tipo": "calle",
+   "clases": [
+    "461130"
+   ],
+   "posicion": 5,
+   "parecido": 0.4693,
+   "candidatos": [
+    {
+     "clase": "311422",
+     "nombre": "Conservación de frutas y verduras por procesos distintos a la congelación y la deshidratación",
+     "parecido": 0.4693,
+     "acierta": false
+    },
+    {
+     "clase": "311411",
+     "nombre": "Congelación de frutas y verduras",
+     "parecido": 0.4464,
+     "acierta": false
+    },
+    {
+     "clase": "311421",
+     "nombre": "Deshidratación de frutas y verduras",
+     "parecido": 0.4262,
+     "acierta": false
+    },
+    {
+     "clase": "431130",
+     "nombre": "Comercio al por mayor de frutas y verduras frescas",
+     "parecido": 0.4173,
+     "acierta": false
+    },
+    {
+     "clase": "461130",
+     "nombre": "Comercio al por menor de frutas y verduras frescas",
+     "parecido": 0.4142,
+     "acierta": true
+    },
+    {
+     "clase": "311412",
+     "nombre": "Congelación de guisos y otros alimentos preparados",
+     "parecido": 0.3802,
+     "acierta": false
+    },
+    {
+     "clase": "311423",
+     "nombre": "Conservación de guisos y otros alimentos preparados por procesos distintos a la congelación",
+     "parecido": 0.3505,
+     "acierta": false
+    },
+    {
+     "clase": "311993",
+     "nombre": "Elaboración de alimentos frescos para consumo inmediato",
+     "parecido": 0.3291,
+     "acierta": false
+    },
+    {
+     "clase": "431180",
+     "nombre": "Comercio al por mayor de dulces y materias primas para repostería",
+     "parecido": 0.2987,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.2969,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "pescadería",
+   "tipo": "calle",
+   "clases": [
+    "461123"
+   ],
+   "posicion": 1,
+   "parecido": 0.4932,
+   "candidatos": [
+    {
+     "clase": "461123",
+     "nombre": "Comercio al por menor de pescados y mariscos",
+     "parecido": 0.4932,
+     "acierta": true
+    },
+    {
+     "clase": "431123",
+     "nombre": "Comercio al por mayor de pescados y mariscos",
+     "parecido": 0.4887,
+     "acierta": false
+    },
+    {
+     "clase": "722512",
+     "nombre": "Restaurantes con servicio de preparación de pescados y mariscos",
+     "parecido": 0.4627,
+     "acierta": false
+    },
+    {
+     "clase": "311710",
+     "nombre": "Preparación y envasado de pescados y mariscos",
+     "parecido": 0.4397,
+     "acierta": false
+    },
+    {
+     "clase": "112515",
+     "nombre": "Piscicultura en agua dulce",
+     "parecido": 0.3552,
+     "acierta": false
+    },
+    {
+     "clase": "114119",
+     "nombre": "Pesca y captura de peces, crustáceos, moluscos y otras especies",
+     "parecido": 0.3491,
+     "acierta": false
+    },
+    {
+     "clase": "112519",
+     "nombre": "Otra acuicultura",
+     "parecido": 0.3428,
+     "acierta": false
+    },
+    {
+     "clase": "561990",
+     "nombre": "Otros servicios de apoyo a los negocios",
+     "parecido": 0.3184,
+     "acierta": false
+    },
+    {
+     "clase": "461122",
+     "nombre": "Comercio al por menor de carne de aves",
+     "parecido": 0.2977,
+     "acierta": false
+    },
+    {
+     "clase": "461170",
+     "nombre": "Comercio al por menor de paletas de hielo y helados",
+     "parecido": 0.2898,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "tacos",
+   "tipo": "calle",
+   "clases": [
+    "722514"
+   ],
+   "posicion": 1,
+   "parecido": 0.4328,
+   "candidatos": [
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.4328,
+     "acierta": true
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.336,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.2785,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.2603,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.232,
+     "acierta": false
+    },
+    {
+     "clase": "311910",
+     "nombre": "Elaboración de botanas",
+     "parecido": 0.2258,
+     "acierta": false
+    },
+    {
+     "clase": "431192",
+     "nombre": "Comercio al por mayor de botanas y frituras",
+     "parecido": 0.2245,
+     "acierta": false
+    },
+    {
+     "clase": "722518",
+     "nombre": "Restaurantes que preparan otro tipo de alimentos para llevar",
+     "parecido": 0.2241,
+     "acierta": false
+    },
+    {
+     "clase": "722519",
+     "nombre": "Servicios de preparación de otros alimentos para consumo inmediato",
+     "parecido": 0.205,
+     "acierta": false
+    },
+    {
+     "clase": "431199",
+     "nombre": "Comercio al por mayor de otros alimentos",
+     "parecido": 0.2014,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "lonchería",
+   "tipo": "calle",
+   "clases": [
+    "722511",
+    "722514"
+   ],
+   "posicion": 6,
+   "parecido": 0.3732,
+   "candidatos": [
+    {
+     "clase": "311613",
+     "nombre": "Preparación de embutidos y otras conservas de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.3732,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.3656,
+     "acierta": false
+    },
+    {
+     "clase": "722518",
+     "nombre": "Restaurantes que preparan otro tipo de alimentos para llevar",
+     "parecido": 0.3489,
+     "acierta": false
+    },
+    {
+     "clase": "722517",
+     "nombre": "Restaurantes con servicio de preparación de pizzas, hamburguesas, hot dogs y pollos rostizados para llevar",
+     "parecido": 0.3238,
+     "acierta": false
+    },
+    {
+     "clase": "722330",
+     "nombre": "Servicios de preparación de alimentos en unidades móviles",
+     "parecido": 0.3216,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.3099,
+     "acierta": true
+    },
+    {
+     "clase": "722310",
+     "nombre": "Servicios de comedor para empresas e instituciones",
+     "parecido": 0.3074,
+     "acierta": false
+    },
+    {
+     "clase": "722511",
+     "nombre": "Restaurantes con servicio de preparación de alimentos a la carta o de comida corrida",
+     "parecido": 0.3029,
+     "acierta": true
+    },
+    {
+     "clase": "461121",
+     "nombre": "Comercio al por menor de carnes rojas",
+     "parecido": 0.2993,
+     "acierta": false
+    },
+    {
+     "clase": "461150",
+     "nombre": "Comercio al por menor de leche, otros productos lácteos y embutidos",
+     "parecido": 0.2881,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "lechería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ],
+   "posicion": 5,
+   "parecido": 0.5334,
+   "candidatos": [
+    {
+     "clase": "311513",
+     "nombre": "Elaboración de derivados y fermentos lácteos",
+     "parecido": 0.5334,
+     "acierta": false
+    },
+    {
+     "clase": "311512",
+     "nombre": "Elaboración de leche en polvo, condensada y evaporada",
+     "parecido": 0.4514,
+     "acierta": false
+    },
+    {
+     "clase": "311511",
+     "nombre": "Elaboración de leche líquida",
+     "parecido": 0.4508,
+     "acierta": false
+    },
+    {
+     "clase": "431160",
+     "nombre": "Comercio al por mayor de leche y otros productos lácteos",
+     "parecido": 0.4415,
+     "acierta": false
+    },
+    {
+     "clase": "461150",
+     "nombre": "Comercio al por menor de leche, otros productos lácteos y embutidos",
+     "parecido": 0.4259,
+     "acierta": true
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.397,
+     "acierta": false
+    },
+    {
+     "clase": "311614",
+     "nombre": "Elaboración de manteca y otras grasas animales comestibles",
+     "parecido": 0.289,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.2866,
+     "acierta": false
+    },
+    {
+     "clase": "311350",
+     "nombre": "Elaboración de chocolate y productos de chocolate",
+     "parecido": 0.2764,
+     "acierta": false
+    },
+    {
+     "clase": "461122",
+     "nombre": "Comercio al por menor de carne de aves",
+     "parecido": 0.2719,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "botonería",
+   "tipo": "calle",
+   "clases": [
+    "463113"
+   ],
+   "posicion": 5,
+   "parecido": 0.3668,
+   "candidatos": [
+    {
+     "clase": "316211",
+     "nombre": "Fabricación de calzado con corte de piel y cuero",
+     "parecido": 0.3668,
+     "acierta": false
+    },
+    {
+     "clase": "316999",
+     "nombre": "Fabricación de otros productos de cuero, piel y materiales sucedáneos",
+     "parecido": 0.3618,
+     "acierta": false
+    },
+    {
+     "clase": "316212",
+     "nombre": "Fabricación de calzado con corte de tela",
+     "parecido": 0.3602,
+     "acierta": false
+    },
+    {
+     "clase": "316213",
+     "nombre": "Fabricación de calzado de plástico",
+     "parecido": 0.3526,
+     "acierta": false
+    },
+    {
+     "clase": "463113",
+     "nombre": "Comercio al por menor de artículos de mercería y bonetería",
+     "parecido": 0.3407,
+     "acierta": true
+    },
+    {
+     "clase": "314991",
+     "nombre": "Confección, bordado y deshilado de productos textiles",
+     "parecido": 0.3385,
+     "acierta": false
+    },
+    {
+     "clase": "432113",
+     "nombre": "Comercio al por mayor de cueros y pieles",
+     "parecido": 0.3287,
+     "acierta": false
+    },
+    {
+     "clase": "316991",
+     "nombre": "Fabricación de bolsos de mano, maletas y similares",
+     "parecido": 0.3286,
+     "acierta": false
+    },
+    {
+     "clase": "316219",
+     "nombre": "Fabricación de huaraches y calzado de otro tipo de materiales",
+     "parecido": 0.3275,
+     "acierta": false
+    },
+    {
+     "clase": "811430",
+     "nombre": "Reparación de calzado y otros artículos de piel y cuero",
+     "parecido": 0.3253,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "zapatero",
+   "tipo": "calle",
+   "clases": [
+    "463310",
+    "811430"
+   ],
+   "posicion": 1,
+   "parecido": 0.297,
+   "candidatos": [
+    {
+     "clase": "463310",
+     "nombre": "Comercio al por menor de calzado",
+     "parecido": 0.297,
+     "acierta": true
+    },
+    {
+     "clase": "316211",
+     "nombre": "Fabricación de calzado con corte de piel y cuero",
+     "parecido": 0.2287,
+     "acierta": false
+    },
+    {
+     "clase": "316212",
+     "nombre": "Fabricación de calzado con corte de tela",
+     "parecido": 0.2126,
+     "acierta": false
+    },
+    {
+     "clase": "432130",
+     "nombre": "Comercio al por mayor de calzado",
+     "parecido": 0.2066,
+     "acierta": false
+    },
+    {
+     "clase": "431110",
+     "nombre": "Comercio al por mayor de abarrotes",
+     "parecido": 0.2,
+     "acierta": false
+    },
+    {
+     "clase": "811430",
+     "nombre": "Reparación de calzado y otros artículos de piel y cuero",
+     "parecido": 0.1992,
+     "acierta": true
+    },
+    {
+     "clase": "466410",
+     "nombre": "Comercio al por menor de artículos usados",
+     "parecido": 0.1952,
+     "acierta": false
+    },
+    {
+     "clase": "316213",
+     "nombre": "Fabricación de calzado de plástico",
+     "parecido": 0.1905,
+     "acierta": false
+    },
+    {
+     "clase": "463218",
+     "nombre": "Comercio al por menor de sombreros",
+     "parecido": 0.1897,
+     "acierta": false
+    },
+    {
+     "clase": "467112",
+     "nombre": "Comercio al por menor de pisos y recubrimientos cerámicos",
+     "parecido": 0.1884,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "ciber",
+   "tipo": "calle",
+   "clases": [
+    "561432"
+   ],
+   "posicion": 1,
+   "parecido": 0.3145,
+   "candidatos": [
+    {
+     "clase": "561432",
+     "nombre": "Servicios de acceso a computadoras",
+     "parecido": 0.3145,
+     "acierta": true
+    },
+    {
+     "clase": "518210",
+     "nombre": "Procesamiento electrónico de información, hospedaje y otros servicios relacionados",
+     "parecido": 0.2538,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.2387,
+     "acierta": false
+    },
+    {
+     "clase": "551111",
+     "nombre": "Corporativos",
+     "parecido": 0.2235,
+     "acierta": false
+    },
+    {
+     "clase": "541510",
+     "nombre": "Servicios de diseño de sistemas de cómputo y servicios relacionados",
+     "parecido": 0.2207,
+     "acierta": false
+    },
+    {
+     "clase": "561440",
+     "nombre": "Agencias de cobranza",
+     "parecido": 0.2132,
+     "acierta": false
+    },
+    {
+     "clase": "517312",
+     "nombre": "Operadores de servicios de telecomunicaciones inalámbricas",
+     "parecido": 0.2093,
+     "acierta": false
+    },
+    {
+     "clase": "513210",
+     "nombre": "Edición de software",
+     "parecido": 0.2067,
+     "acierta": false
+    },
+    {
+     "clase": "532411",
+     "nombre": "Alquiler de maquinaria y equipo para construcción, minería y actividades forestales",
+     "parecido": 0.2056,
+     "acierta": false
+    },
+    {
+     "clase": "523910",
+     "nombre": "Asesoría en inversiones",
+     "parecido": 0.1993,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "nieves",
+   "tipo": "calle",
+   "clases": [
+    "461170",
+    "722515"
+   ],
+   "posicion": null,
+   "parecido": 0.2293,
+   "candidatos": [
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.2293,
+     "acierta": false
+    },
+    {
+     "clase": "611710",
+     "nombre": "Servicios de apoyo a la educación",
+     "parecido": 0.215,
+     "acierta": false
+    },
+    {
+     "clase": "468412",
+     "nombre": "Comercio al por menor de gas L. P. en cilindros y para tanques estacionarios",
+     "parecido": 0.2123,
+     "acierta": false
+    },
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.2092,
+     "acierta": false
+    },
+    {
+     "clase": "611182",
+     "nombre": "Escuelas del sector público de educación para necesidades especiales",
+     "parecido": 0.2047,
+     "acierta": false
+    },
+    {
+     "clase": "493190",
+     "nombre": "Otros servicios de almacenamiento con instalaciones especializadas",
+     "parecido": 0.2032,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.2027,
+     "acierta": false
+    },
+    {
+     "clase": "522451",
+     "nombre": "Montepíos",
+     "parecido": 0.1944,
+     "acierta": false
+    },
+    {
+     "clase": "463215",
+     "nombre": "Comercio al por menor de bisutería y accesorios de vestir",
+     "parecido": 0.1921,
+     "acierta": false
+    },
+    {
+     "clase": "463212",
+     "nombre": "Comercio al por menor de ropa de bebé",
+     "parecido": 0.1882,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "autopartes",
+   "tipo": "calle",
+   "clases": [
+    "468211",
+    "468212"
+   ],
+   "posicion": 2,
+   "parecido": 0.4505,
+   "candidatos": [
+    {
+     "clase": "436112",
+     "nombre": "Comercio al por mayor de partes y refacciones nuevas para automóviles, camionetas y camiones",
+     "parecido": 0.4505,
+     "acierta": false
+    },
+    {
+     "clase": "468212",
+     "nombre": "Comercio al por menor de partes y refacciones usadas para automóviles, camionetas y camiones",
+     "parecido": 0.4463,
+     "acierta": true
+    },
+    {
+     "clase": "468211",
+     "nombre": "Comercio al por menor de partes y refacciones nuevas para automóviles, camionetas y camiones",
+     "parecido": 0.4375,
+     "acierta": true
+    },
+    {
+     "clase": "336390",
+     "nombre": "Fabricación de otras partes para vehículos automotrices",
+     "parecido": 0.3938,
+     "acierta": false
+    },
+    {
+     "clase": "468111",
+     "nombre": "Comercio al por menor de automóviles y camionetas nuevos",
+     "parecido": 0.3846,
+     "acierta": false
+    },
+    {
+     "clase": "336370",
+     "nombre": "Fabricación de piezas metálicas troqueladas para vehículos automotrices",
+     "parecido": 0.3729,
+     "acierta": false
+    },
+    {
+     "clase": "468213",
+     "nombre": "Comercio al por menor de llantas y cámaras para automóviles, camionetas y camiones",
+     "parecido": 0.3635,
+     "acierta": false
+    },
+    {
+     "clase": "336330",
+     "nombre": "Fabricación de partes de sistemas de dirección y de suspensión para vehículos automotrices",
+     "parecido": 0.3567,
+     "acierta": false
+    },
+    {
+     "clase": "436111",
+     "nombre": "Comercio al por mayor de camiones",
+     "parecido": 0.3562,
+     "acierta": false
+    },
+    {
+     "clase": "336360",
+     "nombre": "Fabricación de asientos y accesorios interiores para vehículos automotores",
+     "parecido": 0.3483,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "vulcanizadora",
+   "tipo": "calle",
+   "clases": [
+    "811191"
+   ],
+   "posicion": 1,
+   "parecido": 0.4326,
+   "candidatos": [
+    {
+     "clase": "811191",
+     "nombre": "Reparación menor de llantas",
+     "parecido": 0.4326,
+     "acierta": true
+    },
+    {
+     "clase": "468213",
+     "nombre": "Comercio al por menor de llantas y cámaras para automóviles, camionetas y camiones",
+     "parecido": 0.3374,
+     "acierta": false
+    },
+    {
+     "clase": "332910",
+     "nombre": "Fabricación de válvulas metálicas",
+     "parecido": 0.3152,
+     "acierta": false
+    },
+    {
+     "clase": "326212",
+     "nombre": "Revitalización de llantas",
+     "parecido": 0.3062,
+     "acierta": false
+    },
+    {
+     "clase": "326211",
+     "nombre": "Fabricación de llantas y cámaras",
+     "parecido": 0.2894,
+     "acierta": false
+    },
+    {
+     "clase": "333993",
+     "nombre": "Fabricación de aparatos e instrumentos para pesar",
+     "parecido": 0.2792,
+     "acierta": false
+    },
+    {
+     "clase": "333245",
+     "nombre": "Fabricación de maquinaria y equipo para la industria de la impresión",
+     "parecido": 0.2612,
+     "acierta": false
+    },
+    {
+     "clase": "316213",
+     "nombre": "Fabricación de calzado de plástico",
+     "parecido": 0.2599,
+     "acierta": false
+    },
+    {
+     "clase": "333920",
+     "nombre": "Fabricación de maquinaria y equipo para levantar y trasladar",
+     "parecido": 0.2582,
+     "acierta": false
+    },
+    {
+     "clase": "336370",
+     "nombre": "Fabricación de piezas metálicas troqueladas para vehículos automotrices",
+     "parecido": 0.2567,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "latonería",
+   "tipo": "calle",
+   "clases": [
+    "811121"
+   ],
+   "posicion": null,
+   "parecido": 0.233,
+   "candidatos": [
+    {
+     "clase": "332999",
+     "nombre": "Fabricación de otros productos metálicos",
+     "parecido": 0.233,
+     "acierta": false
+    },
+    {
+     "clase": "431160",
+     "nombre": "Comercio al por mayor de leche y otros productos lácteos",
+     "parecido": 0.2261,
+     "acierta": false
+    },
+    {
+     "clase": "461150",
+     "nombre": "Comercio al por menor de leche, otros productos lácteos y embutidos",
+     "parecido": 0.2248,
+     "acierta": false
+    },
+    {
+     "clase": "434221",
+     "nombre": "Comercio al por mayor de materiales metálicos para la construcción y la manufactura",
+     "parecido": 0.2241,
+     "acierta": false
+    },
+    {
+     "clase": "713291",
+     "nombre": "Venta de billetes de lotería, pronósticos deportivos y otros boletos de sorteo",
+     "parecido": 0.2239,
+     "acierta": false
+    },
+    {
+     "clase": "332320",
+     "nombre": "Fabricación de productos de herrería",
+     "parecido": 0.2222,
+     "acierta": false
+    },
+    {
+     "clase": "463213",
+     "nombre": "Comercio al por menor de lencería",
+     "parecido": 0.2218,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.2197,
+     "acierta": false
+    },
+    {
+     "clase": "311513",
+     "nombre": "Elaboración de derivados y fermentos lácteos",
+     "parecido": 0.2185,
+     "acierta": false
+    },
+    {
+     "clase": "332810",
+     "nombre": "Recubrimientos y terminados metálicos",
+     "parecido": 0.2183,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "purificadora",
+   "tipo": "calle",
+   "clases": [
+    "312112"
+   ],
+   "posicion": 1,
+   "parecido": 0.4482,
+   "candidatos": [
+    {
+     "clase": "312112",
+     "nombre": "Purificación y embotellado de agua",
+     "parecido": 0.4482,
+     "acierta": true
+    },
+    {
+     "clase": "467115",
+     "nombre": "Comercio al por menor de artículos para la limpieza",
+     "parecido": 0.2719,
+     "acierta": false
+    },
+    {
+     "clase": "811113",
+     "nombre": "Rectificación de partes de motor de automóviles y camiones",
+     "parecido": 0.2649,
+     "acierta": false
+    },
+    {
+     "clase": "311612",
+     "nombre": "Corte y empacado de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.2608,
+     "acierta": false
+    },
+    {
+     "clase": "931510",
+     "nombre": "Regulación y fomento de actividades para mejorar y preservar el medio ambiente",
+     "parecido": 0.2471,
+     "acierta": false
+    },
+    {
+     "clase": "311613",
+     "nombre": "Preparación de embutidos y otras conservas de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.2357,
+     "acierta": false
+    },
+    {
+     "clase": "561210",
+     "nombre": "Servicios combinados de apoyo en instalaciones",
+     "parecido": 0.2324,
+     "acierta": false
+    },
+    {
+     "clase": "325610",
+     "nombre": "Fabricación de jabones, limpiadores y dentífricos",
+     "parecido": 0.2317,
+     "acierta": false
+    },
+    {
+     "clase": "561740",
+     "nombre": "Servicios de limpieza de tapicería, alfombras y muebles",
+     "parecido": 0.2282,
+     "acierta": false
+    },
+    {
+     "clase": "464113",
+     "nombre": "Comercio al por menor de productos naturistas, medicamentos homeopáticos y de complementos alimenticios",
+     "parecido": 0.2276,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "repostería",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ],
+   "posicion": 6,
+   "parecido": 0.4185,
+   "candidatos": [
+    {
+     "clase": "311812",
+     "nombre": "Panificación tradicional",
+     "parecido": 0.4185,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.4109,
+     "acierta": false
+    },
+    {
+     "clase": "311350",
+     "nombre": "Elaboración de chocolate y productos de chocolate",
+     "parecido": 0.363,
+     "acierta": false
+    },
+    {
+     "clase": "311340",
+     "nombre": "Elaboración de dulces, chicles y productos de confitería que no sean de chocolate",
+     "parecido": 0.3601,
+     "acierta": false
+    },
+    {
+     "clase": "431180",
+     "nombre": "Comercio al por mayor de dulces y materias primas para repostería",
+     "parecido": 0.3495,
+     "acierta": false
+    },
+    {
+     "clase": "461160",
+     "nombre": "Comercio al por menor de dulces y materias primas para repostería",
+     "parecido": 0.3486,
+     "acierta": true
+    },
+    {
+     "clase": "311991",
+     "nombre": "Elaboración de gelatinas y otros postres en polvo",
+     "parecido": 0.3361,
+     "acierta": false
+    },
+    {
+     "clase": "311319",
+     "nombre": "Elaboración de otros azúcares",
+     "parecido": 0.3158,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.3141,
+     "acierta": false
+    },
+    {
+     "clase": "311811",
+     "nombre": "Panificación industrial",
+     "parecido": 0.3075,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "tahona",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "311811"
+   ],
+   "posicion": null,
+   "parecido": 0.2732,
+   "candidatos": [
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.2732,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.2702,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.246,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.2395,
+     "acierta": false
+    },
+    {
+     "clase": "332710",
+     "nombre": "Maquinado de piezas metálicas para maquinaria y equipo en general",
+     "parecido": 0.239,
+     "acierta": false
+    },
+    {
+     "clase": "238311",
+     "nombre": "Colocación de muros falsos y aislamiento",
+     "parecido": 0.2325,
+     "acierta": false
+    },
+    {
+     "clase": "311910",
+     "nombre": "Elaboración de botanas",
+     "parecido": 0.2309,
+     "acierta": false
+    },
+    {
+     "clase": "332720",
+     "nombre": "Fabricación de tornillos, tuercas, remaches y similares",
+     "parecido": 0.2237,
+     "acierta": false
+    },
+    {
+     "clase": "432113",
+     "nombre": "Comercio al por mayor de cueros y pieles",
+     "parecido": 0.2192,
+     "acierta": false
+    },
+    {
+     "clase": "811311",
+     "nombre": "Reparación y mantenimiento de maquinaria y equipo agropecuario y forestal",
+     "parecido": 0.2188,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "pulquería",
+   "tipo": "calle",
+   "clases": [
+    "722412"
+   ],
+   "posicion": 2,
+   "parecido": 0.4564,
+   "candidatos": [
+    {
+     "clase": "312132",
+     "nombre": "Elaboración de pulque",
+     "parecido": 0.4564,
+     "acierta": false
+    },
+    {
+     "clase": "722412",
+     "nombre": "Bares, cantinas y similares",
+     "parecido": 0.3903,
+     "acierta": true
+    },
+    {
+     "clase": "461122",
+     "nombre": "Comercio al por menor de carne de aves",
+     "parecido": 0.3564,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.3464,
+     "acierta": false
+    },
+    {
+     "clase": "431122",
+     "nombre": "Comercio al por mayor de carne de aves",
+     "parecido": 0.3119,
+     "acierta": false
+    },
+    {
+     "clase": "311613",
+     "nombre": "Preparación de embutidos y otras conservas de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.3082,
+     "acierta": false
+    },
+    {
+     "clase": "722512",
+     "nombre": "Restaurantes con servicio de preparación de pescados y mariscos",
+     "parecido": 0.3034,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.2992,
+     "acierta": false
+    },
+    {
+     "clase": "312112",
+     "nombre": "Purificación y embotellado de agua",
+     "parecido": 0.2955,
+     "acierta": false
+    },
+    {
+     "clase": "461123",
+     "nombre": "Comercio al por menor de pescados y mariscos",
+     "parecido": 0.2955,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "funeraria",
+   "tipo": "calle",
+   "clases": [
+    "812310"
+   ],
+   "posicion": 1,
+   "parecido": 0.5702,
+   "candidatos": [
+    {
+     "clase": "812310",
+     "nombre": "Servicios funerarios",
+     "parecido": 0.5702,
+     "acierta": true
+    },
+    {
+     "clase": "812321",
+     "nombre": "Administración de cementerios pertenecientes al sector privado",
+     "parecido": 0.4515,
+     "acierta": false
+    },
+    {
+     "clase": "812322",
+     "nombre": "Administración de cementerios pertenecientes al sector público",
+     "parecido": 0.4331,
+     "acierta": false
+    },
+    {
+     "clase": "339995",
+     "nombre": "Fabricación de ataúdes",
+     "parecido": 0.3656,
+     "acierta": false
+    },
+    {
+     "clase": "524220",
+     "nombre": "Administración de cajas de pensión y de seguros independientes",
+     "parecido": 0.2463,
+     "acierta": false
+    },
+    {
+     "clase": "621991",
+     "nombre": "Servicios de bancos de órganos, bancos de sangre y otros servicios auxiliares al tratamiento médico prestados por el sector privado",
+     "parecido": 0.2407,
+     "acierta": false
+    },
+    {
+     "clase": "621992",
+     "nombre": "Servicios de bancos de órganos, bancos de sangre y otros servicios auxiliares al tratamiento médico prestados por el sector público",
+     "parecido": 0.2407,
+     "acierta": false
+    },
+    {
+     "clase": "461121",
+     "nombre": "Comercio al por menor de carnes rojas",
+     "parecido": 0.2376,
+     "acierta": false
+    },
+    {
+     "clase": "621910",
+     "nombre": "Servicios de ambulancias",
+     "parecido": 0.2314,
+     "acierta": false
+    },
+    {
+     "clase": "722320",
+     "nombre": "Servicios de preparación de alimentos para ocasiones especiales",
+     "parecido": 0.2308,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde arreglan consolas de videojuegos",
+   "tipo": "descripcion",
+   "clases": [
+    "811219"
+   ],
+   "posicion": 3,
+   "parecido": 0.3458,
+   "candidatos": [
+    {
+     "clase": "811211",
+     "nombre": "Reparación y mantenimiento de equipo electrónico de uso doméstico",
+     "parecido": 0.3458,
+     "acierta": false
+    },
+    {
+     "clase": "713120",
+     "nombre": "Casas de juegos electrónicos",
+     "parecido": 0.345,
+     "acierta": false
+    },
+    {
+     "clase": "811219",
+     "nombre": "Reparación y mantenimiento de otro equipo electrónico y de equipo de precisión",
+     "parecido": 0.3374,
+     "acierta": true
+    },
+    {
+     "clase": "811410",
+     "nombre": "Reparación y mantenimiento de aparatos eléctricos para el hogar y personales",
+     "parecido": 0.3019,
+     "acierta": false
+    },
+    {
+     "clase": "811499",
+     "nombre": "Reparación y mantenimiento de otros artículos para el hogar y personales",
+     "parecido": 0.2837,
+     "acierta": false
+    },
+    {
+     "clase": "811314",
+     "nombre": "Reparación y mantenimiento de maquinaria y equipo comercial y de servicios",
+     "parecido": 0.2809,
+     "acierta": false
+    },
+    {
+     "clase": "811313",
+     "nombre": "Reparación y mantenimiento de maquinaria y equipo para mover, levantar y acomodar materiales",
+     "parecido": 0.2634,
+     "acierta": false
+    },
+    {
+     "clase": "811430",
+     "nombre": "Reparación de calzado y otros artículos de piel y cuero",
+     "parecido": 0.2615,
+     "acierta": false
+    },
+    {
+     "clase": "811493",
+     "nombre": "Reparación y mantenimiento de bicicletas",
+     "parecido": 0.2592,
+     "acierta": false
+    },
+    {
+     "clase": "811113",
+     "nombre": "Rectificación de partes de motor de automóviles y camiones",
+     "parecido": 0.2587,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me pintan el pelo",
+   "tipo": "descripcion",
+   "clases": [
+    "812110"
+   ],
+   "posicion": 1,
+   "parecido": 0.3215,
+   "candidatos": [
+    {
+     "clase": "812110",
+     "nombre": "Salones y clínicas de belleza y peluquerías",
+     "parecido": 0.3215,
+     "acierta": true
+    },
+    {
+     "clase": "325510",
+     "nombre": "Fabricación de pinturas y recubrimientos",
+     "parecido": 0.2464,
+     "acierta": false
+    },
+    {
+     "clase": "238320",
+     "nombre": "Trabajos de pintura y otros cubrimientos de paredes",
+     "parecido": 0.2446,
+     "acierta": false
+    },
+    {
+     "clase": "332810",
+     "nombre": "Recubrimientos y terminados metálicos",
+     "parecido": 0.2381,
+     "acierta": false
+    },
+    {
+     "clase": "812120",
+     "nombre": "Baños públicos",
+     "parecido": 0.236,
+     "acierta": false
+    },
+    {
+     "clase": "811121",
+     "nombre": "Hojalatería y pintura de automóviles y camiones",
+     "parecido": 0.2298,
+     "acierta": false
+    },
+    {
+     "clase": "611511",
+     "nombre": "Escuelas del sector privado dedicadas a la enseñanza de oficios",
+     "parecido": 0.2242,
+     "acierta": false
+    },
+    {
+     "clase": "238350",
+     "nombre": "Realización de trabajos de carpintería en el lugar de la construcción",
+     "parecido": 0.2194,
+     "acierta": false
+    },
+    {
+     "clase": "812210",
+     "nombre": "Lavanderías y tintorerías",
+     "parecido": 0.2184,
+     "acierta": false
+    },
+    {
+     "clase": "467113",
+     "nombre": "Comercio al por menor de pintura",
+     "parecido": 0.2174,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde venden refacciones usadas para el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "468212"
+   ],
+   "posicion": 1,
+   "parecido": 0.555,
+   "candidatos": [
+    {
+     "clase": "468212",
+     "nombre": "Comercio al por menor de partes y refacciones usadas para automóviles, camionetas y camiones",
+     "parecido": 0.555,
+     "acierta": true
+    },
+    {
+     "clase": "436112",
+     "nombre": "Comercio al por mayor de partes y refacciones nuevas para automóviles, camionetas y camiones",
+     "parecido": 0.4853,
+     "acierta": false
+    },
+    {
+     "clase": "468211",
+     "nombre": "Comercio al por menor de partes y refacciones nuevas para automóviles, camionetas y camiones",
+     "parecido": 0.4838,
+     "acierta": false
+    },
+    {
+     "clase": "468112",
+     "nombre": "Comercio al por menor de automóviles y camionetas usados",
+     "parecido": 0.4712,
+     "acierta": false
+    },
+    {
+     "clase": "468111",
+     "nombre": "Comercio al por menor de automóviles y camionetas nuevos",
+     "parecido": 0.438,
+     "acierta": false
+    },
+    {
+     "clase": "468213",
+     "nombre": "Comercio al por menor de llantas y cámaras para automóviles, camionetas y camiones",
+     "parecido": 0.386,
+     "acierta": false
+    },
+    {
+     "clase": "436111",
+     "nombre": "Comercio al por mayor de camiones",
+     "parecido": 0.377,
+     "acierta": false
+    },
+    {
+     "clase": "466410",
+     "nombre": "Comercio al por menor de artículos usados",
+     "parecido": 0.374,
+     "acierta": false
+    },
+    {
+     "clase": "468420",
+     "nombre": "Comercio al por menor de aceites y grasas lubricantes, aditivos y similares para vehículos de motor",
+     "parecido": 0.3665,
+     "acierta": false
+    },
+    {
+     "clase": "811113",
+     "nombre": "Rectificación de partes de motor de automóviles y camiones",
+     "parecido": 0.3634,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me lavan el carro",
+   "tipo": "descripcion",
+   "clases": [
+    "811192"
+   ],
+   "posicion": 1,
+   "parecido": 0.4561,
+   "candidatos": [
+    {
+     "clase": "811192",
+     "nombre": "Lavado y lubricado de automóviles y camiones",
+     "parecido": 0.4561,
+     "acierta": true
+    },
+    {
+     "clase": "812210",
+     "nombre": "Lavanderías y tintorerías",
+     "parecido": 0.32,
+     "acierta": false
+    },
+    {
+     "clase": "811122",
+     "nombre": "Tapicería de automóviles y camiones",
+     "parecido": 0.2913,
+     "acierta": false
+    },
+    {
+     "clase": "811129",
+     "nombre": "Instalación de cristales y otras reparaciones a la carrocería de automóviles y camiones",
+     "parecido": 0.2836,
+     "acierta": false
+    },
+    {
+     "clase": "811121",
+     "nombre": "Hojalatería y pintura de automóviles y camiones",
+     "parecido": 0.2816,
+     "acierta": false
+    },
+    {
+     "clase": "812410",
+     "nombre": "Estacionamientos y pensiones para vehículos automotores",
+     "parecido": 0.2696,
+     "acierta": false
+    },
+    {
+     "clase": "561720",
+     "nombre": "Servicios de limpieza de inmuebles",
+     "parecido": 0.2578,
+     "acierta": false
+    },
+    {
+     "clase": "812120",
+     "nombre": "Baños públicos",
+     "parecido": 0.2534,
+     "acierta": false
+    },
+    {
+     "clase": "325610",
+     "nombre": "Fabricación de jabones, limpiadores y dentífricos",
+     "parecido": 0.2531,
+     "acierta": false
+    },
+    {
+     "clase": "811111",
+     "nombre": "Reparación mecánica en general de automóviles y camiones",
+     "parecido": 0.249,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde mando una encomienda a otra ciudad",
+   "tipo": "descripcion",
+   "clases": [
+    "492110"
+   ],
+   "posicion": 1,
+   "parecido": 0.236,
+   "candidatos": [
+    {
+     "clase": "492110",
+     "nombre": "Servicios de mensajería y paquetería foránea",
+     "parecido": 0.236,
+     "acierta": true
+    },
+    {
+     "clase": "492210",
+     "nombre": "Servicios de mensajería y paquetería local",
+     "parecido": 0.227,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.2032,
+     "acierta": false
+    },
+    {
+     "clase": "493120",
+     "nombre": "Almacenamiento con refrigeración",
+     "parecido": 0.1976,
+     "acierta": false
+    },
+    {
+     "clase": "484210",
+     "nombre": "Servicios de mudanzas",
+     "parecido": 0.1968,
+     "acierta": false
+    },
+    {
+     "clase": "541120",
+     "nombre": "Notarías públicas",
+     "parecido": 0.1817,
+     "acierta": false
+    },
+    {
+     "clase": "931510",
+     "nombre": "Regulación y fomento de actividades para mejorar y preservar el medio ambiente",
+     "parecido": 0.1773,
+     "acierta": false
+    },
+    {
+     "clase": "522452",
+     "nombre": "Casas de empeño",
+     "parecido": 0.1766,
+     "acierta": false
+    },
+    {
+     "clase": "487110",
+     "nombre": "Transporte turístico por tierra",
+     "parecido": 0.1764,
+     "acierta": false
+    },
+    {
+     "clase": "561990",
+     "nombre": "Otros servicios de apoyo a los negocios",
+     "parecido": 0.1727,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "donde me pintan la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238320"
+   ],
+   "posicion": 1,
+   "parecido": 0.362,
+   "candidatos": [
+    {
+     "clase": "238320",
+     "nombre": "Trabajos de pintura y otros cubrimientos de paredes",
+     "parecido": 0.362,
+     "acierta": true
+    },
+    {
+     "clase": "325510",
+     "nombre": "Fabricación de pinturas y recubrimientos",
+     "parecido": 0.3542,
+     "acierta": false
+    },
+    {
+     "clase": "467113",
+     "nombre": "Comercio al por menor de pintura",
+     "parecido": 0.3016,
+     "acierta": false
+    },
+    {
+     "clase": "238330",
+     "nombre": "Colocación de pisos flexibles y de madera",
+     "parecido": 0.2953,
+     "acierta": false
+    },
+    {
+     "clase": "434226",
+     "nombre": "Comercio al por mayor de pintura",
+     "parecido": 0.2911,
+     "acierta": false
+    },
+    {
+     "clase": "238312",
+     "nombre": "Trabajos de enyesado, empastado y tiroleado",
+     "parecido": 0.2672,
+     "acierta": false
+    },
+    {
+     "clase": "238350",
+     "nombre": "Realización de trabajos de carpintería en el lugar de la construcción",
+     "parecido": 0.2656,
+     "acierta": false
+    },
+    {
+     "clase": "238311",
+     "nombre": "Colocación de muros falsos y aislamiento",
+     "parecido": 0.2602,
+     "acierta": false
+    },
+    {
+     "clase": "811121",
+     "nombre": "Hojalatería y pintura de automóviles y camiones",
+     "parecido": 0.2531,
+     "acierta": false
+    },
+    {
+     "clase": "332810",
+     "nombre": "Recubrimientos y terminados metálicos",
+     "parecido": 0.248,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "quién me instala la luz en la casa",
+   "tipo": "descripcion",
+   "clases": [
+    "238210"
+   ],
+   "posicion": 6,
+   "parecido": 0.3677,
+   "candidatos": [
+    {
+     "clase": "335131",
+     "nombre": "Fabricación de focos",
+     "parecido": 0.3677,
+     "acierta": false
+    },
+    {
+     "clase": "335132",
+     "nombre": "Fabricación de lámparas ornamentales",
+     "parecido": 0.3663,
+     "acierta": false
+    },
+    {
+     "clase": "221123",
+     "nombre": "Comercialización de energía eléctrica",
+     "parecido": 0.3204,
+     "acierta": false
+    },
+    {
+     "clase": "221122",
+     "nombre": "Distribución de energía eléctrica",
+     "parecido": 0.3167,
+     "acierta": false
+    },
+    {
+     "clase": "221111",
+     "nombre": "Generación de electricidad a partir de combustibles fósiles",
+     "parecido": 0.309,
+     "acierta": false
+    },
+    {
+     "clase": "238210",
+     "nombre": "Instalaciones eléctricas en construcciones",
+     "parecido": 0.3049,
+     "acierta": true
+    },
+    {
+     "clase": "466314",
+     "nombre": "Comercio al por menor de lámparas ornamentales y candiles",
+     "parecido": 0.3017,
+     "acierta": false
+    },
+    {
+     "clase": "221121",
+     "nombre": "Transmisión de energía eléctrica",
+     "parecido": 0.3015,
+     "acierta": false
+    },
+    {
+     "clase": "221119",
+     "nombre": "Generación de electricidad a partir de otro tipo de energía",
+     "parecido": 0.2982,
+     "acierta": false
+    },
+    {
+     "clase": "221113",
+     "nombre": "Generación de electricidad a partir de energía solar",
+     "parecido": 0.2981,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me atienden los dientes",
+   "tipo": "descripcion",
+   "clases": [
+    "621211",
+    "621212"
+   ],
+   "posicion": 1,
+   "parecido": 0.4713,
+   "candidatos": [
+    {
+     "clase": "621211",
+     "nombre": "Consultorios dentales del sector privado",
+     "parecido": 0.4713,
+     "acierta": true
+    },
+    {
+     "clase": "621212",
+     "nombre": "Consultorios dentales del sector público",
+     "parecido": 0.468,
+     "acierta": true
+    },
+    {
+     "clase": "339111",
+     "nombre": "Fabricación de equipo no electrónico para uso médico, dental y para laboratorio",
+     "parecido": 0.2776,
+     "acierta": false
+    },
+    {
+     "clase": "621491",
+     "nombre": "Otros centros del sector privado para la atención de pacientes que no requieren hospitalización",
+     "parecido": 0.2541,
+     "acierta": false
+    },
+    {
+     "clase": "622211",
+     "nombre": "Hospitales psiquiátricos y para el tratamiento por adicción del sector privado",
+     "parecido": 0.2476,
+     "acierta": false
+    },
+    {
+     "clase": "621412",
+     "nombre": "Centros de planificación familiar del sector público",
+     "parecido": 0.2462,
+     "acierta": false
+    },
+    {
+     "clase": "435313",
+     "nombre": "Comercio al por mayor de mobiliario, equipo e instrumental médico y de laboratorio",
+     "parecido": 0.2417,
+     "acierta": false
+    },
+    {
+     "clase": "621422",
+     "nombre": "Centros del sector público de atención médica externa para enfermos mentales y adictos",
+     "parecido": 0.2386,
+     "acierta": false
+    },
+    {
+     "clase": "621411",
+     "nombre": "Centros de planificación familiar del sector privado",
+     "parecido": 0.2347,
+     "acierta": false
+    },
+    {
+     "clase": "621399",
+     "nombre": "Otros consultorios del sector público para el cuidado de la salud",
+     "parecido": 0.2338,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me hacen análisis de sangre",
+   "tipo": "descripcion",
+   "clases": [
+    "621511",
+    "621512"
+   ],
+   "posicion": 1,
+   "parecido": 0.364,
+   "candidatos": [
+    {
+     "clase": "621511",
+     "nombre": "Laboratorios médicos y de diagnóstico del sector privado",
+     "parecido": 0.364,
+     "acierta": true
+    },
+    {
+     "clase": "621512",
+     "nombre": "Laboratorios médicos y de diagnóstico del sector público",
+     "parecido": 0.3438,
+     "acierta": true
+    },
+    {
+     "clase": "541380",
+     "nombre": "Laboratorios de pruebas",
+     "parecido": 0.3063,
+     "acierta": false
+    },
+    {
+     "clase": "621992",
+     "nombre": "Servicios de bancos de órganos, bancos de sangre y otros servicios auxiliares al tratamiento médico prestados por el sector público",
+     "parecido": 0.2927,
+     "acierta": false
+    },
+    {
+     "clase": "621991",
+     "nombre": "Servicios de bancos de órganos, bancos de sangre y otros servicios auxiliares al tratamiento médico prestados por el sector privado",
+     "parecido": 0.2885,
+     "acierta": false
+    },
+    {
+     "clase": "621411",
+     "nombre": "Centros de planificación familiar del sector privado",
+     "parecido": 0.2613,
+     "acierta": false
+    },
+    {
+     "clase": "621491",
+     "nombre": "Otros centros del sector privado para la atención de pacientes que no requieren hospitalización",
+     "parecido": 0.2595,
+     "acierta": false
+    },
+    {
+     "clase": "621114",
+     "nombre": "Consultorios de medicina especializada del sector público",
+     "parecido": 0.2535,
+     "acierta": false
+    },
+    {
+     "clase": "621910",
+     "nombre": "Servicios de ambulancias",
+     "parecido": 0.2392,
+     "acierta": false
+    },
+    {
+     "clase": "621112",
+     "nombre": "Consultorios de medicina general del sector público",
+     "parecido": 0.2342,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde dejo a mi hijo mientras trabajo",
+   "tipo": "descripcion",
+   "clases": [
+    "624411",
+    "624412"
+   ],
+   "posicion": 1,
+   "parecido": 0.2648,
+   "candidatos": [
+    {
+     "clase": "624411",
+     "nombre": "Guarderías del sector privado",
+     "parecido": 0.2648,
+     "acierta": true
+    },
+    {
+     "clase": "624412",
+     "nombre": "Guarderías del sector público",
+     "parecido": 0.2587,
+     "acierta": true
+    },
+    {
+     "clase": "611111",
+     "nombre": "Escuelas de educación preescolar del sector privado",
+     "parecido": 0.2231,
+     "acierta": false
+    },
+    {
+     "clase": "611112",
+     "nombre": "Escuelas de educación preescolar del sector público",
+     "parecido": 0.2089,
+     "acierta": false
+    },
+    {
+     "clase": "238190",
+     "nombre": "Otros trabajos en exteriores",
+     "parecido": 0.1997,
+     "acierta": false
+    },
+    {
+     "clase": "623991",
+     "nombre": "Orfanatos y otras residencias de asistencia social del sector privado",
+     "parecido": 0.1994,
+     "acierta": false
+    },
+    {
+     "clase": "611512",
+     "nombre": "Escuelas del sector público dedicadas a la enseñanza de oficios",
+     "parecido": 0.199,
+     "acierta": false
+    },
+    {
+     "clase": "561310",
+     "nombre": "Agencias de colocación",
+     "parecido": 0.193,
+     "acierta": false
+    },
+    {
+     "clase": "611171",
+     "nombre": "Escuelas del sector privado que combinan diversos niveles de educación",
+     "parecido": 0.1926,
+     "acierta": false
+    },
+    {
+     "clase": "611511",
+     "nombre": "Escuelas del sector privado dedicadas a la enseñanza de oficios",
+     "parecido": 0.1888,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "donde aprender inglés en las tardes",
+   "tipo": "descripcion",
+   "clases": [
+    "611631",
+    "611632"
+   ],
+   "posicion": 1,
+   "parecido": 0.3913,
+   "candidatos": [
+    {
+     "clase": "611631",
+     "nombre": "Escuelas de idiomas del sector privado",
+     "parecido": 0.3913,
+     "acierta": true
+    },
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.2863,
+     "acierta": false
+    },
+    {
+     "clase": "611691",
+     "nombre": "Servicios de profesores particulares",
+     "parecido": 0.2846,
+     "acierta": false
+    },
+    {
+     "clase": "611431",
+     "nombre": "Escuelas para la capacitación de ejecutivos del sector privado",
+     "parecido": 0.2757,
+     "acierta": false
+    },
+    {
+     "clase": "611421",
+     "nombre": "Escuelas de computación del sector privado",
+     "parecido": 0.2616,
+     "acierta": false
+    },
+    {
+     "clase": "611632",
+     "nombre": "Escuelas de idiomas del sector público",
+     "parecido": 0.2569,
+     "acierta": true
+    },
+    {
+     "clase": "611112",
+     "nombre": "Escuelas de educación preescolar del sector público",
+     "parecido": 0.2521,
+     "acierta": false
+    },
+    {
+     "clase": "611181",
+     "nombre": "Escuelas del sector privado de educación para necesidades especiales",
+     "parecido": 0.2505,
+     "acierta": false
+    },
+    {
+     "clase": "611131",
+     "nombre": "Escuelas de educación secundaria general del sector privado",
+     "parecido": 0.2498,
+     "acierta": false
+    },
+    {
+     "clase": "611171",
+     "nombre": "Escuelas del sector privado que combinan diversos niveles de educación",
+     "parecido": 0.2486,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde venden ropa de segunda mano",
+   "tipo": "descripcion",
+   "clases": [
+    "466410",
+    "463211"
+   ],
+   "posicion": 1,
+   "parecido": 0.454,
+   "candidatos": [
+    {
+     "clase": "466410",
+     "nombre": "Comercio al por menor de artículos usados",
+     "parecido": 0.454,
+     "acierta": true
+    },
+    {
+     "clase": "463211",
+     "nombre": "Comercio al por menor de ropa, excepto de bebé y lencería",
+     "parecido": 0.4042,
+     "acierta": true
+    },
+    {
+     "clase": "463212",
+     "nombre": "Comercio al por menor de ropa de bebé",
+     "parecido": 0.372,
+     "acierta": false
+    },
+    {
+     "clase": "432120",
+     "nombre": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+     "parecido": 0.3608,
+     "acierta": false
+    },
+    {
+     "clase": "463213",
+     "nombre": "Comercio al por menor de lencería",
+     "parecido": 0.3496,
+     "acierta": false
+    },
+    {
+     "clase": "463216",
+     "nombre": "Comercio al por menor de ropa de cuero y piel y de otros artículos de estos materiales",
+     "parecido": 0.3492,
+     "acierta": false
+    },
+    {
+     "clase": "463214",
+     "nombre": "Comercio al por menor de disfraces, vestimenta regional y vestidos de novia",
+     "parecido": 0.348,
+     "acierta": false
+    },
+    {
+     "clase": "463215",
+     "nombre": "Comercio al por menor de bisutería y accesorios de vestir",
+     "parecido": 0.3475,
+     "acierta": false
+    },
+    {
+     "clase": "463217",
+     "nombre": "Comercio al por menor de pañales desechables",
+     "parecido": 0.3368,
+     "acierta": false
+    },
+    {
+     "clase": "468112",
+     "nombre": "Comercio al por menor de automóviles y camionetas usados",
+     "parecido": 0.3335,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde compro flores para regalar",
+   "tipo": "descripcion",
+   "clases": [
+    "466312"
+   ],
+   "posicion": 1,
+   "parecido": 0.4436,
+   "candidatos": [
+    {
+     "clase": "466312",
+     "nombre": "Comercio al por menor de plantas y flores naturales",
+     "parecido": 0.4436,
+     "acierta": true
+    },
+    {
+     "clase": "466319",
+     "nombre": "Comercio al por menor de otros artículos para la decoración de interiores",
+     "parecido": 0.3908,
+     "acierta": false
+    },
+    {
+     "clase": "465912",
+     "nombre": "Comercio al por menor de regalos",
+     "parecido": 0.3454,
+     "acierta": false
+    },
+    {
+     "clase": "465311",
+     "nombre": "Comercio al por menor de artículos de papelería",
+     "parecido": 0.3099,
+     "acierta": false
+    },
+    {
+     "clase": "465915",
+     "nombre": "Comercio al por menor en tiendas de artesanías",
+     "parecido": 0.301,
+     "acierta": false
+    },
+    {
+     "clase": "465111",
+     "nombre": "Comercio al por menor de artículos de perfumería y cosméticos",
+     "parecido": 0.3008,
+     "acierta": false
+    },
+    {
+     "clase": "465919",
+     "nombre": "Comercio al por menor de otros artículos de uso personal",
+     "parecido": 0.2975,
+     "acierta": false
+    },
+    {
+     "clase": "466113",
+     "nombre": "Comercio al por menor de muebles para jardín",
+     "parecido": 0.2948,
+     "acierta": false
+    },
+    {
+     "clase": "465112",
+     "nombre": "Comercio al por menor de artículos de joyería y relojes",
+     "parecido": 0.2865,
+     "acierta": false
+    },
+    {
+     "clase": "465212",
+     "nombre": "Comercio al por menor de juguetes",
+     "parecido": 0.283,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me venden comida para el perro",
+   "tipo": "descripcion",
+   "clases": [
+    "465911"
+   ],
+   "posicion": 1,
+   "parecido": 0.4045,
+   "candidatos": [
+    {
+     "clase": "465911",
+     "nombre": "Comercio al por menor de mascotas",
+     "parecido": 0.4045,
+     "acierta": true
+    },
+    {
+     "clase": "434112",
+     "nombre": "Comercio al por mayor de medicamentos veterinarios y alimentos para animales, excepto mascotas",
+     "parecido": 0.4002,
+     "acierta": false
+    },
+    {
+     "clase": "541941",
+     "nombre": "Servicios veterinarios para mascotas prestados por el sector privado",
+     "parecido": 0.3295,
+     "acierta": false
+    },
+    {
+     "clase": "541942",
+     "nombre": "Servicios veterinarios para mascotas prestados por el sector público",
+     "parecido": 0.3159,
+     "acierta": false
+    },
+    {
+     "clase": "465912",
+     "nombre": "Comercio al por menor de regalos",
+     "parecido": 0.3124,
+     "acierta": false
+    },
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.3109,
+     "acierta": false
+    },
+    {
+     "clase": "467116",
+     "nombre": "Comercio al por menor de materiales para la construcción en tiendas de autoservicio especializadas",
+     "parecido": 0.3074,
+     "acierta": false
+    },
+    {
+     "clase": "462210",
+     "nombre": "Comercio al por menor en tiendas departamentales",
+     "parecido": 0.3029,
+     "acierta": false
+    },
+    {
+     "clase": "462111",
+     "nombre": "Comercio al por menor en supermercados",
+     "parecido": 0.3029,
+     "acierta": false
+    },
+    {
+     "clase": "431199",
+     "nombre": "Comercio al por mayor de otros alimentos",
+     "parecido": 0.3007,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde mandan a imprimir tarjetas de presentación",
+   "tipo": "descripcion",
+   "clases": [
+    "323119"
+   ],
+   "posicion": 4,
+   "parecido": 0.3515,
+   "candidatos": [
+    {
+     "clase": "541430",
+     "nombre": "Diseño gráfico",
+     "parecido": 0.3515,
+     "acierta": false
+    },
+    {
+     "clase": "561431",
+     "nombre": "Servicios de fotocopiado, fax y afines",
+     "parecido": 0.3482,
+     "acierta": false
+    },
+    {
+     "clase": "323111",
+     "nombre": "Impresión de libros, periódicos y revistas",
+     "parecido": 0.3414,
+     "acierta": false
+    },
+    {
+     "clase": "323119",
+     "nombre": "Impresión de formas continuas y otros impresos",
+     "parecido": 0.3311,
+     "acierta": true
+    },
+    {
+     "clase": "541890",
+     "nombre": "Servicios de rotulación y otros servicios de publicidad",
+     "parecido": 0.318,
+     "acierta": false
+    },
+    {
+     "clase": "513132",
+     "nombre": "Edición de libros integrada con la impresión",
+     "parecido": 0.3108,
+     "acierta": false
+    },
+    {
+     "clase": "561410",
+     "nombre": "Servicios de preparación de documentos",
+     "parecido": 0.3049,
+     "acierta": false
+    },
+    {
+     "clase": "323120",
+     "nombre": "Industrias conexas a la impresión",
+     "parecido": 0.3037,
+     "acierta": false
+    },
+    {
+     "clase": "812910",
+     "nombre": "Servicios de revelado e impresión de fotografías",
+     "parecido": 0.3027,
+     "acierta": false
+    },
+    {
+     "clase": "513142",
+     "nombre": "Edición de directorios y listas de correo integrada con la impresión",
+     "parecido": 0.2962,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde rentan vestidos de fiesta",
+   "tipo": "descripcion",
+   "clases": [
+    "532281"
+   ],
+   "posicion": 1,
+   "parecido": 0.439,
+   "candidatos": [
+    {
+     "clase": "532281",
+     "nombre": "Alquiler de prendas de vestir",
+     "parecido": 0.439,
+     "acierta": true
+    },
+    {
+     "clase": "531113",
+     "nombre": "Alquiler sin intermediación de salones para fiestas y convenciones",
+     "parecido": 0.4283,
+     "acierta": false
+    },
+    {
+     "clase": "463214",
+     "nombre": "Comercio al por menor de disfraces, vestimenta regional y vestidos de novia",
+     "parecido": 0.407,
+     "acierta": false
+    },
+    {
+     "clase": "532310",
+     "nombre": "Centros generales de alquiler",
+     "parecido": 0.3895,
+     "acierta": false
+    },
+    {
+     "clase": "532282",
+     "nombre": "Alquiler de mesas, sillas, vajillas y similares",
+     "parecido": 0.3577,
+     "acierta": false
+    },
+    {
+     "clase": "315224",
+     "nombre": "Confección en serie de disfraces y trajes típicos",
+     "parecido": 0.3483,
+     "acierta": false
+    },
+    {
+     "clase": "532420",
+     "nombre": "Alquiler de equipo de cómputo y de otras máquinas y mobiliario de oficina",
+     "parecido": 0.3211,
+     "acierta": false
+    },
+    {
+     "clase": "722320",
+     "nombre": "Servicios de preparación de alimentos para ocasiones especiales",
+     "parecido": 0.3208,
+     "acierta": false
+    },
+    {
+     "clase": "432120",
+     "nombre": "Comercio al por mayor de ropa, bisutería y accesorios de vestir",
+     "parecido": 0.3172,
+     "acierta": false
+    },
+    {
+     "clase": "532110",
+     "nombre": "Alquiler de automóviles sin chofer",
+     "parecido": 0.3166,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde me llevan la ropa a lavar",
+   "tipo": "descripcion",
+   "clases": [
+    "812210"
+   ],
+   "posicion": 1,
+   "parecido": 0.4032,
+   "candidatos": [
+    {
+     "clase": "812210",
+     "nombre": "Lavanderías y tintorerías",
+     "parecido": 0.4032,
+     "acierta": true
+    },
+    {
+     "clase": "532281",
+     "nombre": "Alquiler de prendas de vestir",
+     "parecido": 0.2682,
+     "acierta": false
+    },
+    {
+     "clase": "315123",
+     "nombre": "Fabricación de ropa exterior de tejido de punto",
+     "parecido": 0.268,
+     "acierta": false
+    },
+    {
+     "clase": "811192",
+     "nombre": "Lavado y lubricado de automóviles y camiones",
+     "parecido": 0.2665,
+     "acierta": false
+    },
+    {
+     "clase": "315222",
+     "nombre": "Confección en serie de camisas",
+     "parecido": 0.2653,
+     "acierta": false
+    },
+    {
+     "clase": "315229",
+     "nombre": "Confección en serie de otra ropa exterior de materiales textiles",
+     "parecido": 0.2596,
+     "acierta": false
+    },
+    {
+     "clase": "315225",
+     "nombre": "Confección de prendas de vestir sobre medida",
+     "parecido": 0.2543,
+     "acierta": false
+    },
+    {
+     "clase": "315221",
+     "nombre": "Confección en serie de ropa interior y de dormir",
+     "parecido": 0.2535,
+     "acierta": false
+    },
+    {
+     "clase": "811410",
+     "nombre": "Reparación y mantenimiento de aparatos eléctricos para el hogar y personales",
+     "parecido": 0.2431,
+     "acierta": false
+    },
+    {
+     "clase": "327399",
+     "nombre": "Fabricación de otros productos de cemento y concreto",
+     "parecido": 0.2323,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "donde renta salón para una fiesta infantil",
+   "tipo": "descripcion",
+   "clases": [
+    "531113"
+   ],
+   "posicion": 1,
+   "parecido": 0.5442,
+   "candidatos": [
+    {
+     "clase": "531113",
+     "nombre": "Alquiler sin intermediación de salones para fiestas y convenciones",
+     "parecido": 0.5442,
+     "acierta": true
+    },
+    {
+     "clase": "532310",
+     "nombre": "Centros generales de alquiler",
+     "parecido": 0.3987,
+     "acierta": false
+    },
+    {
+     "clase": "532282",
+     "nombre": "Alquiler de mesas, sillas, vajillas y similares",
+     "parecido": 0.3488,
+     "acierta": false
+    },
+    {
+     "clase": "713111",
+     "nombre": "Parques de diversiones y temáticos del sector privado",
+     "parecido": 0.3394,
+     "acierta": false
+    },
+    {
+     "clase": "722320",
+     "nombre": "Servicios de preparación de alimentos para ocasiones especiales",
+     "parecido": 0.3264,
+     "acierta": false
+    },
+    {
+     "clase": "531115",
+     "nombre": "Alquiler sin intermediación de teatros, estadios, auditorios y similares",
+     "parecido": 0.3239,
+     "acierta": false
+    },
+    {
+     "clase": "532493",
+     "nombre": "Alquiler de maquinaria y equipo comercial y de servicios",
+     "parecido": 0.3184,
+     "acierta": false
+    },
+    {
+     "clase": "532420",
+     "nombre": "Alquiler de equipo de cómputo y de otras máquinas y mobiliario de oficina",
+     "parecido": 0.3064,
+     "acierta": false
+    },
+    {
+     "clase": "722411",
+     "nombre": "Centros nocturnos, discotecas y similares",
+     "parecido": 0.304,
+     "acierta": false
+    },
+    {
+     "clase": "531116",
+     "nombre": "Alquiler sin intermediación de edificios industriales dentro de un parque industrial",
+     "parecido": 0.2962,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "tortillria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311830",
+    "461190"
+   ],
+   "posicion": 2,
+   "parecido": 0.3462,
+   "candidatos": [
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.3462,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.3143,
+     "acierta": true
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.267,
+     "acierta": false
+    },
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.2663,
+     "acierta": false
+    },
+    {
+     "clase": "332720",
+     "nombre": "Fabricación de tornillos, tuercas, remaches y similares",
+     "parecido": 0.2494,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.2452,
+     "acierta": false
+    },
+    {
+     "clase": "326211",
+     "nombre": "Fabricación de llantas y cámaras",
+     "parecido": 0.2406,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.2378,
+     "acierta": false
+    },
+    {
+     "clase": "467117",
+     "nombre": "Comercio al por menor de artículos para albercas y otros artículos",
+     "parecido": 0.2374,
+     "acierta": false
+    },
+    {
+     "clase": "311811",
+     "nombre": "Panificación industrial",
+     "parecido": 0.2356,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "fonnda",
+   "tipo": "error_dedo",
+   "clases": [
+    "722511"
+   ],
+   "posicion": 2,
+   "parecido": 0.2817,
+   "candidatos": [
+    {
+     "clase": "624311",
+     "nombre": "Servicios de capacitación para el trabajo prestados por el sector privado para personas desempleadas, subempleadas o discapacitadas",
+     "parecido": 0.2817,
+     "acierta": false
+    },
+    {
+     "clase": "722511",
+     "nombre": "Restaurantes con servicio de preparación de alimentos a la carta o de comida corrida",
+     "parecido": 0.2627,
+     "acierta": true
+    },
+    {
+     "clase": "522390",
+     "nombre": "Otras instituciones de ahorro y préstamo",
+     "parecido": 0.2549,
+     "acierta": false
+    },
+    {
+     "clase": "722518",
+     "nombre": "Restaurantes que preparan otro tipo de alimentos para llevar",
+     "parecido": 0.2506,
+     "acierta": false
+    },
+    {
+     "clase": "331520",
+     "nombre": "Moldeo por fundición de piezas metálicas no ferrosas",
+     "parecido": 0.2495,
+     "acierta": false
+    },
+    {
+     "clase": "522220",
+     "nombre": "Fondos y fideicomisos financieros",
+     "parecido": 0.2408,
+     "acierta": false
+    },
+    {
+     "clase": "531115",
+     "nombre": "Alquiler sin intermediación de teatros, estadios, auditorios y similares",
+     "parecido": 0.2317,
+     "acierta": false
+    },
+    {
+     "clase": "532493",
+     "nombre": "Alquiler de maquinaria y equipo comercial y de servicios",
+     "parecido": 0.2296,
+     "acierta": false
+    },
+    {
+     "clase": "561450",
+     "nombre": "Despachos de investigación de solvencia financiera",
+     "parecido": 0.2237,
+     "acierta": false
+    },
+    {
+     "clase": "524220",
+     "nombre": "Administración de cajas de pensión y de seguros independientes",
+     "parecido": 0.2147,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "tacso",
+   "tipo": "error_dedo",
+   "clases": [
+    "722514"
+   ],
+   "posicion": 1,
+   "parecido": 0.3193,
+   "candidatos": [
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.3193,
+     "acierta": true
+    },
+    {
+     "clase": "431192",
+     "nombre": "Comercio al por mayor de botanas y frituras",
+     "parecido": 0.2681,
+     "acierta": false
+    },
+    {
+     "clase": "313220",
+     "nombre": "Fabricación de telas angostas de tejido de trama y pasamanería",
+     "parecido": 0.2543,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.2504,
+     "acierta": false
+    },
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.2504,
+     "acierta": false
+    },
+    {
+     "clase": "332810",
+     "nombre": "Recubrimientos y terminados metálicos",
+     "parecido": 0.236,
+     "acierta": false
+    },
+    {
+     "clase": "485990",
+     "nombre": "Otro transporte terrestre de pasajeros",
+     "parecido": 0.2331,
+     "acierta": false
+    },
+    {
+     "clase": "327420",
+     "nombre": "Fabricación de yeso y productos de yeso",
+     "parecido": 0.2296,
+     "acierta": false
+    },
+    {
+     "clase": "488493",
+     "nombre": "Servicios de báscula para el transporte y otros servicios relacionados con el transporte por carretera",
+     "parecido": 0.2279,
+     "acierta": false
+    },
+    {
+     "clase": "432111",
+     "nombre": "Comercio al por mayor de fibras, hilos y telas",
+     "parecido": 0.2277,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "nebería",
+   "tipo": "error_dedo",
+   "clases": [
+    "722515",
+    "461170"
+   ],
+   "posicion": 10,
+   "parecido": 0.25,
+   "candidatos": [
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.25,
+     "acierta": false
+    },
+    {
+     "clase": "312120",
+     "nombre": "Elaboración de cerveza",
+     "parecido": 0.2473,
+     "acierta": false
+    },
+    {
+     "clase": "722412",
+     "nombre": "Bares, cantinas y similares",
+     "parecido": 0.2348,
+     "acierta": false
+    },
+    {
+     "clase": "327330",
+     "nombre": "Fabricación de tubos y bloques de cemento y concreto",
+     "parecido": 0.2257,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.2245,
+     "acierta": false
+    },
+    {
+     "clase": "312112",
+     "nombre": "Purificación y embotellado de agua",
+     "parecido": 0.2194,
+     "acierta": false
+    },
+    {
+     "clase": "461212",
+     "nombre": "Comercio al por menor de cerveza",
+     "parecido": 0.2178,
+     "acierta": false
+    },
+    {
+     "clase": "431211",
+     "nombre": "Comercio al por mayor de bebidas no alcohólicas y hielo",
+     "parecido": 0.2133,
+     "acierta": false
+    },
+    {
+     "clase": "722519",
+     "nombre": "Servicios de preparación de otros alimentos para consumo inmediato",
+     "parecido": 0.2098,
+     "acierta": false
+    },
+    {
+     "clase": "722515",
+     "nombre": "Cafeterías, fuentes de sodas, neverías, refresquerías y similares",
+     "parecido": 0.2048,
+     "acierta": true
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "carnecería",
+   "tipo": "error_dedo",
+   "clases": [
+    "461121",
+    "461122"
+   ],
+   "posicion": 1,
+   "parecido": 0.4529,
+   "candidatos": [
+    {
+     "clase": "461121",
+     "nombre": "Comercio al por menor de carnes rojas",
+     "parecido": 0.4529,
+     "acierta": true
+    },
+    {
+     "clase": "431121",
+     "nombre": "Comercio al por mayor de carnes rojas",
+     "parecido": 0.4329,
+     "acierta": false
+    },
+    {
+     "clase": "311612",
+     "nombre": "Corte y empacado de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.4312,
+     "acierta": false
+    },
+    {
+     "clase": "311613",
+     "nombre": "Preparación de embutidos y otras conservas de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.4273,
+     "acierta": false
+    },
+    {
+     "clase": "311611",
+     "nombre": "Matanza de ganado, aves y otros animales comestibles",
+     "parecido": 0.3746,
+     "acierta": false
+    },
+    {
+     "clase": "461122",
+     "nombre": "Comercio al por menor de carne de aves",
+     "parecido": 0.3543,
+     "acierta": true
+    },
+    {
+     "clase": "311614",
+     "nombre": "Elaboración de manteca y otras grasas animales comestibles",
+     "parecido": 0.3504,
+     "acierta": false
+    },
+    {
+     "clase": "431122",
+     "nombre": "Comercio al por mayor de carne de aves",
+     "parecido": 0.3456,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.3401,
+     "acierta": false
+    },
+    {
+     "clase": "431170",
+     "nombre": "Comercio al por mayor de embutidos",
+     "parecido": 0.3352,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "pannadería",
+   "tipo": "error_dedo",
+   "clases": [
+    "311812",
+    "311811"
+   ],
+   "posicion": 1,
+   "parecido": 0.4799,
+   "candidatos": [
+    {
+     "clase": "311812",
+     "nombre": "Panificación tradicional",
+     "parecido": 0.4799,
+     "acierta": true
+    },
+    {
+     "clase": "311811",
+     "nombre": "Panificación industrial",
+     "parecido": 0.3711,
+     "acierta": true
+    },
+    {
+     "clase": "461190",
+     "nombre": "Comercio al por menor de otros alimentos",
+     "parecido": 0.3471,
+     "acierta": false
+    },
+    {
+     "clase": "311813",
+     "nombre": "Elaboración de tortillas de harina de trigo de forma tradicional",
+     "parecido": 0.3235,
+     "acierta": false
+    },
+    {
+     "clase": "311820",
+     "nombre": "Elaboración de galletas y pastas para sopa",
+     "parecido": 0.3214,
+     "acierta": false
+    },
+    {
+     "clase": "431191",
+     "nombre": "Comercio al por mayor de pan y pasteles",
+     "parecido": 0.3116,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.2953,
+     "acierta": false
+    },
+    {
+     "clase": "722517",
+     "nombre": "Restaurantes con servicio de preparación de pizzas, hamburguesas, hot dogs y pollos rostizados para llevar",
+     "parecido": 0.2813,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.2663,
+     "acierta": false
+    },
+    {
+     "clase": "722330",
+     "nombre": "Servicios de preparación de alimentos en unidades móviles",
+     "parecido": 0.2658,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "lavanedria",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ],
+   "posicion": 4,
+   "parecido": 0.2525,
+   "candidatos": [
+    {
+     "clase": "327399",
+     "nombre": "Fabricación de otros productos de cemento y concreto",
+     "parecido": 0.2525,
+     "acierta": false
+    },
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.2108,
+     "acierta": false
+    },
+    {
+     "clase": "811192",
+     "nombre": "Lavado y lubricado de automóviles y camiones",
+     "parecido": 0.1997,
+     "acierta": false
+    },
+    {
+     "clase": "812210",
+     "nombre": "Lavanderías y tintorerías",
+     "parecido": 0.1792,
+     "acierta": true
+    },
+    {
+     "clase": "468213",
+     "nombre": "Comercio al por menor de llantas y cámaras para automóviles, camionetas y camiones",
+     "parecido": 0.1692,
+     "acierta": false
+    },
+    {
+     "clase": "463213",
+     "nombre": "Comercio al por menor de lencería",
+     "parecido": 0.1681,
+     "acierta": false
+    },
+    {
+     "clase": "313320",
+     "nombre": "Fabricación de telas recubiertas",
+     "parecido": 0.1666,
+     "acierta": false
+    },
+    {
+     "clase": "487210",
+     "nombre": "Transporte turístico por agua",
+     "parecido": 0.1649,
+     "acierta": false
+    },
+    {
+     "clase": "327111",
+     "nombre": "Fabricación de artículos de alfarería, porcelana y loza",
+     "parecido": 0.1633,
+     "acierta": false
+    },
+    {
+     "clase": "432130",
+     "nombre": "Comercio al por mayor de calzado",
+     "parecido": 0.1628,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "ferreteira",
+   "tipo": "error_dedo",
+   "clases": [
+    "467111"
+   ],
+   "posicion": null,
+   "parecido": 0.349,
+   "candidatos": [
+    {
+     "clase": "332320",
+     "nombre": "Fabricación de productos de herrería",
+     "parecido": 0.349,
+     "acierta": false
+    },
+    {
+     "clase": "331210",
+     "nombre": "Fabricación de tubos y postes de hierro y acero",
+     "parecido": 0.347,
+     "acierta": false
+    },
+    {
+     "clase": "332310",
+     "nombre": "Fabricación de estructuras metálicas",
+     "parecido": 0.3381,
+     "acierta": false
+    },
+    {
+     "clase": "331220",
+     "nombre": "Fabricación de otros productos de hierro y acero",
+     "parecido": 0.3247,
+     "acierta": false
+    },
+    {
+     "clase": "332510",
+     "nombre": "Fabricación de herrajes y cerraduras",
+     "parecido": 0.3225,
+     "acierta": false
+    },
+    {
+     "clase": "467117",
+     "nombre": "Comercio al por menor de artículos para albercas y otros artículos",
+     "parecido": 0.3043,
+     "acierta": false
+    },
+    {
+     "clase": "331112",
+     "nombre": "Fabricación de desbastes primarios y ferroaleaciones",
+     "parecido": 0.3036,
+     "acierta": false
+    },
+    {
+     "clase": "238190",
+     "nombre": "Otros trabajos en exteriores",
+     "parecido": 0.2996,
+     "acierta": false
+    },
+    {
+     "clase": "332110",
+     "nombre": "Fabricación de productos metálicos forjados y troquelados",
+     "parecido": 0.2865,
+     "acierta": false
+    },
+    {
+     "clase": "331510",
+     "nombre": "Moldeo por fundición de piezas de hierro y acero",
+     "parecido": 0.285,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "hojalatria",
+   "tipo": "error_dedo",
+   "clases": [
+    "811121"
+   ],
+   "posicion": 1,
+   "parecido": 0.2684,
+   "candidatos": [
+    {
+     "clase": "811121",
+     "nombre": "Hojalatería y pintura de automóviles y camiones",
+     "parecido": 0.2684,
+     "acierta": true
+    },
+    {
+     "clase": "621491",
+     "nombre": "Otros centros del sector privado para la atención de pacientes que no requieren hospitalización",
+     "parecido": 0.2218,
+     "acierta": false
+    },
+    {
+     "clase": "326290",
+     "nombre": "Fabricación de otros productos de hule",
+     "parecido": 0.2173,
+     "acierta": false
+    },
+    {
+     "clase": "621331",
+     "nombre": "Consultorios de psicología del sector privado",
+     "parecido": 0.2149,
+     "acierta": false
+    },
+    {
+     "clase": "712131",
+     "nombre": "Jardines botánicos y zoológicos del sector privado",
+     "parecido": 0.2107,
+     "acierta": false
+    },
+    {
+     "clase": "621398",
+     "nombre": "Otros consultorios del sector privado para el cuidado de la salud",
+     "parecido": 0.2094,
+     "acierta": false
+    },
+    {
+     "clase": "812321",
+     "nombre": "Administración de cementerios pertenecientes al sector privado",
+     "parecido": 0.204,
+     "acierta": false
+    },
+    {
+     "clase": "621311",
+     "nombre": "Consultorios de quiropráctica del sector privado",
+     "parecido": 0.2033,
+     "acierta": false
+    },
+    {
+     "clase": "621991",
+     "nombre": "Servicios de bancos de órganos, bancos de sangre y otros servicios auxiliares al tratamiento médico prestados por el sector privado",
+     "parecido": 0.2022,
+     "acierta": false
+    },
+    {
+     "clase": "621341",
+     "nombre": "Consultorios del sector privado de audiología y de terapia ocupacional, física y del lenguaje",
+     "parecido": 0.2009,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "funerarea",
+   "tipo": "error_dedo",
+   "clases": [
+    "812310"
+   ],
+   "posicion": 1,
+   "parecido": 0.4353,
+   "candidatos": [
+    {
+     "clase": "812310",
+     "nombre": "Servicios funerarios",
+     "parecido": 0.4353,
+     "acierta": true
+    },
+    {
+     "clase": "812321",
+     "nombre": "Administración de cementerios pertenecientes al sector privado",
+     "parecido": 0.3769,
+     "acierta": false
+    },
+    {
+     "clase": "812322",
+     "nombre": "Administración de cementerios pertenecientes al sector público",
+     "parecido": 0.3451,
+     "acierta": false
+    },
+    {
+     "clase": "531115",
+     "nombre": "Alquiler sin intermediación de teatros, estadios, auditorios y similares",
+     "parecido": 0.2521,
+     "acierta": false
+    },
+    {
+     "clase": "339995",
+     "nombre": "Fabricación de ataúdes",
+     "parecido": 0.2506,
+     "acierta": false
+    },
+    {
+     "clase": "812410",
+     "nombre": "Estacionamientos y pensiones para vehículos automotores",
+     "parecido": 0.1912,
+     "acierta": false
+    },
+    {
+     "clase": "722320",
+     "nombre": "Servicios de preparación de alimentos para ocasiones especiales",
+     "parecido": 0.1873,
+     "acierta": false
+    },
+    {
+     "clase": "434112",
+     "nombre": "Comercio al por mayor de medicamentos veterinarios y alimentos para animales, excepto mascotas",
+     "parecido": 0.1869,
+     "acierta": false
+    },
+    {
+     "clase": "624311",
+     "nombre": "Servicios de capacitación para el trabajo prestados por el sector privado para personas desempleadas, subempleadas o discapacitadas",
+     "parecido": 0.1863,
+     "acierta": false
+    },
+    {
+     "clase": "466113",
+     "nombre": "Comercio al por menor de muebles para jardín",
+     "parecido": 0.1856,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "hace frío",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2925,
+   "candidatos": [
+    {
+     "clase": "333412",
+     "nombre": "Fabricación de equipo de refrigeración industrial y comercial",
+     "parecido": 0.2925,
+     "acierta": false
+    },
+    {
+     "clase": "312113",
+     "nombre": "Elaboración de hielo",
+     "parecido": 0.2861,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.2834,
+     "acierta": false
+    },
+    {
+     "clase": "238222",
+     "nombre": "Instalaciones de sistemas centrales de aire acondicionado y calefacción",
+     "parecido": 0.2768,
+     "acierta": false
+    },
+    {
+     "clase": "333411",
+     "nombre": "Fabricación de equipo de aire acondicionado y calefacción",
+     "parecido": 0.2702,
+     "acierta": false
+    },
+    {
+     "clase": "493120",
+     "nombre": "Almacenamiento con refrigeración",
+     "parecido": 0.2518,
+     "acierta": false
+    },
+    {
+     "clase": "461170",
+     "nombre": "Comercio al por menor de paletas de hielo y helados",
+     "parecido": 0.2476,
+     "acierta": false
+    },
+    {
+     "clase": "311423",
+     "nombre": "Conservación de guisos y otros alimentos preparados por procesos distintos a la congelación",
+     "parecido": 0.2368,
+     "acierta": false
+    },
+    {
+     "clase": "484233",
+     "nombre": "Autotransporte foráneo con refrigeración",
+     "parecido": 0.2348,
+     "acierta": false
+    },
+    {
+     "clase": "311412",
+     "nombre": "Congelación de guisos y otros alimentos preparados",
+     "parecido": 0.2175,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "rumbo al centro",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2927,
+   "candidatos": [
+    {
+     "clase": "561422",
+     "nombre": "Servicios de recepción de llamadas telefónicas y promoción por teléfono",
+     "parecido": 0.2927,
+     "acierta": false
+    },
+    {
+     "clase": "521110",
+     "nombre": "Banca central",
+     "parecido": 0.2923,
+     "acierta": false
+    },
+    {
+     "clase": "621512",
+     "nombre": "Laboratorios médicos y de diagnóstico del sector público",
+     "parecido": 0.2887,
+     "acierta": false
+    },
+    {
+     "clase": "621114",
+     "nombre": "Consultorios de medicina especializada del sector público",
+     "parecido": 0.2816,
+     "acierta": false
+    },
+    {
+     "clase": "611710",
+     "nombre": "Servicios de apoyo a la educación",
+     "parecido": 0.2803,
+     "acierta": false
+    },
+    {
+     "clase": "488491",
+     "nombre": "Servicios de administración de centrales camioneras",
+     "parecido": 0.2777,
+     "acierta": false
+    },
+    {
+     "clase": "431211",
+     "nombre": "Comercio al por mayor de bebidas no alcohólicas y hielo",
+     "parecido": 0.2522,
+     "acierta": false
+    },
+    {
+     "clase": "561431",
+     "nombre": "Servicios de fotocopiado, fax y afines",
+     "parecido": 0.252,
+     "acierta": false
+    },
+    {
+     "clase": "523122",
+     "nombre": "Centros cambiarios",
+     "parecido": 0.2494,
+     "acierta": false
+    },
+    {
+     "clase": "485210",
+     "nombre": "Transporte colectivo foráneo de pasajeros de ruta fija",
+     "parecido": 0.2471,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "buenos días",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.135,
+   "candidatos": [
+    {
+     "clase": "493119",
+     "nombre": "Otros servicios de almacenamiento general sin instalaciones especializadas",
+     "parecido": 0.135,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.1343,
+     "acierta": false
+    },
+    {
+     "clase": "611112",
+     "nombre": "Escuelas de educación preescolar del sector público",
+     "parecido": 0.1209,
+     "acierta": false
+    },
+    {
+     "clase": "524110",
+     "nombre": "Compañías de seguros",
+     "parecido": 0.1174,
+     "acierta": false
+    },
+    {
+     "clase": "611132",
+     "nombre": "Escuelas de educación secundaria general del sector público",
+     "parecido": 0.1156,
+     "acierta": false
+    },
+    {
+     "clase": "721190",
+     "nombre": "Cabañas, villas y similares",
+     "parecido": 0.1134,
+     "acierta": false
+    },
+    {
+     "clase": "624412",
+     "nombre": "Guarderías del sector público",
+     "parecido": 0.1132,
+     "acierta": false
+    },
+    {
+     "clase": "311230",
+     "nombre": "Elaboración de cereales para el desayuno",
+     "parecido": 0.1129,
+     "acierta": false
+    },
+    {
+     "clase": "722519",
+     "nombre": "Servicios de preparación de otros alimentos para consumo inmediato",
+     "parecido": 0.1128,
+     "acierta": false
+    },
+    {
+     "clase": "551111",
+     "nombre": "Corporativos",
+     "parecido": 0.111,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "Tlalpan",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.4273,
+   "candidatos": [
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.4273,
+     "acierta": false
+    },
+    {
+     "clase": "467111",
+     "nombre": "Comercio al por menor en ferreterías y tlapalerías",
+     "parecido": 0.296,
+     "acierta": false
+    },
+    {
+     "clase": "431192",
+     "nombre": "Comercio al por mayor de botanas y frituras",
+     "parecido": 0.2464,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.2438,
+     "acierta": false
+    },
+    {
+     "clase": "531114",
+     "nombre": "Alquiler sin intermediación de oficinas y locales comerciales",
+     "parecido": 0.2301,
+     "acierta": false
+    },
+    {
+     "clase": "467117",
+     "nombre": "Comercio al por menor de artículos para albercas y otros artículos",
+     "parecido": 0.2261,
+     "acierta": false
+    },
+    {
+     "clase": "522210",
+     "nombre": "Banca de desarrollo",
+     "parecido": 0.225,
+     "acierta": false
+    },
+    {
+     "clase": "561720",
+     "nombre": "Servicios de limpieza de inmuebles",
+     "parecido": 0.2209,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.2198,
+     "acierta": false
+    },
+    {
+     "clase": "467112",
+     "nombre": "Comercio al por menor de pisos y recubrimientos cerámicos",
+     "parecido": 0.2151,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "bonito",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2461,
+   "candidatos": [
+    {
+     "clase": "465213",
+     "nombre": "Comercio al por menor de bicicletas",
+     "parecido": 0.2461,
+     "acierta": false
+    },
+    {
+     "clase": "463113",
+     "nombre": "Comercio al por menor de artículos de mercería y bonetería",
+     "parecido": 0.2338,
+     "acierta": false
+    },
+    {
+     "clase": "463211",
+     "nombre": "Comercio al por menor de ropa, excepto de bebé y lencería",
+     "parecido": 0.2292,
+     "acierta": false
+    },
+    {
+     "clase": "722518",
+     "nombre": "Restaurantes que preparan otro tipo de alimentos para llevar",
+     "parecido": 0.224,
+     "acierta": false
+    },
+    {
+     "clase": "713950",
+     "nombre": "Boliches",
+     "parecido": 0.2125,
+     "acierta": false
+    },
+    {
+     "clase": "431180",
+     "nombre": "Comercio al por mayor de dulces y materias primas para repostería",
+     "parecido": 0.2113,
+     "acierta": false
+    },
+    {
+     "clase": "722511",
+     "nombre": "Restaurantes con servicio de preparación de alimentos a la carta o de comida corrida",
+     "parecido": 0.2109,
+     "acierta": false
+    },
+    {
+     "clase": "722512",
+     "nombre": "Restaurantes con servicio de preparación de pescados y mariscos",
+     "parecido": 0.21,
+     "acierta": false
+    },
+    {
+     "clase": "463212",
+     "nombre": "Comercio al por menor de ropa de bebé",
+     "parecido": 0.2069,
+     "acierta": false
+    },
+    {
+     "clase": "311910",
+     "nombre": "Elaboración de botanas",
+     "parecido": 0.204,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "la narvarte",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2101,
+   "candidatos": [
+    {
+     "clase": "483112",
+     "nombre": "Transporte marítimo de cabotaje, excepto de petróleo y gas natural",
+     "parecido": 0.2101,
+     "acierta": false
+    },
+    {
+     "clase": "437313",
+     "nombre": "Intermediación de comercio al por mayor de productos de uso doméstico y personal",
+     "parecido": 0.1924,
+     "acierta": false
+    },
+    {
+     "clase": "327121",
+     "nombre": "Fabricación de ladrillos no refractarios",
+     "parecido": 0.1826,
+     "acierta": false
+    },
+    {
+     "clase": "431191",
+     "nombre": "Comercio al por mayor de pan y pasteles",
+     "parecido": 0.1783,
+     "acierta": false
+    },
+    {
+     "clase": "486210",
+     "nombre": "Transporte de gas natural por ductos",
+     "parecido": 0.176,
+     "acierta": false
+    },
+    {
+     "clase": "464113",
+     "nombre": "Comercio al por menor de productos naturistas, medicamentos homeopáticos y de complementos alimenticios",
+     "parecido": 0.1677,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.1667,
+     "acierta": false
+    },
+    {
+     "clase": "311613",
+     "nombre": "Preparación de embutidos y otras conservas de carne de ganado, aves y otros animales comestibles",
+     "parecido": 0.164,
+     "acierta": false
+    },
+    {
+     "clase": "431220",
+     "nombre": "Comercio al por mayor de cigarros, puros y tabaco",
+     "parecido": 0.1601,
+     "acierta": false
+    },
+    {
+     "clase": "461170",
+     "nombre": "Comercio al por menor de paletas de hielo y helados",
+     "parecido": 0.1594,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "Iztapalapa",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.3242,
+   "candidatos": [
+    {
+     "clase": "431192",
+     "nombre": "Comercio al por mayor de botanas y frituras",
+     "parecido": 0.3242,
+     "acierta": false
+    },
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.3098,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.3066,
+     "acierta": false
+    },
+    {
+     "clase": "327320",
+     "nombre": "Fabricación de concreto",
+     "parecido": 0.2914,
+     "acierta": false
+    },
+    {
+     "clase": "461170",
+     "nombre": "Comercio al por menor de paletas de hielo y helados",
+     "parecido": 0.276,
+     "acierta": false
+    },
+    {
+     "clase": "311520",
+     "nombre": "Elaboración de helados y paletas",
+     "parecido": 0.2598,
+     "acierta": false
+    },
+    {
+     "clase": "437312",
+     "nombre": "Intermediación de comercio al por mayor de productos para la industria, el comercio y los servicios",
+     "parecido": 0.2542,
+     "acierta": false
+    },
+    {
+     "clase": "467111",
+     "nombre": "Comercio al por menor en ferreterías y tlapalerías",
+     "parecido": 0.2532,
+     "acierta": false
+    },
+    {
+     "clase": "469110",
+     "nombre": "Comercio al por menor exclusivamente a través de Internet, y catálogos impresos, televisión y similares",
+     "parecido": 0.2495,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.2454,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "hace diez minutos",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2151,
+   "candidatos": [
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.2151,
+     "acierta": false
+    },
+    {
+     "clase": "464112",
+     "nombre": "Farmacias con minisúper",
+     "parecido": 0.1929,
+     "acierta": false
+    },
+    {
+     "clase": "465313",
+     "nombre": "Comercio al por menor de revistas y periódicos",
+     "parecido": 0.1831,
+     "acierta": false
+    },
+    {
+     "clase": "516210",
+     "nombre": "Servicios de distribución de audio y video en tiempo real (streaming), redes sociales, cadenas de radio y televisión y otros proveedores de contenido",
+     "parecido": 0.1788,
+     "acierta": false
+    },
+    {
+     "clase": "722330",
+     "nombre": "Servicios de preparación de alimentos en unidades móviles",
+     "parecido": 0.1714,
+     "acierta": false
+    },
+    {
+     "clase": "722519",
+     "nombre": "Servicios de preparación de otros alimentos para consumo inmediato",
+     "parecido": 0.1696,
+     "acierta": false
+    },
+    {
+     "clase": "466410",
+     "nombre": "Comercio al por menor de artículos usados",
+     "parecido": 0.1677,
+     "acierta": false
+    },
+    {
+     "clase": "468411",
+     "nombre": "Comercio al por menor de gasolina y diesel",
+     "parecido": 0.1658,
+     "acierta": false
+    },
+    {
+     "clase": "463217",
+     "nombre": "Comercio al por menor de pañales desechables",
+     "parecido": 0.1653,
+     "acierta": false
+    },
+    {
+     "clase": "462111",
+     "nombre": "Comercio al por menor en supermercados",
+     "parecido": 0.1638,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "muy barato",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.304,
+   "candidatos": [
+    {
+     "clase": "466410",
+     "nombre": "Comercio al por menor de artículos usados",
+     "parecido": 0.304,
+     "acierta": false
+    },
+    {
+     "clase": "464111",
+     "nombre": "Farmacias sin minisúper",
+     "parecido": 0.2971,
+     "acierta": false
+    },
+    {
+     "clase": "469110",
+     "nombre": "Comercio al por menor exclusivamente a través de Internet, y catálogos impresos, televisión y similares",
+     "parecido": 0.2937,
+     "acierta": false
+    },
+    {
+     "clase": "462210",
+     "nombre": "Comercio al por menor en tiendas departamentales",
+     "parecido": 0.2825,
+     "acierta": false
+    },
+    {
+     "clase": "467116",
+     "nombre": "Comercio al por menor de materiales para la construcción en tiendas de autoservicio especializadas",
+     "parecido": 0.2742,
+     "acierta": false
+    },
+    {
+     "clase": "467112",
+     "nombre": "Comercio al por menor de pisos y recubrimientos cerámicos",
+     "parecido": 0.2734,
+     "acierta": false
+    },
+    {
+     "clase": "465211",
+     "nombre": "Comercio al por menor de discos y casetes",
+     "parecido": 0.2716,
+     "acierta": false
+    },
+    {
+     "clase": "462111",
+     "nombre": "Comercio al por menor en supermercados",
+     "parecido": 0.2704,
+     "acierta": false
+    },
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.2673,
+     "acierta": false
+    },
+    {
+     "clase": "466112",
+     "nombre": "Comercio al por menor de electrodomésticos menores y aparatos de línea blanca",
+     "parecido": 0.2664,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "a dos cuadras del metro",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.3532,
+   "candidatos": [
+    {
+     "clase": "485114",
+     "nombre": "Transporte colectivo urbano y suburbano de pasajeros en metro",
+     "parecido": 0.3532,
+     "acierta": false
+    },
+    {
+     "clase": "485115",
+     "nombre": "Transporte colectivo urbano y suburbano de pasajeros en autobuses que transitan en carril exclusivo",
+     "parecido": 0.2883,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.2272,
+     "acierta": false
+    },
+    {
+     "clase": "485113",
+     "nombre": "Transporte colectivo urbano y suburbano de pasajeros en trolebuses y trenes ligeros",
+     "parecido": 0.2132,
+     "acierta": false
+    },
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.2112,
+     "acierta": false
+    },
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.2056,
+     "acierta": false
+    },
+    {
+     "clase": "481111",
+     "nombre": "Transporte aéreo regular en líneas aéreas nacionales",
+     "parecido": 0.2028,
+     "acierta": false
+    },
+    {
+     "clase": "531119",
+     "nombre": "Alquiler sin intermediación de otros bienes raíces",
+     "parecido": 0.2004,
+     "acierta": false
+    },
+    {
+     "clase": "531116",
+     "nombre": "Alquiler sin intermediación de edificios industriales dentro de un parque industrial",
+     "parecido": 0.1914,
+     "acierta": false
+    },
+    {
+     "clase": "467112",
+     "nombre": "Comercio al por menor de pisos y recubrimientos cerámicos",
+     "parecido": 0.188,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "Xochimilco",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2649,
+   "candidatos": [
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.2649,
+     "acierta": false
+    },
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.2544,
+     "acierta": false
+    },
+    {
+     "clase": "461140",
+     "nombre": "Comercio al por menor de semillas y granos alimenticios, especias y chiles secos",
+     "parecido": 0.2491,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.2485,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.2459,
+     "acierta": false
+    },
+    {
+     "clase": "466113",
+     "nombre": "Comercio al por menor de muebles para jardín",
+     "parecido": 0.239,
+     "acierta": false
+    },
+    {
+     "clase": "431150",
+     "nombre": "Comercio al por mayor de semillas y granos alimenticios, especias y chiles secos",
+     "parecido": 0.2377,
+     "acierta": false
+    },
+    {
+     "clase": "611431",
+     "nombre": "Escuelas para la capacitación de ejecutivos del sector privado",
+     "parecido": 0.2346,
+     "acierta": false
+    },
+    {
+     "clase": "327320",
+     "nombre": "Fabricación de concreto",
+     "parecido": 0.2317,
+     "acierta": false
+    },
+    {
+     "clase": "437312",
+     "nombre": "Intermediación de comercio al por mayor de productos para la industria, el comercio y los servicios",
+     "parecido": 0.2303,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "Condesa",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2927,
+   "candidatos": [
+    {
+     "clase": "561920",
+     "nombre": "Organizadores de convenciones y ferias comerciales e industriales",
+     "parecido": 0.2927,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.2911,
+     "acierta": false
+    },
+    {
+     "clase": "466113",
+     "nombre": "Comercio al por menor de muebles para jardín",
+     "parecido": 0.2823,
+     "acierta": false
+    },
+    {
+     "clase": "562111",
+     "nombre": "Manejo de residuos peligrosos y servicios de remediación a zonas dañadas por materiales o residuos peligrosos",
+     "parecido": 0.2671,
+     "acierta": false
+    },
+    {
+     "clase": "561510",
+     "nombre": "Agencias de viajes",
+     "parecido": 0.2609,
+     "acierta": false
+    },
+    {
+     "clase": "431192",
+     "nombre": "Comercio al por mayor de botanas y frituras",
+     "parecido": 0.2598,
+     "acierta": false
+    },
+    {
+     "clase": "237312",
+     "nombre": "Construcción de carreteras, puentes y similares",
+     "parecido": 0.2581,
+     "acierta": false
+    },
+    {
+     "clase": "561450",
+     "nombre": "Despachos de investigación de solvencia financiera",
+     "parecido": 0.2579,
+     "acierta": false
+    },
+    {
+     "clase": "561440",
+     "nombre": "Agencias de cobranza",
+     "parecido": 0.255,
+     "acierta": false
+    },
+    {
+     "clase": "327320",
+     "nombre": "Fabricación de concreto",
+     "parecido": 0.2547,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "hola, ¿qué tal?",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.1577,
+   "candidatos": [
+    {
+     "clase": "326290",
+     "nombre": "Fabricación de otros productos de hule",
+     "parecido": 0.1577,
+     "acierta": false
+    },
+    {
+     "clase": "561422",
+     "nombre": "Servicios de recepción de llamadas telefónicas y promoción por teléfono",
+     "parecido": 0.15,
+     "acierta": false
+    },
+    {
+     "clase": "621112",
+     "nombre": "Consultorios de medicina general del sector público",
+     "parecido": 0.1388,
+     "acierta": false
+    },
+    {
+     "clase": "517910",
+     "nombre": "Otros servicios de telecomunicaciones",
+     "parecido": 0.1377,
+     "acierta": false
+    },
+    {
+     "clase": "541510",
+     "nombre": "Servicios de diseño de sistemas de cómputo y servicios relacionados",
+     "parecido": 0.1356,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.1343,
+     "acierta": false
+    },
+    {
+     "clase": "721190",
+     "nombre": "Cabañas, villas y similares",
+     "parecido": 0.1295,
+     "acierta": false
+    },
+    {
+     "clase": "621399",
+     "nombre": "Otros consultorios del sector público para el cuidado de la salud",
+     "parecido": 0.1276,
+     "acierta": false
+    },
+    {
+     "clase": "621111",
+     "nombre": "Consultorios de medicina general del sector privado",
+     "parecido": 0.1272,
+     "acierta": false
+    },
+    {
+     "clase": "621341",
+     "nombre": "Consultorios del sector privado de audiología y de terapia ocupacional, física y del lenguaje",
+     "parecido": 0.1271,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  },
+  {
+   "termino": "Bosque de Chapultepec",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2994,
+   "candidatos": [
+    {
+     "clase": "713112",
+     "nombre": "Parques de diversiones y temáticos del sector público",
+     "parecido": 0.2994,
+     "acierta": false
+    },
+    {
+     "clase": "611422",
+     "nombre": "Escuelas de computación del sector público",
+     "parecido": 0.2349,
+     "acierta": false
+    },
+    {
+     "clase": "713111",
+     "nombre": "Parques de diversiones y temáticos del sector privado",
+     "parecido": 0.2185,
+     "acierta": false
+    },
+    {
+     "clase": "712131",
+     "nombre": "Jardines botánicos y zoológicos del sector privado",
+     "parecido": 0.2179,
+     "acierta": false
+    },
+    {
+     "clase": "491110",
+     "nombre": "Servicios postales",
+     "parecido": 0.2179,
+     "acierta": false
+    },
+    {
+     "clase": "541620",
+     "nombre": "Servicios de consultoría en medio ambiente",
+     "parecido": 0.2094,
+     "acierta": false
+    },
+    {
+     "clase": "326140",
+     "nombre": "Fabricación de espumas y productos de poliestireno",
+     "parecido": 0.2003,
+     "acierta": false
+    },
+    {
+     "clase": "722513",
+     "nombre": "Restaurantes con servicio de preparación de antojitos",
+     "parecido": 0.1983,
+     "acierta": false
+    },
+    {
+     "clase": "311830",
+     "nombre": "Elaboración de tortillas de maíz y molienda de nixtamal",
+     "parecido": 0.1977,
+     "acierta": false
+    },
+    {
+     "clase": "523910",
+     "nombre": "Asesoría en inversiones",
+     "parecido": 0.1972,
+     "acierta": false
+    }
+   ],
+   "rechazado": false
+  },
+  {
+   "termino": "en la esquina",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "posicion": null,
+   "parecido": 0.2582,
+   "candidatos": [
+    {
+     "clase": "462112",
+     "nombre": "Comercio al por menor en minisupers",
+     "parecido": 0.2582,
+     "acierta": false
+    },
+    {
+     "clase": "462210",
+     "nombre": "Comercio al por menor en tiendas departamentales",
+     "parecido": 0.2447,
+     "acierta": false
+    },
+    {
+     "clase": "461110",
+     "nombre": "Comercio al por menor en tiendas de abarrotes, ultramarinos y misceláneas",
+     "parecido": 0.2396,
+     "acierta": false
+    },
+    {
+     "clase": "722514",
+     "nombre": "Restaurantes con servicio de preparación de tacos y tortas",
+     "parecido": 0.2375,
+     "acierta": false
+    },
+    {
+     "clase": "461220",
+     "nombre": "Comercio al por menor de cigarros, puros y tabaco",
+     "parecido": 0.2373,
+     "acierta": false
+    },
+    {
+     "clase": "621422",
+     "nombre": "Centros del sector público de atención médica externa para enfermos mentales y adictos",
+     "parecido": 0.2352,
+     "acierta": false
+    },
+    {
+     "clase": "465313",
+     "nombre": "Comercio al por menor de revistas y periódicos",
+     "parecido": 0.226,
+     "acierta": false
+    },
+    {
+     "clase": "624112",
+     "nombre": "Servicios de orientación y trabajo social para la niñez y la juventud prestados por el sector público",
+     "parecido": 0.2245,
+     "acierta": false
+    },
+    {
+     "clase": "463213",
+     "nombre": "Comercio al por menor de lencería",
+     "parecido": 0.2222,
+     "acierta": false
+    },
+    {
+     "clase": "467112",
+     "nombre": "Comercio al por menor de pisos y recubrimientos cerámicos",
+     "parecido": 0.222,
+     "acierta": false
+    }
+   ],
+   "rechazado": true
+  }
+ ]
+}

@@ -1,0 +1,609 @@
+{
+ "casos": [
+  {
+   "termino": "dentista",
+   "tipo": "calle",
+   "clases": [
+    "621211",
+    "621212"
+   ]
+  },
+  {
+   "termino": "notaría",
+   "tipo": "calle",
+   "clases": [
+    "541120"
+   ]
+  },
+  {
+   "termino": "joyería",
+   "tipo": "calle",
+   "clases": [
+    "465112"
+   ]
+  },
+  {
+   "termino": "florería",
+   "tipo": "calle",
+   "clases": [
+    "466312"
+   ]
+  },
+  {
+   "termino": "gasolinera",
+   "tipo": "calle",
+   "clases": [
+    "468411"
+   ]
+  },
+  {
+   "termino": "kínder",
+   "tipo": "calle",
+   "clases": [
+    "611111",
+    "611112"
+   ]
+  },
+  {
+   "termino": "autolavado",
+   "tipo": "calle",
+   "clases": [
+    "811192"
+   ]
+  },
+  {
+   "termino": "talachería",
+   "tipo": "calle",
+   "clases": [
+    "811191"
+   ]
+  },
+  {
+   "termino": "tapicería",
+   "tipo": "calle",
+   "clases": [
+    "811420",
+    "811122"
+   ]
+  },
+  {
+   "termino": "pizzería",
+   "tipo": "calle",
+   "clases": [
+    "722517",
+    "722511"
+   ]
+  },
+  {
+   "termino": "boliche",
+   "tipo": "calle",
+   "clases": [
+    "713950"
+   ]
+  },
+  {
+   "termino": "hotel",
+   "tipo": "calle",
+   "clases": [
+    "721111",
+    "721112"
+   ]
+  },
+  {
+   "termino": "cine",
+   "tipo": "calle",
+   "clases": [
+    "512130"
+   ]
+  },
+  {
+   "termino": "banco",
+   "tipo": "calle",
+   "clases": [
+    "522110"
+   ]
+  },
+  {
+   "termino": "estacionamiento",
+   "tipo": "calle",
+   "clases": [
+    "812410"
+   ]
+  },
+  {
+   "termino": "pastelería",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "461190"
+   ]
+  },
+  {
+   "termino": "salón de fiestas",
+   "tipo": "calle",
+   "clases": [
+    "531113"
+   ]
+  },
+  {
+   "termino": "agencia de viajes",
+   "tipo": "calle",
+   "clases": [
+    "561510"
+   ]
+  },
+  {
+   "termino": "imprenta",
+   "tipo": "calle",
+   "clases": [
+    "323119"
+   ]
+  },
+  {
+   "termino": "panteón",
+   "tipo": "calle",
+   "clases": [
+    "812321",
+    "812322"
+   ]
+  },
+  {
+   "termino": "maquinitas",
+   "tipo": "calle",
+   "clases": [
+    "713120"
+   ]
+  },
+  {
+   "termino": "jarcería",
+   "tipo": "calle",
+   "clases": [
+    "467115"
+   ]
+  },
+  {
+   "termino": "salchichonería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "materias primas",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ]
+  },
+  {
+   "termino": "ropa de paca",
+   "tipo": "calle",
+   "clases": [
+    "466410"
+   ]
+  },
+  {
+   "termino": "antro",
+   "tipo": "calle",
+   "clases": [
+    "722411"
+   ]
+  },
+  {
+   "termino": "tienda naturista",
+   "tipo": "calle",
+   "clases": [
+    "464113"
+   ]
+  },
+  {
+   "termino": "psicólogo",
+   "tipo": "calle",
+   "clases": [
+    "621331",
+    "621332"
+   ]
+  },
+  {
+   "termino": "baños públicos",
+   "tipo": "calle",
+   "clases": [
+    "812120"
+   ]
+  },
+  {
+   "termino": "donde arreglan relojes de pulso",
+   "tipo": "descripcion",
+   "clases": [
+    "811499",
+    "465112"
+   ]
+  },
+  {
+   "termino": "lugar que rente sillas y mesas para una fiesta",
+   "tipo": "descripcion",
+   "clases": [
+    "532282"
+   ]
+  },
+  {
+   "termino": "donde sacan copias de llaves",
+   "tipo": "descripcion",
+   "clases": [
+    "811491"
+   ]
+  },
+  {
+   "termino": "donde me toman la foto para el pasaporte",
+   "tipo": "descripcion",
+   "clases": [
+    "541920"
+   ]
+  },
+  {
+   "termino": "quiero empeñar una cadena de oro",
+   "tipo": "descripcion",
+   "clases": [
+    "522452",
+    "522451"
+   ]
+  },
+  {
+   "termino": "necesito un abogado para un divorcio",
+   "tipo": "descripcion",
+   "clases": [
+    "541110"
+   ]
+  },
+  {
+   "termino": "donde velan a un difunto",
+   "tipo": "descripcion",
+   "clases": [
+    "812310"
+   ]
+  },
+  {
+   "termino": "donde reparan refrigeradores y lavadoras",
+   "tipo": "descripcion",
+   "clases": [
+    "811410"
+   ]
+  },
+  {
+   "termino": "donde arreglan televisiones",
+   "tipo": "descripcion",
+   "clases": [
+    "811211"
+   ]
+  },
+  {
+   "termino": "lugar para hacer ejercicio con pesas",
+   "tipo": "descripcion",
+   "clases": [
+    "713943",
+    "713944"
+   ]
+  },
+  {
+   "termino": "donde venden vestidos de novia",
+   "tipo": "descripcion",
+   "clases": [
+    "463214"
+   ]
+  },
+  {
+   "termino": "donde venden tela por metro",
+   "tipo": "descripcion",
+   "clases": [
+    "463111"
+   ]
+  },
+  {
+   "termino": "donde me hacen un tatuaje",
+   "tipo": "descripcion",
+   "clases": [
+    "812990"
+   ]
+  },
+  {
+   "termino": "clases de guitarra para niños",
+   "tipo": "descripcion",
+   "clases": [
+    "611611",
+    "611612",
+    "611691"
+   ]
+  },
+  {
+   "termino": "quien me fumiga la casa contra cucarachas",
+   "tipo": "descripcion",
+   "clases": [
+    "561710"
+   ]
+  },
+  {
+   "termino": "donde cambio dólares",
+   "tipo": "descripcion",
+   "clases": [
+    "523121",
+    "523122"
+   ]
+  },
+  {
+   "termino": "donde venden peces y peceras",
+   "tipo": "descripcion",
+   "clases": [
+    "465911"
+   ]
+  },
+  {
+   "termino": "donde venden pintura para paredes",
+   "tipo": "descripcion",
+   "clases": [
+    "467113"
+   ]
+  },
+  {
+   "termino": "donde componen bicicletas",
+   "tipo": "descripcion",
+   "clases": [
+    "811493"
+   ]
+  },
+  {
+   "termino": "necesito un camión para cambiarme de casa",
+   "tipo": "descripcion",
+   "clases": [
+    "484210"
+   ]
+  },
+  {
+   "termino": "donde me sacan una radiografía",
+   "tipo": "descripcion",
+   "clases": [
+    "621511",
+    "621512"
+   ]
+  },
+  {
+   "termino": "terapia para un niño que no habla bien",
+   "tipo": "descripcion",
+   "clases": [
+    "621341",
+    "621342"
+   ]
+  },
+  {
+   "termino": "donde cuidan a personas mayores",
+   "tipo": "descripcion",
+   "clases": [
+    "623311",
+    "623312",
+    "624121",
+    "624122"
+   ]
+  },
+  {
+   "termino": "quien poda árboles y arregla jardines",
+   "tipo": "descripcion",
+   "clases": [
+    "561730"
+   ]
+  },
+  {
+   "termino": "donde lavan alfombras y salas",
+   "tipo": "descripcion",
+   "clases": [
+    "561740"
+   ]
+  },
+  {
+   "termino": "farmcia",
+   "tipo": "error_dedo",
+   "clases": [
+    "464111",
+    "464112"
+   ]
+  },
+  {
+   "termino": "papelria",
+   "tipo": "error_dedo",
+   "clases": [
+    "465311"
+   ]
+  },
+  {
+   "termino": "zapateira",
+   "tipo": "error_dedo",
+   "clases": [
+    "463310"
+   ]
+  },
+  {
+   "termino": "tortileria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311830"
+   ]
+  },
+  {
+   "termino": "veterinaira",
+   "tipo": "error_dedo",
+   "clases": [
+    "541941",
+    "541942"
+   ]
+  },
+  {
+   "termino": "gimnacio",
+   "tipo": "error_dedo",
+   "clases": [
+    "713943",
+    "713944"
+   ]
+  },
+  {
+   "termino": "polelria",
+   "tipo": "error_dedo",
+   "clases": [
+    "461122"
+   ]
+  },
+  {
+   "termino": "libreira",
+   "tipo": "error_dedo",
+   "clases": [
+    "465312"
+   ]
+  },
+  {
+   "termino": "lavanderai",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ]
+  },
+  {
+   "termino": "cerrajerria",
+   "tipo": "error_dedo",
+   "clases": [
+    "811491"
+   ]
+  },
+  {
+   "termino": "jugeteria",
+   "tipo": "error_dedo",
+   "clases": [
+    "465212"
+   ]
+  },
+  {
+   "termino": "opitca",
+   "tipo": "error_dedo",
+   "clases": [
+    "464121",
+    "621320"
+   ]
+  },
+  {
+   "termino": "la colonia del valle",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "azcapotzalco",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "metro pantitlán",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "metro tacubaya",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "santa maría la ribera",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "gustavo a. madero",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "sobre avenida reforma",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "el ángel de la independencia",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "buenas tardes",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿cómo estás?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "nos vemos luego",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "muchas gracias",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "carísimo",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "lejísimos",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "grande",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "más o menos",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "pasado mañana",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "el fin de semana",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "ayer en la tarde",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "enfrente de mi casa",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "a tres calles de aquí",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿dónde queda?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "¿me puedes ayudar?",
+   "tipo": "no_es_giro",
+   "clases": []
+  },
+  {
+   "termino": "está lloviendo",
+   "tipo": "no_es_giro",
+   "clases": []
+  }
+ ]
+}
