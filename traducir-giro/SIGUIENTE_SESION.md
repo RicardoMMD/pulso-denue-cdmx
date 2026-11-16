@@ -3,19 +3,21 @@
 Actualizado el 15 nov 2026. Lee primero `README.md`: la sección "Resultados" resume todo lo medido.
 
 ## Estado
-- Comparación de embeddings cerrada: ningún modelo cumplió solo en el banco ciego. Se eligió EmbeddingGemma (texto `palabras`) como generador de candidatos. Qwen3 quedó fuera por costo y acierto; BGE-M3, por peso.
-- Herramienta completa construida en `traducir_giro.py`: glosario, lugar, 10 candidatos de Gemma y `claude-haiku-5-5` que elige. En ajuste da 99 % de acierto, inflado porque el glosario salió de ese banco.
-- Segundo banco ciego escrito por un agente aislado (`bancos/ciego.json`, 90 casos). **No se ha corrido.**
+- Los embeddings solos no cumplieron en el primer banco ciego. Se eligió EmbeddingGemma (texto `palabras`) como generador de candidatos. Qwen3 quedó fuera por costo y acierto; BGE-M3, por peso.
+- La herramienta completa (`traducir_giro.py`: glosario, lugar, 10 candidatos de Gemma y `claude-haiku-5-5`) **cumple C1–C3 en el segundo banco ciego**: 91 % de acierto, 100 % de rechazo y 3 % de giros perdidos. Ese banco ya está usado: `resultados/herramienta/ciego.json` lo marca y el script no lo repite.
 - Nada se ha escrito en la base. Modelos y vectores están en `modelos/` y `vectores/`, sin versionar.
 
 ## Pendiente de Ricardo
-1. Revisar las clases aceptadas de `bancos/ciego.json`. El agente señaló dudas en los casos 10, 16, 19, 30 y 43 (numerados desde 1). Quien afina la herramienta no debe abrir ese archivo.
-2. Dar la orden de correrlo: `make herramienta-ciego` (una sola vez; usa la llave de Anthropic del `.env`).
-3. Decidir dónde vive la herramienta en el proyecto principal y la decisión D3 del plan (pgvector o archivo).
+1. Decidir si H10 se da por cerrado. El criterio del seguimiento ("al menos 50 giros coloquiales con acierto medido en un banco ciego") se cumple: 66 giros, 91 %. Faltan dos decisiones de integración:
+   - Dónde vive la herramienta en el proyecto principal (hoy está aquí, con el modelo y sus dependencias) y cómo la carga el backend en el VPS.
+   - Decisión D3 del plan: vectores en pgvector (escribir en la base real, solo con permiso) o desde archivo hasta H19.
+2. Leer la licencia de Gemma (condiciones de uso) antes de producción.
 
-## Después del ciego
-- Si cumple C1–C3: registrar el resultado en la síntesis, actualizar `docs/Herramientas del Analista.md`, marcar H10 si también se resolvió D3, y abrir el pull request.
-- Si no cumple: sus fallos pasan al ajuste (y al glosario los de palabra de la calle), y se escribe un tercer banco ciego con otro agente aislado.
+## Mejoras conocidas (cualquier cambio exige un banco ciego nuevo para afirmar un número)
+- El parecido de escritura del glosario confunde palabras distintas: «pastelería» salió como papelería.
+- Palabras que faltan en el glosario: talachería, maquinitas, ropa de paca, materias primas.
+- Haiku eligió fabricación en vez de reparación en «donde componen bicicletas».
+- La herramienta es generosa con los grupos (73 % de respuestas limpias).
 
 ## Cuidado
 - Para regenerar vectores: `uv run python vectorizar.py gemma --variante palabras` (la herramienta los necesita).

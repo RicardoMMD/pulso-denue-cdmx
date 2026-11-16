@@ -99,7 +99,7 @@ El contrato central que escriben historias, explorador y Analista, y que interpr
 Segunda herramienta crítica del Analista: lenguaje común a clases SCIAN ("tiendita", "fonda", "estética").
 - **Entregables:** glosario CDMX de giros; embeddings de clases SCIAN en pgvector (Voyage AI o modelo multilingüe local); función `traducir_giro` con banco de pruebas.
 - **Terminado cuando:** resuelve al menos 50 giros coloquiales con acierto medido en un banco ciego.
-- **Avance (15 nov 2026):** en `traducir-giro/`. Los embeddings solos no alcanzaron en el banco ciego (EmbeddingGemma 79 % entre los primeros 5; el criterio era 85 %). Se construyó la herramienta completa (glosario, lugar, candidatos de Gemma y Haiku que elige). Falta medirla en el segundo banco ciego, ya escrito, y decidir dónde viven los vectores. Detalle en `traducir-giro/README.md`.
+- **Avance (15 nov 2026):** en `traducir-giro/`. Los embeddings solos no alcanzaron en el primer banco ciego (EmbeddingGemma, 79 % entre los primeros 5; el criterio era 85 %). Se construyó la herramienta completa (glosario, lugar, candidatos de Gemma y Haiku que elige) y **cumple en un segundo banco ciego: 91 % de acierto en 66 giros, 100 % de rechazo de lo que no es giro y 3 % de giros perdidos**. Falta decidir dónde vive en el proyecto principal y dónde van los vectores (pgvector o archivo). Detalle en `traducir-giro/README.md`.
 
 ### H11 · Banco de evaluación del Analista ⬜
 Preguntas sobre CDMX con respuestas verificadas a mano contra `semantic`.

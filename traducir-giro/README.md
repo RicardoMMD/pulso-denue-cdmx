@@ -1,6 +1,6 @@
 # Traducir giro — subproyecto
 
-Planteamiento del 15 nov 2026 · Estado: comparación de embeddings cerrada (no favorable por sí sola); herramienta completa construida y pendiente de medir en el segundo banco ciego · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
+Planteamiento del 15 nov 2026 · Estado: herramienta completa medida en banco ciego (cumple C1–C3); falta decidir dónde vive y dónde van los vectores · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
 
 Subproyecto independiente para responder una sola pregunta: **¿un modelo de embeddings local encuentra la clase SCIAN correcta cuando alguien nombra un giro como se habla en la calle?** Cuando el resultado sea favorable, se regresa al proyecto principal y se marca H10.
 
@@ -27,20 +27,44 @@ Lo que se aprendió:
 
 **Elección:** EmbeddingGemma con el texto `palabras`, como generador de candidatos. Con 10 candidatos, la clase correcta estuvo entre ellos en 87 % de los giros del ciego. Su licencia es la de Gemma, con condiciones de uso: hay que leerla antes de llevarlo a producción.
 
-### Herramienta completa: construida, pendiente de su banco ciego
+### Herramienta completa: cumple en el segundo banco ciego
 
 Siguiendo el tercer camino previsto abajo (reabrir el diseño), se construyó aquí la herramienta de cuatro capas en `traducir_giro.py`:
 
 1. **Glosario** (`glosario.json`): búsqueda exacta y, para errores de dedo, por parecido de escritura. Sembrado con las palabras de la calle del banco de ajuste. Una entrada sin clases marca lo que parece giro y no lo es ("mercado", "tianguis").
 2. **Lugar:** si el texto es una alcaldía, colonia o estación (catálogo de `backend/contracts/referencias/` y alias del prototipo 3), no es un giro.
-3. **Embeddings:** 10 candidatos de EmbeddingGemma. No decide.
+3. **Embeddings:** 10 candidatos de EmbeddingGemma (texto `palabras`). No decide.
 4. **Modelo:** `claude-haiku-5-5` elige entre los candidatos, o dice que ninguno o que no es un giro. Un código fuera de la lista se descarta. Las respuestas se guardan en `cache_haiku.json` para que la evaluación sea repetible y no gaste en cada corrida.
 
-En el banco de ajuste (262 casos, que ya incluyen los del primer ciego): 99 % de acierto en giros, 98 % de rechazo de lo que no es giro y 0 % de giros perdidos. **Ese número está inflado**, porque el glosario se sembró con ese mismo banco. El número que cuenta es el del segundo banco ciego.
+**Segundo banco ciego** (`bancos/ciego.json`, 90 casos: 66 giros y 24 que no lo son). Lo escribió un agente aislado, con la lista de términos prohibidos desde el inicio y sin ver glosario, bancos ni resultados. Se corrió una vez (15 nov 2026) con los mismos umbrales confirmados antes del primer ciego:
 
-**Segundo banco ciego** (`bancos/ciego.json`, 90 casos): lo escribió un agente aislado, con la lista de términos prohibidos desde el inicio y sin ver glosario, bancos ni resultados. **No se ha corrido.** Antes, Ricardo revisa las clases aceptadas; quien afina la herramienta no debe abrir ese archivo. Se corre una vez con `make herramienta-ciego` y se mide con los mismos umbrales C1–C3.
+| Medida | Resultado | Criterio | Cumple |
+|---|---|---|---|
+| Acierto en giros | 91 % | C1: al menos 85 % | sí |
+| Acierto por tipo | calle 83 % de 29, descripción 96 % de 25, error de dedo 100 % de 12 | C2: al menos 70 % en cada tipo | sí |
+| Rechazo de lo que no es giro | 100 % de 24, perdiendo 3 % de giros | C3: al menos 80 %, perdiendo máximo 5 % | sí |
+| Respuestas limpias | 73 % | se reporta, no decide | |
 
-Repaso visual: `laboratorio/giros.html`.
+Por capa: glosario 11 de 12, lugar 6 de 6, modelo 67 de 72. Detalle en `resultados/herramienta-ciego.md`; repaso visual en `laboratorio/giros.html`.
+
+**Los 6 fallos:**
+
+- «pastelería» → papelería. **Es un error del glosario, no del modelo:** el parecido de escritura confundió dos palabras distintas, y la respuesta salió con confianza media.
+- «talachería» y «maquinitas»: Haiku dijo `sin_resultado`; son los dos giros perdidos.
+- «ropa de paca», «materias primas» y «donde componen bicicletas»: Haiku eligió otra clase (esta última, fabricación de bicicletas en vez de reparación).
+
+**Cómo leer el número:**
+
+- Son 66 giros; el margen sobre C1 son unos 4 casos. Una sola corrida no da un intervalo.
+- Solo 12 de 90 casos los resolvió el glosario, porque el banco se escribió evitando los términos que lo sembraron. En uso real el glosario resolverá una parte mayor y más barata.
+- En 12 de los 66 giros la herramienta devolvió, además de una clase aceptable, otras que el banco no aceptaba (73 % limpias): tiende a ser generosa con los grupos.
+- **Latencia:** ~1.5 s por consulta cuando interviene Haiku (mediana; p95 2.5 s) y ~1 ms cuando no. El criterio C4 de 200 ms se definió para el modelo de embeddings, que sí lo cumple (110 ms); la herramienta entera no se midió contra él. El costo por llamada no se registró.
+- Las clases aceptadas del banco las escribió el agente. El archivo no cambió entre su creación y la corrida.
+
+**Pendientes que salen de esta medición (no se tocaron después de medir, para que el número corresponda al código del commit):**
+
+- Cambiar el parecido de escritura del glosario para que no convierta una palabra válida de otro giro en una clase equivocada (por ejemplo, exigir que los embeddings estén de acuerdo cuando el parecido es solo de escritura).
+- Agregar al glosario y al banco de ajuste las palabras que fallaron. Un número nuevo después de eso exige otro banco ciego.
 
 ## La idea
 
@@ -208,7 +232,6 @@ Los umbrales son propuestas. Se confirman **antes** de correr el banco ciego y n
 
 ## Qué falta para marcar H10
 
-- Revisar las clases del segundo banco ciego y correrlo una vez (`make herramienta-ciego`). Si no cumple, sus fallos pasan al ajuste y se escribe otro.
 - Decidir dónde vive la herramienta en el proyecto principal (hoy está aquí porque aquí están el modelo y sus dependencias) y cómo carga el modelo el backend en el VPS.
 - Los vectores en pgvector o en archivo (decisión D3 del plan). Escribir en la base real se hace solo con permiso.
 - Leer la licencia de Gemma antes de producción.
