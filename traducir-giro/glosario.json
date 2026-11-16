@@ -1,5 +1,5 @@
 {
- "descripcion": "Giros de la Ciudad de México como se dicen en la calle y sus clases SCIAN 2023. Se mantiene a mano: cada entrada lleva el término, variantes de escritura opcionales y las clases que lo forman (una clase, o varias cuando el giro común abarca varias). Sembrado el 15 nov 2026 con las palabras de la calle del banco de ajuste. `make validar` revisa que las clases existan. Una entrada con `clases` vacía marca un texto que parece giro pero no lo es (por ejemplo un mercado, que es un lugar con puestos de muchos giros); lleva `nota`.",
+ "descripcion": "Giros de la Ciudad de México como se dicen en la calle y sus clases SCIAN 2023. Se mantiene a mano: cada entrada lleva el término, variantes de escritura opcionales y las clases que lo forman (una clase, o varias cuando el giro común abarca varias). Sembrado el 15 nov 2026 con las palabras de la calle del banco de ajuste, que incluye los dos bancos ciegos ya usados (sus clases las escribió un agente). `make validar` revisa que las clases existan. Una entrada con `clases` vacía marca un texto que parece giro pero no lo es (por ejemplo un mercado, que es un lugar con puestos de muchos giros); lleva `nota`.",
  "entradas": [
   {
    "termino": "abarrotes",
@@ -9,11 +9,46 @@
    ]
   },
   {
+   "termino": "agencia de viajes",
+   "variantes": [],
+   "clases": [
+    "561510"
+   ]
+  },
+  {
+   "termino": "antro",
+   "variantes": [],
+   "clases": [
+    "722411"
+   ]
+  },
+  {
+   "termino": "autolavado",
+   "variantes": [],
+   "clases": [
+    "811192"
+   ]
+  },
+  {
    "termino": "autopartes",
    "variantes": [],
    "clases": [
     "468211",
     "468212"
+   ]
+  },
+  {
+   "termino": "banco",
+   "variantes": [],
+   "clases": [
+    "522110"
+   ]
+  },
+  {
+   "termino": "baños públicos",
+   "variantes": [],
+   "clases": [
+    "812120"
    ]
   },
   {
@@ -42,6 +77,13 @@
    "variantes": [],
    "clases": [
     "812130"
+   ]
+  },
+  {
+   "termino": "boliche",
+   "variantes": [],
+   "clases": [
+    "713950"
    ]
   },
   {
@@ -125,6 +167,13 @@
    ]
   },
   {
+   "termino": "cine",
+   "variantes": [],
+   "clases": [
+    "512130"
+   ]
+  },
+  {
    "termino": "cocina económica",
    "variantes": [],
    "clases": [
@@ -154,6 +203,14 @@
    ]
   },
   {
+   "termino": "dentista",
+   "variantes": [],
+   "clases": [
+    "621211",
+    "621212"
+   ]
+  },
+  {
    "termino": "depósito de cerveza",
    "variantes": [],
    "clases": [
@@ -175,14 +232,21 @@
    ]
   },
   {
-   "termino": "estilista",
+   "termino": "estacionamiento",
+   "variantes": [],
+   "clases": [
+    "812410"
+   ]
+  },
+  {
+   "termino": "estética",
    "variantes": [],
    "clases": [
     "812110"
    ]
   },
   {
-   "termino": "estética",
+   "termino": "estilista",
    "variantes": [],
    "clases": [
     "812110"
@@ -201,6 +265,13 @@
    "variantes": [],
    "clases": [
     "467111"
+   ]
+  },
+  {
+   "termino": "florería",
+   "variantes": [],
+   "clases": [
+    "466312"
    ]
   },
   {
@@ -241,6 +312,13 @@
    ]
   },
   {
+   "termino": "gasolinera",
+   "variantes": [],
+   "clases": [
+    "468411"
+   ]
+  },
+  {
    "termino": "gimnasio",
    "variantes": [],
    "clases": [
@@ -270,6 +348,35 @@
    ]
   },
   {
+   "termino": "hotel",
+   "variantes": [],
+   "clases": [
+    "721111",
+    "721112"
+   ]
+  },
+  {
+   "termino": "imprenta",
+   "variantes": [],
+   "clases": [
+    "323119"
+   ]
+  },
+  {
+   "termino": "jarcería",
+   "variantes": [],
+   "clases": [
+    "467115"
+   ]
+  },
+  {
+   "termino": "joyería",
+   "variantes": [],
+   "clases": [
+    "465112"
+   ]
+  },
+  {
    "termino": "jugos y licuados",
    "variantes": [],
    "clases": [
@@ -281,6 +388,14 @@
    "variantes": [],
    "clases": [
     "465212"
+   ]
+  },
+  {
+   "termino": "kínder",
+   "variantes": [],
+   "clases": [
+    "611111",
+    "611112"
    ]
   },
   {
@@ -328,11 +443,27 @@
    ]
   },
   {
+   "termino": "maquinitas",
+   "variantes": [],
+   "clases": [
+    "713120"
+   ],
+   "nota": "Locales con videojuegos de monedas."
+  },
+  {
    "termino": "marisquería",
    "variantes": [],
    "clases": [
     "722512"
    ]
+  },
+  {
+   "termino": "materias primas",
+   "variantes": [],
+   "clases": [
+    "461160"
+   ],
+   "nota": "En la CDMX, tienda de ingredientes para repostería y dulces."
   },
   {
    "termino": "mecánico",
@@ -341,6 +472,15 @@
     "811111",
     "811119"
    ]
+  },
+  {
+   "termino": "mercado",
+   "variantes": [
+    "mercado público",
+    "mercado publico"
+   ],
+   "clases": [],
+   "nota": "Un mercado es un lugar con puestos de muchos giros, no un giro. Para ubicar mercados se usa resolver_lugar."
   },
   {
    "termino": "mercería",
@@ -396,10 +536,25 @@
    ]
   },
   {
+   "termino": "notaría",
+   "variantes": [],
+   "clases": [
+    "541120"
+   ]
+  },
+  {
    "termino": "novedades",
    "variantes": [],
    "clases": [
     "465912"
+   ]
+  },
+  {
+   "termino": "óptica",
+   "variantes": [],
+   "clases": [
+    "464121",
+    "621320"
    ]
   },
   {
@@ -420,10 +575,26 @@
    ]
   },
   {
+   "termino": "panteón",
+   "variantes": [],
+   "clases": [
+    "812321",
+    "812322"
+   ]
+  },
+  {
    "termino": "papelería",
    "variantes": [],
    "clases": [
     "465311"
+   ]
+  },
+  {
+   "termino": "pastelería",
+   "variantes": [],
+   "clases": [
+    "311812",
+    "461190"
    ]
   },
   {
@@ -455,6 +626,14 @@
    ]
   },
   {
+   "termino": "pizzería",
+   "variantes": [],
+   "clases": [
+    "722517",
+    "722511"
+   ]
+  },
+  {
    "termino": "plomero",
    "variantes": [],
    "clases": [
@@ -474,6 +653,14 @@
    "clases": [
     "722513",
     "722511"
+   ]
+  },
+  {
+   "termino": "psicólogo",
+   "variantes": [],
+   "clases": [
+    "621331",
+    "621332"
    ]
   },
   {
@@ -548,11 +735,33 @@
    ]
   },
   {
+   "termino": "ropa de paca",
+   "variantes": [],
+   "clases": [
+    "466410"
+   ],
+   "nota": "Ropa usada que se vende por pieza."
+  },
+  {
    "termino": "rosticería",
    "variantes": [],
    "clases": [
     "461122",
     "722517"
+   ]
+  },
+  {
+   "termino": "salchichonería",
+   "variantes": [],
+   "clases": [
+    "461150"
+   ]
+  },
+  {
+   "termino": "salón de fiestas",
+   "variantes": [],
+   "clases": [
+    "531113"
    ]
   },
   {
@@ -601,6 +810,14 @@
    ]
   },
   {
+   "termino": "talachería",
+   "variantes": [],
+   "clases": [
+    "811191"
+   ],
+   "nota": "Taller que parcha y cambia llantas."
+  },
+  {
    "termino": "tamales",
    "variantes": [],
    "clases": [
@@ -608,10 +825,33 @@
    ]
   },
   {
+   "termino": "tapicería",
+   "variantes": [],
+   "clases": [
+    "811420",
+    "811122"
+   ]
+  },
+  {
    "termino": "taquería",
    "variantes": [],
    "clases": [
     "722514"
+   ]
+  },
+  {
+   "termino": "tianguis",
+   "variantes": [
+    "tianguis sobre ruedas"
+   ],
+   "clases": [],
+   "nota": "Un tianguis reúne puestos de muchos giros y casi no aparece en el DENUE; no corresponde a una clase."
+  },
+  {
+   "termino": "tienda naturista",
+   "variantes": [],
+   "clases": [
+    "464113"
    ]
   },
   {
@@ -708,14 +948,6 @@
    ]
   },
   {
-   "termino": "zapatero",
-   "variantes": [],
-   "clases": [
-    "463310",
-    "811430"
-   ]
-  },
-  {
    "termino": "zapatería",
    "variantes": [],
    "clases": [
@@ -723,29 +955,12 @@
    ]
   },
   {
-   "termino": "óptica",
+   "termino": "zapatero",
    "variantes": [],
    "clases": [
-    "464121",
-    "621320"
+    "463310",
+    "811430"
    ]
-  },
-  {
-   "termino": "mercado",
-   "variantes": [
-    "mercado público",
-    "mercado publico"
-   ],
-   "clases": [],
-   "nota": "Un mercado es un lugar con puestos de muchos giros, no un giro. Para ubicar mercados se usa resolver_lugar."
-  },
-  {
-   "termino": "tianguis",
-   "variantes": [
-    "tianguis sobre ruedas"
-   ],
-   "clases": [],
-   "nota": "Un tianguis reúne puestos de muchos giros y casi no aparece en el DENUE; no corresponde a una clase."
   }
  ]
 }

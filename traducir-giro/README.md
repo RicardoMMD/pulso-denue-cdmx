@@ -61,10 +61,13 @@ Por capa: glosario 11 de 12, lugar 6 de 6, modelo 67 de 72. Detalle en `resultad
 - **Latencia:** ~1.5 s por consulta cuando interviene Haiku (mediana; p95 2.5 s) y ~1 ms cuando no. El criterio C4 de 200 ms se definió para el modelo de embeddings, que sí lo cumple (110 ms); la herramienta entera no se midió contra él. El costo por llamada no se registró.
 - Las clases aceptadas del banco las escribió el agente. El archivo no cambió entre su creación y la corrida.
 
-**Pendientes que salen de esta medición (no se tocaron después de medir, para que el número corresponda al código del commit):**
+**Correcciones aplicadas después de medir** (15 nov 2026; el 91 % corresponde al commit `67101f4`, no a esta versión):
 
-- Cambiar el parecido de escritura del glosario para que no convierta una palabra válida de otro giro en una clase equivocada (por ejemplo, exigir que los embeddings estén de acuerdo cuando el parecido es solo de escritura).
-- Agregar al glosario y al banco de ajuste las palabras que fallaron. Un número nuevo después de eso exige otro banco ciego.
+- **Glosario:** se agregaron las 29 palabras de la calle del segundo ciego, que pasó al banco de ajuste; entre ellas pastelería, talachería, maquinitas, ropa de paca y materias primas. En 5 de los 6 fallos, la clase correcta no estaba entre los 10 candidatos de Gemma: la jerga se resuelve con glosario, no con embeddings.
+- **Parecido de escritura:** se acepta directo solo si los candidatos de Gemma incluyen una de sus clases. Si no, la entrada del glosario pasa a Haiku como candidato marcado "posible corrección de escritura", y Haiku decide si el texto es un error de tecleo o una palabra distinta.
+- **Prompt de Haiku** (versión 2): arreglar, componer, reparar o dar mantenimiento llevan a la clase de reparación, nunca a la de fabricación.
+
+En el banco de ajuste (352 casos, que ya incluyen los dos ciegos usados): 99 % de acierto, 96 % de rechazo y 1 % de giros perdidos; por tipo, calle 100 %, descripción 98 % y error de dedo 96 %. Los seis fallos ahora aciertan. Tres casos que antes acertaban ahora fallan con el prompt nuevo («cerca del metro» y «a dos cuadras del metro» salen `ambiguo` con transporte, y «donde me hacen un tatuaje» sale `sin_resultado`); con una sola corrida no se distingue si es el prompt o la variación del modelo. **Estos números son de ajuste y no se pueden comparar con el 91 %**: la versión corregida necesita su propio banco ciego, que se propone sacar de H11.
 
 ## La idea
 

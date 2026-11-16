@@ -1860,6 +1860,701 @@
    "tipo": "no_es_giro",
    "clases": [],
    "origen": "ciego-1"
+  },
+  {
+   "termino": "dentista",
+   "tipo": "calle",
+   "clases": [
+    "621211",
+    "621212"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "notaría",
+   "tipo": "calle",
+   "clases": [
+    "541120"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "joyería",
+   "tipo": "calle",
+   "clases": [
+    "465112"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "florería",
+   "tipo": "calle",
+   "clases": [
+    "466312"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "gasolinera",
+   "tipo": "calle",
+   "clases": [
+    "468411"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "kínder",
+   "tipo": "calle",
+   "clases": [
+    "611111",
+    "611112"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "autolavado",
+   "tipo": "calle",
+   "clases": [
+    "811192"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "talachería",
+   "tipo": "calle",
+   "clases": [
+    "811191"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "tapicería",
+   "tipo": "calle",
+   "clases": [
+    "811420",
+    "811122"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "pizzería",
+   "tipo": "calle",
+   "clases": [
+    "722517",
+    "722511"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "boliche",
+   "tipo": "calle",
+   "clases": [
+    "713950"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "hotel",
+   "tipo": "calle",
+   "clases": [
+    "721111",
+    "721112"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "cine",
+   "tipo": "calle",
+   "clases": [
+    "512130"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "banco",
+   "tipo": "calle",
+   "clases": [
+    "522110"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "estacionamiento",
+   "tipo": "calle",
+   "clases": [
+    "812410"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "pastelería",
+   "tipo": "calle",
+   "clases": [
+    "311812",
+    "461190"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "salón de fiestas",
+   "tipo": "calle",
+   "clases": [
+    "531113"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "agencia de viajes",
+   "tipo": "calle",
+   "clases": [
+    "561510"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "imprenta",
+   "tipo": "calle",
+   "clases": [
+    "323119"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "panteón",
+   "tipo": "calle",
+   "clases": [
+    "812321",
+    "812322"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "maquinitas",
+   "tipo": "calle",
+   "clases": [
+    "713120"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "jarcería",
+   "tipo": "calle",
+   "clases": [
+    "467115"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "salchichonería",
+   "tipo": "calle",
+   "clases": [
+    "461150"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "materias primas",
+   "tipo": "calle",
+   "clases": [
+    "461160"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "ropa de paca",
+   "tipo": "calle",
+   "clases": [
+    "466410"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "antro",
+   "tipo": "calle",
+   "clases": [
+    "722411"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "tienda naturista",
+   "tipo": "calle",
+   "clases": [
+    "464113"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "psicólogo",
+   "tipo": "calle",
+   "clases": [
+    "621331",
+    "621332"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "baños públicos",
+   "tipo": "calle",
+   "clases": [
+    "812120"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde arreglan relojes de pulso",
+   "tipo": "descripcion",
+   "clases": [
+    "811499",
+    "465112"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "lugar que rente sillas y mesas para una fiesta",
+   "tipo": "descripcion",
+   "clases": [
+    "532282"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde sacan copias de llaves",
+   "tipo": "descripcion",
+   "clases": [
+    "811491"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde me toman la foto para el pasaporte",
+   "tipo": "descripcion",
+   "clases": [
+    "541920"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "quiero empeñar una cadena de oro",
+   "tipo": "descripcion",
+   "clases": [
+    "522452",
+    "522451"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "necesito un abogado para un divorcio",
+   "tipo": "descripcion",
+   "clases": [
+    "541110"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde velan a un difunto",
+   "tipo": "descripcion",
+   "clases": [
+    "812310"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde reparan refrigeradores y lavadoras",
+   "tipo": "descripcion",
+   "clases": [
+    "811410"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde arreglan televisiones",
+   "tipo": "descripcion",
+   "clases": [
+    "811211"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "lugar para hacer ejercicio con pesas",
+   "tipo": "descripcion",
+   "clases": [
+    "713943",
+    "713944"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde venden vestidos de novia",
+   "tipo": "descripcion",
+   "clases": [
+    "463214"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde venden tela por metro",
+   "tipo": "descripcion",
+   "clases": [
+    "463111"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde me hacen un tatuaje",
+   "tipo": "descripcion",
+   "clases": [
+    "812990"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "clases de guitarra para niños",
+   "tipo": "descripcion",
+   "clases": [
+    "611611",
+    "611612",
+    "611691"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "quien me fumiga la casa contra cucarachas",
+   "tipo": "descripcion",
+   "clases": [
+    "561710"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde cambio dólares",
+   "tipo": "descripcion",
+   "clases": [
+    "523121",
+    "523122"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde venden peces y peceras",
+   "tipo": "descripcion",
+   "clases": [
+    "465911"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde venden pintura para paredes",
+   "tipo": "descripcion",
+   "clases": [
+    "467113"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde componen bicicletas",
+   "tipo": "descripcion",
+   "clases": [
+    "811493"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "necesito un camión para cambiarme de casa",
+   "tipo": "descripcion",
+   "clases": [
+    "484210"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde me sacan una radiografía",
+   "tipo": "descripcion",
+   "clases": [
+    "621511",
+    "621512"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "terapia para un niño que no habla bien",
+   "tipo": "descripcion",
+   "clases": [
+    "621341",
+    "621342"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde cuidan a personas mayores",
+   "tipo": "descripcion",
+   "clases": [
+    "623311",
+    "623312",
+    "624121",
+    "624122"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "quien poda árboles y arregla jardines",
+   "tipo": "descripcion",
+   "clases": [
+    "561730"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "donde lavan alfombras y salas",
+   "tipo": "descripcion",
+   "clases": [
+    "561740"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "farmcia",
+   "tipo": "error_dedo",
+   "clases": [
+    "464111",
+    "464112"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "papelria",
+   "tipo": "error_dedo",
+   "clases": [
+    "465311"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "zapateira",
+   "tipo": "error_dedo",
+   "clases": [
+    "463310"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "tortileria",
+   "tipo": "error_dedo",
+   "clases": [
+    "311830"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "veterinaira",
+   "tipo": "error_dedo",
+   "clases": [
+    "541941",
+    "541942"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "gimnacio",
+   "tipo": "error_dedo",
+   "clases": [
+    "713943",
+    "713944"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "polelria",
+   "tipo": "error_dedo",
+   "clases": [
+    "461122"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "libreira",
+   "tipo": "error_dedo",
+   "clases": [
+    "465312"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "lavanderai",
+   "tipo": "error_dedo",
+   "clases": [
+    "812210"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "cerrajerria",
+   "tipo": "error_dedo",
+   "clases": [
+    "811491"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "jugeteria",
+   "tipo": "error_dedo",
+   "clases": [
+    "465212"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "opitca",
+   "tipo": "error_dedo",
+   "clases": [
+    "464121",
+    "621320"
+   ],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "la colonia del valle",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "azcapotzalco",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "metro pantitlán",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "metro tacubaya",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "santa maría la ribera",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "gustavo a. madero",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "sobre avenida reforma",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "el ángel de la independencia",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "buenas tardes",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "¿cómo estás?",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "nos vemos luego",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "muchas gracias",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "carísimo",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "lejísimos",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "grande",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "más o menos",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "pasado mañana",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "el fin de semana",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "ayer en la tarde",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "enfrente de mi casa",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "a tres calles de aquí",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "¿dónde queda?",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "¿me puedes ayudar?",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
+  },
+  {
+   "termino": "está lloviendo",
+   "tipo": "no_es_giro",
+   "clases": [],
+   "origen": "ciego-2"
   }
  ]
 }

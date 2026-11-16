@@ -24,7 +24,7 @@ from comun import RAIZ, leer_catalogo, normalizar
 
 MODELO_EMB, VARIANTE, CANDIDATOS = "gemma", "palabras", 10
 MODELO_HAIKU = "claude-haiku-5-5"
-VERSION_PROMPT = "1"          # cambiarla invalida la caché de respuestas
+VERSION_PROMPT = "2"          # cambiarla invalida la caché de respuestas (2: regla de reparación, 15 nov 2026)
 PARECIDO_GLOSARIO = 0.84      # parecido de escritura mínimo para aceptar un error de dedo (fijado en el ajuste)
 RUTA_CACHE = RAIZ / "cache_haiku.json"
 # Catálogos del proyecto principal para reconocer lugares, sin base.
@@ -42,6 +42,8 @@ Cómo decidir:
 - Elige solo entre los códigos de la lista. Nunca escribas un código que no esté ahí.
 - Piensa en el negocio de barrio que la persona busca. Casi siempre es comercio al por menor o un servicio; \
 elige fabricación o comercio al por mayor solo si el texto lo pide o si no hay otra opción razonable.
+- Si el texto habla de arreglar, componer, reparar o dar mantenimiento, elige la clase de reparación o servicio; \
+nunca la de fabricación.
 - "Nombres comunes" son palabras frecuentes en los nombres reales de los negocios de esa clase; son buena evidencia.
 - Estados:
   - resuelto: una sola clase corresponde.
@@ -151,7 +153,10 @@ class TraductorGiro:
                 k = self.catalogo[c["clase"]]
                 comunes = ", ".join(p["palabra"].lower() for p in k.get("palabras_frecuentes", [])[:8])
                 lineas.append(f"- {k['clase_scian']} · {k['nombre_clase']} · {k['establecimientos_vigente']} negocios"
-                              + (f" · Nombres comunes: {comunes}" if comunes else ""))
+                              + (f" · Nombres comunes: {comunes}" if comunes else "")
+                              + (f" · Posible corrección de escritura de «{c['escritura_de']}»: elígela solo si el "
+                                 "texto parece un error de tecleo de esa palabra, no otra palabra real"
+                                 if c.get("escritura_de") else ""))
             r = self._cliente.messages.parse(
                 model=MODELO_HAIKU, max_tokens=4000,
                 system=[{"type": "text", "text": SISTEMA, "cache_control": {"type": "ephemeral"}}],
@@ -185,6 +190,18 @@ class TraductorGiro:
             return {**base, "estado": "no_es_giro", "capa": "glosario", "confianza": "alta", "nota": "No hay texto."}
 
         hallado = self._por_glosario(t)
+        candidatos = None
+        if hallado and hallado[1] == "media" and hallado[0]["clases"]:
+            # Un parecido solo de escritura se acepta directo si los embeddings lo respaldan. Si no, no se descarta:
+            # pasa a Haiku como candidato marcado, que distingue un error de tecleo («feretería») de otra palabra
+            # real («pastelería» no es «papelería»; fallo del segundo banco ciego, 15 nov 2026).
+            candidatos = self.candidatos(texto)
+            codigos = {c["clase"] for c in candidatos}
+            if not set(hallado[0]["clases"]) & codigos:
+                candidatos += [{"clase": c, "parecido": 0.0, "origen": "glosario",
+                                "escritura_de": hallado[0]["termino"]}
+                               for c in hallado[0]["clases"] if c not in codigos]
+                hallado = None
         if hallado:
             entrada, confianza, como = hallado
             if not entrada["clases"]:
@@ -198,7 +215,7 @@ class TraductorGiro:
             return {**base, "estado": "no_es_giro", "capa": "lugar", "confianza": "alta",
                     "nota": "Es un lugar, no un giro. Para lugares se usa resolver_lugar."}
 
-        candidatos = self.candidatos(texto)
+        candidatos = candidatos or self.candidatos(texto)
         base["candidatos"] = [{**c, "nombre": self.catalogo[c["clase"]]["nombre_clase"]} for c in candidatos]
         if not self.usar_modelo:
             return {**base, "estado": "sin_resultado", "capa": "embeddings", "confianza": "baja",

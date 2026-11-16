@@ -10,11 +10,15 @@ const $ = (id) => document.getElementById(id);
 const pct = (x) => (x == null ? "—" : Math.round(x * 100) + " %");
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const TIPO = { calle: "palabra de la calle", descripcion: "descripción libre", error_dedo: "con error de dedo", no_es_giro: "no es un giro" };
-const NOMBRE_BANCO = { ajuste: "banco de ajuste", ciego: "banco ciego", "ciego-1": "primer banco ciego (ya usado)" };
+const NOMBRE_BANCO = { ajuste: "banco de ajuste", ciego: "banco ciego", "ciego-1": "primer banco ciego (ya usado)", "ciego-2": "segundo banco ciego (ya usado)" };
 
-// Corridas disponibles por vista.
+// Corridas disponibles por vista. En la herramienta, la clave sale del nombre del archivo (ciego-2.json), no del
+// campo `banco`, que guarda el nombre que tenía el banco al correrse.
 const corridas = { herramienta: {}, embeddings: {} };
-for (const d of Object.values(HERRAMIENTA)) corridas.herramienta[d.banco] = d;
+for (const [ruta, d] of Object.entries(HERRAMIENTA)) {
+  const clave = ruta.split("/").at(-1).replace(".json", "");
+  corridas.herramienta[clave] = { ...d, banco: clave };
+}
 for (const [ruta, d] of Object.entries(EMBEDDINGS)) {
   const banco = ruta.split("/").at(-2);
   const clave = `${banco} · texto ${d.variante}`;
@@ -31,7 +35,8 @@ function llenarCorridas() {
   const nombres = Object.keys(corridas[vista]).sort();
   $("corrida").innerHTML = nombres.map((n) => `<option value="${esc(n)}">${esc(vista === "herramienta" ? NOMBRE_BANCO[n] ?? n : n.replace(/^[^ ]+/, (b) => NOMBRE_BANCO[b] ?? b))}</option>`).join("");
   // Por omisión, lo más reciente y útil: el ciego si ya se corrió; en embeddings, el texto con palabras.
-  const preferida = vista === "herramienta" ? (nombres.includes("ciego") ? "ciego" : "ajuste") : nombres.find((n) => n.startsWith("ajuste") && n.endsWith("palabras"));
+  const ultimoCiego = nombres.filter((n) => n.startsWith("ciego")).sort().at(-1);
+  const preferida = vista === "herramienta" ? (nombres.includes("ciego") ? "ciego" : ultimoCiego ?? "ajuste") : nombres.find((n) => n.startsWith("ajuste") && n.endsWith("palabras"));
   if (preferida) $("corrida").value = preferida;
   $("caja-capa").style.display = vista === "herramienta" ? "" : "none";
 }
@@ -57,7 +62,7 @@ function pintarHerramienta(d) {
       ? `<ul>${f.clases.map((k) => `<li class="${f.esperadas.includes(k.clase) ? "si" : "no"}">${f.esperadas.includes(k.clase) ? "✓" : "✗"} ${k.clase} · ${esc(k.nombre)} <span class="n">${k.establecimientos} negocios</span></li>`).join("")}</ul>`
       : `<span class="tenue">ninguna clase</span>`;
     const candidatos = f.candidatos.length
-      ? `<ol>${f.candidatos.map((k) => `<li class="${f.esperadas.includes(k.clase) ? "si" : "no"}">${k.clase} · ${esc(k.nombre)} <span class="n">${k.parecido.toFixed(2)}</span></li>`).join("")}</ol>`
+      ? `<ol>${f.candidatos.map((k) => `<li class="${f.esperadas.includes(k.clase) ? "si" : "no"}">${k.clase} · ${esc(k.nombre)} <span class="n">${k.origen === "glosario" ? `por escritura («${esc(k.escritura_de)}»)` : k.parecido.toFixed(2)}</span></li>`).join("")}</ol>`
       : `<span class="tenue">no hizo falta: se resolvió antes</span>`;
     return `<div class="caso">
       <div><div class="termino">${esc(f.termino)}</div><div class="tenue">${TIPO[f.tipo]}</div>

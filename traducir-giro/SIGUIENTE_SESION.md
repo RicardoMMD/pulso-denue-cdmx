@@ -11,13 +11,12 @@ Actualizado el 15 nov 2026. Lee primero `README.md`: la sección "Resultados" re
 1. Decidir si H10 se da por cerrado. El criterio del seguimiento ("al menos 50 giros coloquiales con acierto medido en un banco ciego") se cumple: 66 giros, 91 %. Faltan dos decisiones de integración:
    - Dónde vive la herramienta en el proyecto principal (hoy está aquí, con el modelo y sus dependencias) y cómo la carga el backend en el VPS.
    - Decisión D3 del plan: vectores en pgvector (escribir en la base real, solo con permiso) o desde archivo hasta H19.
-2. Leer la licencia de Gemma (condiciones de uso) antes de producción.
+2. Licencia de Gemma: se deja para después (decisión del 15 nov 2026). La RAM del VPS alcanza para el modelo.
 
-## Mejoras conocidas (cualquier cambio exige un banco ciego nuevo para afirmar un número)
-- El parecido de escritura del glosario confunde palabras distintas: «pastelería» salió como papelería.
-- Palabras que faltan en el glosario: talachería, maquinitas, ropa de paca, materias primas.
-- Haiku eligió fabricación en vez de reparación en «donde componen bicicletas».
-- La herramienta es generosa con los grupos (73 % de respuestas limpias).
+## Correcciones ya aplicadas (después de medir)
+- Los 6 fallos del segundo ciego se corrigieron: glosario ampliado (130 entradas), parecido de escritura respaldado por embeddings o confirmado por Haiku, y la regla de reparación en el prompt (versión 2). Detalle en el README.
+- En ajuste: 99 % de acierto. Ese número no se compara con el 91 % del ciego; la versión corregida necesita su propio banco ciego (propuesto para H11).
+- Pendiente menor: «cerca del metro» y «a dos cuadras del metro» salen `ambiguo` con transporte; «Bosque de Chapultepec» no lo reconoce el detector de lugares (no tiene parques).
 
 ## Cuidado
 - Para regenerar vectores: `uv run python vectorizar.py gemma --variante palabras` (la herramienta los necesita).
