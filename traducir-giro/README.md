@@ -1,6 +1,6 @@
 # Traducir giro — subproyecto
 
-Planteamiento del 15 nov 2026 · Estado: propuesto, sin código · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
+Planteamiento del 15 nov 2026 · Estado: entorno listo, sin modelos descargados ni bancos · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
 
 Subproyecto independiente para responder una sola pregunta: **¿un modelo de embeddings local encuentra la clase SCIAN correcta cuando alguien nombra un giro como se habla en la calle?** Cuando el resultado sea favorable, se regresa al proyecto principal y se marca H10.
 
@@ -10,7 +10,15 @@ Subproyecto independiente para responder una sola pregunta: **¿un modelo de emb
 2. **En cada consulta:** el término del usuario ("tiendita", "donde arreglan celulares") se convierte en vector con el mismo modelo.
 3. Se devuelven las clases cuyos vectores quedan más cerca.
 
-Se comparan tres modelos, todos locales: **Qwen3-Embedding-0.6B**, **BGE-M3** y **EmbeddingGemma**.
+Se comparan tres modelos, todos locales: **Qwen3-Embedding-0.6B**, **EmbeddingGemma** y **multilingual-e5-small**.
+
+| Nombre aquí | Modelo | Disco | Memoria estimada | Licencia | Acceso |
+|---|---|---|---|---|---|
+| `qwen3` | Qwen/Qwen3-Embedding-0.6B | 1.2 GB | ~2.4 GB | Apache 2.0 | libre |
+| `gemma` | google/embeddinggemma-300m | 1.2 GB | ~1.2 GB | Gemma, con condiciones de uso | aceptar términos y token |
+| `e5-small` | intfloat/multilingual-e5-small | 0.5 GB | ~0.5 GB | MIT | libre |
+
+La memoria es una estimación por número de parámetros, sin medir. BGE-M3 salió de la comparación el 15 nov 2026: pesa 2.3 GB y en memoria ocupa lo mismo que Qwen3, que queda como el único modelo grande de referencia. Qwen3 queda por encima del límite de C4 tal como viene; si gana, se prueba comprimido antes de aceptarlo.
 
 ## Qué entra y qué no
 
@@ -33,22 +41,53 @@ Se comparan tres modelos, todos locales: **Qwen3-Embedding-0.6B**, **BGE-M3** y 
 - No importa código del resto del repo, y el resto del repo no importa nada de aquí.
 - `make ci` del proyecto principal no corre los modelos. Solo podrá revisar que los bancos tengan códigos SCIAN válidos.
 
-## Estructura propuesta
+## Estructura
 
 ```
 traducir-giro/
   README.md              este planteamiento; al final, los resultados
-  pyproject.toml         dependencias con versión fija
-  datos/clases.json      catálogo de clases (versionado; son datos públicos de INEGI)
+  pyproject.toml, uv.lock  dependencias con versión fija (PyTorch sin tarjeta gráfica)
+  Makefile               comandos del subproyecto
+  comun.py               rutas, registro de modelos (revisión e instrucciones) y texto por clase
+  datos/clases.json      catálogo de clases con sus palabras frecuentes (versionado; datos públicos de INEGI)
   bancos/ajuste.json     giros para afinar
   bancos/ciego.json      giros que no se miran hasta el final
-  exportar_catalogo.py   lee semantic.actividad una vez
-  vectorizar.py          clases → vectores, por modelo
+  exportar_catalogo.py   lee semantic una vez, solo lectura
+  descargar.py           el único script que usa la red; sin --si no baja nada
+  vectorizar.py          clases → vectores, por modelo y variante de texto
   buscar.py              término → clases más cercanas
   evaluar.py             corre los bancos y escribe resultados/
-  resultados/            tablas por modelo y comparación
-  vectores/              no versionado
+  validar_bancos.py      forma de los bancos y clases válidas; lo corre `make check` del repo
+  resultados/            tablas por modelo y comparación, y umbrales.json
+  modelos/, vectores/    no versionados
 ```
+
+## Comandos
+
+Se corren desde `traducir-giro/`.
+
+| Comando | Qué hace |
+|---|---|
+| `make catalogo` | Exporta `datos/clases.json` (solo lectura, necesita túnel) |
+| `make validar` | Revisa los bancos contra el catálogo, sin base ni modelos |
+| `make modelos` | Lista los modelos y si están descargados |
+| `make descargar MODELO=qwen3` | Baja un modelo a `modelos/`. Para `gemma` hace falta `HF_TOKEN` en el `.env` |
+| `make ajuste` | Vectores, banco de ajuste y tabla en `resultados/ajuste-simple.md`. Con `VARIANTE=palabras`, el texto enriquecido |
+| `make ciego` | Banco ciego. Una sola vez: se niega a repetirse si ya existe `resultados/ciego/` |
+| `uv run python buscar.py qwen3 "tiendita"` | Prueba suelta de un término |
+
+Cargar un modelo nunca dispara una descarga: fuera de `descargar.py` todo corre sin red.
+
+## Formato de los bancos
+
+```json
+{"casos": [
+  {"termino": "tiendita", "tipo": "calle", "clases": ["461110"]},
+  {"termino": "la Roma", "tipo": "no_es_giro", "clases": []}
+]}
+```
+
+`tipo` es `calle`, `descripcion`, `error_dedo` o `no_es_giro`. `clases` es el conjunto de clases aceptables (SCIAN 2023); va vacío solo cuando no es un giro.
 
 ## Los bancos
 
@@ -106,7 +145,7 @@ Los umbrales son propuestas. Se confirman **antes** de correr el banco ciego y n
 
 ## Etapas
 
-1. **Catálogo.** Exportar las clases desde `semantic.actividad` (solo lectura, con túnel) a `datos/clases.json`.
+1. **Catálogo.** Hecho el 15 nov 2026: 948 clases de SCIAN 2023 (edición 2026-05), 725 con palabras frecuentes de sus nombres comerciales.
 2. **Bancos.** Escribir el de ajuste y el ciego, y verificar a mano las clases esperadas.
 3. **Línea base.** Correr los tres modelos sobre el banco de ajuste con el texto más simple (nombre de la clase y su jerarquía).
 4. **Afinado.** Mejorar el texto por clase y fijar el umbral de parecido, solo con el banco de ajuste.
@@ -116,9 +155,9 @@ Los umbrales son propuestas. Se confirman **antes** de correr el banco ciego y n
 
 ## Lo que hay que saber antes de empezar
 
-- **Descargas.** Los tres modelos se bajan de Hugging Face, entre unos cientos de MB y unos 2 GB cada uno. Se pide permiso antes de cada descarga.
-- **EmbeddingGemma** puede requerir aceptar los términos de Google en Hugging Face con una cuenta. Eso lo hace Ricardo. Por verificar.
-- **Licencias.** Qwen3-Embedding-0.6B es Apache 2.0 y BGE-M3 es MIT, según las fuentes consultadas. Se confirman en la ficha de cada modelo antes de elegir.
+- **Descargas.** Los tres modelos se bajan de Hugging Face: 1.2 GB, 1.2 GB y 0.5 GB. Se pide permiso antes de cada descarga.
+- **EmbeddingGemma** tiene acceso restringido (verificado el 15 nov 2026): Ricardo acepta los términos de Google en la ficha del modelo con su cuenta, crea un token de lectura y lo pone en el `.env` del repo como `HF_TOKEN`. Su licencia es la de Gemma, con condiciones de uso; se lee antes de elegirlo.
+- **Licencias.** Qwen3-Embedding-0.6B es Apache 2.0 y multilingual-e5-small es MIT, según la etiqueta de cada ficha en Hugging Face (15 nov 2026).
 
 ## Qué falta para marcar H10 después de este subproyecto
 

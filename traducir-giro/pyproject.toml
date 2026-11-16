@@ -1,0 +1,24 @@
+[project]
+name = "pulso-traducir-giro"
+version = "0.1.0"
+description = "Comparación de modelos de embeddings locales para traducir giros coloquiales a clases SCIAN"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "sentence-transformers>=6.3,<7",
+  "torch>=2.6",
+  "numpy>=2.0",
+  "psutil>=6.0",
+]
+
+[dependency-groups]
+# Solo para exportar el catálogo desde la base (una vez, solo lectura).
+base = ["psycopg[binary]>=3.2"]
+
+# PyTorch sin tarjeta gráfica: el VPS no tiene, y así no se bajan las bibliotecas de CUDA.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true

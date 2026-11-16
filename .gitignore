@@ -13,3 +13,7 @@ dbt/.user.yml
 node_modules/
 .pytest_cache/
 laboratorio/.vite/
+
+# Traducir giro: modelos descargados y vectores
+traducir-giro/modelos/
+traducir-giro/vectores/

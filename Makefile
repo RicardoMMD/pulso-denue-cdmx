@@ -7,7 +7,7 @@ ENV      := set -a && . ../.env && set +a
 # Para `check` y `ci`: usa el .env si existe y, si no (GitHub Actions), variables de mentira. `dbt parse` no se conecta.
 ENV_CHECK := set -a && { [ ! -f ../.env ] || . ../.env; } && : $${PULSO_OWNER_USER:=ci} $${PULSO_OWNER_PASSWORD:=ci} && set +a
 DBT_ARGS := --project-dir ../dbt --profiles-dir ../dbt
-PY_SRC   := pipeline/*.py prototipos/02-renderizador/*.py prototipos/03-resolver-lugar/*.py investigaciones-experimentos/01-api-denue/*.py backend/contracts/*.py
+PY_SRC   := pipeline/*.py prototipos/02-renderizador/*.py prototipos/03-resolver-lugar/*.py investigaciones-experimentos/01-api-denue/*.py backend/contracts/*.py traducir-giro/*.py
 # Lo que genera backend/contracts/generar.py: no se edita a mano.
 GENERADOS := backend/contracts/escena.v1.json backend/contracts-ts/escena.v1.d.ts backend/contracts-ts/validar-estructura.js
 EDICION  ?= 2026-05
@@ -25,6 +25,7 @@ ci: check contratos diseno
 ## check: sin base de datos — sintaxis de Python y JS, y dbt parse
 check:
 	@cd pipeline && uv run python -m py_compile $(addprefix ../,$(PY_SRC))
+	@python3 traducir-giro/validar_bancos.py
 	@node --check prototipos/02-renderizador/src/main.js
 	@node --check laboratorio/src/laboratorio.js
 	@node --check diseno/generar.mjs
