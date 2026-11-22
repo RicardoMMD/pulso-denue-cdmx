@@ -5,6 +5,6 @@ import { defineConfig } from "vite";
 export default defineConfig({
   base: "./",
   publicDir: "../prototipos/02-renderizador/public",
-  build: { target: "es2022", rollupOptions: { input: { index: "index.html", tipografia: "tipografia.html" } } },
+  build: { target: "es2022", rollupOptions: { input: { index: "index.html", tipografia: "tipografia.html", giros: "giros.html" } } },
   server: { host: true, fs: { allow: [".."].map((p) => new URL(p + "/", import.meta.url).pathname) } },
 });

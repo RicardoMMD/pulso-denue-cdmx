@@ -562,7 +562,7 @@ Corte: 8 nov 2026. Capa de datos avanzada; producto sin iniciar.
 **Desfases conocidos**
 
 - Islas de 15 minutos no tiene red peatonal ni accesibilidad calculada (Pandana o r5py).
-- `pgvector` está habilitado en la base, pero aún no hay embeddings para traducir giros ni perfiles de similitud vectoriales. El glosario de giros (lenguaje común → SCIAN) sigue pendiente.
+- `pgvector` está habilitado en la base y sigue vacío: los vectores para traducir giros viven en archivo (ver "Resultado de traducir giro") y no hay perfiles de similitud vectoriales.
 - La edición DENUE 11/2026 se publica el 25 de noviembre: probar con ella la recarga y la reconciliación.
 
 ## Resultado del prototipo 1
@@ -682,6 +682,19 @@ Guion de H12 en `contenido/historias/vida-comercial-metro.yml`, escrito el 14 no
 - **Fuera del guion:** cifras por giro en Corredores del Metro (pasa a H27).
 - **De paso:** `colonia_gemela` tardaba de 4.5 a más de 55 minutos según el plan que eligiera PostgreSQL. Se reescribió para calcular los sectores que explican solo con los pares del top 5: el mismo resultado (26 155 filas, sin diferencias) en 2.5 minutos.
 
+## Resultado de traducir giro
+
+Herramienta "Traducir giro" del Analista (H10), construida en `traducir-giro/` el 15 nov 2026 y cerrada el 22 nov 2026. Convierte la forma común de nombrar un giro ("tiendita", "donde arreglan celulares") en clases SCIAN 2023. Definición para la API de Claude en `traducir-giro/herramienta.py`; repaso visual en `laboratorio/giros.html`.
+
+- **Cómo trabaja**, de la capa más confiable a la más flexible: un glosario CDMX escrito a mano (130 entradas, con tolerancia a errores de dedo); un detector de lugares, para devolver "no es giro" ante "la Roma" o "metro Balderas"; 10 candidatos por significado con EmbeddingGemma, que no decide; y `claude-haiku-5-5`, que elige entre esos candidatos o dice que ninguno. Nunca devuelve una clase que no esté en el glosario o entre los candidatos.
+- **Los embeddings solos no alcanzaron.** En el primer banco ciego, EmbeddingGemma puso la clase correcta entre las 5 primeras en 79 % de los giros (el criterio era 85 %) y no supo separar lo que no es giro. Las palabras de la calle que fallan ("changarro", "lonchería") no están en los nombres oficiales: son de glosario.
+- **La herramienta completa cumple** en un segundo banco ciego escrito por un agente aislado y corrido una vez: **91 % de acierto en 66 giros** (calle 83 %, descripción 96 %, error de dedo 100 %), **100 % de rechazo** de 24 textos que no son giro y 3 % de giros perdidos. El margen sobre el 85 % son unos 4 casos.
+- **Después de medir** se corrigieron los 6 fallos (glosario, parecido de escritura y una regla de reparación en el prompt). Esa versión no tiene banco ciego propio: se mide en H11.
+- **Costo:** ~1 ms cuando resuelve el glosario y ~1.5 s (mediana) cuando interviene Haiku. El modelo de embeddings ocupa 1.2 GB de memoria y 110 ms por consulta sin tarjeta gráfica.
+- **Dónde vive:** en `traducir-giro/` hasta H19, cuando entra al backend junto con resolver lugar, con el modelo y PyTorch en un grupo de dependencias aparte.
+- **Vectores:** en archivo, no en pgvector. Son 948 vectores (2.9 MB) que caben en memoria; pgvector no ahorra lo caro, que es convertir la pregunta en vector. Se reconsidera si hace falta buscar por significado entre establecimientos o notas de metodología.
+- **Pendiente:** cómo carga el modelo el backend en el VPS y el catálogo por edición (H19); regenerar catálogo y vectores con la edición 11/2026 (H07); leer la licencia de Gemma antes de publicar (H25).
+
 ## Riesgos, primera versión y próximos pasos
 
 Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin mapa base, la cobertura de campos y la resolución de lugares.
@@ -746,7 +759,8 @@ Antes de construir, tres prototipos deciden la viabilidad: el renderizador sin m
 - [x] Cargar las cuatro ediciones a `raw` y construir `staging` y `core` (dbt; ver `dbt/README.md`)
 - [x] Prototipo 1: cobertura de campos y compuerta de conglomerados: **verde** (82.1 % del padrón; ver "Resultado del prototipo 1")
 - [x] Prototipo 2: renderizador sin mapa base con paleta provisional (escritorio: GPU 3.55 ms por cuadro; S26 Ultra: 60 FPS, p5 59.5)
-- [x] Prototipo 3: resolver lugar (87 % en casos nuevos; ver "Resultado del prototipo 3"); falta el glosario CDMX de giros (lenguaje común → SCIAN)
+- [x] Prototipo 3: resolver lugar (87 % en casos nuevos; ver "Resultado del prototipo 3")
+- [x] Traducir giro: glosario CDMX de giros, embeddings y Haiku (H10; 91 % en banco ciego; ver "Resultado de traducir giro")
 - [x] Contrato de escena en Pydantic v2 y exportación a JSON Schema (H09; ver "Resultado del contrato de escena")
 - [x] Catálogo de vistas semánticas, primera versión: 18 tablas en `semantic` (ver `dbt/README.md`), con `lugar` para resolver lugares, incluidas Metro, Colonias gemelas y Cómo se llaman las cosas; falta la de Islas de 15 minutos
 - [ ] Banco de preguntas de evaluación del Analista

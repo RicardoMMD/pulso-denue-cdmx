@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es" data-tema="oscuro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pulso DENUE CDMX — Laboratorio: traducir giro</title>
+<style>
+  * { box-sizing: border-box; }
+  html,body { margin:0; background:var(--fondo); color:var(--texto); font:var(--peso-normal) var(--tam-texto)/1.45 var(--fuente); }
+  main { max-width:1180px; margin:0 auto; padding:16px; }
+  nav, .filtros { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; }
+  nav { padding-bottom:12px; border-bottom:1px solid var(--trazo, var(--alcaldia-trazo)); }
+  a, button, select, input { color:var(--texto); font:inherit; background:none; border:1px solid var(--trazo, var(--alcaldia-trazo)); border-radius:6px; padding:5px 9px; text-decoration:none; }
+  button, select { cursor:pointer; }
+  select option { background:var(--fondo); color:var(--texto); }
+  button[aria-pressed="true"] { font-weight:var(--peso-fuerte); border-color:var(--texto); }
+  input[type=search] { min-width:200px; flex:1; }
+  label { display:inline-flex; gap:6px; align-items:center; color:var(--texto-tenue); font-size:var(--tam-etiqueta); }
+  h1 { font-size:var(--tam-titulo-panel); font-weight:var(--peso-fuerte); line-height:1.15; margin:20px 0 6px; letter-spacing:-.01em; }
+  h2 { font-size:var(--tam-etiqueta); font-weight:var(--peso-medio); color:var(--texto-tenue); text-transform:uppercase; letter-spacing:.07em; margin:24px 0 8px; }
+  p { margin:0 0 10px; max-width:75ch; }
+  .tenue { color:var(--texto-tenue); font-size:var(--tam-etiqueta); }
+  .tarjetas { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px; }
+  .tarjeta { border:1px solid var(--trazo, var(--alcaldia-trazo)); border-radius:10px; padding:12px 14px; }
+  .cifra { font-size:32px; font-weight:var(--peso-fuerte); line-height:1.1; font-variant-numeric:tabular-nums; }
+  .caso { border-top:1px solid var(--trazo, var(--alcaldia-trazo)); padding:10px 0; display:grid; grid-template-columns:minmax(180px, 1fr) 3fr; gap:6px 16px; }
+  .caso .termino { font-weight:var(--peso-fuerte); font-size:var(--tam-texto-panel); overflow-wrap:anywhere; }
+  .columnas { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:10px 16px; }
+  .columnas h3 { margin:0 0 4px; font-size:var(--tam-etiqueta); font-weight:var(--peso-medio); color:var(--texto-tenue); }
+  ol, ul { margin:0; padding-left:18px; }
+  li { font-size:var(--tam-etiqueta); }
+  li.si { font-weight:var(--peso-fuerte); }
+  li.no { color:var(--texto-tenue); }
+  .n { font-variant-numeric:tabular-nums; color:var(--texto-tenue); }
+  .marca { font-weight:var(--peso-fuerte); }
+  @media (max-width:640px) { .caso { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+<main>
+  <nav>
+    <a href="./index.html">← Brillo y paleta</a>
+    <a href="./tipografia.html">Tipografía</a>
+    <button id="tema" aria-pressed="false">Tema: oscuro</button>
+  </nav>
+
+  <h1>Traducir giro</h1>
+  <p>De cómo se nombra un negocio en la calle a su clase SCIAN. Aquí se ve, caso por caso, qué devolvió la herramienta completa y qué candidatos propuso cada modelo de embeddings.</p>
+
+  <div class="filtros" style="margin-top:12px">
+    <button data-vista="herramienta" aria-pressed="true">Herramienta completa</button>
+    <button data-vista="embeddings" aria-pressed="false">Embeddings lado a lado</button>
+    <label>Corrida <select id="corrida"></select></label>
+  </div>
+
+  <h2>Resumen</h2>
+  <div class="tarjetas" id="resumen"></div>
+  <p class="tenue" id="aviso" style="margin-top:8px"></p>
+
+  <h2>Casos</h2>
+  <div class="filtros">
+    <label>Tipo <select id="tipo"><option value="">todos</option><option value="calle">palabra de la calle</option><option value="descripcion">descripción libre</option><option value="error_dedo">con error de dedo</option><option value="no_es_giro">no es un giro</option></select></label>
+    <label id="caja-capa">Capa <select id="capa"><option value="">todas</option><option>glosario</option><option>lugar</option><option>modelo</option></select></label>
+    <label><input type="checkbox" id="fallos"> solo fallos</label>
+    <input type="search" id="buscar" placeholder="Buscar un término…" aria-label="Buscar un término">
+    <span class="tenue" id="cuenta"></span>
+  </div>
+  <div id="casos" style="margin-top:8px"></div>
+</main>
+<script type="module" src="/src/giros.js"></script>
+</body>
+</html>
