@@ -18,7 +18,7 @@ El ciclo es siempre el mismo: clasifica la pregunta, resuelve el lugar y traduce
 | # | Herramienta | Qué hace | Modelo | Hito | Estado |
 |---|---|---|---|---|---|
 | 1 | Resolver lugar | Convierte "la Roma" o "cerca del metro Balderas" en identificadores territoriales | Haiku | H06 (prototipo), H19 | Prototipo hecho: 87 % de acierto en casos nuevos |
-| 2 | Traducir giro | Convierte "tiendita" o "estética" en clases SCIAN | Haiku | H10, H19 | Construida y medida en banco ciego (91 %); falta integrarla |
+| 2 | Traducir giro | Convierte "tiendita" o "estética" en clases SCIAN | Haiku | H10, H19 | H10 cerrado: 91 % en banco ciego; se integra en H19 |
 | 3 | Consultar datos | Escribe y ejecuta SQL sobre las vistas autorizadas | Sonnet | H19 | Pendiente |
 | 4 | Buscar metodología | Responde preguntas sobre el DENUE, el SCIAN y los indicadores con notas escritas | Sonnet | H19 | Pendiente |
 | 5 | Construir escena | Devuelve un estado de escena que el backend valida | Sonnet | H09, H14, H19 | El contrato está hecho (H09); falta la herramienta |
@@ -34,10 +34,12 @@ El ciclo es siempre el mismo: clasifica la pregunta, resuelve el lugar y traduce
 ### 2. Traducir giro
 
 - **Para qué sirve:** la base clasifica los giros con SCIAN, y la gente no habla así. Esta herramienta hace de intérprete.
-- **Cómo funciona:** primero busca en un glosario CDMX escrito a mano; si no hay coincidencia, busca por significado con embeddings en pgvector. Si no alcanza confianza, lo dice.
-- **Qué necesita:** glosario de giros, embeddings de las clases SCIAN, una tabla en la base y un banco ciego de al menos 50 giros.
-- **Dónde estará:** se construye en H10 siguiendo el molde del prototipo 3.
-- **Decisiones abiertas:** proveedor de embeddings (modelo local multilingüe o Voyage AI) y cuándo cargar la tabla a la base real.
+- **Cómo funciona:** primero busca en un glosario CDMX escrito a mano; si el texto es un lugar, responde que no es giro; si no, saca 10 clases candidatas por significado con EmbeddingGemma (modelo local) y Haiku elige entre ellas o dice que ninguna. Si no alcanza confianza, lo dice.
+- **Qué devuelve:** un estado (`resuelto`, `grupo`, `ambiguo`, `sin_resultado` o `no_es_giro`), las clases con código y nombre, la capa que resolvió, confianza y una nota.
+- **Dónde está:** `traducir-giro/` (`traducir_giro.py`, `herramienta.py`, `glosario.json`). Ahí se queda hasta H19, cuando entra al backend junto con resolver lugar.
+- **Resultado:** 91 % de acierto en 66 giros de un banco ciego y 100 % de rechazo de lo que no es giro (H10, 15 nov 2026).
+- **Decidido (22 nov 2026):** modelo local (EmbeddingGemma), no Voyage AI. Los vectores de las clases van en archivo, no en pgvector: son 948 y caben en memoria.
+- **Falta (H19):** cómo carga el modelo el backend en el VPS (1.2 GB por proceso), catálogo de clases por edición y leer la licencia de Gemma antes de publicar.
 
 ### 3. Consultar datos
 
@@ -76,7 +78,7 @@ Estas piezas no son herramientas que el modelo llame, pero sin ellas el Analista
 
 ## Orden sugerido
 
-1. **H10:** traducir giro (desbloqueado hoy; solo depende de `semantic`).
+1. **H10:** traducir giro (hecho el 22 nov 2026).
 2. **H11:** banco de evaluación, para tener la vara de medir antes de construir el ciclo.
 3. **H14:** validación y persistencia de paneles (habilita construir escena).
 4. **H19:** orquestación con las cinco herramientas; debe superar el banco de H11.

@@ -1,6 +1,6 @@
 # Traducir giro — subproyecto
 
-Planteamiento del 15 nov 2026 · Estado: herramienta completa medida en banco ciego (cumple C1–C3); falta decidir dónde vive y dónde van los vectores · Hito que destraba: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
+Planteamiento del 15 nov 2026 · Estado: H10 cerrado el 22 nov 2026 (herramienta completa: 91 % en banco ciego). Vive aquí hasta H19; vectores en archivo · Hito: H10 (`docs/Seguimiento — Hitos del proyecto.md`)
 
 Subproyecto independiente para responder una sola pregunta: **¿un modelo de embeddings local encuentra la clase SCIAN correcta cuando alguien nombra un giro como se habla en la calle?** Cuando el resultado sea favorable, se regresa al proyecto principal y se marca H10.
 
@@ -233,9 +233,30 @@ Los umbrales son propuestas. Se confirman **antes** de correr el banco ciego y n
 - **EmbeddingGemma** tiene acceso restringido (verificado el 15 nov 2026): Ricardo acepta los términos de Google en la ficha del modelo con su cuenta, crea un token de lectura y lo pone en el `.env` del repo como `HF_TOKEN`. Su licencia es la de Gemma, con condiciones de uso; se lee antes de elegirlo.
 - **Licencias.** Qwen3-Embedding-0.6B es Apache 2.0 y multilingual-e5-small es MIT, según la etiqueta de cada ficha en Hugging Face (15 nov 2026).
 
-## Qué falta para marcar H10
+## Cierre de H10 (22 nov 2026)
 
-- Decidir dónde vive la herramienta en el proyecto principal (hoy está aquí porque aquí están el modelo y sus dependencias) y cómo carga el modelo el backend en el VPS.
-- Los vectores en pgvector o en archivo (decisión D3 del plan). Escribir en la base real se hace solo con permiso.
-- Leer la licencia de Gemma antes de producción.
-- Lo que el laboratorio aún no muestra: encender en la ciudad los puntos de una clase, que llega con H13.
+**Dónde vive.** Aquí, en `traducir-giro/`, como implementación de referencia hasta H19. En H19 entra al backend junto con resolver lugar (`prototipos/03-resolver-lugar/`), las dos a la vez:
+
+- El código de la herramienta (`traducir_giro.py`, `herramienta.py`, `glosario.json`, `evaluar_herramienta.py` y los bancos) pasa al backend. La comparación de modelos (`evaluar.py`, `descargar.py`, `resultados/`) se queda aquí como registro.
+- `sentence-transformers` y PyTorch sin tarjeta gráfica van en un grupo de dependencias aparte del backend, para que `make ci` no los instale.
+- Hasta entonces sigue la regla de independencia: el resto del repo no importa nada de aquí.
+
+Por qué no moverla ahora a `prototipos/04-traducir-giro/`, como decía el plan: sería mudarla dos veces (rutas, Makefile, entorno, laboratorio y documentos) sin ganar nada. La forma en que el backend la carga depende del diseño del ciclo del Analista, que es de H19.
+
+**Vectores (D3): en archivo, no en pgvector.**
+
+- Son 948 vectores (2.9 MB). Comparar la pregunta contra todos en memoria tarda menos de 1 ms.
+- Lo caro es convertir la pregunta en vector, y para eso el backend necesita cargar el modelo de todos modos. pgvector no lo evita.
+- El vector de una clase depende de la revisión del modelo. Guardarlo junto al modelo, en el mismo despliegue, evita que se desfasen. En la base agregaría un paso de pipeline, un modelo dbt con pruebas y un `make build`.
+- pgvector se reconsidera si una herramienta necesita buscar por significado entre los 460 mil establecimientos o en las notas de metodología.
+
+**Pasa a otros hitos:**
+
+- **H07** (edición 11/2026): regenerar `datos/clases.json` y los vectores, porque el texto de cada clase usa palabras de los nombres comerciales de la edición.
+- **H11:** banco ciego para la versión corregida, que no se ha medido en ciego.
+- **H19:**
+  - Cómo carga el modelo el backend en el VPS: 1.2 GB por proceso, así que conviene que un solo proceso lo tenga y que se cargue solo cuando el glosario no resuelve.
+  - Un catálogo de clases por edición, como `backend/contracts/referencias/<edicion>.json`.
+  - «Cerca del metro» y «Bosque de Chapultepec».
+- **H25:** leer la licencia de Gemma antes de publicar.
+- **H13:** lo que el laboratorio aún no muestra, encender en la ciudad los puntos de una clase.

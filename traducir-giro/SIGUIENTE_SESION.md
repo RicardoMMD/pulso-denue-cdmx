@@ -1,17 +1,17 @@
 # Traducir giro — arranque de la siguiente sesión
 
-Actualizado el 15 nov 2026. Lee primero `README.md`: la sección "Resultados" resume todo lo medido.
+Actualizado el 22 nov 2026. Lee primero `README.md`: la sección "Resultados" resume todo lo medido y "Cierre de H10" lo decidido.
 
 ## Estado
 - Los embeddings solos no cumplieron en el primer banco ciego. Se eligió EmbeddingGemma (texto `palabras`) como generador de candidatos. Qwen3 quedó fuera por costo y acierto; BGE-M3, por peso.
 - La herramienta completa (`traducir_giro.py`: glosario, lugar, 10 candidatos de Gemma y `claude-haiku-5-5`) **cumple C1–C3 en el segundo banco ciego**: 91 % de acierto, 100 % de rechazo y 3 % de giros perdidos. Ese banco ya está usado: `resultados/herramienta/ciego.json` lo marca y el script no lo repite.
 - Nada se ha escrito en la base. Modelos y vectores están en `modelos/` y `vectores/`, sin versionar.
 
-## Pendiente de Ricardo
-1. Decidir si H10 se da por cerrado. El criterio del seguimiento ("al menos 50 giros coloquiales con acierto medido en un banco ciego") se cumple: 66 giros, 91 %. Faltan dos decisiones de integración:
-   - Dónde vive la herramienta en el proyecto principal (hoy está aquí, con el modelo y sus dependencias) y cómo la carga el backend en el VPS.
-   - Decisión D3 del plan: vectores en pgvector (escribir en la base real, solo con permiso) o desde archivo hasta H19.
-2. Licencia de Gemma: se deja para después (decisión del 15 nov 2026). La RAM del VPS alcanza para el modelo.
+## H10 cerrado (22 nov 2026)
+- La herramienta vive aquí hasta H19; entonces entra al backend junto con resolver lugar, con PyTorch en un grupo de dependencias aparte.
+- Vectores en archivo, no en pgvector (D3). Nada se escribe en la base.
+- Lo que sigue aquí: regenerar `datos/clases.json` y los vectores con la edición 11/2026 (H07); banco ciego de la versión corregida (H11).
+- Licencia de Gemma: se lee antes de publicar (H25). La RAM del VPS alcanza para el modelo.
 
 ## Correcciones ya aplicadas (después de medir)
 - Los 6 fallos del segundo ciego se corrigieron: glosario ampliado (130 entradas), parecido de escritura respaldado por embeddings o confirmado por Haiku, y la regla de reparación en el prompt (versión 2). Detalle en el README.

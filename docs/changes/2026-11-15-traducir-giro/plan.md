@@ -1,7 +1,7 @@
 # Plan: traducir giro (H10)
 Estado: propuesto (2026-11-15), sin ejecutar · Ref: H10 en `docs/Seguimiento — Hitos del proyecto.md` · Antecedentes: `docs/Herramientas del Analista.md` y el prototipo 3 (`prototipos/03-resolver-lugar/`)
 
-**Actualización (15 nov 2026):** la capa de embeddings (pasos 1, 2 y 4) se trabaja primero como subproyecto independiente en `traducir-giro/`, todo en local, comparando Qwen3-Embedding-0.6B, EmbeddingGemma y multilingual-e5-small (BGE-M3 salió por peso). Su planteamiento y criterios de logro están en `traducir-giro/README.md` y mandan sobre este plan donde difieran. El glosario y el paso de Haiku se retoman con el modelo ya elegido. **Resultado (15 nov 2026):** los embeddings solos no cumplieron en el banco ciego; se eligió EmbeddingGemma como generador de candidatos y los pasos 3, 5, 6 y 7 se construyeron en `traducir-giro/` (no en `prototipos/04-traducir-giro/`). El segundo banco ciego se corrió y la herramienta completa cumplió (91 % de acierto en giros, 100 % de rechazo). Falta el paso 8 y la decisión de dónde vive.
+**Actualización (15 nov 2026):** la capa de embeddings (pasos 1, 2 y 4) se trabaja primero como subproyecto independiente en `traducir-giro/`, todo en local, comparando Qwen3-Embedding-0.6B, EmbeddingGemma y multilingual-e5-small (BGE-M3 salió por peso). Su planteamiento y criterios de logro están en `traducir-giro/README.md` y mandan sobre este plan donde difieran. El glosario y el paso de Haiku se retoman con el modelo ya elegido. **Resultado (15 nov 2026):** los embeddings solos no cumplieron en el banco ciego; se eligió EmbeddingGemma como generador de candidatos y los pasos 3, 5, 6 y 7 se construyeron en `traducir-giro/` (no en `prototipos/04-traducir-giro/`). El segundo banco ciego se corrió y la herramienta completa cumplió (91 % de acierto en giros, 100 % de rechazo). **Cierre (22 nov 2026):** el paso 8 no se ejecuta. D3 se resuelve por archivo: los vectores no van a pgvector. La herramienta se queda en `traducir-giro/` hasta H19, cuando entra al backend junto con resolver lugar.
 
 Quien no vio la conversación debería poder implementar H10 con este plan. No hay intent ni spec separados: el diseño se acordó en conversación el 15 nov 2026 y queda escrito aquí.
 
@@ -28,7 +28,7 @@ Cuando ninguna capa alcanza confianza, la herramienta lo dice. Nunca inventa una
 |---|---|---|---|
 | D1 | Modelo de embeddings | Local y multilingüe. Se elige midiendo dos o tres candidatos en el banco, no por reseñas | Paso 4 |
 | D2 | Umbral de acierto para cerrar | 85 % en el banco ciego (el prototipo 3 cerró con 87 %) | Antes del paso 6 |
-| D3 | Dónde viven los vectores en producción | Tabla con pgvector, expuesta en `semantic` | Paso 8 |
+| D3 | Dónde viven los vectores en producción | ~~Tabla con pgvector, expuesta en `semantic`~~ **Decidido (22 nov 2026): archivo.** 948 vectores caben en memoria y pgvector no evita cargar el modelo para la pregunta | Paso 8 |
 | D4 | Llave de la API de Claude para Haiku | En `.env`, como `ANTHROPIC_API_KEY`; la crea Ricardo | Antes del paso 5 |
 
 Una consecuencia de D1 que conviene saber desde ahora: con un modelo local, el backend tendrá que cargarlo en el VPS para convertir en vector cada pregunta. Un modelo chico ocupa del orden de cientos de MB de memoria; uno grande, más de 2 GB. El tamaño del modelo entra en la elección.
