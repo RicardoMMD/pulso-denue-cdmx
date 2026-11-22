@@ -72,7 +72,7 @@ Orden de trabajo dentro del hito:
 - **H22 · Página de metodología.** Puede empezar antes: solo depende de H03 y H04.
 
 ### Etapa 5 · El Analista
-- **H19 · Orquestación.** Ciclo de herramientas con la API de Claude: un modelo ligero clasifica, resuelve lugares y traduce giros; uno mayor escribe SQL y redacta. Cinco herramientas: resolver lugar (ya definida en `prototipos/03-resolver-lugar/herramienta.py`), traducir giro (H10), consultar datos (SQL validado con sqlglot sobre `semantic`, rol `pulso_analista`), buscar metodología y construir escena (valida con el contrato). Debe superar el banco de H11.
+- **H19 · Orquestación.** Ciclo de herramientas con la API de Claude: un modelo ligero clasifica, resuelve lugares y traduce giros; uno mayor escribe SQL y redacta. Cinco herramientas: resolver lugar (ya definida en `prototipos/03-resolver-lugar/herramienta.py`), traducir giro (H10), consultar datos (SQL validado con sqlglot sobre `semantic`, rol `pulso_analista`), buscar metodología y construir escena (valida con el contrato). Debe superar el banco de H11. Se parte en dos (22 nov 2026): **H19a**, el Analista como librería, se trabaja junto con H11 y no espera a H14; **H19b**, la integración con la API y la persistencia de paneles, sí espera a H14.
 - **H20 · Caché, límites y observabilidad.** Caché de intención, límites por IP y conversación, Turnstile, presupuesto con modo degradado y Langfuse.
 
 ### Etapa 6 · Contenido, calidad y lanzamiento
@@ -81,9 +81,77 @@ Orden de trabajo dentro del hito:
 - **H25 · Despliegue.** Docker detrás de Traefik, estáticos en CDN, respaldo diario y procedimiento de publicación de una edición. El despliegue a producción se pide en el momento.
 - **H26 · Lanzamiento**, con la edición vigente más reciente.
 
-## Camino crítico
+## Rutas
 
-`H09 → H13 + H15 → H16 → H21 → H26`. El Analista (`H10 → H11 → H19 → H20`) corre en paralelo y solo necesita H14 del resto. El riesgo mayor de calendario es H15–H16 (motor y escenas); el de calidad, H24 en gama media, que conviene adelantar con una prueba del prototipo 2 con brillo en cuanto exista H08.
+Una ruta es una cadena de hitos que se puede trabajar de corrido, sin esperar a las demás, hasta llegar a un punto de cruce. Sirve para decidir en qué trabajar hoy y para ver qué se retrasa si una ruta se detiene. Definidas el 22 nov 2026 a partir de la columna "Depende de" del seguimiento.
+
+### Las ocho rutas
+
+| Ruta | Cadena | Estado | Qué entrega por sí sola |
+|---|---|---|---|
+| **Ciudad** (camino crítico) | `H05 ✅ H08 ✅ H09 ✅ → H15 + H13 → H16 → H18 → H21` | Sin empezar desde H15 | La historia "Vida comercial del Metro" navegable |
+| **Analista** | `H10 ✅ → H11 + H19a → H19b → H20` | H11 y H19a, listos para empezar | Un Analista medido, con límites y panel compartible |
+| **Datos** | `H07 → regeneraciones` | Espera a INEGI (25 nov) | La edición 11/2026 vigente, con referencias, catálogo y banco al día |
+| **Backend** | `H09 ✅ → H14` | Sin empezar; pide permiso para DDL | Paneles con dirección estable (`/p/{id}`, `/c/{id}`) |
+| **Lectura** | `H09 ✅ + H13 → H17 → H23` | Espera a H13 | Vista exacta 2D, respaldo sin WebGL2 y lectura con lector de pantalla |
+| **Contenido** | `H03 ✅ H04 ✅ → H22` (y `H12 ✅ → H21`, que cierra en Ciudad) | H22 puede empezar ya | Página de metodología; el guion (H12) ya está hecho y espera a las escenas |
+| **Salida** | `H13 + H14 → H25 → H26` | Espera a las demás | Despliegue y lanzamiento |
+| **Diferida** | `H24, H27` | Fuera de la v1 | Rendimiento en dispositivos y segunda versión |
+
+### Qué hay en cada ruta
+
+**Ciudad.** Es el camino crítico: de ella depende el lanzamiento (H26).
+- H15 y H13 se trabajan en paralelo; H16 espera a los dos.
+- H17 (ruta Lectura) también cuelga de H13, pero no frena a H16.
+- El riesgo mayor de calendario está en H15 y H16, el motor y las escenas. La salida es una prueba corta en el laboratorio antes de la spec completa: lienzo persistente, una transición con GSAP entre dos escenas y el mismo punto viajando entre las dos vistas.
+
+**Analista.** Plan de la ruta en `docs/changes/2026-11-22-ruta-analista/plan.md`. Su primera etapa se trabaja como subproyecto aparte (`docs/changes/2026-11-22-h11-banco-analista/plan.md`).
+- H11 y H19a van juntos, con línea base temprana y registro de experimentos.
+- Solo H19b necesita algo de otra ruta: H14, de la ruta Backend.
+- H20 no entra a la v1 sin H19b, pero sus partes sin panel (límites, presupuesto) se pueden adelantar.
+
+**Datos.** Es corta pero tiene fecha externa.
+- H07 pide permiso en cada escritura a la base real.
+- Después de H07 se regeneran las referencias (`make referencias`), el catálogo y los vectores de traducir giro, el `esperado` del banco de H11 y la medición del prototipo 1.
+- H13 conviene dejarlo después de H07 para no rehacer el paquete con la edición nueva, aunque el seguimiento no los encadena.
+
+**Backend.** H14 es chico en dependencias (solo H09) pero pesado en permisos: crea `app.panel` y `app.conversacion` en la base real, así que el DDL se pide en el momento.
+
+**Lectura.** H17 comparte con la ruta Ciudad los resultados del paquete (H13). H23 espera a H17 y también se prueba con las escenas de H16.
+
+**Contenido.** H22 depende solo de H03 y H04, ambos hechos, así que se puede trabajar ahora sin esperar a H07. H21 es el cruce con la ruta Ciudad.
+
+**Salida.** H25 necesita el paquete (H13) y el backend (H14). H26 reúne todo lo anterior, menos H24.
+
+**Diferida.** H24 queda fuera de la v1 por decisión del 14 nov 2026, y H27 es la segunda versión.
+
+### Puntos de cruce
+
+| Hito | Une | Por qué importa |
+|---|---|---|
+| **H13** | Ciudad, Lectura, Salida y Datos | Es el hito más compartido: sin paquete no hay escenas, vista exacta ni despliegue. Es el siguiente cuello de botella tras el contrato |
+| **H14** | Backend, Analista y Salida | Su retraso frena H19b y H25, pero no la evaluación del Analista |
+| **H07** | Datos, Analista y Ciudad | Cambia las cifras: el `esperado` de H11, las referencias del contrato y el paquete de H13 |
+| **H21** | Ciudad y Contenido | La historia necesita las escenas (H16) y los recorridos (H18) |
+| **H26** | Todas | Cierra cuando todas terminan, salvo la Diferida |
+
+### Qué se puede trabajar hoy, por ruta
+
+| Ruta | Se puede hacer ahora | Espera a |
+|---|---|---|
+| Ciudad | La prueba corta del motor en el laboratorio; la spec de H15 y H13 | La edición 11/2026, para el paquete definitivo |
+| Analista | El banco y el calificador (H11); el Analista con línea base (H19a) | H14, solo para H19b |
+| Datos | El plan de H07, ya escrito (`docs/changes/2026-11-22-h07-carga-2026-11/plan.md`) | INEGI, el 25 nov |
+| Backend | Diseño de H14 (spec y modelo de la tabla) | Permiso de DDL para crearlas |
+| Lectura | Los componentes 2D con cifras del contrato | H13 para los datos reales |
+| Contenido | La página de metodología (H22) | Nada |
+
+### Cómo elegir en qué trabajar
+
+- **Si algo bloquea a varias rutas, va primero:** H07 el 25 nov, y después H13.
+- **Si no hay nada que bloquee, se avanza la ruta Ciudad**, porque es la que fija la fecha del lanzamiento.
+- **Las rutas Analista y Contenido son las que se pueden trabajar sin esperar a nadie:** sirven para llenar los huecos mientras llegan los permisos o la edición.
+- **El riesgo de calidad es H24** (gama media y brillo), que quedó fuera de la v1. Una prueba rápida del prototipo 2 con brillo, ahora que existe H08, no obliga a retomarlo.
 
 ## Cómo se trabaja cada hito
 

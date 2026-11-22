@@ -21,7 +21,7 @@ El ciclo es siempre el mismo: clasifica la pregunta, resuelve el lugar y traduce
 | 2 | Traducir giro | Convierte "tiendita" o "estética" en clases SCIAN | Haiku | H10, H19 | H10 cerrado: 91 % en banco ciego; se integra en H19 |
 | 3 | Consultar datos | Escribe y ejecuta SQL sobre las vistas autorizadas | Sonnet | H19 | Pendiente |
 | 4 | Buscar metodología | Responde preguntas sobre el DENUE, el SCIAN y los indicadores con notas escritas | Sonnet | H19 | Pendiente |
-| 5 | Construir escena | Devuelve un estado de escena que el backend valida | Sonnet | H09, H14, H19 | El contrato está hecho (H09); falta la herramienta |
+| 5 | Construir escena | Devuelve un estado de escena que el backend valida | Sonnet | H09, H19a | El contrato y su validador están hechos (H09); falta la herramienta |
 
 ### 1. Resolver lugar
 
@@ -60,7 +60,7 @@ El ciclo es siempre el mismo: clasifica la pregunta, resuelve el lugar y traduce
 
 - **Para qué sirve:** la respuesta del Analista no es solo texto, también mueve la escena del portal.
 - **Cómo funciona:** el modelo propone un estado de escena y el backend lo valida contra el contrato en tres niveles (estructura, referencias y coherencia). Si no valida, se le devuelve el error al modelo.
-- **Qué necesita:** el contrato (H09, hecho), el catálogo de referencias exportado de `semantic` y el backend de validación (H14).
+- **Qué necesita:** el contrato y su validador (`contracts.validar`, H09, hechos) y el catálogo de referencias exportado de `semantic`. Guardar el panel resultante (`app.panel`) es de H14 y entra en H19b.
 - **Regla:** el estado no lleva colores ni cifras escritas a mano; los colores los toma el motor de los tokens.
 
 ## Lo que rodea a las herramientas
@@ -80,8 +80,8 @@ Estas piezas no son herramientas que el modelo llame, pero sin ellas el Analista
 
 1. **H10:** traducir giro (hecho el 22 nov 2026).
 2. **H11:** banco de evaluación, para tener la vara de medir antes de construir el ciclo.
-3. **H14:** validación y persistencia de paneles (habilita construir escena).
-4. **H19:** orquestación con las cinco herramientas; debe superar el banco de H11.
+3. **H19a, junto con H11:** el Analista como librería, con las cinco herramientas, afinado contra el banco con línea base y registro de experimentos (`docs/changes/2026-11-22-h11-banco-analista/plan.md`).
+4. **H14 y luego H19b:** persistencia de paneles y el Analista montado sobre la API.
 5. **H20:** caché, límites y observabilidad.
 
 ## Criterio común de terminado

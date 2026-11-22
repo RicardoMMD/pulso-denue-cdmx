@@ -28,7 +28,7 @@ Este documento lista los hitos para llegar a la primera versión pública y lo q
 | H16 | Escenas de la primera versión | Construcción | ⬜ | H13, H15 |
 | H17 | Vista exacta y componentes 2D | Construcción | ⬜ | H09, H13 |
 | H18 | Recorridos de autor | Construcción | ⬜ | H15, H16 |
-| H19 | El Analista: orquestación y herramientas | Analista | ⬜ | H06, H10, H14 |
+| H19 | El Analista: orquestación y herramientas | Analista | ⬜ | H06, H09, H10, H11 (H19b: H14) |
 | H20 | El Analista: caché, límites y observabilidad | Analista | ⬜ | H19 |
 | H21 | Historia "Vida comercial del Metro" | Contenido | ⬜ | H12, H16, H18 |
 | H22 | Página de metodología | Contenido | ⬜ | H03, H04 |
@@ -109,6 +109,7 @@ Segunda herramienta crítica del Analista: lenguaje común a clases SCIAN ("tien
 Preguntas sobre CDMX con respuestas verificadas a mano contra `semantic`.
 - **Entregables:** al menos 20 preguntas para la primera versión (cuantitativas, metodológicas y mixtas), con cifra esperada, consulta de referencia y escena esperada; casos reales de usuarios para resolver lugar.
 - **Terminado cuando:** corre en integración continua y reporta acierto por tipo de pregunta.
+- **Plan (22 nov 2026):** se trabaja junto con H19a como un solo subproyecto, con línea base temprana y registro de experimentos. Plan en `docs/changes/2026-11-22-h11-banco-analista/plan.md`.
 
 ### H12 · Guion de "Vida comercial del Metro" ✅
 Historia de 5 a 8 paneles sobre Corredores del Metro (modos línea y ranking).
@@ -156,6 +157,10 @@ Movimientos de cámara diseñados en Theatre.js y reproducidos con GSAP desde un
 Ciclo de uso de herramientas de la API de Claude: Haiku clasifica, resuelve lugares y traduce giros; Sonnet escribe SQL, interpreta y redacta.
 - **Entregables:** las cinco herramientas (resolver lugar, traducir giro, consultar datos, buscar metodología, construir escena); text-to-SQL con validación sqlglot sobre vistas autorizadas; RAG metodológico; respuesta con cifra, fecha de corte, consulta usada y panel.
 - **Terminado cuando:** supera el banco de evaluación (H11) y nunca escribe cifras que no vengan de una consulta.
+- **Decidido (22 nov 2026): se parte en dos.**
+  - **H19a · El Analista como librería** (`backend/analista/`): ciclo de herramientas, las cinco herramientas y el prompt, medido contra el banco de H11. *Construir escena* valida con `contracts.validar` (H09), así que no espera a H14. Se trabaja junto con H11.
+  - **H19b · Integración con la API:** guarda cada respuesta como panel (`app.panel`, `/p/{id}`) con resultados congelados. Espera a H14.
+  - La respuesta del Analista se define desde H19a como modelo Pydantic, para que H19b la guarde tal cual.
 
 ### H20 · Caché, límites y observabilidad ⬜
 - **Entregables:** caché de intención; límites por IP, conversación y pregunta; Cloudflare Turnstile; presupuesto con modo degradado; Langfuse autoalojado.
